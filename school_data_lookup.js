@@ -1,5 +1,5 @@
 // School quality data for Chicagoland suburbs
-// Sources: US News & World Report Best High Schools 2025-26, Illinois Report Card (ISBE),
+// Sources: US News & World Report Best High Schools 2026-2027, Illinois Report Card (ISBE),
 //          Indiana DOE A-F accountability grades (last issued 2018), Niche.com district grades
 //
 // Fields:
