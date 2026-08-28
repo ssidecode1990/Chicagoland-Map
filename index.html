@@ -1683,7 +1683,7 @@
   <a class="nav-link" href="nwi_table.html">← table view</a>
   <button class="nav-link" id="school-table-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;">school data table →</button>
   <button class="nav-link" id="score-guide-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;" title="How the Community Health Score is calculated">community score guide</button>
-  <button class="nav-link" id="tutorial-reopen-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;width:26px;height:26px;padding:0;text-align:center;" title="Replay the welcome tour">?</button>
+  <button class="nav-link" id="tutorial-reopen-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;" title="Replay the welcome tour">Tutorial</button>
 </header>
 
 <div class="view-header">
@@ -4403,6 +4403,17 @@
     if (!rec || !shouldShow(rec)) {
       return { stroke: false, fillOpacity: 0 };
     }
+    // Every branch below that returns a VISIBLE style must set stroke:true
+    // explicitly, not just a real weight/color -- layer.setStyle() (called on
+    // every refresh()) merges into the layer's existing options rather than
+    // replacing them, so a layer hidden earlier (stroke:false, above) stays
+    // permanently invisible once it becomes visible again unless stroke is
+    // re-set to true here. This is what caused outlines to "disappear after
+    // changing views" (region filter, tract toggle, etc.) even after the
+    // weight was bumped from 0.6 to 1.5 -- the border was never actually
+    // being drawn at all for any previously-hidden layer, regardless of
+    // weight/color, because Leaflet skips stroke rendering entirely when
+    // options.stroke is false.
 
     // Bivariate Level & Trend coloring — fill by income level, outline by trend.
     // Independent from the community_category system; both can be toggled
@@ -4419,6 +4430,7 @@
       const outline = (trend && BIVARIATE_TREND_OUTLINE[trend]) || BIVARIATE_TREND_OUTLINE.flat;
       const fillOpacity = dimmed ? 0.10 : (level ? 0.72 : 0.20);
       const baseStyle = {
+        stroke:  true,
         color:   dimmed ? '#aaa' : outline.color,
         weight:  dimmed ? 1.5 : outline.weight,
         opacity: dimmed ? 0.4 : 0.9,
@@ -4439,6 +4451,7 @@
       const dimmed = activeCategoryFilter !== null && cat !== activeCategoryFilter;
       const fillOpacity = dimmed ? 0.10 : (cat ? 0.72 : 0.20);
       const baseStyle = {
+        stroke:  true,
         color:   dimmed ? '#aaa' : '#1a1814',
         weight:  1.5,
         opacity: dimmed ? 0.4 : 0.85,
@@ -4462,6 +4475,7 @@
       const fillColor = cat ? CATEGORY_COLORS[cat] : '#D9D9D9';
       const fillOpacity = cat ? 0.72 : 0.20;
       const baseStyle = {
+        stroke:  true,
         color:   '#1a1814',
         weight:  1.5,
         opacity: 0.85,
@@ -4494,15 +4508,16 @@
 
     // Highlight pinned comparison places
     if (compareA && rec === compareA) {
-      return { color: '#1a4fa0', weight: 3, opacity: 1,
+      return { stroke: true, color: '#1a4fa0', weight: 3, opacity: 1,
                fillColor: colorFromPercentile(pct), fillOpacity: v == null ? 0.15 : 0.65 };
     }
     if (compareB && rec === compareB) {
-      return { color: '#8b1a1a', weight: 3, opacity: 1,
+      return { stroke: true, color: '#8b1a1a', weight: 3, opacity: 1,
                fillColor: colorFromPercentile(pct), fillOpacity: v == null ? 0.15 : 0.65 };
     }
 
     return {
+      stroke:       true,
       color:        '#1a1814',
       weight:       1.5,
       opacity:      0.85,
