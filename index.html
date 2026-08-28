@@ -1461,6 +1461,14 @@
     color: var(--ink-soft);
     border: 1px solid rgba(42,38,32,0.3);
   }
+  .tut-source-list {
+    margin: 4px 0 12px;
+    padding-left: 18px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .tut-source-list li { margin-bottom: 2px; }
   .tut-disclaimer {
     font-size: 11px;
     color: var(--ink-faint);
@@ -6700,6 +6708,40 @@
                  `some by a little, most by a lot. That's the gap this map is built to help you find ` +
                  `your way around.</p>`;
         },
+      },
+      {
+        title: 'Data & sources',
+        regionKey: null,
+        body: () => `<p>Every figure on this map traces back to a named source — no scraped ` +
+                     `estimates presented as official numbers.</p>` +
+                     `<p><strong>Government &amp; public data</strong></p>` +
+                     `<ul class="tut-source-list">` +
+                       `<li>U.S. Census Bureau — American Community Survey (ACS) 5-Year Estimates, 2024</li>` +
+                       `<li>U.S. Census Bureau — Decennial Census (2000)</li>` +
+                       `<li>IPUMS NHGIS, University of Minnesota — 1980 &amp; 1990 historical data</li>` +
+                       `<li>IPUMS CPS — U.S. national historical income reference series</li>` +
+                       `<li>U.S. Census Bureau TIGERweb — place boundary polygons</li>` +
+                       `<li>Chicago Metropolitan Agency for Planning (CMAP) — Community Data Snapshots, 77 Chicago Community Areas</li>` +
+                       `<li>City of Chicago Data Portal — community area boundaries, crime data (2021–2024)</li>` +
+                       `<li>FBI Uniform Crime Reporting (UCR) — suburban crime data (2018–2019)</li>` +
+                       `<li>Illinois State Board of Education (ISBE) — Illinois Report Card, SAT scores</li>` +
+                       `<li>Indiana Department of Education (IDOE) — school accountability grades</li>` +
+                     `</ul>` +
+                     `<p><strong>Commercial sources</strong></p>` +
+                     `<ul class="tut-source-list">` +
+                       `<li>U.S. News &amp; World Report — Best High Schools rankings (2026-2027 edition)</li>` +
+                       `<li>Niche.com — school district letter grades</li>` +
+                       `<li>Redfin — median home sale prices, trailing 12-month</li>` +
+                     `</ul>` +
+                     `<p><strong>Mapping</strong></p>` +
+                     `<ul class="tut-source-list">` +
+                       `<li>Basemap tiles &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</li>` +
+                       `<li><a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> — open-source mapping library</li>` +
+                     `</ul>` +
+                     `<p class="tut-disclaimer">All income figures are inflation-adjusted to 2024 ` +
+                     `dollars. School quality composite scores are recomputed from source data each ` +
+                     `time the map loads. See the Community Score Guide (top bar) for full scoring ` +
+                     `methodology.</p>`,
       },
     ];
 
