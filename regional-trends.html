@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regional Trends Since 1980 — Chicagoland</title>
+
+<!-- Fonts (shared with main map) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #4a4640;
+    --ink-faint: #7a7670;
+    --paper: #f4f0e8;
+    --paper-warm: #ebe5d6;
+    --rule: #2a2620;
+    --accent: #8b1a1a;
+    --accent-soft: #c9a96a;
+    --highlight: #f2e8c9;
+    --severe: #9B2226;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
+  .brand em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--accent);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    transition: background 0.15s, color 0.15s;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .nav-link:hover { background: var(--paper); color: var(--accent); }
+
+  main { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .table-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  /* Metro/region narrative -- moved here from the main map's region-select
+     banner, which showed the same text keyed off the same region filter.
+     Swaps to CHICAGOLAND_NARRATIVE ('ALL') or REGION_NARRATIVES[region] on
+     every view switch, same trigger as everything else on this page. */
+  .region-narrative {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .rn-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .rn-text {
+    font-size: 14px;
+    line-height: 1.62;
+    color: var(--ink);
+    max-width: 900px;
+  }
+
+  /* "Where to Look" per-region pick callout -- sits right under the region
+     narrative, only populated in a drill-down view (hidden in 'ALL', where
+     picks aren't scoped to a single region). Styled distinctly from
+     .region-narrative (paper-warm/accent-bordered, expository) since this
+     block is a direct recommendation, not context -- highlight background
+     borrows the same yellowish tone used for a table's own agg-row total. */
+  .pick-callout {
+    background: var(--highlight);
+    border: 1px solid var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    display: none;
+  }
+  .pick-callout.visible { display: block; }
+  .pc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .pc-text {
+    font-size: 14px;
+    line-height: 1.62;
+    color: var(--ink);
+    max-width: 900px;
+  }
+  .pc-note {
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-top: 10px;
+  }
+
+  /* Top-level region switcher -- distinct from the smaller in-chart tabs
+     (.region-tab) since this drives the whole page, not one chart. */
+  .region-view-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+  .region-view-tab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--paper);
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .region-view-tab:hover { background: var(--paper-warm); }
+  .region-view-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* ── Table ── */
+  .trend-table-wrap { overflow-x: auto; }
+  table.trend-table {
+    width: 100%;
+    min-width: 820px;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .trend-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-align: right;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .trend-table th:first-child, .trend-table td:first-child { text-align: left; }
+  .trend-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid rgba(42,38,32,0.1);
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+  .trend-table td.region-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-align: left;
+  }
+  .trend-table td.net-col { font-weight: 700; font-size: 13.5px; }
+  .trend-table td.pos { color: #2e6b3e; }
+  .trend-table td.neg { color: var(--accent); }
+  .trend-table td.coverage { color: var(--ink-faint); font-size: 11.5px; }
+  .trend-table tbody tr:hover { background: var(--paper-warm); }
+  /* Region/town total row -- the entity set's own aggregate, kept visually
+     prominent (not blended with the wider reference rows below it). */
+  .trend-table tr.agg-row td { background: var(--highlight); border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
+  .trend-table tr.agg-row td.region-name { font-weight: 700; }
+  /* Chicagoland Total + US National -- wider reference points shown below
+     the entity rows (and below the region/town total in a drill-down view).
+     Deliberately muted (light grey, italic) so they read as "context", not
+     as another row in the same set being compared. */
+  .trend-table tr.ref-row td { background: #e3e3df; border-top: 2px solid var(--rule); font-style: italic; color: var(--ink-soft); }
+  .trend-table tr.ref-row td.region-name { font-weight: 600; cursor: help; }
+  .trend-table tr.ref-row + tr.ref-row td { border-top: 0; }
+
+  footer {
+    max-width: 1040px;
+    margin: 40px auto 0;
+    padding: 16px 24px 40px;
+    border-top: 1px solid var(--rule);
+  }
+  footer p {
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    font-style: italic;
+    max-width: 700px;
+  }
+
+  .loading-note { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-faint); padding: 20px 0; }
+
+  /* ── Charts section ── */
+  .chart-section { margin-top: 56px; }
+  .chart-section h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .chart-frame {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    max-width: 760px;
+    margin-bottom: 18px;
+  }
+  .chart-box {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .chart-canvas-wrap { position: relative; height: 380px; }
+  .chart-callout {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--accent);
+    background: var(--highlight);
+    border: 1px solid var(--accent-soft);
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+  .region-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .region-tab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--paper);
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .region-tab.active { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .methodology-note {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+    max-width: 780px;
+    margin: 4px 0 32px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--rule);
+  }
+
+  /* Heatmap (Chart 3b) */
+  .heatmap-wrap { overflow-x: auto; }
+  table.heatmap-table { border-collapse: collapse; font-size: 12.5px; width: 100%; min-width: 640px; }
+  .heatmap-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 6px 8px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .heatmap-table th:first-child { text-align: left; }
+  .heatmap-table td {
+    padding: 8px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(42,38,32,0.08);
+  }
+  .heatmap-table td.region-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  /* "Where the Data Points for Real Estate" -- the page's one explicit
+     cross-region recommendation, always visible regardless of which region
+     view is active. Deliberately heavier than .chart-frame's descriptive
+     tone (border + tinted background) since this section is a stated
+     conclusion, not just a chart caption. */
+  .rec-box {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 20px 22px;
+  }
+  .rec-box p { font-size: 14px; line-height: 1.62; color: var(--ink); margin-bottom: 14px; }
+  .rec-box p:last-of-type { margin-bottom: 0; }
+  .rec-disclaimer {
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Chicagoland, <em>regional trends</em></div>
+  <a class="nav-link" href="index.html">← back to map</a>
+</header>
+
+<main>
+  <h1 id="page-h1">Chicagoland Median Household Income — Real Change by Region, 1980–2024</h1>
+  <div class="region-view-tabs" id="region-view-tabs"></div>
+
+  <div class="region-narrative" id="region-narrative">
+    <div class="rn-label" id="rn-label">METRO OVERVIEW</div>
+    <div class="rn-text" id="rn-text"></div>
+  </div>
+
+  <div class="pick-callout" id="pick-callout">
+    <div class="pc-label" id="pc-label">WHERE TO LOOK</div>
+    <div class="pc-text" id="pc-text"></div>
+    <div class="pc-note" id="pc-note"></div>
+  </div>
+
+  <div class="table-label" id="table-label">Median HH Income — Real % Change, by Region</div>
+  <div class="trend-table-wrap">
+    <table class="trend-table" id="trend-table">
+      <thead>
+        <tr>
+          <th id="trend-table-name-header">Region</th>
+          <th>1980→90</th>
+          <th>1990→00</th>
+          <th>2000→10</th>
+          <th>2010→24</th>
+          <th>Net 2000→24</th>
+          <th>Net 1980→24</th>
+        </tr>
+      </thead>
+      <tbody id="trend-table-body">
+        <tr><td colspan="7" class="loading-note">Computing from dataset…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="methodology-note">All regional figures are population-weighted aggregates (not simple averages of
+    individual towns), computed the same way as the table above. Charts on this page exclude 2020 as a checkpoint
+    year — the Census Bureau changed how it codes race/ethnicity write-in responses starting with the 2020
+    Decennial Census, producing a documented shift independent of real demographic change, and that discontinuity
+    would otherwise show up as a spurious swing in every chart below.</div>
+
+  <section class="chart-section">
+    <h2 id="income-h2">Income, Region by Region</h2>
+    <div class="chart-frame" id="income-frame">The same population-weighted figures behind the table above, traced out year by
+      year — the shape of each region's line tells you as much as the endpoint: a region that dipped and
+      recovered carried real people through a real downturn, even if its 1980→2024 net looks similar to a
+      region that just drifted flat.</div>
+    <div class="chart-box"><div class="chart-canvas-wrap"><canvas id="chart-income"></canvas></div></div>
+  </section>
+
+  <section class="chart-section">
+    <h2 id="pop-h2">Population Growth, By Period</h2>
+    <div class="chart-frame" id="pop-frame">Income tells you who's getting richer; population tells you who's actually
+      choosing to live there. The two don't always agree.</div>
+    <div class="chart-box"><div class="chart-canvas-wrap"><canvas id="chart-population"></canvas></div></div>
+    <div id="south-callout-wrap"></div>
+  </section>
+
+  <section class="chart-section">
+    <h2 id="race-h2">Population by Race &amp; Ethnicity, By Region</h2>
+    <div class="chart-frame" id="race-frame">Headcounts by group, region by region — pick a region below to see how its
+      composition has actually shifted since 2010, in real people, not just percentage points.</div>
+    <div class="region-tabs" id="race-tabs"></div>
+    <div class="chart-box"><div class="chart-canvas-wrap"><canvas id="chart-race"></canvas></div></div>
+  </section>
+
+  <section class="chart-section">
+    <h2 id="heat-h2">Who's Growing, Who's Shrinking</h2>
+    <div class="chart-frame" id="heat-frame">The same story as the chart above, but faceted so every region and every group
+      can be scanned at once — a green cell is a group gaining population; red is losing it, independent of
+      what its share of the total is doing. Pick a window below. "Other" is shown but left uncolored: it's a
+      small enough base in most regions that % change swings on noise alone, and coloring it the same way as
+      the other four groups would overstate how meaningful those swings are.</div>
+    <div class="region-tabs" id="heat-period-tabs"></div>
+    <div class="heatmap-wrap"><table class="heatmap-table" id="race-heatmap"></table></div>
+  </section>
+
+  <section class="chart-section" id="rec-section">
+    <h2>Where the Data Points for Real Estate</h2>
+    <div class="chart-frame">Not a chart — a conclusion. Same dataset, same methodology as everything above, read as a
+      single cross-region call.</div>
+    <div class="rec-box" id="rec-box"></div>
+  </section>
+</main>
+
+<footer>
+  <p>This page reflects patterns in historical Census and ACS data and is not financial or investment advice — individual property and market conditions vary and should be independently verified.</p>
+</footer>
+
+<script src="chicagoland_snippet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(function () {
+  const REGION_ORDER_LABELS = {
+    'Chicago': 'Chicago (Community Areas)',
+    'North': 'North Suburbs',
+    'Northwest': 'Northwest Suburbs',
+    'West': 'West Suburbs',
+    'Southwest': 'Southwest Suburbs',
+    'South': 'South Suburbs',
+    'NWI': 'NWI (Indiana)',
+  };
+  const REGIONS = Object.keys(REGION_ORDER_LABELS);
+
+  /* ── Metro + Region Narratives ────────────────────────────────────────
+     Moved here from Chicagoland map.html's region-select banner (which
+     used to show this same text keyed off the same region filter) — this
+     page is the region-scoped view, so the narrative belongs here. */
+
+  const CHICAGOLAND_NARRATIVE =
+    'Illinois carries the second-worst-funded state pension system in the country — about $143.5 ' +
+    'billion unfunded, a 50.6% funded ratio, and the highest per-capita pension debt of any state at ' +
+    'roughly $15,804 per resident — and the state has underfunded its own required contribution by ' +
+    'about $5 billion a year for years running. ' +
+    'Chicago\'s own exposure is worse than the state\'s: the city\'s four municipal pension funds sit ' +
+    'at a 24% aggregate funded ratio, and more than 80% of the city\'s property tax levy already goes ' +
+    'to pension costs rather than services. ' +
+    'In October 2025, Illinois enacted a police and fire pension benefit enhancement that added ' +
+    'roughly $11 billion in new liabilities with no funding source identified, landing on a city ' +
+    'government already running a $1.2 billion structural deficit in its Corporate Fund for FY2026. ' +
+    'S&P downgraded Chicago\'s general obligation credit rating from BBB+ to BBB in 2025, citing the ' +
+    'city\'s failure to address that structural imbalance — a market-confirmed deterioration, not a ' +
+    'projection. ' +
+    'Every other pattern in this dataset sits on top of that fiscal position, not apart from it: the ' +
+    'prospering North Shore and struggling south suburbs separated by one county line, the ' +
+    'gentrifying lakefront neighborhoods and disinvesting communities five miles west, DuPage ' +
+    'County\'s 1.7–2.3% effective tax rate against Cook County\'s 2.5–3.5% — all of it is playing out ' +
+    'on top of a metro-wide structural problem that no single community\'s income trend created and ' +
+    'none can fix alone. ' +
+    'The income data since 1980 tells the same structural story at the household level: aggregate ' +
+    'real income has grown modestly, but that growth has concentrated in the highest-income quintile ' +
+    'of communities while the bottom two quintiles have stagnated or declined, producing a polarized ' +
+    'map where adjacent communities can differ by $80K in median income and 40 points in college ' +
+    'attainment. ' +
+    'Metro-wide GDP and job growth have trailed peer U.S. metros for more than a decade, and domestic ' +
+    'out-migration has been running since the 2000s, not since the pandemic; the population increase ' +
+    'Chicago has posted since 2020 is driven almost entirely by international immigration, which ' +
+    'offsets the headline number without reversing the underlying domestic outflow. ' +
+    'Multiple Fortune 500 companies have left Illinois in recent years — Boeing to the Washington, ' +
+    'D.C. area, Caterpillar to Texas, Citadel to Florida, Tyson among them — and their leadership has ' +
+    'cited tax, regulatory, and talent-recruitment concerns publicly, not privately. ' +
+    'Three catalysts are accelerating that outflow rather than reversing it, and all three sit on ' +
+    'the Indiana side of the state line: the Chicago Bears\' $5B stadium in Hammond, the South Shore ' +
+    'Line\'s March 2026 Monon Corridor extension to Munster, and Indiana Dunes National Park\'s ' +
+    'emergence as a 4-million-visitor destination. ' +
+    'They are real, and they make Indiana a more attractive exit than it already was, but they are ' +
+    'Indiana\'s catalysts, not Illinois\' — nothing about them touches Illinois\' pension math, ' +
+    'because none of them is an Illinois investment. ' +
+    'The state and the city are no longer moving in the same direction: Illinois\' state-level credit ' +
+    'rating has been upgraded eight times since 2021 on rising reserves and more disciplined ' +
+    'budgeting, even as the pension funded ratio driving Chicago\'s downgrade remains the worst in ' +
+    'the nation — a genuine divergence, not a contradiction to smooth over. ' +
+    'Nothing in this map changes on its current trajectory without one of three things happening: a ' +
+    'constitutional amendment enabling pension benefit restructuring, sustained full actuarial ' +
+    'contributions held for long enough to close a gap decades in the making, or a continuation of ' +
+    'the state\'s reserve-building discipline for long enough to decouple its credit trajectory from ' +
+    'the city\'s — and until one of those happens, every pattern in this dataset is really a story ' +
+    'about who is best positioned to absorb a bill that has not yet been paid.';
+
+  const REGION_NARRATIVES = {
+    'Chicago':
+      'Chicago\'s finances are in worse shape than the state\'s, and Illinois\' are already the ' +
+      'worst-funded in the country: the city\'s four municipal pension funds sit at a 24% aggregate ' +
+      'funded ratio, more than 80% of the property tax levy already goes to pension costs rather ' +
+      'than services, and S&P downgraded the city\'s general obligation rating from BBB+ to BBB in ' +
+      '2025 over its failure to close a structural budget gap running about $1.2 billion a year in ' +
+      'the Corporate Fund alone. ' +
+      'Every neighborhood-level number below sits on top of that fact, not apart from it. ' +
+      'The 77 community areas still contain more economic variation than most entire metropolitan ' +
+      'areas: from the $17K median income of Fuller Park to the $165K of Lincoln Park, from 52 ' +
+      'violent crimes per 1,000 in some Englewood-adjacent communities to 1.8 in Edison Park, from ' +
+      'neighborhoods whose income has risen 50%+ since 2000 to those that have lost more than a ' +
+      'quarter in real terms. ' +
+      'The dominant pattern of the past 20 years is bifurcation: a belt of lakefront and ' +
+      'transit-rich neighborhoods — from Rogers Park south through Wicker Park, Logan Square, ' +
+      'Pilsen, and Bronzeville — has gentrified substantially while the far south and west sides ' +
+      'have continued to lose ground, producing a divergence now visible at the block level. ' +
+      'The race-change overlay tells the structural story beneath the income numbers: almost every ' +
+      'neighborhood that has gained income since 2000 has also gained non-Hispanic white residents, ' +
+      'and almost every neighborhood that has lost income has not — a pattern that describes ' +
+      'displacement as much as development. ' +
+      'The L network — 50+ community areas within 30 minutes of the Loop — is the one advantage no ' +
+      'downgrade touches, and it\'s the specific reason the inner-ring North Side and Near West Side ' +
+      'keep competing with far more expensive suburban alternatives even as the city\'s own balance ' +
+      'sheet deteriorates.',
+
+    'North':
+      'The 50 North Suburban communities span from the ultra-premium North Shore lakefront corridor ' +
+      '— Wilmette, Winnetka, Glencoe, Lake Forest, Lake Bluff — to the distant Lake County ' +
+      'exurbs of Zion, North Chicago, and Waukegan, and the income and structural data within the ' +
+      'batch are correspondingly varied. ' +
+      'The defining characteristic of the North Shore\'s established tier is household-size ' +
+      'compression: median incomes have been declining or flat since 2010 across Glencoe, Green Oaks, ' +
+      'Lake Bluff, and Riverwoods not because individual earners are doing worse, but because children ' +
+      'have left and households have contracted — a demographic aging story that looks like economic ' +
+      'deterioration in census data but isn\'t. ' +
+      'Not all of the decline in this tier is that kind of artifact, though: Burr Ridge and Green ' +
+      'Oaks have both given back their entire post-1980 real household income gain and then some, ' +
+      'sitting below where they started 44 years ago, and Winnetka has not fully reversed its own ' +
+      'retreat from its 2000 peak either — that is fewer dollars, not fewer people per household, ' +
+      'and it deserves scrutiny rather than a demographic excuse. ' +
+      'Top-decile earners have more exit options than any other income tier in this dataset, so ' +
+      'sustained real decline at that level is a leading indicator worth taking seriously, not ' +
+      'background noise to be explained away. ' +
+      'The two communities doing something genuinely different are Highwood, where rising income is ' +
+      'driven by a Hispanic professional-and-trades workforce, and Volo, where greenfield ' +
+      'construction created a 40-fold population increase in 20 years; the rest of the north batch ' +
+      'is best read as a high-income community stabilizing, with tax burdens that are among the ' +
+      'highest in this dataset in dollar terms. ' +
+      'Stevenson High School in Lake County and New Trier in Cook County are the two school ' +
+      'anchors whose presence or absence most clearly divides the premium tier from the rest of ' +
+      'the batch.',
+
+    'Northwest':
+      'The 30 Northwest Suburban communities stretch from the Near Northwest Cook County addresses ' +
+      'served by O\'Hare employment and the I-90 corridor — Rolling Meadows, Des Plaines, Elk ' +
+      'Grove Village, Schaumburg — to the distant McHenry County exurbs of Crystal Lake, Harvard, ' +
+      'and Woodstock, and the income data broadly follows that geography: nearer communities with ' +
+      'diversified employment bases have been more resilient, far exurbs have faced compounding ' +
+      'pressure from commute distance and Illinois\' structural property tax burden. ' +
+      'Every community in this batch carries the same exposure to that structural burden regardless ' +
+      'of its current income tier — Illinois\' state pension system is 50.6% funded, the worst in ' +
+      'the nation outside New Jersey, and that liability eventually shows up in every Illinois-side ' +
+      'property tax bill whether the address is a Rolling Meadows starter home or a Barrington ' +
+      'estate. ' +
+      'The single most significant employer story in the northwest batch may be Rolling Meadows: ' +
+      'Northrop Grumman\'s one-million-square-foot campus is the largest defense employer in ' +
+      'Illinois, and it has produced an income trajectory anchored in genuine employment rather ' +
+      'than demographic composition — one of the more convincing income recovery stories in the ' +
+      'entire dataset. ' +
+      'Barrington and its school district (CUSD 220, 11th in Illinois) constitute the northwest ' +
+      'corridor\'s quality anchor, and Crystal Lake\'s District 155 high schools are the ' +
+      'mid-tier benchmark; these two school assets explain most of the premium visible between ' +
+      'their respective catchment communities and the unzoned exurbs surrounding them. ' +
+      'The McHenry County communities without Metra access — Harvard, Marengo, Woodstock, ' +
+      'Wonder Lake — are trading commute convenience for land and quiet, and the income data ' +
+      'confirms that tradeoff has not cost them income so much as limited it.',
+
+    'West':
+      'The 71 West Suburban communities are the most economically and geographically diverse batch ' +
+      'in this study: they range from the first-ring Cook County suburbs of Oak Park, Forest Park, ' +
+      'and Cicero — fully urban, subway-accessible, under intense gentrification pressure — to ' +
+      'the far Kane County exurbs of Sugar Grove and Elburn at the western end of the BNSF Metra ' +
+      'line, 55 miles from the Loop. ' +
+      'Every community across that range shares the same statewide exposure regardless of which ' +
+      'end of it a community sits on: Illinois carries the highest per-capita pension debt of any ' +
+      'state in the country, and that liability does not stop at the DuPage-Cook county line or at ' +
+      'any home-price threshold — it shows up in future tax bills whether the address is Oak Brook ' +
+      'or Cicero. ' +
+      'DuPage County\'s effective property tax rates — generally 1.7–2.3%, meaningfully below ' +
+      'Cook County\'s 2.5–3.5% effective rates — are the single most important structural ' +
+      'difference between the east and west halves of this batch, and explain much of the premium ' +
+      'that Naperville, Hinsdale, and Wheaton command over Cook County suburbs with comparable ' +
+      'school quality. ' +
+      'The west batch contains the study\'s sharpest demographic transformation: Cicero\'s shift ' +
+      'from the Irish-American enclave of the 1960s to the most thoroughly Hispanic large suburb ' +
+      'in the metro (88% today), and the continuing income erosion in the working-class west Cook ' +
+      'tier — Broadview, Hillside, Stone Park, Stickney — that has accompanied demographic ' +
+      'change without the income recovery visible in more transit-accessible parts of the metro. ' +
+      'Oak Brook\'s 1.33% effective tax rate — the lowest of any Illinois community in this dataset ' +
+      '(only a handful of NWI towns across the state line go lower) — ' +
+      'is powered by Oakbrook Center\'s commercial tax base, a structural subsidy for residential ' +
+      'homeowners that has kept Oak Brook competitive at the premium end despite income headwinds.',
+
+    'Southwest':
+      'The 44 Southwest Suburban communities are defined by two intersecting corridors: the ' +
+      'southwest Cook inner ring (Oak Lawn, Evergreen Park, Bridgeview, Palos, Orland Park, ' +
+      'Tinley Park) where high effective tax rates meet strong retail and employment anchors, ' +
+      'and the Will County I-55 corridor (Joliet, New Lenox, Mokena, Frankfort, Lockport, ' +
+      'Plainfield, Romeoville, Bolingbrook) where lower effective tax rates and Interstate ' +
+      'access produced strong income growth through the 1990s and 2000s — but that growth has ' +
+      'been uneven since 2010: New Lenox (+10.3%) and Joliet (+5.6%) have kept climbing, while ' +
+      'Mokena (-13.6%), Frankfort (-8.5%), Bolingbrook (-7.1%), and Plainfield (-5.5%) have given ' +
+      'some of it back, so the corridor is best read as having outrun the rest of the south half ' +
+      'of the metro on balance, not as uniformly positive town by town. ' +
+      'That corridor-level advantage doesn\'t cancel out the statewide one: every community in this ' +
+      'batch, Cook or Will County, carries the same exposure to Illinois\' pension debt — the ' +
+      'worst-funded state system in the country outside New Jersey — regardless of which corridor ' +
+      'it sits in or how strong its current income trend looks. ' +
+      'Lincoln-Way Central High School (59th Illinois, Commendable-rated) is the premier school ' +
+      'asset in this batch — the Frankfort, New Lenox, and Mokena corridor that feeds into ' +
+      'Lincoln-Way has maintained more consistent professional-household demand than any other ' +
+      'non-DuPage suburban corridor in this study, and that school premium has been durable for ' +
+      'more than 15 years. ' +
+      'The Palos forest preserve corridor — Palos Heights, Palos Hills, Palos Park, Willow ' +
+      'Springs — offers the metro\'s largest continuous forest reserve within a 30-minute ' +
+      'drive of the Loop, a recreational identity that pure residential communities at comparable ' +
+      'price points cannot replicate; Orland Park and SeatGeek Stadium anchor the commercial tier. ' +
+      'The outer Will County communities on the I-55 corridor — Braidwood, Wilmington, Manhattan ' +
+      '— serve a fundamentally different buyer than Frankfort or Orland Park: the household ' +
+      'that wants land, rural character, and the lowest carrying cost in the batch, and has ' +
+      'already resolved that the commute and school tradeoffs are acceptable at that price.',
+
+    'South':
+      'The 30 South Suburban communities span south Cook County\'s traditional suburbs and the ' +
+      'southeast Will County corridor, forming the most economically stressed submarket in this ' +
+      'study: high effective tax rates (typically 2.5–3.8%), income that has declined 10–30% ' +
+      'in real terms since 2000 across most communities, and a legacy of racially stratified ' +
+      'disinvestment that has produced a large assessed-value gap relative to the north suburbs. ' +
+      'The core of the problem is a tax doom loop, and it doesn\'t self-correct just because ' +
+      'assessed values recover: as assessed values fall relative to rising municipal costs, ' +
+      'effective rates increase, which depresses home values further, which raises effective rates ' +
+      'again — a cycle most visible in Robbins, Harvey, Dolton, and Calumet Park, where rates above ' +
+      '3.5% are being charged on homes worth less than $100K. ' +
+      'A recovery in assessed values wouldn\'t break that loop on its own, because a growing share ' +
+      'of every tax dollar collected across Illinois is already committed to pension debt before it ' +
+      'reaches services — the same statewide 50.6% pension funded ratio and Chicago\'s own 24% ' +
+      'municipal figure that constrain the city constrain these suburbs too, which is why the fix ' +
+      'has to be fiscal and structural, not just a housing-market recovery. ' +
+      'The southeast Will County communities — Country Club Hills, University Park, Crete, ' +
+      'Steger, Monee, Peotone, Beecher — share the same structural pressure along the I-57 ' +
+      'corridor in a more exurban setting; Country Club Hills\' 4.5% effective rate is the ' +
+      'highest among this batch, though several South Cook towns run even higher across the ' +
+      'wider region — Riverdale (5.5%), Park Forest (5.4%), Dolton (4.9%), and Calumet City ' +
+      '(4.8%) all top University Park\'s own 4.2%. ' +
+      'Homewood and Flossmoor share Homewood-Flossmoor High School (Commendable-rated, 125th ' +
+      'Illinois), but the income data splits them: Homewood has held close to flat (-2.2% ' +
+      'since 2010) while Flossmoor\'s income has kept eroding (-11.3% since 2010, -31% since ' +
+      '1990) despite the same school district — school reputation alone hasn\'t been enough to ' +
+      'break the loop there. ' +
+      'Lynwood\'s 2.30% effective rate is among the lowest in the south batch (behind only ' +
+      'Peotone\'s 1.92%) and sits alongside a real income gain (+4.0% since 2010) — though it\'s ' +
+      'not the only one: Robbins (+25.7%), Peotone (+16.2%), University Park (+11.4%), Manteno ' +
+      '(+9.6%), Kankakee (+5.3%), Steger (+5.0%), and Olympia Fields (+4.5%) all posted larger ' +
+      'gains over the same period, which cuts against reading a low tax rate as the one way out ' +
+      'of the loop.',
+
+    'NWI':
+      'The 40 NWI communities in Indiana are the most important counter-narrative in this dataset: ' +
+      'Indiana\'s 0.75–1.0% effective property tax rates produce structural carrying costs that are ' +
+      '60–70% below comparable Illinois communities, and that advantage compounds over time. ' +
+      'The deeper advantage isn\'t the tax rate itself — it\'s what Indiana doesn\'t have: no state ' +
+      'pension system anywhere near Illinois\' 50.6% funded ratio, no equivalent of Chicago\'s 24% ' +
+      'municipal funded ratio, and no comparable unresolved liability sitting underneath every ' +
+      'future budget. ' +
+      'The region\'s population growth is real and it\'s accelerating, but the all-NWI number ' +
+      'understates it: total population is up 2.3% since 2010 and 3.2% since 2020, while the 38 ' +
+      'communities outside Gary and East Chicago — the two legacy industrial cities that together ' +
+      'hold just 15% of NWI\'s population — are up 6.0% since 2010 and 5.7% since 2020, a 2020–24 ' +
+      'pace faster than any other region in this dataset, Chicago included; NWI\'s population is ' +
+      'growing despite an active, ongoing drag from those two cities, not because that drag has ended. ' +
+      'That drag isn\'t uniform, and the three legacy industrial cities shouldn\'t be read as one ' +
+      'story: Gary is still declining and its decline is accelerating — down 6.0% across the 2010s, ' +
+      'another 9.8% in 2020–24 alone, with real income down 3.3% since 2010 — and this project has ' +
+      'specifically fact-checked and rejected any "bottoming out" framing for Gary, because the data ' +
+      'doesn\'t support it; Hammond has genuinely inflected, with population flipping to growth ' +
+      '(+0.8% in 2020–24, after losing 5.8% across the 2010s) and real income going flat (+0.1% since ' +
+      '2010) after decades of decline — a floor that\'s already visible in the data, not a hoped-for ' +
+      'outcome of the Bears stadium still to come; East Chicago sits between the two, with income ' +
+      'stabilized (+1.0% since 2010) but population decline still accelerating (down 5.6% across the ' +
+      '2010s, 7.2% in 2020–24, approaching Gary\'s own pace), making its industrial redevelopment ' +
+      'bets spec-grade rather than a confirmed turnaround. ' +
+      'That is a structural, durable difference in risk, not a temporary arbitrage that closes when ' +
+      'tax rates converge, and it is a real reason to expect continued Illinois-to-Indiana migration ' +
+      'even if the nominal tax gap narrows — the risk gap won\'t. ' +
+      'The region is being reshaped by three catalysts simultaneously: the South Shore Line\'s March ' +
+      '2026 Monon Corridor extension to Munster Ridge and Munster/Dyer (commuter rail to Lake County ' +
+      'Indiana for the first time), the Chicago Bears\' June 2026 decision to develop a $5B stadium ' +
+      'at Hammond\'s Wolf Lake site (the largest single construction project in the region\'s history, ' +
+      'and the specific catalyst layered on top of Hammond\'s already-inflected numbers above), ' +
+      'and Indiana Dunes National Park\'s 2019 designation upgrade, which has driven 4 million ' +
+      'annual visitors to a 50-mile Lake Michigan shoreline most metro residents don\'t know exists. ' +
+      'Chesterton, Munster, and Valparaiso are the gateway communities that have already begun to ' +
+      'realize a professional-household premium — the income data for these three shows the most ' +
+      'convincing combination of educational attainment, income stability, and forward catalysts of ' +
+      'any communities in the northwest Indiana batch. ' +
+      'The Lake Michigan shoreline enclaves — Beverly Shores, Ogden Dunes, Dune Acres, Long Beach ' +
+      '— are a distinct sub-market: highly educated permanent populations, second-home demand, ' +
+      'and Indiana tax rates that make a comparable North Shore, IL lakefront address cost $15–25K ' +
+      'more per year to carry.',
+  };
+
+  /* ── "Where to Look" per-region picks ─────────────────────────────────
+     One hand-picked set of towns per region, screened per PICKS_SCREEN_NOTE
+     and cross-checked against chicagoland_data.json before publishing (see
+     project verification pass). Only shown in a drill-down region view —
+     picks are regional, not a metro-wide list, so 'ALL' hides the callout
+     entirely (see renderPicks()). */
+  const PICKS_SCREEN_NOTE = 'Screened for population over 10,000, prioritizing towns already classified Thriving ' +
+    'or Rising, and cross-checked against current market evidence — not just the trailing income column above.';
+
+  const REGION_PICKS = {
+    'Chicago':
+      'West Town and Avondale are the picks: both large (86,598 and 35,489 people), both are already ' +
+      'classified Thriving or Rising, and both have posted real income ' +
+      'gains since 2010 that are not just stabilization — West Town is up 49.1% and Avondale 37.1%, ' +
+      'among the largest gains of any community area in this dataset.',
+
+    'West':
+      'Elmhurst and Western Springs are the picks — both Thriving, both up more than 20% in real ' +
+      'income since 2010 (21.9% and 20.5%). But the region\'s own strong aggregate carries a caveat ' +
+      'the picks alone don\'t convey: West\'s regional average is carried by a narrow BNSF-corridor ' +
+      'strip — Elmhurst, Western Springs, La Grange, Riverside, Hinsdale, all Thriving — and it ' +
+      'should not be read as describing the other communities in this batch, most of which sit ' +
+      'outside that corridor and outside Thriving/Rising territory.',
+
+    'North':
+      'Park Ridge and Libertyville are the picks: both Thriving, both sizable (38,667 and 20,525 ' +
+      'people), and both up double digits in real income since 2010 (15.7% and ' +
+      '12.4%) without the household-size-compression effect that mutes the North Shore\'s own numbers.',
+
+    'Northwest':
+      'Arlington Heights and Rolling Meadows are the picks — Arlington Heights the region\'s largest ' +
+      'town at 76,005 people and Thriving, Rolling Meadows smaller (24,027) but Rising and up 14.9% ' +
+      'since 2010, still likely reflecting the Northrop Grumman campus\'s genuine employment-driven ' +
+      'recovery rather than demographic composition alone.',
+
+    'Southwest':
+      'New Lenox is a clean pick: Thriving, 28,006 people, up 10.3% since 2010. Lemont is the more ' +
+      'interesting one — its own ACS income trend reads slightly negative (down 4.0% since 2010, ' +
+      'category Established rather than Thriving/Rising) while the market evidence points the other ' +
+      'way: roughly 12.8% year-over-year home price appreciation, the top-ranked Lemont Township ' +
+      'High School in the corridor, and real downtown investment now underway (Athens Park\'s 2025 ' +
+      'opening, The Forge Lemont Quarries). That\'s a pattern worth taking seriously on its own terms ' +
+      '— fast-moving local market signals arriving well before the slower-moving ACS income data ' +
+      'catches up — and it\'s worth weighing Lemont on that basis rather than on the income column alone.',
+
+    'South':
+      'Homewood and Blue Island are the least-exposed options for a buyer already committed to this ' +
+      'region — not picks competitive with anything named in the other regions. Homewood is Holding ' +
+      '(19,294 people, -2.2% since 2010) on the strength of Homewood-Flossmoor High School\'s ' +
+      'professional-household demand; Blue Island is also Holding (21,741 people, -4.6%) but carries more ' +
+      'transit and commercial infrastructure than most of the batch. Stated plainly: no sizable South ' +
+      'Suburban town currently sits in a Rising or Thriving category — every one of them is Holding, ' +
+      'Slipping, Declining, or Distressed, and that is the honest ceiling on what this region offers ' +
+      'a buyer right now.',
+
+    'NWI':
+      'Crown Point and Munster are the picks — both Rising, both sizable ' +
+      '(34,393 and 23,733 people), both up strongly in real income since 2010 — Crown Point into double ' +
+      'digits at +10.7%, Munster close behind at +9.1%. St. ' +
+      'John (Thriving, 22,567 people, +4.0%) and Chesterton (Rising, 14,446 people, +10.0%) are ' +
+      'honorable mentions just behind them — both smaller, both further along the South Shore Line/ ' +
+      'Dunes catalyst thesis than most of the rest of the batch.',
+  };
+
+  function pct(a, b) { return (b - a) / a * 100; }
+
+  // Chicago's mhi_history[0] (1990 slot) is null on every CCA record; the
+  // real 1990 figure lives in a separate mhi_1990 field instead. Every other
+  // region has a real value at mhi_history[0] and no separate mhi_1990 field.
+  function mhi1990(p) {
+    return p.region === 'Chicago' ? (p.mhi_1990 != null ? p.mhi_1990 : null)
+                                   : (p.mhi_history ? p.mhi_history[0] : null);
+  }
+
+  // Resolve a town/CCA's median household income at a given checkpoint year.
+  // Mirrors mhi1990()'s Chicago special-case for every other year too.
+  // 2020 uses mhi_2020 (fetch_2020_income_race_age.py) — that field is
+  // populated the same way for every region, Chicago included, so it needs
+  // no special-case unlike 1990.
+  function mhiAtYear(p, year) {
+    if (year === 1980) return p.mhi_1980 != null ? p.mhi_1980 : null;
+    if (year === 1990) return mhi1990(p);
+    if (year === 2000) return p.mhi_history ? p.mhi_history[1] : null;
+    if (year === 2010) return p.mhi_history ? p.mhi_history[2] : null;
+    if (year === 2020) return p.mhi_2020 != null ? p.mhi_2020 : null;
+    if (year === 2024) return p.mhi_history ? p.mhi_history[3] : null;
+    return null;
+  }
+
+  function populationAtYear(p, year) {
+    if (year === 2024) return p.population;
+    if (year === 2020) return p.population_2020;
+    if (year === 2010) return p.population_2010;
+    if (year === 2000) return p.population_2000;
+    if (year === 1990) return p.population_1990;
+    if (year === 1980) return p.population_1980;
+    return null;
+  }
+
+  // ── STANDARD METHOD for any regional/town-level income statistic on this
+  // page ── Population-weighted, bottoms-up aggregation over an arbitrary
+  // array of records (a whole region's towns, a single town, or a "rest of
+  // region" bucket — this function doesn't care which). A simple average of
+  // each record's % change (or even a population-weighted average OF
+  // percentages) silently treats a 400-person town and a 180,000-person
+  // suburb as equally representative: the correct method computes a
+  // population-weighted AVERAGE income at the start year and at the end
+  // year, then takes the % change between those two averages.
+  //
+  // EACH YEAR uses that record's population AT THAT YEAR as its weight, not
+  // a single fixed (e.g. current) population applied to every window. This
+  // matters for towns whose population has moved a lot: Gary's population
+  // was much larger in 1980 than it is today, so its income should pull an
+  // older-period average harder than it pulls the current one; St. John, IN
+  // grew from a small town into a much bigger one over the same window, so
+  // it should have the opposite lopsidedness. A single fixed weight erases
+  // both of those real compositional shifts.
+  function trendForRecs(recs, startYear, endYear) {
+    let sumStartVal = 0, sumStartW = 0, sumEndVal = 0, sumEndW = 0, n = 0;
+    recs.forEach(p => {
+      const vs = mhiAtYear(p, startYear), ve = mhiAtYear(p, endYear);
+      const wStart = populationAtYear(p, startYear), wEnd = populationAtYear(p, endYear);
+      // Requires a valid population AT BOTH endpoints (not just current) so
+      // the start-year average and end-year average are built from the same
+      // set of records — only the weight vintage differs between them, not
+      // which records are included.
+      if (vs != null && ve != null && wStart != null && wStart > 0 && wEnd != null && wEnd > 0) {
+        sumStartVal += vs * wStart; sumStartW += wStart;
+        sumEndVal += ve * wEnd;     sumEndW += wEnd;
+        n++;
+      }
+    });
+    if (n === 0 || sumStartW === 0 || sumEndW === 0) return { pct: null, n, total: recs.length };
+    const avgStart = sumStartVal / sumStartW;
+    const avgEnd = sumEndVal / sumEndW;
+    if (avgStart === 0) return { pct: null, n, total: recs.length };
+    return { pct: (avgEnd - avgStart) / avgStart * 100, n, total: recs.length };
+  }
+
+  // 'ALL' is a pseudo-region meaning every town/CCA across all 7 named
+  // regions combined (i.e. the whole Chicagoland dataset, still excluding
+  // Chicago Tract/Suburban Tract detail records, which aren't in REGIONS).
+  function regionRecs(region) {
+    return region === 'ALL' ? DATA.filter(p => REGIONS.includes(p.region)) : DATA.filter(p => p.region === region);
+  }
+  function computeRegionalTrend(region, startYear, endYear) { return trendForRecs(regionRecs(region), startYear, endYear); }
+
+  // Level-by-year view of the exact same population-weighted, bottoms-up
+  // method as trendForRecs() — same mhiAtYear()/populationAtYear() resolvers
+  // — so Chart 1's implied year-over-year change always matches the table.
+  function levelForRecs(recs, year) {
+    let sumW = 0, sumWV = 0;
+    recs.forEach(p => {
+      const v = mhiAtYear(p, year), w = populationAtYear(p, year);
+      if (v != null && w != null && w > 0) { sumW += w; sumWV += v * w; }
+    });
+    return sumW > 0 ? sumWV / sumW : null;
+  }
+  function computeRegionalLevel(region, year) { return levelForRecs(regionRecs(region), year); }
+
+  function popGrowthForRecs(recs, startYear, endYear) {
+    let sumStart = 0, sumEnd = 0;
+    recs.forEach(p => {
+      const vs = populationAtYear(p, startYear), ve = populationAtYear(p, endYear);
+      if (vs != null && ve != null) { sumStart += vs; sumEnd += ve; }
+    });
+    return sumStart > 0 ? (sumEnd - sumStart) / sumStart * 100 : null;
+  }
+
+  function raceShareAtYear(p, key, year) {
+    if (year === 2024) return p[`pct_${key}`];
+    if (year === 2020) return p[`pct_${key}_2020`];
+    if (year === 2010) return p[`pct_${key}_2010`];
+    if (year === 2000) return p[`pct_${key}_2000`];
+    if (year === 1990) return p[`pct_${key}_1990`];
+    // 1980's Asian field is pct_asian_pacific_amind_nh_1980 -- NHGIS's 1980
+    // Hispanic-origin-by-race cross-tab combines American Indian/Eskimo/
+    // Aleut into the same bucket as Asian/Pacific Islander, unlike every
+    // later year, which reports Asian alone. Same wiring as the main map's
+    // raceStackSVG.
+    if (year === 1980) return key === 'asian_nh' ? p.pct_asian_pacific_amind_nh_1980 : p[`pct_${key}_1980`];
+    return null;
+  }
+  function raceHeadcountForRecs(recs, groupKey, year) {
+    let sum = 0;
+    recs.forEach(p => {
+      const share = raceShareAtYear(p, groupKey, year);
+      const pop = populationAtYear(p, year);
+      if (share != null && pop != null) sum += pop * share / 100;
+    });
+    return Math.round(sum);
+  }
+  function raceChangeForRecs(recs, groupKey, startYear, endYear) {
+    const s = raceHeadcountForRecs(recs, groupKey, startYear);
+    const e = raceHeadcountForRecs(recs, groupKey, endYear);
+    if (!s) return null;
+    return (e - s) / s * 100;
+  }
+
+  // ══════════════════════════════════════════════════════════════════════
+  // ENTITIES — what the table and every chart on this page actually iterate
+  // over. The 'ALL' view's entities are the 7 named regions (as this page
+  // always worked); picking one region from the top switcher instead builds
+  // entities from that region's top-5-by-(2024)-population towns/CCAs, each
+  // as its own entity, plus one "Rest of <region>" bucket combining every
+  // other town — same population-weighted math throughout, just applied to
+  // a different, smaller set of records per entity.
+  // ══════════════════════════════════════════════════════════════════════
+
+  const REGION_COLORS = {
+    Chicago:    '#8b1a1a',
+    North:      '#2f6690',
+    Northwest:  '#4a7c59',
+    West:       '#c9962c',
+    Southwest:  '#7d5ba6',
+    South:      '#b8560f',
+    NWI:        '#1b7a72',
+  };
+  const TOWN_SLOT_COLORS = ['#8b1a1a', '#2f6690', '#4a7c59', '#c9962c', '#7d5ba6'];
+  const REST_COLOR = '#8a8578';
+  const CHICAGOLAND_TOTAL_COLOR = '#1a1814';
+
+  function buildEntities(viewKey) {
+    if (viewKey === 'ALL') {
+      return REGIONS.map(r => ({ key: r, label: REGION_ORDER_LABELS[r], color: REGION_COLORS[r], recs: regionRecs(r) }));
+    }
+    const towns = regionRecs(viewKey).slice().sort((a, b) => (b.population || 0) - (a.population || 0));
+    const top5 = towns.slice(0, 5);
+    const rest = towns.slice(5);
+    const entities = top5.map((t, i) => ({ key: `town:${t.name}`, label: t.name, color: TOWN_SLOT_COLORS[i], recs: [t] }));
+    if (rest.length) {
+      entities.push({ key: 'rest', label: `Rest of ${REGION_ORDER_LABELS[viewKey]} (${rest.length} towns)`, color: REST_COLOR, recs: rest });
+    }
+    return entities;
+  }
+
+  // Chicagoland-wide reference entity -- appended to every chart (income,
+  // population, race tabs, heatmap) in both the ALL view and a drill-down
+  // view, so whatever's on screen can be read against the whole metro's
+  // baseline. Deliberately NOT added to the table's own entity list (see
+  // renderTable), which already has its own dedicated Chicagoland Total row.
+  function chicagolandTotalEntity() {
+    return { key: 'chicagoland_total', label: 'Chicagoland Total', color: CHICAGOLAND_TOTAL_COLOR, recs: regionRecs('ALL') };
+  }
+
+  function hexToRgba(hex, alpha) {
+    const n = parseInt(hex.slice(1), 16);
+    const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  // ── Table ──────────────────────────────────────────────────────────────
+  function fmtPct(v) {
+    if (v == null || isNaN(v)) return '—';
+    const s = v >= 0 ? '+' : '';
+    return s + v.toFixed(1) + '%';
+  }
+  function cellClass(v) { return v == null ? '' : (v >= 0 ? 'pos' : 'neg'); }
+
+  // 2010→20 and 2020→24 (as their own period columns) were dropped from
+  // this table: mhi_2020 is an ACS 2016-2020 5-YEAR estimate (temporally
+  // centered ~2018), not a clean single-year 2020 value like population_2020
+  // (a real Decennial count) is. Splitting the reliable 2010→2024 window at
+  // that blurry checkpoint produced two noisier numbers where "Net 2010→24"
+  // already gives the same span cleanly, with two solid endpoints. w1024
+  // below still computes that Net column; it just no longer has 2010→20/
+  // 2020→24 siblings splitting it in two.
+  function statsForEntity(e) {
+    const w8090 = trendForRecs(e.recs, 1980, 1990);
+    const w9000 = trendForRecs(e.recs, 1990, 2000);
+    const w0010 = trendForRecs(e.recs, 2000, 2010);
+    const w1024 = trendForRecs(e.recs, 2010, 2024);
+    // Net figures are true endpoint-to-endpoint, not compounded from the
+    // period figures above.
+    const net = trendForRecs(e.recs, 1980, 2024);
+    const net2000 = trendForRecs(e.recs, 2000, 2024);
+    return {
+      label: e.label,
+      c8090: w8090.pct, c9000: w9000.pct, c0010: w0010.pct,
+      c1024: w1024.pct,
+      net: net.pct, net2000: net2000.pct,
+    };
+  }
+
+  // US National — NOT computed from chicagoland_snippet.js. No national-
+  // level town data exists in this project's dataset, so this is a fixed
+  // reference row from U.S. Census Bureau / IPUMS CPS historical income
+  // series (real median household income, constant 2025 dollars). Only
+  // shown in the 'ALL' (region-comparison) view — a national figure doesn't
+  // add much next to five individual towns inside one region.
+  const US_MHI = { 1980: 70828, 1990: 72987, 2000: 76358, 2010: 72537, 2024: 82383 };
+  const US_SOURCE = 'U.S. Census Bureau / IPUMS CPS historical income series, constant 2025 dollars. National median household income — presented for directional comparison; a CPS national survey estimate, not the same underlying methodology as the Chicagoland rows above (aggregate of ACS-based town-level data).';
+  const usRow = {
+    label: 'United States (National, for comparison)',
+    c8090: pct(US_MHI[1980], US_MHI[1990]),
+    c9000: pct(US_MHI[1990], US_MHI[2000]),
+    c0010: pct(US_MHI[2000], US_MHI[2010]),
+    c1024: pct(US_MHI[2010], US_MHI[2024]),
+    net:   pct(US_MHI[1980], US_MHI[2024]),
+    net2000: pct(US_MHI[2000], US_MHI[2024]),
+  };
+
+  function rowHTML(s, extraCls, titleAttr) {
+    const t = titleAttr ? ` title="${titleAttr}"` : '';
+    return `
+    <tr class="${extraCls || ''}"${t}>
+      <td class="region-name">${s.label}</td>
+      <td class="${cellClass(s.c8090)}">${fmtPct(s.c8090)}</td>
+      <td class="${cellClass(s.c9000)}">${fmtPct(s.c9000)}</td>
+      <td class="${cellClass(s.c0010)}">${fmtPct(s.c0010)}</td>
+      <td class="${cellClass(s.c1024)}">${fmtPct(s.c1024)}</td>
+      <td class="net-col ${cellClass(s.net2000)}">${fmtPct(s.net2000)}</td>
+      <td class="net-col ${cellClass(s.net)}">${fmtPct(s.net)}</td>
+    </tr>`;
+  }
+
+  function renderTable(viewKey, entities) {
+    const tbody = document.getElementById('trend-table-body');
+    document.getElementById('trend-table-name-header').textContent = entityNoun(viewKey);
+    if (viewKey === 'ALL') {
+      const stats = entities.map(statsForEntity);
+      stats.sort((a, b) => a.net - b.net); // worst to best
+      // Chicagoland Total is this page's own grand total in the ALL view
+      // (same yellowish agg-row styling as a region/town total elsewhere on
+      // this page) -- it only becomes a muted 'ref-row' in a drill-down
+      // view below, where it's a secondary reference next to that region's
+      // own (agg-row) total, not the headline total of the page.
+      const totalStats = statsForEntity({ recs: regionRecs('ALL') });
+      totalStats.label = 'Chicagoland Total (All Regions, Population-Weighted)';
+      tbody.innerHTML =
+        stats.map(s => rowHTML(s, '')).join('') +
+        rowHTML(totalStats, 'agg-row') +
+        rowHTML(usRow, 'ref-row', US_SOURCE);
+    } else {
+      // Population order (not sorted by net) — "top 5 by population" means
+      // exactly that ordering, and the Rest bucket trails as everyone else.
+      const stats = entities.map(statsForEntity);
+      const totalStats = statsForEntity({ recs: regionRecs(viewKey) });
+      totalStats.label = `${REGION_ORDER_LABELS[viewKey]} Total (Population-Weighted)`;
+      // Chicagoland Total and US National are pinned reference rows here too
+      // (same figures as the ALL view) so a region's towns can be read
+      // against the wider Chicagoland/national trend, not just each other.
+      // Styled as 'ref-row' (muted, italic) rather than 'agg-row' so they
+      // read as context, not as another total competing with this region's
+      // own (agg-row) total for attention.
+      const chicagolandStats = statsForEntity({ recs: regionRecs('ALL') });
+      chicagolandStats.label = 'Chicagoland Total (All Regions, Population-Weighted)';
+      tbody.innerHTML =
+        stats.map(s => rowHTML(s, '')).join('') +
+        rowHTML(totalStats, 'agg-row') +
+        rowHTML(chicagolandStats, 'ref-row') +
+        rowHTML(usRow, 'ref-row', US_SOURCE);
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════════════
+  // Charts (Chart.js via CDN). Each chart is created once, empty, then
+  // (re)populated by its render*() function whenever the active view
+  // changes — same population-weighted bottoms-up principle throughout.
+  // ══════════════════════════════════════════════════════════════════════
+
+  const CHART_FONT = "'Inter Tight', sans-serif";
+  Chart.defaults.font.family = CHART_FONT;
+  Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--ink-soft').trim() || '#4a4640';
+
+  // ── Chart 1: income LEVEL by entity, by checkpoint year ───────────────
+  const INCOME_YEARS = [1980, 1990, 2000, 2010, 2024];
+  const incomeChart = new Chart(document.getElementById('chart-income'), {
+    type: 'line',
+    data: { labels: INCOME_YEARS.map(String), datasets: [] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: $${Math.round(ctx.parsed.y).toLocaleString()}` } },
+      },
+      scales: {
+        y: { title: { display: true, text: 'Real median HH income (2024 $)' },
+             ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'k' } },
+      },
+    },
+  });
+  function renderIncomeChart(entities) {
+    incomeChart.data.datasets = entities.map(e => ({
+      label: e.label,
+      data: INCOME_YEARS.map(y => levelForRecs(e.recs, y)),
+      borderColor: e.color, backgroundColor: e.color,
+      spanGaps: true, tension: 0.15, pointRadius: 3, borderWidth: 2,
+    }));
+    incomeChart.update();
+  }
+
+  // ── Chart 2: population growth % by entity, by period ─────────────────
+  // 2010→20 and 2020→24 (as separate periods) collapsed into one 2010→24
+  // span -- 2020 excluded as an intermediate checkpoint (Decennial Census
+  // race/ethnicity coding-methodology change; see the methodology note
+  // above the charts), same treatment as the summary table's own
+  // 2010→24 column.
+  const POP_PERIODS = [
+    { key: '90-00', label: '1990→00', from: 1990, to: 2000, alpha: 0.35 },
+    { key: '00-10', label: '2000→10', from: 2000, to: 2010, alpha: 0.6 },
+    { key: '10-24', label: '2010→24', from: 2010, to: 2024, alpha: 1.0 },
+  ];
+  const popChart = new Chart(document.getElementById('chart-population'), {
+    type: 'bar',
+    data: { labels: [], datasets: [] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y >= 0 ? '+' : ''}${ctx.parsed.y.toFixed(1)}%` } },
+      },
+      scales: {
+        x: { ticks: { autoSkip: false, font: { size: 10 } } },
+        y: { title: { display: true, text: '% population change' },
+             ticks: { callback: v => (v >= 0 ? '+' : '') + v + '%' } },
+      },
+    },
+  });
+  // Negative-growth callout — computed live from whichever entities are on
+  // screen, not hardcoded to South. In the 'ALL' view this reproduces the
+  // original South-specific finding whenever South is still the sole
+  // negative region; in a drill-down view it flags whichever top-5 town or
+  // the Rest bucket is shrinking.
+  function renderPopChart(entities) {
+    const growthByEntity = {};
+    entities.forEach(e => { growthByEntity[e.key] = POP_PERIODS.map(per => popGrowthForRecs(e.recs, per.from, per.to)); });
+    popChart.data.labels = entities.map(e => e.label);
+    popChart.data.datasets = POP_PERIODS.map((per, i) => ({
+      label: per.label,
+      data: entities.map(e => growthByEntity[e.key][i]),
+      backgroundColor: entities.map(e => hexToRgba(e.color, per.alpha)),
+    }));
+    popChart.update();
+
+    const latestIdx = POP_PERIODS.length - 1; // 2010→24
+    const latestLabel = POP_PERIODS[latestIdx].label;
+    const negEntities = entities.filter(e => (growthByEntity[e.key][latestIdx] ?? 0) < 0);
+    const wrap = document.getElementById('south-callout-wrap');
+    if (negEntities.length === 1) {
+      const v = growthByEntity[negEntities[0].key][latestIdx];
+      wrap.innerHTML = `<div class="chart-callout">⚠ ${negEntities[0].label} is the only one here with negative ` +
+        `population growth in ${latestLabel} (${v.toFixed(1)}%) — everything else shown is flat or growing over the same window.</div>`;
+    } else if (negEntities.length > 1) {
+      wrap.innerHTML = `<div class="chart-callout">⚠ Negative population growth in ${latestLabel}: ` +
+        `${negEntities.map(e => `${e.label} (${growthByEntity[e.key][latestIdx].toFixed(1)}%)`).join(', ')}.</div>`;
+    } else {
+      wrap.innerHTML = '';
+    }
+  }
+
+  // ── Chart 3a: race/ethnicity headcount by entity, tabbed ──────────────
+  const RACE_GROUPS_RT = [
+    { key: 'white_nh', label: 'White' },
+    { key: 'black_nh', label: 'Black' },
+    { key: 'hispanic', label: 'Hispanic' },
+    { key: 'asian_nh', label: 'Asian' },
+    { key: 'other_nh', label: 'Other' },
+  ];
+  // 2020 excluded -- that Decennial Census year's race/ethnicity
+  // write-in-response coding methodology changed from prior years,
+  // producing swings independent of real demographic change (see the
+  // methodology note above the charts).
+  const RACE_YEARS_RT = [1980, 1990, 2000, 2010, 2024];
+  const RACE_YEAR_ALPHA = { 1980: 0.25, 1990: 0.4, 2000: 0.6, 2010: 0.8, 2024: 1.0 };
+  const raceChart = new Chart(document.getElementById('chart-race'), {
+    type: 'bar',
+    data: { labels: RACE_GROUPS_RT.map(g => g.label), datasets: [] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} people` } },
+      },
+      scales: {
+        y: { title: { display: true, text: 'People' }, ticks: { callback: v => v.toLocaleString() } },
+      },
+    },
+  });
+  let activeRaceEntityKey = null;
+  function renderRaceChartFor(entity) {
+    raceChart.data.datasets = RACE_YEARS_RT.map(y => ({
+      label: String(y),
+      data: RACE_GROUPS_RT.map(g => raceHeadcountForRecs(entity.recs, g.key, y)),
+      backgroundColor: hexToRgba(entity.color, RACE_YEAR_ALPHA[y]),
+    }));
+    raceChart.update();
+  }
+  function renderRaceTabs(entities) {
+    const wrap = document.getElementById('race-tabs');
+    wrap.innerHTML = entities.map(e =>
+      `<button class="region-tab${e.key === activeRaceEntityKey ? ' active' : ''}" data-key="${e.key}">${e.label}</button>`
+    ).join('');
+    wrap.querySelectorAll('.region-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeRaceEntityKey = btn.dataset.key;
+        renderRaceTabs(entities);
+        renderRaceChartFor(entities.find(e => e.key === activeRaceEntityKey));
+      });
+    });
+  }
+
+  // ── Chart 3b: heatmap — % change by entity x race group ───────────────
+  function heatColor(v) {
+    if (v == null || isNaN(v)) return '#e8e2d4';
+    const clamped = Math.max(-50, Math.min(50, v));
+    if (clamped >= 0) {
+      const t = clamped / 50; // 0..1
+      const r = Math.round(255 - t * (255 - 46)), g = Math.round(255 - t * (255 - 107)), b = Math.round(255 - t * (255 - 62));
+      return `rgb(${r},${g},${b})`;
+    }
+    const t = -clamped / 50;
+    const r = Math.round(255 - t * (255 - 155)), g = Math.round(255 - t * (255 - 26)), b = Math.round(255 - t * (255 - 26));
+    return `rgb(${r},${g},${b})`;
+  }
+  function heatTextColor(v) {
+    if (v == null || isNaN(v)) return 'var(--ink-faint)';
+    return Math.abs(v) > 20 ? '#fff' : 'var(--ink)';
+  }
+  // One row per entity; the period (1990→24 / 2000→24 / 2010→24) is picked
+  // globally via the tabs above the table. 2020→24 removed as its own
+  // window -- 2020 is excluded from these charts entirely (Decennial
+  // Census race/ethnicity coding-methodology change; see the methodology
+  // note above the charts).
+  const HEAT_WINDOWS = [
+    { key: '1990_24', label: '1990→24', from: 1990, to: 2024 },
+    { key: '2000_24', label: '2000→24', from: 2000, to: 2024 },
+    { key: '2010_24', label: '2010→24', from: 2010, to: 2024 },
+  ];
+  let activeHeatWindow = HEAT_WINDOWS[2]; // 2010→24 default (broadest window with full coverage)
+
+  function renderHeatmap(entities) {
+    const heatmapEl = document.getElementById('race-heatmap');
+    const nameLabel = document.getElementById('trend-table-name-header').textContent;
+    let heatHTML = `<thead><tr><th>${nameLabel}</th>` +
+      RACE_GROUPS_RT.map(g => `<th>${g.label}</th>`).join('') + '</tr></thead><tbody>';
+    entities.forEach(e => {
+      heatHTML += `<tr><td class="region-name">${e.label}</td>`;
+      RACE_GROUPS_RT.forEach(g => {
+        const v = raceChangeForRecs(e.recs, g.key, activeHeatWindow.from, activeHeatWindow.to);
+        const label = v == null ? '—' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`;
+        // "Other" is left uncolored -- small enough base in most entities
+        // that % change swings wildly on its own (compounded by the 2020
+        // Census race/ethnicity coding change), so a red/green cell here
+        // reads as a strong signal when it's usually just noise.
+        const style = g.key === 'other_nh' ? '' : `style="background:${heatColor(v)};color:${heatTextColor(v)}"`;
+        heatHTML += `<td ${style}>${label}</td>`;
+      });
+      heatHTML += '</tr>';
+    });
+    heatHTML += '</tbody>';
+    heatmapEl.innerHTML = heatHTML;
+  }
+  function renderHeatPeriodTabs(entities) {
+    const wrap = document.getElementById('heat-period-tabs');
+    wrap.innerHTML = HEAT_WINDOWS.map(w =>
+      `<button class="region-tab${w.key === activeHeatWindow.key ? ' active' : ''}" data-window="${w.key}">${w.label}</button>`
+    ).join('');
+    wrap.querySelectorAll('.region-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeHeatWindow = HEAT_WINDOWS.find(w => w.key === btn.dataset.window);
+        renderHeatPeriodTabs(entities);
+        renderHeatmap(entities);
+      });
+    });
+  }
+
+  // ══════════════════════════════════════════════════════════════════════
+  // View switching — the top region-selector buttons drive everything else
+  // on the page from one place.
+  // ══════════════════════════════════════════════════════════════════════
+  const VIEW_LABELS = Object.assign({ ALL: 'All Regions' }, REGION_ORDER_LABELS);
+  let currentView = 'ALL';
+
+  // Chicago's entities are community areas, not municipalities -- "Town"
+  // reads wrong there, so it gets its own noun.
+  function entityNoun(viewKey) {
+    if (viewKey === 'ALL') return 'Region';
+    if (viewKey === 'Chicago') return 'Community Area';
+    return 'Town';
+  }
+  function entityNounPlural(viewKey) {
+    return entityNoun(viewKey) === 'Community Area' ? 'Community Areas' : 'Towns';
+  }
+
+  function updateHeadings(viewKey) {
+    const isAll = viewKey === 'ALL';
+    const label = REGION_ORDER_LABELS[viewKey];
+    const plural = entityNounPlural(viewKey);
+    document.getElementById('page-h1').textContent = isAll
+      ? 'Chicagoland Median Household Income — Real Change by Region, 1980–2024'
+      : `${label} — Top ${plural} by Income Change, 1980–2024`;
+    document.getElementById('table-label').textContent = isAll
+      ? 'Median HH Income — Real % Change, by Region'
+      : `Median HH Income — Real % Change, by ${entityNoun(viewKey)} — ${label}`;
+    document.getElementById('income-h2').textContent = isAll ? 'Income, Region by Region' : `Income, Top ${plural} — ${label}`;
+    document.getElementById('pop-h2').textContent = isAll ? 'Population Growth, By Period' : `Population Growth, By Period — ${label}`;
+    document.getElementById('race-h2').textContent = isAll ? 'Population by Race & Ethnicity, By Region' : `Population by Race & Ethnicity — ${label}`;
+    document.getElementById('heat-h2').textContent = isAll ? "Who's Growing, Who's Shrinking" : `Who's Growing, Who's Shrinking — ${label}`;
+  }
+
+  function renderViewTabs() {
+    const wrap = document.getElementById('region-view-tabs');
+    wrap.innerHTML = ['ALL', ...REGIONS].map(k =>
+      `<button class="region-view-tab${k === currentView ? ' active' : ''}" data-view="${k}">${VIEW_LABELS[k]}</button>`
+    ).join('');
+    wrap.querySelectorAll('.region-view-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.view === currentView) return;
+        switchView(btn.dataset.view);
+      });
+    });
+  }
+
+  const REGION_LABEL_UPPER = {
+    'Chicago': 'CHICAGO COMMUNITY AREAS', 'North': 'NORTH SUBURBS',
+    'Northwest': 'NORTHWEST SUBURBS', 'West': 'WEST SUBURBS',
+    'Southwest': 'SOUTHWEST SUBURBS', 'South': 'SOUTH SUBURBS',
+    'NWI': 'NWI — NORTHWEST INDIANA',
+  };
+  function renderNarrative(viewKey) {
+    const label = document.getElementById('rn-label');
+    const text = document.getElementById('rn-text');
+    if (viewKey === 'ALL') {
+      label.textContent = 'METRO OVERVIEW — CHICAGOLAND';
+      text.textContent = CHICAGOLAND_NARRATIVE;
+    } else {
+      label.textContent = REGION_LABEL_UPPER[viewKey] || viewKey.toUpperCase();
+      text.textContent = REGION_NARRATIVES[viewKey] || '';
+    }
+  }
+
+  function renderPicks(viewKey) {
+    const box = document.getElementById('pick-callout');
+    if (viewKey === 'ALL' || !REGION_PICKS[viewKey]) {
+      box.classList.remove('visible');
+      return;
+    }
+    document.getElementById('pc-label').textContent = `WHERE TO LOOK — ${REGION_LABEL_UPPER[viewKey] || viewKey.toUpperCase()}`;
+    document.getElementById('pc-text').textContent = REGION_PICKS[viewKey];
+    document.getElementById('pc-note').textContent = PICKS_SCREEN_NOTE;
+    box.classList.add('visible');
+  }
+
+  // ── "Where the Data Points for Real Estate" ────────────────────────────
+  // Metro-wide recommendation, independent of the region switcher above --
+  // rendered once at load, not on every switchView() call.
+  function renderRecommendation() {
+    const box = document.getElementById('rec-box');
+    box.innerHTML =
+      '<p>On the numbers in this dataset, NWI is the strongest regional pick for a real estate ' +
+      'decision today — not because any single town there outperforms towns in the other Chicagoland ' +
+      'regions, but for ' +
+      'two structural reasons no Illinois region can match.</p>' +
+      '<p><strong>First</strong>, it is the only region in this study structurally insulated from ' +
+      'Illinois\' pension crisis: the 50.6% state funded ratio and Chicago\'s own 24% municipal figure ' +
+      'are liabilities that show up in every Illinois property tax bill over time, regardless of ' +
+      'which town or how strong its current income trend looks — and Indiana simply does not carry ' +
+      'an equivalent unresolved liability.</p>' +
+      '<p><strong>Second</strong>, the region\'s growth story is real and accelerating. The corridor ' +
+      'south of Route 30 in Lake County — St. John (+52.0% population since 2010), Winfield (+78.3%), ' +
+      'Cedar Lake (+32.3%), and Crown Point (+25.9%) — is compounding, not decelerating, and none of ' +
+      'it is explained by Gary emptying out into the suburbs. Gary\'s own decline is still ' +
+      'accelerating, not bottoming out, and Gary plus East Chicago together are only about 15% of ' +
+      'NWI\'s population — too small a share, and too geographically distant, to be driving a growth ' +
+      'corridor 30+ miles away.</p>' +
+      '<div class="rec-disclaimer">This reflects patterns in the historical Census and ACS data ' +
+      'underlying this page, not financial or investment advice — individual property and market ' +
+      'conditions vary and should be independently verified before any purchase decision.</div>';
+  }
+
+  function switchView(viewKey) {
+    currentView = viewKey;
+    const entities = buildEntities(viewKey);
+    // Charts (not the table) get the Chicagoland-wide reference entity too.
+    const chartEntities = entities.concat([chicagolandTotalEntity()]);
+
+    renderViewTabs();
+    updateHeadings(viewKey);
+    renderNarrative(viewKey);
+    renderPicks(viewKey);
+    renderTable(viewKey, entities);
+    renderIncomeChart(chartEntities);
+    renderPopChart(chartEntities);
+
+    // ALL view defaults the race/ethnicity tab to Chicagoland Total (the
+    // metro-wide baseline) rather than the first region -- a drill-down
+    // view still defaults to its top-population town/CCA, where "Chicagoland
+    // Total" is a comparison entity, not the natural starting point.
+    const defaultRaceEntity = viewKey === 'ALL' ? chartEntities[chartEntities.length - 1] : entities[0];
+    activeRaceEntityKey = defaultRaceEntity.key;
+    renderRaceTabs(chartEntities);
+    renderRaceChartFor(defaultRaceEntity);
+
+    renderHeatPeriodTabs(chartEntities);
+    renderHeatmap(chartEntities);
+  }
+
+  renderRecommendation();
+  switchView('ALL');
+}());
+</script>
+</body>
+</html>
