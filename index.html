@@ -20,7 +20,7 @@
   :root {
     --ink: #1a1814;
     --ink-soft: #4a4640;
-    --ink-faint: #7a7670;
+    --ink-faint: #666259; /* darkened from #7a7670 (~3.97:1 on --paper) to hit WCAG AA's 4.5:1 minimum for text */
     --paper: #f4f0e8;
     --paper-warm: #ebe5d6;
     --rule: #2a2620;
@@ -661,8 +661,8 @@
   .sp-traj-booming    { background: #1d6b3a; color: #fff; }
   .sp-traj-rising     { background: #4a9b5e; color: #fff; }
   .sp-traj-recovering { background: #2a6fae; color: #fff; }
-  .sp-traj-stable     { background: #9a9082; color: #fff; }
-  .sp-traj-softening  { background: #c98a3a; color: #fff; }
+  .sp-traj-stable     { background: #7c7266; color: #fff; } /* darkened from #9a9082 (~3.14:1) to hit AA's 4.5:1 */
+  .sp-traj-softening  { background: #9a6420; color: #fff; } /* darkened from #c98a3a (~2.92:1) to hit AA's 4.5:1 */
   .sp-traj-declining  { background: #b0392f; color: #fff; }
   /* Aggregate (region/Chicagoland) badges -- graded against the U.S.
      national benchmark, not the per-town growth bands above (see
@@ -1088,6 +1088,27 @@
     max-height: 260px;
     overflow-y: auto;
   }
+  /* Non-blocking warning toast -- e.g. "picking a town via search cancels a
+     pending comparison." Bottom-center, auto-dismisses; never blocks input
+     the way alert()/confirm() would. */
+  #app-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%) translateY(12px);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    z-index: 9500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  #app-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
   .sri {
     padding: 7px 12px;
     cursor: pointer;
@@ -1497,6 +1518,15 @@
     0%, 100% { box-shadow: 0 0 0 6px rgba(242,177,52,0.4), 0 0 30px 8px rgba(242,177,52,0.7); }
     50%      { box-shadow: 0 0 0 10px rgba(242,177,52,0.22), 0 0 42px 12px rgba(242,177,52,0.9); }
   }
+  /* The Filters & Timeline step's target (.timeline-bar) sits well above the
+     modal dialog on screen (they never overlap vertically), so unlike #map --
+     the reason the ring stays dimmed-under-the-backdrop everywhere else --
+     it's safe to lift just this one spotlighted element above the overlay so
+     the glow actually reads as highlighting the row instead of getting
+     washed out under the tint, where it was easy to mistake the "2024"
+     button's own pre-existing active-state styling for the tutorial's
+     emphasis instead. */
+  .timeline-bar.tut-spotlight { position: relative; z-index: 2001; }
   .tut-source-list {
     margin: 4px 0 12px;
     padding-left: 18px;
@@ -1656,13 +1686,17 @@
        the stacked layout — every link should just sit in the wrapped row. */
     .topbar .nav-link { margin-left: 0; }
 
-    /* Without a floor, .map-wrap's flex:1 resolves to 0 height once the
-       stacked topbar + view-header + timeline-bar (now taller from
-       wrapping at this width) exceed the 100vh the body has to work
-       with -- the map would render completely invisible. Giving it a
-       floor means the page scrolls instead, which is the correct
-       trade-off: a scrollable page with a visible map beats a
-       full-height page with no map at all. */
+  }
+
+  /* Without a floor, .map-wrap's flex:1 resolves toward 0 height once the
+     stack above it -- topbar, view-header, timeline-bar, and especially an
+     expanded #region-banner showing a full town profile -- grows past what
+     the viewport has left to give. The map is the actual product; giving it
+     a protected floor means the page scrolls instead of the map collapsing
+     to an unusable sliver. Scoped to 900px (not just the 600px mobile-
+     layout tier above) since the profile panel alone is tall enough to
+     starve the map well above the phone-width breakpoint. */
+  @media (max-width: 900px) {
     .map-wrap { min-height: 50vh; }
   }
 </style>
@@ -1701,15 +1735,15 @@
         <option value="">—</option>
         <optgroup label="Income — Per Capita">
           <option value="per_capita_income">Per Capita Income</option>
-          <option value="disposable_per_capita_income">PCI Disposable (2024)</option>
+          <option value="disposable_per_capita_income">Per Capita Income, Disposable (2024)</option>
         </optgroup>
         <optgroup label="Income — Median HH">
           <option value="median_hh_income">Median HH Income</option>
-          <option value="disposable_median_hh_income">MHI Disposable (2024)</option>
+          <option value="disposable_median_hh_income">Median HH Income, Disposable (2024)</option>
         </optgroup>
         <optgroup label="Income — Median Family">
-          <option value="median_family_income">MFI Current (2024)</option>
-          <option value="disposable_median_family_income">MFI Disposable (2024)</option>
+          <option value="median_family_income">Median Family Income (2024)</option>
+          <option value="disposable_median_family_income">Median Family Income, Disposable (2024)</option>
         </optgroup>
         <optgroup label="Schools">
           <option value="composite_score">School Quality (Composite)</option>
@@ -1790,6 +1824,7 @@
         <input type="text" id="search-input" placeholder="Jump to…" autocomplete="off" spellcheck="false">
         <div id="search-results"></div>
       </div>
+      <div id="app-toast"></div>
       <div class="tl-toprow-actions">
         <button id="labels-toggle" class="ctrl-toggle active">Labels</button>
         <button id="compare-toggle" class="ctrl-toggle">Compare</button>
@@ -4913,6 +4948,10 @@
     updateLegend();
     updateViewHeader(visibleCount);
     writeUrlState();
+    // Rebuild the open hover card's content (not just its position) so
+    // switching metrics/years while the mouse stays parked over a town
+    // doesn't leave it showing a stale value under the new legend/color.
+    if (_hoveredRec) hoverCardEl.innerHTML = buildHoverCard(_hoveredRec);
   }
 
   function updateViewHeader(visibleCount) {
@@ -5022,7 +5061,12 @@
       const yr = HIST_YEARS[p.i];
       const lbl = metricKey ? fmtVal(metricKey, p.v) : String(Math.round(p.v));
       const vintage = yr === 2020 ? ` (${ACS_2020_NOTE})` : '';
-      return `<circle cx="${p.sx.toFixed(1)}" cy="${p.sy.toFixed(1)}" r="1.8" fill="var(--accent)"><title>${yr}: ${lbl}${vintage}</title></circle>`;
+      // A visible r=1.8 dot reads as a clean sparkline mark, but a hit-target
+      // that small is nearly impossible to land a cursor on -- a much larger
+      // invisible circle underneath it carries the same tooltip so the dollar
+      // value is actually discoverable without changing how the dot looks.
+      return `<circle cx="${p.sx.toFixed(1)}" cy="${p.sy.toFixed(1)}" r="7" fill="transparent"><title>${yr}: ${lbl}${vintage}</title></circle>` +
+        `<circle cx="${p.sx.toFixed(1)}" cy="${p.sy.toFixed(1)}" r="1.8" fill="var(--accent)" pointer-events="none"/>`;
     }).join('');
     return `<svg class="hc-spark" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">` +
       `<polyline points="${polyPts}" fill="none" stroke="var(--accent-soft)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>` +
@@ -5486,13 +5530,25 @@
   map.on('zoomend', applyZoomClass);
   applyZoomClass();
 
+  // Restore state from URL hash (Phase 3B) — must run before the first
+  // refresh() call below, since refresh() itself writes the hash right back
+  // out via writeUrlState(): calling refresh() first would overwrite a
+  // shared/bookmarked URL's region (and metric/year/etc.) with the page's
+  // hardcoded defaults before readUrlState() ever got a chance to read them.
+  readUrlState();
+
   refresh();
 
-  // Fit map to all visible polygons
-  try {
-    const b = geoLayer.getBounds();
-    if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
-  } catch (_) {}
+  // Fit map to all visible polygons -- skipped when a region was just
+  // restored from the URL hash above, since that already zoomed to the
+  // region's own bounds and this would immediately zoom back out to the
+  // full extent, undoing it.
+  if (regionFilter === 'all') {
+    try {
+      const b = geoLayer.getBounds();
+      if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
+    } catch (_) {}
+  }
 
   document.getElementById('loading').classList.add('hidden');
 
@@ -5671,15 +5727,29 @@
   // back directly via setYear(), same one-click pattern as Timeline B's
   // baseline years activating change mode via setBaseline().
 
-  // Restore state from URL hash (Phase 3B) — must run before first refresh()
-  readUrlState();
-
   // Initialize scrubber state for the default metric
   updateScrubberAvailability();
+
+  // Zooms the live map to the given region's towns (or the full extent when
+  // regionKey is null/falsy/'all'). Excludes Chicago/Suburban Tract detail
+  // records (same exclusion buildRegionAggregateRec's regionMemberRecs uses)
+  // so granular tract polygons don't distort the bounds.
+  function zoomToRegion(regionKey) {
+    if (!geoLayer) return;
+    const bounds = L.latLngBounds([]);
+    geoLayer.eachLayer(layer => {
+      const rec = recordForFeature(layer.feature);
+      if (!rec || rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract') return;
+      if (regionKey && regionKey !== 'all' && rec.region !== regionKey) return;
+      bounds.extend(layer.getBounds());
+    });
+    if (bounds.isValid()) map.fitBounds(bounds, { padding: [20, 20] });
+  }
 
   document.getElementById('region-filter').addEventListener('change', e => {
     regionFilter = e.target.value;
     if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
+    zoomToRegion(regionFilter);
     refresh();
   });
   document.getElementById('min-pop').addEventListener('input', e => {
@@ -5734,6 +5804,7 @@
     document.getElementById('tracts-view').value = tractsView;
     syncDropdowns();
     updateScrubberAvailability();
+    if (p.get('r')) zoomToRegion(regionFilter);
     refresh();
   }
 
@@ -6377,6 +6448,16 @@
   const searchInput   = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
 
+  let _toastTimer = null;
+  function showToast(msg) {
+    const el = document.getElementById('app-toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('visible');
+    clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => el.classList.remove('visible'), 3200);
+  }
+
   function doSearch(q) {
     searchResults.innerHTML = '';
     if (!q || q.length < 2) { searchResults.style.display = 'none'; return; }
@@ -6401,7 +6482,16 @@
           const bounds = layer.getBounds();
           map.flyToBounds(bounds, { maxZoom: 13, padding: [60, 60], duration: 0.8 });
         } catch (_) {}
-        // Open side pane
+        // Open side pane. Search always opens a solo profile, even mid-comparison
+        // (pinPlace's baseline-A/B logic only runs from a map-polygon click) --
+        // actually cancel the pending baseline (not just leave it silently
+        // stranded) and say so, rather than letting "Pick B" keep showing in
+        // the toggle button while nothing is actually pending anymore.
+        if (compareMode && compareA && !compareB) {
+          const cancelledName = compareA.name;
+          clearCompare();
+          showToast(`Picking ${rec.name} from search — comparison with ${cancelledName} was cancelled. Click a town on the map to compare instead.`);
+        }
         setTimeout(() => openSidePane(rec), 400);
       });
       searchResults.appendChild(div);
@@ -6712,43 +6802,47 @@
         title: 'Chicago',
         regionKey: 'Chicago',
         body: () => `<p>The city's own finances are the drag: its municipal pension funds sit at a ` +
-                     `<strong>24% aggregate funded ratio</strong>, and more than 80% of the property ` +
+                     `<strong>28.15% aggregate funded ratio</strong>, and more than 80% of the property ` +
                      `tax levy already goes to pension costs rather than services.</p>`,
-        picks: 'West Town, Avondale — both up 35%+ in real income since 2010.',
+        picks: 'West Town (largest + strongest grower), Avondale (still-building corridor, safer than a maxed-out Logan Square).',
       },
       {
         title: 'North Suburbs',
         regionKey: 'North',
         body: () => `<p>The North Shore's muted numbers are partly a ` +
-                     `<strong>shrinking-household-size</strong> effect — but not entirely; this ` +
-                     `tier's income decline deserves real scrutiny, not just a demographic excuse. ` +
+                     `<strong>shrinking-household-size</strong> effect — real for some towns, not ` +
+                     `others: Green Oaks' decline is genuine, while Winnetka's apparent drop is ` +
+                     `largely a Census reporting-ceiling artifact, not confirmed erosion. ` +
                      `The region spans the ultra-premium lakefront corridor down to the Lake County ` +
                      `exurbs.</p>`,
-        picks: 'Park Ridge, Libertyville — both up double digits since 2010.',
+        picks: 'Park Ridge, Libertyville — both up double digits since 2010 (Lake Forest\'s bigger gain looks compositional, not genuine — excluded on risk grounds).',
       },
       {
         title: 'Northwest Suburbs',
         regionKey: 'Northwest',
         body: () => `<p>O'Hare-corridor towns with diversified employment are outperforming the ` +
-                     `distant McHenry County exurbs along the same stretch.</p>`,
-        picks: 'Arlington Heights, Rolling Meadows.',
+                     `distant McHenry County exurbs along the same stretch. Elgin — now the region's ` +
+                     `largest town at 114,934 people, moved here from West in 2026 — anchors a real ` +
+                     `Fox River Valley growth cluster with Carpentersville and South Elgin.</p>`,
+        picks: 'Arlington Heights, Des Plaines, Elgin — Elgin\'s scale alone earns it a spot; Des Plaines is safer growth than Rolling Meadows, whose recovery leans on one employer.',
       },
       {
         title: 'West Suburbs',
         regionKey: 'West',
-        body: () => `<p>The region's strong average is carried by a narrow BNSF-corridor strip — ` +
-                     `Elmhurst, Western Springs, La Grange, Riverside, Hinsdale — and shouldn't be ` +
-                     `read as describing the other 66+ towns in this batch.</p>`,
+        body: () => `<p>The region's strong average is lifted about as much by a small BNSF-corridor ` +
+                     `strip — Elmhurst, Western Springs, La Grange, Riverside, Hinsdale — as by its ` +
+                     `four largest cities, Aurora, Naperville, Cicero, and Berwyn; neither should be ` +
+                     `read as describing the other 55 towns in this batch.</p>`,
         picks: 'Elmhurst, Western Springs — both up 20%+ since 2010.',
       },
       {
         title: 'Southwest Suburbs',
         regionKey: 'Southwest',
-        body: () => `<p>Split between a high-tax Cook County inner ring and a lower-tax Will County ` +
-                     `I-55 corridor — though even within that corridor it's uneven: New Lenox (+10.3%) ` +
+        body: () => `<p>Split between a lower-tax Cook County inner ring and a somewhat-higher-tax ` +
+                     `Will County I-55 corridor — though even within that corridor it's uneven: New Lenox (+10.3%) ` +
                      `and Joliet (+5.6%) keep climbing, while Mokena, Frankfort, Bolingbrook, and ` +
                      `Plainfield have given some of it back.</p>`,
-        picks: 'New Lenox; Lemont on market signals (home-price appreciation, new downtown investment) running ahead of its ACS income data.',
+        picks: 'New Lenox, Romeoville; Lemont on market signals (home-price appreciation, new downtown investment) running ahead of its ACS income data. Manhattan\'s growth is real but its tax rate is the highest in the batch.',
       },
       {
         title: 'South Suburbs',
@@ -6765,8 +6859,8 @@
                      `right now. The case for NWI isn't about that number. It's about two structural ` +
                      `reasons no Illinois region can match:</p>` +
                      `<p><strong>1.</strong> Indiana carries none of Illinois' unresolved pension ` +
-                     `liability — Illinois is 50.6% funded statewide, Chicago's own pensions sit at ` +
-                     `24% — a liability that shows up in every Illinois property tax bill over time.</p>` +
+                     `liability — Illinois is 56.4% funded statewide, Chicago's own pensions sit at ` +
+                     `28.15% — a liability that shows up in every Illinois property tax bill over time.</p>` +
                      `<p><strong>2.</strong> The growth corridor south of Route 30 in Lake County is ` +
                      `real and accelerating: St. John (+52.0% population since 2010), Winfield ` +
                      `(+78.3%), Cedar Lake (+32.3%), Crown Point (+25.9%) — and none of it is Gary's ` +
@@ -6862,24 +6956,6 @@
       const gapStr = Math.abs(gap).toFixed(1) + ' pts ' + (gap >= 0 ? 'ahead of' : 'behind');
       return `<div class="tut-growth-stat">Real income growth, 2010→2024: <strong>${chgStr}</strong> ` +
              `vs. <strong>${usStr}</strong> nationally — <strong>${gapStr}</strong> the U.S. pace.</div>`;
-    }
-
-    // Zooms the live map to the given region's towns (or the full extent when
-    // regionKey is null/falsy) -- lets the map "follow along" behind the
-    // modal's semi-transparent backdrop as the tour steps through regions,
-    // per explicit request. Excludes Chicago/Suburban Tract detail records
-    // (same exclusion buildRegionAggregateRec's regionMemberRecs uses) so
-    // granular tract polygons don't distort the bounds.
-    function zoomToRegion(regionKey) {
-      if (!geoLayer) return;
-      const bounds = L.latLngBounds([]);
-      geoLayer.eachLayer(layer => {
-        const rec = recordForFeature(layer.feature);
-        if (!rec || rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract') return;
-        if (regionKey && rec.region !== regionKey) return;
-        bounds.extend(layer.getBounds());
-      });
-      if (bounds.isValid()) map.fitBounds(bounds, { padding: [20, 20] });
     }
 
     function render() {
