@@ -871,6 +871,150 @@ const MULTI_SCHOOL_RANKS = {
     "natl": 10179,
     "state": 355,
     "sat": 838, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+
+  // ── Pilot metros (Rockford / Peoria / South Bend), added 2026-08-31 ────────
+  // Same methodology as the Chicagoland schools above: US News 2026-2027
+  // edition (live-fetched profile pages, not cached search snippets), SAT
+  // from each state's own official education-agency data. IMPORTANT: Illinois
+  // stopped administering the SAT as its state assessment after spring 2024
+  // (switched to the ACT starting 2025) -- ISBE's 2025 Report Card has no SAT
+  // sheet at all anymore. So every IL school below (both these new ones and
+  // the ~140 Chicagoland ones above) is pulling from the 2024 ISBE Report
+  // Card, which is now the FINAL SAT figure Illinois will ever publish for
+  // these schools -- there will be no fresher number to refresh to later; a
+  // future test-score refresh for Illinois would have to switch to ACT
+  // subject-score data instead, which is a bigger methodology change, not
+  // something to do silently in a routine data refresh.
+  // Indiana SAT is benchmark-percentage-only (no points-based average
+  // published), same confirmed-null policy as the original ~24 Chicagoland/
+  // NWI Indiana schools. Michigan (Niles) DOES publish a genuine points-based
+  // average via the state's own mischooldata.org "College Readiness"
+  // report -- a new source, not previously used in this dataset.
+  "Auburn High School": {
+    "natl": 4485, "state": 176,
+    "sat": 890, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Rockford East High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 812, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Guilford High School": {
+    "natl": 6253, "state": 237,
+    "sat": 864, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Jefferson High School": {
+    "natl": 12492, "state": 427,
+    "sat": 776, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Belvidere High School": {
+    "natl": 9765, "state": 334,
+    "sat": 852, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Belvidere North High School": {
+    "natl": 6427, "state": 243,
+    "sat": 894, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Harlem High School": {
+    "natl": 4245, "state": 166,
+    "sat": 898, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Hononegah High School": {
+    "natl": 1185, "state": 56,
+    "sat": 1063, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "South Beloit Senior High School": {
+    "natl": 6243, "state": 236,
+    "sat": 946, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "North Boone High School": {
+    "natl": 11863, "state": 402,
+    "sat": 916, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Peoria High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 752, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Manual High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 727, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Richwoods High School": {
+    "natl": 4382, "state": 173,
+    "sat": 914, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Pekin Community High School": {
+    "natl": 5604, "state": 220,
+    "sat": 903, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "East Peoria Community High School": {
+    "natl": 9571, "state": 328,
+    "sat": 882, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Morton High School": {
+    "natl": 1743, "state": 76,
+    "sat": 1055, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Washington Community High School": {
+    "natl": 1838, "state": 80,
+    "sat": 1046, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Illinois Valley Central High School": {
+    "natl": 5120, "state": 200,
+    "sat": 945, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Limestone Community High School": {
+    "natl": 9274, "state": 317,
+    "sat": 902, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Peoria Heights High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 859, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Eureka High School": {
+    "natl": 6724, "state": 252,
+    "sat": 1067, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Metamora Township High School": {
+    "natl": 2432, "state": 99,
+    "sat": 1018, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Adams High School": {
+    "natl": 6194, "state": 165
+  },
+  "Riley High School": {
+    "natl": 9964, "state": 249
+  },
+  "Washington High School": {
+    "natl": 15702, "state": 362,
+    "natlBand": "13,460–17,945", "stateBand": "321–404"
+  },
+  "Elkhart High School": {
+    "natl": 10751, "state": 264
+  },
+  "Mishawaka High School": {
+    "natl": 7786, "state": 210
+  },
+  "Goshen High School": {
+    "natl": 9075, "state": 236
+  },
+  "Penn High School": {
+    "natl": 1523, "state": 28
+  },
+  "Niles Senior High School": {
+    "natl": 6114, "state": 218,
+    "sat": 950, "act": null, "satYear": 2024,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2024-25 school year"
+  },
+  "Concord Community High School": {
+    "natl": 7710, "state": 206
+  },
+  "Bremen Senior High School": {
+    "natl": 4606, "state": 113
   }
 };
 
@@ -3876,6 +4020,244 @@ const SCHOOL_DATA = {
     stateGrade: 'Commendable',
     niche: 'B-', avgACT: 24, avgSAT: 1080,
     note: 'Zion-Benton Township High serves Zion and Benton Township with 2,533 students; 8% math and 16% reading proficiency on state assessments.'
+  },
+
+  // ═══ PILOT METROS (Rockford / Peoria / South Bend), added 2026-08-31 ═════
+  // stateGrade/niche/avgACT/avgSAT intentionally null throughout -- no
+  // verified IL Report Card summative designation or Niche district grade was
+  // gathered for these towns (unlike the original Chicagoland set), and
+  // avgACT/avgSAT are Niche-sourced fallback fields this project's policy
+  // doesn't fabricate. usNewsNational/usNewsState mirror the primary school's
+  // MULTI_SCHOOL_RANKS numbers so this vestigial fallback field starts in
+  // sync rather than introducing new staleness (see school_quality_data
+  // memory re: the index.html:5287 staleness bug this avoids repeating).
+
+  // ── ROCKFORD METRO (IL) ──────────────────────────────────────────────────
+  'Rockford': {
+    hs: ['Auburn High School', 'Rockford East High School', 'Guilford High School', 'Jefferson High School'],
+    district: 'Rockford Public Schools 205',
+    usNewsNational: 4485, usNewsState: 176,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Rockford Public Schools 205 splits students across 4 comprehensive high schools by address (Auburn, East, Guilford, Jefferson); Auburn ranks highest in the district at 176th in Illinois.'
+  },
+  'Belvidere': {
+    hs: ['Belvidere High School', 'Belvidere North High School'],
+    district: 'Belvidere CUSD 100',
+    usNewsNational: 9765, usNewsState: 334,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Belvidere CUSD 100 splits by address between Belvidere High (334th in IL) and the newer Belvidere North High (243rd in IL).'
+  },
+  'Loves Park': {
+    hs: 'Harlem High School',
+    district: 'Harlem UD 122',
+    usNewsNational: 4245, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Most of Loves Park feeds Harlem High School (166th in Illinois); a portion of the town falls in neighboring Belvidere CUSD 100 instead.'
+  },
+  'Machesney Park': {
+    hs: 'Harlem High School',
+    district: 'Harlem UD 122',
+    usNewsNational: 4245, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Harlem High School (Harlem UD 122) serves most of Machesney Park, ranked 166th in Illinois.'
+  },
+  'Roscoe': {
+    hs: 'Hononegah High School',
+    district: 'Hononegah CHD 207',
+    usNewsNational: 1185, usNewsState: 56,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Hononegah High School (in neighboring Rockton) is the shared high school for both Roscoe and Rockton, ranked 56th in Illinois -- the strongest school in the Rockford metro.'
+  },
+  'Rockton': {
+    hs: 'Hononegah High School',
+    district: 'Hononegah CHD 207',
+    usNewsNational: 1185, usNewsState: 56,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Hononegah High School, ranked 56th in Illinois, serves both Rockton and Roscoe -- the strongest school in the Rockford metro.'
+  },
+  'South Beloit': {
+    hs: 'South Beloit Senior High School',
+    district: 'County of Winnebago SD 320',
+    usNewsNational: 6243, usNewsState: 236,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'South Beloit Senior High School, ranked 236th in Illinois, sits on the Wisconsin state line.'
+  },
+  'Candlewick Lake': {
+    hs: ['Belvidere North High School', 'North Boone High School'],
+    district: ['Belvidere CUSD 100', 'North Boone CUSD 200'],
+    usNewsNational: 6427, usNewsState: 243,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Candlewick Lake (unincorporated) splits by address between Belvidere North High (243rd in IL) and North Boone High in Poplar Grove (402nd in IL).'
+  },
+
+  // ── PEORIA METRO (IL) ────────────────────────────────────────────────────
+  'Peoria': {
+    hs: ['Peoria High School', 'Manual High School', 'Richwoods High School'],
+    district: 'Peoria Public Schools 150',
+    usNewsNational: 4382, usNewsState: 173,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Peoria Public Schools 150 splits by address across 3 comprehensive high schools; Richwoods (173rd in IL) is the strongest, while Peoria High and Manual both fall in U.S. News’ unranked bottom band.'
+  },
+  'Pekin': {
+    hs: 'Pekin Community High School',
+    district: 'Pekin CHSD 303',
+    usNewsNational: 5604, usNewsState: 220,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Pekin Community High School ranks 220th in Illinois.'
+  },
+  'East Peoria': {
+    hs: 'East Peoria Community High School',
+    district: 'East Peoria CHSD 309',
+    usNewsNational: 9571, usNewsState: 328,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'East Peoria Community High School (328th in IL) also serves neighboring Creve Coeur.'
+  },
+  'Morton': {
+    hs: 'Morton High School',
+    district: 'Morton CUSD 709',
+    usNewsNational: 1743, usNewsState: 76,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Morton High School ranks 76th in Illinois, the strongest school in the Peoria metro; a small section of Morton falls in East Peoria CHSD 309 instead.'
+  },
+  'Washington': {
+    hs: 'Washington Community High School',
+    district: 'Washington CHSD 308',
+    usNewsNational: 1838, usNewsState: 80,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Washington Community High School ranks 80th in Illinois.'
+  },
+  'Chillicothe': {
+    hs: 'Illinois Valley Central High School',
+    district: 'IVC USD 321',
+    usNewsNational: 5120, usNewsState: 200,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Illinois Valley Central High School ranks 200th in Illinois.'
+  },
+  'Bartonville': {
+    hs: 'Limestone Community High School',
+    district: 'Limestone CHSD 310',
+    usNewsNational: 9274, usNewsState: 317,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Limestone Community High School (317th in IL) serves most of Bartonville; a small eastern edge falls in Peoria Public Schools 150 instead.'
+  },
+  'Peoria Heights': {
+    hs: 'Peoria Heights High School',
+    district: 'Peoria Heights CUSD 325',
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Peoria Heights High School falls in U.S. News’ unranked bottom band (state 469–675th) for the 2026-27 edition.'
+  },
+  'Eureka': {
+    hs: 'Eureka High School',
+    district: 'Eureka CUD 140',
+    usNewsNational: 6724, usNewsState: 252,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Eureka High School ranks 252nd in Illinois.'
+  },
+  'Creve Coeur': {
+    hs: 'East Peoria Community High School',
+    district: 'East Peoria CHSD 309',
+    usNewsNational: 9571, usNewsState: 328,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Creve Coeur shares East Peoria Community High School (328th in IL) with neighboring East Peoria.'
+  },
+  'West Peoria': {
+    hs: ['Limestone Community High School', 'Peoria High School'],
+    district: ['Limestone CHSD 310', 'Peoria Public Schools 150'],
+    usNewsNational: 9274, usNewsState: 317,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'West Peoria splits by address between Limestone Community High (317th in IL) and Peoria High (unranked bottom band).'
+  },
+  'Metamora': {
+    hs: 'Metamora Township High School',
+    district: 'Woodford County THSD 21',
+    usNewsNational: 2432, usNewsState: 99,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Metamora Township High School ranks 99th in Illinois.'
+  },
+
+  // ── SOUTH BEND METRO (IN + 1 MI town) ────────────────────────────────────
+  'South Bend': {
+    hs: ['Adams High School', 'Riley High School', 'Washington High School'],
+    district: 'South Bend Community School Corp',
+    usNewsNational: 6194, usNewsState: 165,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'South Bend Community School Corp splits by address across Adams (165th in IN), Riley (249th), and Washington (unranked bottom band); a 4th school, Clay High, closed after the 2023-24 year and its zone was absorbed into these three. Indiana publishes no points-based SAT average for any school.'
+  },
+  'Elkhart': {
+    hs: 'Elkhart High School',
+    district: 'Elkhart Community Schools',
+    usNewsNational: 10751, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Elkhart High School (264th in IN) formed from the 2021 merger of the former Central and Memorial high schools; also serves neighboring Simonton Lake.'
+  },
+  'Mishawaka': {
+    hs: 'Mishawaka High School',
+    district: 'School City of Mishawaka',
+    usNewsNational: 7786, usNewsState: 210,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Mishawaka High School ranks 210th in Indiana; Penn High School is physically sited in Mishawaka but belongs to the separate Penn-Harris-Madison district and does not serve Mishawaka’s own students.'
+  },
+  'Goshen': {
+    hs: 'Goshen High School',
+    district: 'Goshen Community Schools',
+    usNewsNational: 9075, usNewsState: 236,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Goshen High School ranks 236th in Indiana.'
+  },
+  'Granger': {
+    hs: 'Penn High School',
+    district: 'Penn-Harris-Madison School Corp',
+    usNewsNational: 1523, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Penn High School ranks 28th in Indiana, the strongest school in the South Bend metro -- the sole comprehensive high school for all of Penn-Harris-Madison’s territory, including Granger.'
+  },
+  // Key disambiguated as 'Niles (MI)' -- collides by bare name with the
+  // pre-existing Chicagoland 'Niles' (Cook County, IL). index.html's
+  // composite_score block and buildRows() both special-case this the same
+  // way the existing 'Winfield (IN)' collision is handled (search this repo
+  // for "Niles' && d.state === 'MI'" if this key is ever renamed).
+  'Niles (MI)': {
+    hs: 'Niles Senior High School',
+    district: 'Niles Community Schools',
+    usNewsNational: 6114, usNewsState: 218,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Niles Senior High School ranks 218th in Michigan; unlike Indiana, Michigan publishes a genuine points-based average SAT score per school (949.5, 2024-25) via mischooldata.org.'
+  },
+  'Notre Dame': {
+    hs: ['Adams High School', 'Riley High School', 'Washington High School'],
+    district: 'South Bend Community School Corp',
+    usNewsNational: 6194, usNewsState: 165,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Notre Dame (unincorporated, adjacent to the University) was formerly zoned to Clay High School, which closed after 2023-24; now splits like South Bend proper across Adams, Riley, and Washington by address.'
+  },
+  'Dunlap': {
+    hs: 'Concord Community High School',
+    district: 'Concord Community Schools',
+    usNewsNational: 7710, usNewsState: 206,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Concord Community Schools, headquartered in Dunlap, ranks 206th in Indiana.'
+  },
+  'Bremen': {
+    hs: 'Bremen Senior High School',
+    district: 'Bremen Public Schools',
+    usNewsNational: 4606, usNewsState: 113,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bremen Senior High School ranks 113th in Indiana.'
+  },
+  'Simonton Lake': {
+    hs: 'Elkhart High School',
+    district: 'Elkhart Community Schools',
+    usNewsNational: 10751, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Simonton Lake shares Elkhart High School (264th in IN) with the city of Elkhart.'
   },
 
 };

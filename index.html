@@ -707,25 +707,6 @@
   .rl-item { display: inline-flex; align-items: center; gap: 3px; }
   .rl-swatch { display: inline-block; width: 8px; height: 8px; border-radius: 1px; flex-shrink: 0; }
 
-  /* Health score badge -- originally side-pane-only, now also used by the
-     population banner's condensed Health Snapshot stat block. */
-  .sp-health-badge {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
-    letter-spacing: 0.06em; padding: 2px 6px; border-radius: 3px;
-    margin-left: 6px; vertical-align: middle;
-  }
-  .sp-health-thriving    { background: #1d6b3a; color: #fff; }
-  .sp-health-strong      { background: #4a7a5e; color: #fff; }
-  .sp-health-recovering  { background: #2a7a8c; color: #fff; }
-  .sp-health-stabilized  { background: #c98a3a; color: #fff; }
-  .sp-health-declining   { background: #c06030; color: #fff; }
-  .sp-health-crisis      { background: #b0392f; color: #fff; }
-  /* legacy aliases kept so any cached tooltip code doesn't break */
-  .sp-health-stable   { background: #4a7a5e; color: #fff; }
-  .sp-health-watch    { background: #c98a3a; color: #fff; }
-  .sp-health-at-risk  { background: #b0392f; color: #fff; }
-
   .leaflet-container { font-family: 'Inter Tight', sans-serif; background: #e8e4dc; }
 
   .leaflet-popup-content-wrapper {
@@ -1795,6 +1776,16 @@
     <div class="filter-cluster">
       <span class="cluster-badge">filters</span>
       <div class="filter-item">
+        <label for="metro-filter">metro</label>
+        <select id="metro-filter">
+          <option value="all">All Metros</option>
+          <option value="Chicagoland" selected>Chicagoland</option>
+          <option value="Rockford">Rockford</option>
+          <option value="Peoria">Peoria</option>
+          <option value="South Bend">South Bend</option>
+        </select>
+      </div>
+      <div class="filter-item">
         <label for="region-filter">region</label>
         <select id="region-filter">
           <option value="all">All</option>
@@ -1957,6 +1948,14 @@
 <script src="school_data_lookup.js"></script>
 <script>
   /* ===== Setup ===== */
+  // Gates the runtime data-verification passes below (re-derives
+  // community_category/bivariate_level/historical health scores from raw
+  // data and diffs against the stored values) -- real, useful sanity checks
+  // during development, but otherwise a handful of full DATA.forEach passes
+  // every single page load with zero benefit to a visitor. Off by default;
+  // append ?debug=1 to the URL to see them in the console.
+  const DEBUG = new URLSearchParams(location.search).has('debug');
+
   const map = L.map('map', {
     zoomControl: true,
     preferCanvas: true,    // canvas renderer is faster for many polygons
@@ -2313,11 +2312,25 @@
       ? d.map_home_value / d.median_hh_income : null;
 
     // Real (inflation-adjusted) change between any two history points.
-    // pci_history / mhi_history / age_history are [1990, 2000, 2010, 2024]
-    // (CCAs have null at the 1990 position).
-    const ph = d.pci_history || [null, null, null, null];
-    const mh = d.mhi_history || [null, null, null, null];
-    const ah = d.age_history || [null, null, null, null];
+    // pci_history / mhi_history / age_history are usually [1990, 2000, 2010,
+    // 2024] (CCAs have null at the 1990 position) -- but NOT always: a pilot
+    // metro record (added 2026-08-31, see fetch_pilot_metro_history.py) has
+    // no 1990 data at all and uses a 3-element [2000, 2010, 2024] instead.
+    // Reading these arrays by a hardcoded fixed index used to assume "index
+    // 0 is always 1990", which silently produced WRONG values for any
+    // record whose history_years didn't match the 4-element shape (caught
+    // when a pilot town's 2000 income rendered mislabeled as "1990" in its
+    // bar chart). histAt() looks up the correct slot via history_years
+    // itself, so this now works for any array shape.
+    const hy = d.history_years || [1990, 2000, 2010, 2024];
+    function histAt(arr, year) {
+      if (!arr) return null;
+      const idx = hy.indexOf(year);
+      return idx === -1 ? null : arr[idx];
+    }
+    const ph = d.pci_history || null;
+    const mh = d.mhi_history || null;
+    const ah = d.age_history || null;
     // pci_1980/mhi_1980/age_1980 only exist on Chicago CCA and suburb
     // records (never Chicago Tracts) — normalize to null rather than leaving
     // undefined, for the same reason as the 1990 coalescing below.
@@ -2332,64 +2345,65 @@
     }
     // Chicago CCAs carry their 1990 figures as standalone scalar fields
     // (pci_1990/mhi_1990/age_1990, loaded straight from the snippet) rather
-    // than index 0 of the history array, which is still null for them — the
-    // CCA tract-level 1990 backfill never touched the main history arrays.
-    // Capture those raw values *before* the point-in-time assignments below
-    // overwrite pci_1990/etc with ph[0] (which would otherwise null them out
-    // for every CCA), and use them as the 1990 figure wherever ph[0]/mh[0]/
-    // ah[0] is empty.
+    // than the 1990 slot of the history array, which is still null for
+    // them — the CCA tract-level 1990 backfill never touched the main
+    // history arrays. Capture those raw values *before* the point-in-time
+    // assignments below overwrite pci_1990/etc with histAt(ph, 1990) (which
+    // would otherwise null them out for every CCA, and returns null outright
+    // for a pilot record with no 1990 in history_years at all), and use them
+    // as the 1990 figure wherever the history array doesn't have one.
     // Coalesce all the way to null (never leave as undefined) — Chicago
     // Tracts have neither a history array nor a standalone *_1990 field, and
     // row()/sub() in the side pane treat undefined specially (falls back to
     // showing the *current* value) versus null (shows "—"), so an undefined
     // here would silently duplicate the 2024 figure into the 1990/1980 rows.
-    const pci1990 = ph[0] != null ? ph[0] : (d.pci_1990 != null ? d.pci_1990 : null);
-    const mhi1990 = mh[0] != null ? mh[0] : (d.mhi_1990 != null ? d.mhi_1990 : null);
-    const age1990 = ah[0] != null ? ah[0] : (d.age_1990 != null ? d.age_1990 : null);
+    const pci1990 = histAt(ph, 1990) != null ? histAt(ph, 1990) : (d.pci_1990 != null ? d.pci_1990 : null);
+    const mhi1990 = histAt(mh, 1990) != null ? histAt(mh, 1990) : (d.mhi_1990 != null ? d.mhi_1990 : null);
+    const age1990 = histAt(ah, 1990) != null ? histAt(ah, 1990) : (d.age_1990 != null ? d.age_1990 : null);
     // 1980 is Chicago-CCA-only data, stored as standalone scalar fields
     // (pci_1980/mhi_1980/age_1980) rather than a history-array slot — null
     // for every non-CCA record, which pctChange/absChange already handle.
     d.pci_change_pct_80_24 = pctChange(d.pci_1980, d.per_capita_income);
     d.mhi_change_pct_80_24 = pctChange(d.mhi_1980, d.median_hh_income);
     d.age_change_80_24     = absChange(d.age_1980, d.median_age);
-    d.pci_change_pct_90_24 = pctChange(pci1990, ph[3]);
-    d.pci_change_pct       = pctChange(ph[1], ph[3]);  // 2000→2024 (legacy key)
-    d.pci_change_pct_10_24 = pctChange(ph[2], ph[3]);
-    d.pci_change_pct_20_24 = pctChange(d.pci_2020, ph[3]);
-    d.mhi_change_pct_90_24 = pctChange(mhi1990, mh[3]);
-    d.mhi_change_pct       = pctChange(mh[1], mh[3]);
-    d.mhi_change_pct_10_24 = pctChange(mh[2], mh[3]);
-    d.mhi_change_pct_20_24 = pctChange(d.mhi_2020, mh[3]);
-    d.age_change_90_24     = absChange(age1990, ah[3]);
-    d.age_change           = absChange(ah[1], ah[3]);
-    d.age_change_10_24     = absChange(ah[2], ah[3]);
-    d.age_change_20_24     = absChange(d.age_2020, ah[3]);
+    d.pci_change_pct_90_24 = pctChange(pci1990, histAt(ph, 2024));
+    d.pci_change_pct       = pctChange(histAt(ph, 2000), histAt(ph, 2024));  // 2000→2024 (legacy key)
+    d.pci_change_pct_10_24 = pctChange(histAt(ph, 2010), histAt(ph, 2024));
+    d.pci_change_pct_20_24 = pctChange(d.pci_2020, histAt(ph, 2024));
+    d.mhi_change_pct_90_24 = pctChange(mhi1990, histAt(mh, 2024));
+    d.mhi_change_pct       = pctChange(histAt(mh, 2000), histAt(mh, 2024));
+    d.mhi_change_pct_10_24 = pctChange(histAt(mh, 2010), histAt(mh, 2024));
+    d.mhi_change_pct_20_24 = pctChange(d.mhi_2020, histAt(mh, 2024));
+    d.age_change_90_24     = absChange(age1990, histAt(ah, 2024));
+    d.age_change           = absChange(histAt(ah, 2000), histAt(ah, 2024));
+    d.age_change_10_24     = absChange(histAt(ah, 2010), histAt(ah, 2024));
+    d.age_change_20_24     = absChange(d.age_2020, histAt(ah, 2024));
     // Decade-by-decade changes (enable scrubber on change metrics)
-    d.pci_change_pct_90_00 = pctChange(pci1990, ph[1]);   // 1990→2000
-    d.pci_change_pct_00_10 = pctChange(ph[1], ph[2]);     // 2000→2010
-    d.pci_change_pct_90_10 = pctChange(pci1990, ph[2]);   // 1990→2010
-    d.mhi_change_pct_90_00 = pctChange(mhi1990, mh[1]);
-    d.mhi_change_pct_00_10 = pctChange(mh[1], mh[2]);
-    d.mhi_change_pct_90_10 = pctChange(mhi1990, mh[2]);
-    d.age_change_90_00     = absChange(age1990, ah[1]);
-    d.age_change_00_10     = absChange(ah[1], ah[2]);
-    d.age_change_90_10     = absChange(age1990, ah[2]);
+    d.pci_change_pct_90_00 = pctChange(pci1990, histAt(ph, 2000));   // 1990→2000
+    d.pci_change_pct_00_10 = pctChange(histAt(ph, 2000), histAt(ph, 2010));     // 2000→2010
+    d.pci_change_pct_90_10 = pctChange(pci1990, histAt(ph, 2010));   // 1990→2010
+    d.mhi_change_pct_90_00 = pctChange(mhi1990, histAt(mh, 2000));
+    d.mhi_change_pct_00_10 = pctChange(histAt(mh, 2000), histAt(mh, 2010));
+    d.mhi_change_pct_90_10 = pctChange(mhi1990, histAt(mh, 2010));
+    d.age_change_90_00     = absChange(age1990, histAt(ah, 2000));
+    d.age_change_00_10     = absChange(histAt(ah, 2000), histAt(ah, 2010));
+    d.age_change_90_10     = absChange(age1990, histAt(ah, 2010));
     // Point-in-time historical values (all income in 2024 $)
-    d.pci_1990 = pci1990; d.pci_2000 = ph[1]; d.pci_2010 = ph[2];
-    d.mhi_1990 = mhi1990; d.mhi_2000 = mh[1]; d.mhi_2010 = mh[2];
-    d.age_1990 = age1990; d.age_2000 = ah[1]; d.age_2010 = ah[2];
+    d.pci_1990 = pci1990; d.pci_2000 = histAt(ph, 2000); d.pci_2010 = histAt(ph, 2010);
+    d.mhi_1990 = mhi1990; d.mhi_2000 = histAt(mh, 2000); d.mhi_2010 = histAt(mh, 2010);
+    d.age_1990 = age1990; d.age_2000 = histAt(ah, 2000); d.age_2010 = histAt(ah, 2010);
     // Nominal (non-inflation-adjusted) point-in-time MHI/PCI — needed by the
     // historical Community Health Score below, which ranks a town against its
     // *contemporary* peers (nominal dollars of that same year), not against
     // 2024-dollar-adjusted figures. Same CCA-scalar-fallback pattern as the
     // real pci1990/mhi1990 coalescing above, since CCAs carry their 1990
     // nominal figure as a standalone scalar field too.
-    const mhN = d.mhi_history_nominal || [null, null, null, null];
-    const phN = d.pci_history_nominal || [null, null, null, null];
-    const mhi1990Nom = mhN[0] != null ? mhN[0] : (d.mhi_1990_nominal != null ? d.mhi_1990_nominal : null);
-    const pci1990Nom = phN[0] != null ? phN[0] : (d.pci_1990_nominal != null ? d.pci_1990_nominal : null);
-    d.hist_mhi_1990_nom = mhi1990Nom; d.hist_mhi_2000_nom = mhN[1]; d.hist_mhi_2010_nom = mhN[2];
-    d.hist_pci_1990_nom = pci1990Nom; d.hist_pci_2000_nom = phN[1]; d.hist_pci_2010_nom = phN[2];
+    const mhN = d.mhi_history_nominal || null;
+    const phN = d.pci_history_nominal || null;
+    const mhi1990Nom = histAt(mhN, 1990) != null ? histAt(mhN, 1990) : (d.mhi_1990_nominal != null ? d.mhi_1990_nominal : null);
+    const pci1990Nom = histAt(phN, 1990) != null ? histAt(phN, 1990) : (d.pci_1990_nominal != null ? d.pci_1990_nominal : null);
+    d.hist_mhi_1990_nom = mhi1990Nom; d.hist_mhi_2000_nom = histAt(mhN, 2000); d.hist_mhi_2010_nom = histAt(mhN, 2010);
+    d.hist_pci_1990_nom = pci1990Nom; d.hist_pci_2000_nom = histAt(phN, 2000); d.hist_pci_2010_nom = histAt(phN, 2010);
     // 1980→1990 real income change — the one decade-pair the existing
     // pci_change_pct_90_00 / _00_10 fields don't already cover, needed so the
     // historical health score's 1990 trajectory has a prior-point comparison
@@ -2815,6 +2829,7 @@
   // below, and doubles as the exact numbers needed to sanity-check the
   // historical scores against 2024's already-verified distribution.
   (function verifyHistoricalHealthScores() {
+    if (!DEBUG) return;
     const coverage = { full: 0, partial: 0, none: 0 };
     DATA.forEach(rec => {
       if (rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract') return;
@@ -3115,80 +3130,107 @@
   function isHeadcountMetric(metric) { return (HEADCOUNT_METRICS.has(metric) || metric.startsWith('num_')) && !metric.includes('_chg_'); }
 
   // Compact format for the small in-polygon label (no commas where possible)
-  function fmtLabel(metric, v) {
-    if (v == null || isNaN(v)) return '—';
-    if (isHeadcountMetric(metric)) {
-      if (v >= 1_000_000) return (v / 1e6).toFixed(1) + 'M';
-      if (v >= 1000)      return Math.round(v / 1000) + 'K';
-      return String(Math.round(v));
-    }
-    if (metric === 'household_size') return v.toFixed(1);
-    if (metric === 'community_health_score') return v.toFixed(0);
-    if (metric.startsWith('health_score_chg_')) return (v >= 0 ? '+' : '') + v.toFixed(0) + ' pts';
-    if (metric === 'violent_crime_rate_per_1k' || metric === 'property_crime_rate_per_1k' || metric === 'crime_index_per_1k') return v.toFixed(1);
-    if (metric === 'demographic_churn_10_24' || metric === 'demographic_churn_00_24') return v.toFixed(1) + 'pp';
-    if (metric.startsWith('population_change_pct')) return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
-    if (metric.startsWith('pct_bachelors_chg')) return (v > 0 ? '+' : '') + v.toFixed(1) + 'pp';
-    if (metric.startsWith('rent_change_pct')) return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
-    if (metric === 'price_income_ratio') return v.toFixed(1) + 'x';
-    if (metric === 'median_age' || metric === 'age_1990' || metric === 'age_2000' || metric === 'age_2010' || metric === 'age_2020') return v.toFixed(0);
-    if (metric.startsWith('age_change')) return (v >= 0 ? '+' : '') + v.toFixed(1);
-    if (metric === 'effective_property_tax_rate') return v.toFixed(2) + '%';
+  // Single source of truth for which formatting rule applies to a metric --
+  // fmtLabel (compact, for in-polygon labels) and fmtVal (verbose, for
+  // hover cards/popups) used to each carry their own copy of this exact
+  // branch cascade, which meant a new metric pattern -- or a reordering,
+  // like the num_*_chg_ vs generic _chg_ collision noted below -- had to be
+  // applied twice and could silently drift out of sync between the two
+  // display modes. Classify once here; each formatter only owns its own
+  // precision/suffix per kind.
+  function metricKind(metric) {
+    if (isHeadcountMetric(metric)) return 'headcount';
+    if (metric === 'household_size') return 'household_size';
+    if (metric === 'community_health_score') return 'health_score';
+    if (metric.startsWith('health_score_chg_')) return 'health_score_chg';
+    if (metric === 'violent_crime_rate_per_1k') return 'crime_violent';
+    if (metric === 'property_crime_rate_per_1k') return 'crime_property';
+    if (metric === 'crime_index_per_1k') return 'crime_index';
+    if (metric === 'demographic_churn_10_24' || metric === 'demographic_churn_00_24') return 'churn';
+    if (metric.startsWith('population_change_pct')) return 'population_change';
+    if (metric.startsWith('pct_bachelors_chg')) return 'bachelors_chg';
+    if (metric.startsWith('rent_change_pct')) return 'rent_change';
+    if (metric === 'price_income_ratio') return 'price_ratio';
+    if (metric === 'median_age' || metric === 'age_1990' || metric === 'age_2000' || metric === 'age_2010' || metric === 'age_2020') return 'age';
+    if (metric.startsWith('age_change')) return 'age_change';
+    if (metric === 'effective_property_tax_rate') return 'tax_rate';
     // Race HEADCOUNT change (num_<group>_chg_YY_24) is a real % change in a
     // count, like population_change_pct -- not a percentage-point delta.
     // Must be checked before the generic pct-share _chg_ branch below, since
     // both share the '_chg_' substring.
-    if (metric.startsWith('num_') && metric.includes('_chg_')) return (v >= 0 ? '+' : '') + v.toFixed(1) + '%';
+    if (metric.startsWith('num_') && metric.includes('_chg_')) return 'num_chg_pct';
     // Race share-change fields are percentage-POINT deltas, not percentages.
-    if (metric.includes('_chg_')) return (v >= 0 ? '+' : '-') + Math.abs(v).toFixed(1) + ' pp';
-    if (metric.startsWith('pct_')) return v.toFixed(0) + '%';
-    if (metric.startsWith('pci_change_pct') || metric.startsWith('mhi_change_pct')) {
-      return (v >= 0 ? '+' : '') + v.toFixed(0) + '%';
+    if (metric.includes('_chg_')) return 'pct_chg_pp';
+    if (metric.startsWith('pct_')) return 'pct';
+    if (metric.startsWith('pci_change_pct') || metric.startsWith('mhi_change_pct')) return 'pci_mhi_change';
+    if (metric === 'total_income_m') return 'total_income';
+    if (metric === 'median_gross_rent' || metric === 'median_gross_rent_2010' || metric === 'median_gross_rent_2020') return 'gross_rent';
+    return 'money'; // PCI / MHI / median family income / disposable / home value / tax / housing cost
+  }
+
+  function fmtLabel(metric, v) {
+    if (v == null || isNaN(v)) return '—';
+    switch (metricKind(metric)) {
+      case 'headcount':
+        if (v >= 1_000_000) return (v / 1e6).toFixed(1) + 'M';
+        if (v >= 1000)      return Math.round(v / 1000) + 'K';
+        return String(Math.round(v));
+      case 'household_size':    return v.toFixed(1);
+      case 'health_score':      return v.toFixed(0);
+      case 'health_score_chg':  return (v >= 0 ? '+' : '') + v.toFixed(0) + ' pts';
+      case 'crime_violent': case 'crime_property': case 'crime_index':
+        return v.toFixed(1);
+      case 'churn':              return v.toFixed(1) + 'pp';
+      case 'population_change':  return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+      case 'bachelors_chg':      return (v > 0 ? '+' : '') + v.toFixed(1) + 'pp';
+      case 'rent_change':        return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+      case 'price_ratio':        return v.toFixed(1) + 'x';
+      case 'age':                return v.toFixed(0);
+      case 'age_change':         return (v >= 0 ? '+' : '') + v.toFixed(1);
+      case 'tax_rate':           return v.toFixed(2) + '%';
+      case 'num_chg_pct':        return (v >= 0 ? '+' : '') + v.toFixed(1) + '%';
+      case 'pct_chg_pp':         return (v >= 0 ? '+' : '-') + Math.abs(v).toFixed(1) + ' pp';
+      case 'pct':                return v.toFixed(0) + '%';
+      case 'pci_mhi_change':     return (v >= 0 ? '+' : '') + v.toFixed(0) + '%';
+      case 'total_income':
+        if (v >= 1000) return '$' + Math.round(v / 1000) + 'B';
+        return '$' + Math.round(v) + 'M';
+      case 'gross_rent': // monthly rent is small enough to show with commas
+        return '$' + Math.round(v).toLocaleString();
+      default: // money
+        if (v >= 1_000_000) return '$' + (v / 1e6).toFixed(1) + 'M';
+        if (v >= 1000)      return '$' + Math.round(v / 1000) + 'K';
+        return '$' + Math.round(v);
     }
-    if (metric === 'total_income_m') {
-      if (v >= 1000) return '$' + Math.round(v / 1000) + 'B';
-      return '$' + Math.round(v) + 'M';
-    }
-    if (metric === 'median_gross_rent' || metric === 'median_gross_rent_2010' || metric === 'median_gross_rent_2020') {
-      // monthly rent is small enough to show with commas
-      return '$' + Math.round(v).toLocaleString();
-    }
-    // money — PCI / MHI / median family income / disposable / home value / tax / housing cost
-    if (v >= 1_000_000) return '$' + (v / 1e6).toFixed(1) + 'M';
-    if (v >= 1000)      return '$' + Math.round(v / 1000) + 'K';
-    return '$' + Math.round(v);
   }
 
   function fmtVal(metric, v) {
     if (v == null) return '—';
-    if (isHeadcountMetric(metric)) return v.toLocaleString();
-    if (metric === 'household_size') return v.toFixed(2);
-    if (metric === 'community_health_score') return v.toFixed(1);
-    if (metric.startsWith('health_score_chg_')) return (v >= 0 ? '+' : '') + v.toFixed(1) + ' pts';
-    if (metric === 'violent_crime_rate_per_1k') return v.toFixed(1) + ' per 1k';
-    if (metric === 'property_crime_rate_per_1k') return v.toFixed(1) + ' per 1k';
-    if (metric === 'crime_index_per_1k') return v.toFixed(1) + ' index';
-    if (metric === 'demographic_churn_10_24' || metric === 'demographic_churn_00_24') return v.toFixed(1) + ' pp churn';
-    if (metric.startsWith('population_change_pct')) return (v > 0 ? '+' : '') + v.toFixed(1) + '% pop change';
-    if (metric.startsWith('pct_bachelors_chg')) return (v > 0 ? '+' : '') + v.toFixed(1) + ' pp educ';
-    if (metric.startsWith('rent_change_pct')) return (v > 0 ? '+' : '') + v.toFixed(1) + '% rent';
-    if (metric === 'price_income_ratio') return v.toFixed(2) + 'x';
-    if (metric === 'median_age' || metric === 'age_1990' || metric === 'age_2000' || metric === 'age_2010' || metric === 'age_2020') return v.toFixed(1) + ' yrs';
-    if (metric.startsWith('age_change')) return (v >= 0 ? '+' : '') + v.toFixed(1) + ' yrs';
-    if (metric === 'effective_property_tax_rate') return v.toFixed(2) + '%';
-    // Race HEADCOUNT change (num_<group>_chg_YY_24) is a real % change in a
-    // count -- checked before the pct-share _chg_ branch below since both
-    // share the '_chg_' substring.
-    if (metric.startsWith('num_') && metric.includes('_chg_')) return (v >= 0 ? '+' : '') + v.toFixed(1) + '% change';
-    // Race share-change fields (pct_X_chg_YY_ZZ) are percentage-POINT deltas,
-    // not percentages -- "pp" avoids reading as a headcount/rate change.
-    if (metric.includes('_chg_')) return (v >= 0 ? '+' : '-') + Math.abs(v).toFixed(1) + ' pp';
-    if (metric.startsWith('pct_')) return v.toFixed(1) + '%';
-    if (metric.startsWith('pci_change_pct') || metric.startsWith('mhi_change_pct')) {
-      return (v >= 0 ? '+' : '') + v.toFixed(1) + '%';
+    switch (metricKind(metric)) {
+      case 'headcount':          return v.toLocaleString();
+      case 'household_size':     return v.toFixed(2);
+      case 'health_score':       return v.toFixed(1);
+      case 'health_score_chg':   return (v >= 0 ? '+' : '') + v.toFixed(1) + ' pts';
+      case 'crime_violent':      return v.toFixed(1) + ' per 1k';
+      case 'crime_property':     return v.toFixed(1) + ' per 1k';
+      case 'crime_index':        return v.toFixed(1) + ' index';
+      case 'churn':               return v.toFixed(1) + ' pp churn';
+      case 'population_change':   return (v > 0 ? '+' : '') + v.toFixed(1) + '% pop change';
+      case 'bachelors_chg':       return (v > 0 ? '+' : '') + v.toFixed(1) + ' pp educ';
+      case 'rent_change':         return (v > 0 ? '+' : '') + v.toFixed(1) + '% rent';
+      case 'price_ratio':         return v.toFixed(2) + 'x';
+      case 'age':                 return v.toFixed(1) + ' yrs';
+      case 'age_change':          return (v >= 0 ? '+' : '') + v.toFixed(1) + ' yrs';
+      case 'tax_rate':            return v.toFixed(2) + '%';
+      case 'num_chg_pct':         return (v >= 0 ? '+' : '') + v.toFixed(1) + '% change';
+      case 'pct_chg_pp':          return (v >= 0 ? '+' : '-') + Math.abs(v).toFixed(1) + ' pp';
+      case 'pct':                 return v.toFixed(1) + '%';
+      case 'pci_mhi_change':      return (v >= 0 ? '+' : '') + v.toFixed(1) + '%';
+      case 'total_income':        return '$' + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(1));
+      case 'gross_rent':
+      default: // money (incl. disposable + home value + tax + rent + housing)
+        return '$' + Math.round(v).toLocaleString();
     }
-    if (metric === 'total_income_m') return '$' + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(1));
-    return '$' + Math.round(v).toLocaleString();   // money (incl. disposable + home value + tax + rent + housing)
   }
   const METRIC_LABELS = {
     per_capita_income:    'Per Capita Income',
@@ -3675,6 +3717,74 @@
   // straight onto the bars' own 0-BH pixel range) OVERLAID directly on the
   // bars, not in a separate band -- a white line with a dark halo so it
   // stays legible over every group's bar color, light or dark.
+  // Shared rendering primitives for the 4 per-town history bar charts below
+  // (race, MHI, median age, % bachelor's+) -- they used to each carry their
+  // own copy of the bar-geometry math, the bar+label render loop, and the
+  // Δ-bracket render loop (~30 duplicated lines apiece). Extracted here so
+  // all 4 charts stay pixel-aligned by construction instead of by four
+  // separately-maintained copies of the same formulas, and so a layout
+  // tweak (bar width, gap, bracket height) only has one place to change.
+  // Each chart function still owns its own data shaping, colors, and label
+  // formatting -- only the mechanical SVG-string assembly is shared.
+
+  function barChartGeometry(colCount) {
+    const BW = colCount >= 5 ? 34 : colCount === 4 ? 39 : 46;
+    const GAP = POP_CHART_GAP;
+    const BH = 60;
+    const BRACKET_H = 20;   // fixed top zone for the Δ brackets
+    const VAL_LABEL_H = 15; // headroom for each bar's own value label
+    const YEAR_LABEL_H = 20;
+    return {
+      BW, GAP, BH, BRACKET_H, VAL_LABEL_H, YEAR_LABEL_H,
+      SVG_H: BRACKET_H + VAL_LABEL_H + BH + YEAR_LABEL_H,
+      baseline: BRACKET_H + VAL_LABEL_H + BH,
+      W: colCount * BW + (colCount + 1) * GAP,
+    };
+  }
+
+  // Renders one bar + value label (above) + year label (below) per column.
+  // opts: { minFrac, metric(col)->number, colorFor(col)->css, valueLabel(col)->str, title(col)->str }
+  // Returns the SVG markup plus each bar's center-x/top (the brackets need both).
+  function renderBarColumns(COLS, geo, opts) {
+    const { BW, GAP, BH, baseline } = geo;
+    const maxVal = Math.max(...COLS.map(opts.metric));
+    let svg = '';
+    const barCenterX = [];
+    const barTop = [];
+    COLS.forEach((col, ci) => {
+      const x = GAP + ci * (BW + GAP);
+      const barH = Math.max(opts.minFrac, opts.metric(col) / maxVal) * BH;
+      const top = baseline - barH;
+      barCenterX.push(x + BW / 2);
+      barTop.push(top);
+      svg += `<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="${opts.colorFor(col)}" rx="1.5">` +
+               `<title>${opts.title(col)}</title></rect>` +
+             `<text x="${(x + BW / 2).toFixed(1)}" y="${(top - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${opts.valueLabel(col)}</text>` +
+             `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
+    });
+    return { svg, barCenterX, barTop, maxVal };
+  }
+
+  // Renders the period-over-period Δ bracket row above the bars.
+  // opts: { delta(colA,colB)->number, colorFor(chg)->css, label(chg)->str }
+  function renderDeltaBrackets(COLS, barCenterX, geo, opts) {
+    const bracketY = geo.BRACKET_H - 6;
+    const legDrop = 4;
+    let svg = '';
+    for (let i = 0; i < COLS.length - 1; i++) {
+      const chg = opts.delta(COLS[i], COLS[i + 1]);
+      const color = opts.colorFor(chg);
+      const x1 = barCenterX[i], x2 = barCenterX[i + 1];
+      const midX = (x1 + x2) / 2;
+      svg += `<path d="M${x1.toFixed(1)},${(bracketY + legDrop).toFixed(1)} ` +
+               `L${x1.toFixed(1)},${bracketY.toFixed(1)} L${x2.toFixed(1)},${bracketY.toFixed(1)} ` +
+               `L${x2.toFixed(1)},${(bracketY + legDrop).toFixed(1)}" ` +
+               `fill="none" stroke="${color}" stroke-width="1.25" opacity="0.75"/>` +
+             `<text x="${midX.toFixed(1)}" y="${(bracketY - 3).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="9" font-weight="600">${opts.label(chg)}</text>`;
+    }
+    return svg;
+  }
+
   function raceGroupBarChartSVG(rec, groupKey) {
     const YEARS = [1980, 1990, 2000, 2010, 2024];
     function shareAt(yr) { return yr === 2024 ? rec[`pct_${groupKey}`] : rec[raceShareField(groupKey, yr)]; }
@@ -3686,57 +3796,31 @@
     }).filter(c => c.count != null);
     if (COLS.length < 2) return '';
 
-    const BW = COLS.length >= 5 ? 34 : COLS.length === 4 ? 39 : 46;
-    const GAP = POP_CHART_GAP;
-    const BH = 60;
-    const MIN_FRAC = 0.15;
-    const BRACKET_H = 20;   // Δ% vs Prior (headcount) brackets
-    const VAL_LABEL_H = 15; // headcount value label above each bar
-    const YEAR_LABEL_H = 20;
-    const SVG_H = BRACKET_H + VAL_LABEL_H + BH + YEAR_LABEL_H;
-    const baseline = BRACKET_H + VAL_LABEL_H + BH;
-    const W = COLS.length * BW + (COLS.length + 1) * GAP;
-    const maxCount = Math.max(...COLS.map(c => c.count));
+    const geo = barChartGeometry(COLS.length);
     const color = RACE_GROUP_COLORS[groupKey] || '#5c7d8a';
 
-    let r = '';
-    const barCenterX = [];
-    const barTopArr = [];
-    COLS.forEach((col, ci) => {
-      const x = GAP + ci * (BW + GAP);
-      barCenterX.push(x + BW / 2);
-      const barH = Math.max(MIN_FRAC, col.count / maxCount) * BH;
-      const barTop = baseline - barH;
-      barTopArr.push(barTop);
-      const label = col.count >= 1000 ? (col.count / 1000).toFixed(1) + 'K' : String(col.count);
-      r += `<rect x="${x.toFixed(1)}" y="${barTop.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="${color}" rx="1.5">` +
-             `<title>${col.yr}: ${col.count.toLocaleString()} people (${col.share.toFixed(1)}% of total)</title></rect>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(barTop - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${label}</text>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
+    const { svg: barsSvg, barCenterX, barTop } = renderBarColumns(COLS, geo, {
+      minFrac: 0.15,
+      metric: c => c.count,
+      colorFor: () => color,
+      valueLabel: c => c.count >= 1000 ? (c.count / 1000).toFixed(1) + 'K' : String(c.count),
+      title: c => `${c.yr}: ${c.count.toLocaleString()} people (${c.share.toFixed(1)}% of total)`,
     });
+    let r = barsSvg;
 
     // Δ% vs Prior bracket (headcount change), same fixed top zone as the
     // income/population charts.
-    const bracketY = BRACKET_H - 6;
-    const legDrop = 4;
-    for (let i = 0; i < COLS.length - 1; i++) {
-      const chg = (COLS[i + 1].count - COLS[i].count) / COLS[i].count * 100;
-      const c = chg >= 0 ? '#2a7a4a' : '#c0392b';
-      const sign = chg >= 0 ? '+' : '';
-      const x1 = barCenterX[i], x2 = barCenterX[i + 1];
-      const midX = (x1 + x2) / 2;
-      r += `<path d="M${x1.toFixed(1)},${(bracketY + legDrop).toFixed(1)} ` +
-             `L${x1.toFixed(1)},${bracketY.toFixed(1)} L${x2.toFixed(1)},${bracketY.toFixed(1)} ` +
-             `L${x2.toFixed(1)},${(bracketY + legDrop).toFixed(1)}" ` +
-             `fill="none" stroke="${c}" stroke-width="1.25" opacity="0.75"/>` +
-           `<text x="${midX.toFixed(1)}" y="${(bracketY - 3).toFixed(1)}" text-anchor="middle" fill="${c}" font-size="9" font-weight="600">${sign}${chg.toFixed(1)}%</text>`;
-    }
+    r += renderDeltaBrackets(COLS, barCenterX, geo, {
+      delta: (a, b) => (b.count - a.count) / a.count * 100,
+      colorFor: chg => chg >= 0 ? '#2a7a4a' : '#c0392b',
+      label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)}%`,
+    });
 
     // % of Total -- secondary-axis line, fixed 0-100% domain mapped onto
     // the bars' own baseline..(baseline-BH) pixel range, overlaid directly
     // on top of the bars (not a separate band). White + dark halo (two
     // stacked strokes) keeps it readable regardless of the bar's own fill.
-    function shareY(s) { return baseline - (s / 100) * BH; }
+    function shareY(s) { return geo.baseline - (s / 100) * geo.BH; }
     const linePts = barCenterX.map((x, i) => `${x.toFixed(1)},${shareY(COLS[i].share).toFixed(1)}`).join(' ');
     r += `<polyline points="${linePts}" fill="none" stroke="#2a2620" stroke-width="3.25" opacity="0.55" stroke-linejoin="round"/>` +
          `<polyline points="${linePts}" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>`;
@@ -3747,7 +3831,7 @@
       // homogeneous town both land in the same place, which would stack the
       // share label right on top of the value label above the bar. Flip to
       // below the dot whenever the two would land within 9px of each other.
-      const valueLabelY = barTopArr[i] - 4;
+      const valueLabelY = barTop[i] - 4;
       let shareLabelY = y - 6;
       if (Math.abs(shareLabelY - valueLabelY) < 9) shareLabelY = y + 9;
       r += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#ffffff" stroke="#2a2620" stroke-width="1">` +
@@ -3757,7 +3841,7 @@
     });
 
     const groupLabel = (RACE_GROUPS.find(g => g.key === groupKey) || {}).label || groupKey;
-    return `<div class="rb-chart-title">${groupLabel}</div><div class="sp-race-spark"><svg width="${W}" height="${SVG_H}" viewBox="0 0 ${W} ${SVG_H}">${r}</svg></div>`;
+    return `<div class="rb-chart-title">${groupLabel}</div><div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${r}</svg></div>`;
   }
 
   // Same fixed dollar reference points used elsewhere in this project for
@@ -3793,49 +3877,25 @@
     function valAt(yr) { return yr === 2024 ? rec.median_hh_income : (MHI_FIELD_LOCAL[yr] ? rec[MHI_FIELD_LOCAL[yr]] : null); }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
     if (COLS.length < 2) return '';
-    const BW = COLS.length >= 5 ? 34 : COLS.length === 4 ? 39 : 46;
-    const GAP = POP_CHART_GAP; // matches the race chart above so bars for the same year line up
-    const BH = 60;
-    const MIN_FRAC = 0.15;
-    const BRACKET_H = 20;  // fixed top zone for the %-change brackets, above everything else
-    const VAL_LABEL_H = 15; // headroom for each bar's own $ value label
-    const YEAR_LABEL_H = 20;
-    const SVG_H = BRACKET_H + VAL_LABEL_H + BH + YEAR_LABEL_H;
-    const baseline = BRACKET_H + VAL_LABEL_H + BH;
-    const W = COLS.length * BW + (COLS.length + 1) * GAP;
-    const maxVal = Math.max(...COLS.map(c => c.val));
-    let r = '';
-    const barCenterX = [];
-    COLS.forEach((col, ci) => {
-      const x = GAP + ci * (BW + GAP);
-      const barH = Math.max(MIN_FRAC, col.val / maxVal) * BH;
-      const barTop = baseline - barH;
-      barCenterX.push(x + BW / 2);
-      const label = '$' + (col.val / 1000).toFixed(1) + 'k';
-      r += `<rect x="${x.toFixed(1)}" y="${barTop.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="${mhiColorForValue(col.val)}" rx="1.5">` +
-             `<title>${col.yr}: $${Math.round(col.val).toLocaleString()}</title></rect>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(barTop - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${label}</text>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
+
+    const geo = barChartGeometry(COLS.length);
+    const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
+      minFrac: 0.15,
+      metric: c => c.val,
+      colorFor: c => mhiColorForValue(c.val),
+      valueLabel: c => '$' + (c.val / 1000).toFixed(1) + 'k',
+      title: c => `${c.yr}: $${Math.round(c.val).toLocaleString()}`,
     });
     // % change bracket -- a horizontal line with short drop-legs at each end,
     // spanning from bar i's center to bar i+1's center, sitting in the fixed
     // BRACKET_H zone at the very top of the chart (above every bar and every
     // value label, regardless of how tall any individual bar is).
-    const bracketY = BRACKET_H - 6;
-    const legDrop = 4;
-    for (let i = 0; i < COLS.length - 1; i++) {
-      const chg = (COLS[i + 1].val - COLS[i].val) / COLS[i].val * 100;
-      const color = chg >= 0 ? '#2a7a4a' : '#c0392b';
-      const sign = chg >= 0 ? '+' : '';
-      const x1 = barCenterX[i], x2 = barCenterX[i + 1];
-      const midX = (x1 + x2) / 2;
-      r += `<path d="M${x1.toFixed(1)},${(bracketY + legDrop).toFixed(1)} ` +
-             `L${x1.toFixed(1)},${bracketY.toFixed(1)} L${x2.toFixed(1)},${bracketY.toFixed(1)} ` +
-             `L${x2.toFixed(1)},${(bracketY + legDrop).toFixed(1)}" ` +
-             `fill="none" stroke="${color}" stroke-width="1.25" opacity="0.75"/>` +
-           `<text x="${midX.toFixed(1)}" y="${(bracketY - 3).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="9" font-weight="600">${sign}${chg.toFixed(1)}%</text>`;
-    }
-    return `<div class="sp-race-spark"><svg width="${W}" height="${SVG_H}" viewBox="0 0 ${W} ${SVG_H}">${r}</svg></div>`;
+    const bracketsSvg = renderDeltaBrackets(COLS, barCenterX, geo, {
+      delta: (a, b) => (b.val - a.val) / a.val * 100,
+      colorFor: chg => chg >= 0 ? '#2a7a4a' : '#c0392b',
+      label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)}%`,
+    });
+    return `<div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
   }
 
   // Full-precision population-and-race-by-year table for the top-of-page
@@ -3864,44 +3924,25 @@
     function valAt(yr) { return yr === 2024 ? rec.median_age : (AGE_FIELD[yr] ? rec[AGE_FIELD[yr]] : null); }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
     if (COLS.length < 2) return '';
-    const BW = COLS.length >= 5 ? 34 : COLS.length === 4 ? 39 : 46;
-    const GAP = POP_CHART_GAP;
-    const BH = 60;
-    const MIN_FRAC = 0.5;
-    const BRACKET_H = 20;
-    const VAL_LABEL_H = 15;
-    const YEAR_LABEL_H = 20;
-    const SVG_H = BRACKET_H + VAL_LABEL_H + BH + YEAR_LABEL_H;
-    const baseline = BRACKET_H + VAL_LABEL_H + BH;
-    const W = COLS.length * BW + (COLS.length + 1) * GAP;
-    const maxVal = Math.max(...COLS.map(c => c.val));
-    let r = '';
-    const barCenterX = [];
-    COLS.forEach((col, ci) => {
-      const x = GAP + ci * (BW + GAP);
-      const barH = Math.max(MIN_FRAC, col.val / maxVal) * BH;
-      const barTop = baseline - barH;
-      barCenterX.push(x + BW / 2);
-      r += `<rect x="${x.toFixed(1)}" y="${barTop.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="#8a8578" rx="1.5">` +
-             `<title>${col.yr}: ${col.val.toFixed(1)} yrs</title></rect>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(barTop - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${col.val.toFixed(1)}</text>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
+
+    const geo = barChartGeometry(COLS.length);
+    const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
+      minFrac: 0.5,
+      metric: c => c.val,
+      colorFor: () => '#8a8578',
+      valueLabel: c => c.val.toFixed(1),
+      title: c => `${c.yr}: ${c.val.toFixed(1)} yrs`,
     });
-    const bracketY = BRACKET_H - 6;
-    const legDrop = 4;
-    for (let i = 0; i < COLS.length - 1; i++) {
-      const chg = COLS[i + 1].val - COLS[i].val;
-      const color = chg <= 0 ? '#2a7a4a' : '#c0392b';
-      const sign = chg >= 0 ? '+' : '';
-      const x1 = barCenterX[i], x2 = barCenterX[i + 1];
-      const midX = (x1 + x2) / 2;
-      r += `<path d="M${x1.toFixed(1)},${(bracketY + legDrop).toFixed(1)} ` +
-             `L${x1.toFixed(1)},${bracketY.toFixed(1)} L${x2.toFixed(1)},${bracketY.toFixed(1)} ` +
-             `L${x2.toFixed(1)},${(bracketY + legDrop).toFixed(1)}" ` +
-             `fill="none" stroke="${color}" stroke-width="1.25" opacity="0.75"/>` +
-           `<text x="${midX.toFixed(1)}" y="${(bracketY - 3).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="9" font-weight="600">${sign}${chg.toFixed(1)}</text>`;
-    }
-    return `<div class="rb-chart-title">Median Age</div><div class="sp-race-spark"><svg width="${W}" height="${SVG_H}" viewBox="0 0 ${W} ${SVG_H}">${r}</svg></div>`;
+    // Bracket color is INVERTED vs. every other chart here: median_age is in
+    // LOWER_IS_BETTER (a younger, falling median age reads as a
+    // growing/renewing community), so a decrease shows green and an
+    // increase shows red here specifically.
+    const bracketsSvg = renderDeltaBrackets(COLS, barCenterX, geo, {
+      delta: (a, b) => b.val - a.val,
+      colorFor: chg => chg <= 0 ? '#2a7a4a' : '#c0392b',
+      label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)}`,
+    });
+    return `<div class="rb-chart-title">Median Age</div><div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
   }
 
   // % Bachelor's+ bar chart -- same banner row. Only 2010/2020/2024 have
@@ -3913,44 +3954,21 @@
     function valAt(yr) { return yr === 2024 ? rec.pct_bachelors : rec[`pct_bachelors_${yr}`]; }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
     if (COLS.length < 2) return '';
-    const BW = 46;
-    const GAP = POP_CHART_GAP;
-    const BH = 60;
-    const MIN_FRAC = 0.15;
-    const BRACKET_H = 20;
-    const VAL_LABEL_H = 15;
-    const YEAR_LABEL_H = 20;
-    const SVG_H = BRACKET_H + VAL_LABEL_H + BH + YEAR_LABEL_H;
-    const baseline = BRACKET_H + VAL_LABEL_H + BH;
-    const W = COLS.length * BW + (COLS.length + 1) * GAP;
-    const maxVal = Math.max(...COLS.map(c => c.val));
-    let r = '';
-    const barCenterX = [];
-    COLS.forEach((col, ci) => {
-      const x = GAP + ci * (BW + GAP);
-      const barH = Math.max(MIN_FRAC, col.val / maxVal) * BH;
-      const barTop = baseline - barH;
-      barCenterX.push(x + BW / 2);
-      r += `<rect x="${x.toFixed(1)}" y="${barTop.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="#5c7d8a" rx="1.5">` +
-             `<title>${col.yr}: ${col.val.toFixed(1)}% Bachelor's+</title></rect>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(barTop - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${col.val.toFixed(1)}%</text>` +
-           `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
+
+    const geo = barChartGeometry(COLS.length);
+    const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
+      minFrac: 0.15,
+      metric: c => c.val,
+      colorFor: () => '#5c7d8a',
+      valueLabel: c => c.val.toFixed(1) + '%',
+      title: c => `${c.yr}: ${c.val.toFixed(1)}% Bachelor's+`,
     });
-    const bracketY = BRACKET_H - 6;
-    const legDrop = 4;
-    for (let i = 0; i < COLS.length - 1; i++) {
-      const chg = COLS[i + 1].val - COLS[i].val;
-      const color = chg >= 0 ? '#2a7a4a' : '#c0392b';
-      const sign = chg >= 0 ? '+' : '';
-      const x1 = barCenterX[i], x2 = barCenterX[i + 1];
-      const midX = (x1 + x2) / 2;
-      r += `<path d="M${x1.toFixed(1)},${(bracketY + legDrop).toFixed(1)} ` +
-             `L${x1.toFixed(1)},${bracketY.toFixed(1)} L${x2.toFixed(1)},${bracketY.toFixed(1)} ` +
-             `L${x2.toFixed(1)},${(bracketY + legDrop).toFixed(1)}" ` +
-             `fill="none" stroke="${color}" stroke-width="1.25" opacity="0.75"/>` +
-           `<text x="${midX.toFixed(1)}" y="${(bracketY - 3).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="9" font-weight="600">${sign}${chg.toFixed(1)} pp</text>`;
-    }
-    return `<div class="rb-chart-title">% Bachelor's+</div><div class="sp-race-spark"><svg width="${W}" height="${SVG_H}" viewBox="0 0 ${W} ${SVG_H}">${r}</svg></div>`;
+    const bracketsSvg = renderDeltaBrackets(COLS, barCenterX, geo, {
+      delta: (a, b) => b.val - a.val,
+      colorFor: chg => chg >= 0 ? '#2a7a4a' : '#c0392b',
+      label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)} pp`,
+    });
+    return `<div class="rb-chart-title">% Bachelor's+</div><div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
   }
 
   // Population-weighted synthetic "rec" for a region (or all of
@@ -3977,12 +3995,23 @@
     South: 'South Region', NWI: 'Northwest Indiana',
   };
   const _regionAggCache = {};
+  // Scoped to metroFilter (the module-level metro state var, declared below
+  // but already initialized by the time any of this runs -- same pattern
+  // shouldShow() already uses) so the "all" region on a pilot metro means
+  // "all of Rockford," not "every record in DATA regardless of metro." Before
+  // this, switching to a pilot metro left the top banner's aggregate blended
+  // across every metro at once (region defaults to 'all' for pilot metros,
+  // which used to mean literally everything in DATA). metroFilter itself can
+  // ALSO be 'all' (the "All Metros" option) -- same sentinel, one level up --
+  // in which case every metro's records are included here on purpose.
   function regionMemberRecs(rf) {
-    const base = DATA.filter(d => d.region !== 'Chicago Tract' && d.region !== 'Suburban Tract');
+    const base = DATA.filter(d => d.region !== 'Chicago Tract' && d.region !== 'Suburban Tract'
+      && (metroFilter === 'all' || d.metro === metroFilter));
     return rf === 'all' ? base : base.filter(d => d.region === rf);
   }
   function buildRegionAggregateRec(rf) {
-    if (_regionAggCache[rf]) return _regionAggCache[rf];
+    const cacheKey = metroFilter + '|' + rf;
+    if (_regionAggCache[cacheKey]) return _regionAggCache[cacheKey];
     const recs = regionMemberRecs(rf);
     if (!recs.length) return null;
 
@@ -4002,9 +4031,18 @@
     function ppChg(a, b) { return (a == null || b == null) ? null : +(b - a).toFixed(1); }
     function pctChg(a, b) { return (a == null || b == null || a === 0) ? null : +((b - a) / a * 100).toFixed(1); }
 
+    // For pilot metros (no sub-regions, rf is always 'all') the metro's own
+    // name is the right label -- REGION_LABELS.all == 'Chicagoland' only
+    // applies when metroFilter actually is Chicagoland. metroFilter === 'all'
+    // (the "All Metros" option) is its own third case, also always rf==='all'
+    // since region filtering is disabled whenever a specific metro isn't picked.
+    const aggName = metroFilter === 'all' ? 'All Metros'
+                  : rf === 'all' && metroFilter !== 'Chicagoland' ? metroFilter
+                  : (REGION_LABELS[rf] || rf);
     const agg = {
-      name: REGION_LABELS[rf] || rf,
-      state: '', county: '', region: rf === 'all' ? 'Chicagoland' : rf,
+      name: aggName,
+      state: '', county: '', region: metroFilter === 'all' ? 'All Metros' : (rf === 'all' ? metroFilter : rf),
+      metro: metroFilter,
       isAggregate: true,
     };
 
@@ -4125,6 +4163,49 @@
           `<div class="rb-narrative-stat-label">Population</div>` +
           `<div class="rb-narrative-stat-main">${rec.population.toLocaleString()}</div>` +
           (chgParts.length ? `<div class="rb-narrative-stat-detail">${chgParts.join(' · ')}</div>` : '') +
+        `</div>`
+      );
+    }
+    // Single-value fallback stats -- median HH income, per capita income,
+    // median age, and % bachelor's+ normally only ever appear via their own
+    // multi-year bar chart (mhiBarChartSVG etc.), which needs >=2 years of
+    // history to render anything. A record with only a current-year value
+    // and no historical backfill (e.g. a newly-added pilot metro town, see
+    // fetch_pilot_metros.py) would otherwise show none of these numbers
+    // anywhere in the pane at all, even though the data genuinely exists --
+    // each line here only fires when its corresponding chart would be
+    // empty, so a fully-backfilled Chicagoland record is unaffected.
+    if (rec.median_hh_income != null && rec.mhi_1980 == null && rec.mhi_1990 == null && rec.mhi_2000 == null && rec.mhi_2010 == null) {
+      parts.push(
+        `<div class="rb-narrative-stat">` +
+          `<div class="rb-narrative-stat-label">Median HH Income</div>` +
+          `<div class="rb-narrative-stat-main">$${Math.round(rec.median_hh_income).toLocaleString()}</div>` +
+          `<div class="rb-narrative-stat-detail">2024 — no historical backfill yet</div>` +
+        `</div>`
+      );
+    }
+    if (rec.per_capita_income != null && rec.pci_1980 == null && rec.pci_1990 == null && rec.pci_2000 == null && rec.pci_2010 == null) {
+      parts.push(
+        `<div class="rb-narrative-stat">` +
+          `<div class="rb-narrative-stat-label">Per Capita Income</div>` +
+          `<div class="rb-narrative-stat-main">$${Math.round(rec.per_capita_income).toLocaleString()}</div>` +
+          `<div class="rb-narrative-stat-detail">2024 — no historical backfill yet</div>` +
+        `</div>`
+      );
+    }
+    if (rec.median_age != null && rec.age_1980 == null && rec.age_1990 == null && rec.age_2000 == null && rec.age_2010 == null) {
+      parts.push(
+        `<div class="rb-narrative-stat">` +
+          `<div class="rb-narrative-stat-label">Median Age</div>` +
+          `<div class="rb-narrative-stat-main">${rec.median_age.toFixed(1)}</div>` +
+        `</div>`
+      );
+    }
+    if (rec.pct_bachelors != null && rec.pct_bachelors_2010 == null && rec.pct_bachelors_2020 == null) {
+      parts.push(
+        `<div class="rb-narrative-stat">` +
+          `<div class="rb-narrative-stat-label">% Bachelor's+</div>` +
+          `<div class="rb-narrative-stat-main">${rec.pct_bachelors.toFixed(1)}%</div>` +
         `</div>`
       );
     }
@@ -4267,7 +4348,6 @@
       { cls: 'rb-age-chart-wrap',        html: medianAgeBarChartSVG(rec) },
       { cls: 'rb-bach-chart-wrap',       html: bachelorsBarChartSVG(rec) },
     ].filter(c => c.html);
-    if (!allCharts.length) return '';
     let chartsColsHTML = '';
     for (let i = 0; i < allCharts.length; i += 2) {
       chartsColsHTML += `<div class="rb-charts-col">` +
@@ -4276,6 +4356,12 @@
     }
     const narrativeColHTML = buildNarrativeColHTML(rec);
     const statsColHTML = buildStatsColHTML(rec);
+    // A record with only current-year data (no history to chart -- every
+    // chart above needs >=2 years) would otherwise render a totally blank
+    // pane on click with zero feedback: every chart empty, no narrative,
+    // and (pre-fix) nothing else attempted either. Show whatever columns
+    // actually have content instead of requiring all three.
+    if (!narrativeColHTML && !statsColHTML && !chartsColsHTML) return '';
 
     return `<div class="rb-pop-row">${narrativeColHTML}${statsColHTML}${chartsColsHTML}` +
       `<div class="rb-pop-footnote">* White includes Arab.</div></div>`;
@@ -4408,6 +4494,7 @@
   let timelineMode = 'change'; // 'point' (Timeline A) | 'change' (Timeline B)
   let selectedYear = 2010;   // controlled by the timeline scrubber
   let playInterval = null;
+  let metroFilter = 'Chicagoland';
   let regionFilter = 'all';
   let minPop = 500;
   let tractsView = 'off';  // 'off' (aggregate CCAs/towns) or 'on' (census tracts) — global, covers Chicago + the 11 suburbs
@@ -4417,8 +4504,16 @@
   let compareMode = false;
   let compareA = null, compareB = null;
 
-  // Search: name (lowercase) → {rec, layer}
+  // Search: name (lowercase) → {rec, layer}. Single-match only -- fine for
+  // showDemoMarker's tutorial lookups (always a known, non-colliding
+  // Chicagoland name), but NOT safe for the search box: two real,
+  // different towns can share a name (Niles, IL in Chicagoland vs Niles,
+  // MI in the South Bend pilot metro; same risk for any future metro
+  // addition), and a plain overwrite here would make the loser
+  // permanently unreachable by search with no error or indication. The
+  // search box uses nameToLayerAll below instead, which keeps every match.
   const nameToLayer = {};
+  const nameToLayerAll = {}; // name (lowercase) → [{rec, layer}, ...]
 
   /* ===== Match polygon to data record ===== */
   function recordForFeature(f) {
@@ -4563,6 +4658,9 @@
 
   function shouldShow(rec) {
     if (!rec) return false;
+    // Metro filter — 'all' shows every metro combined, same "falsy/sentinel
+    // means no filtering" convention regionFilter's own 'all' already uses.
+    if (metroFilter && metroFilter !== 'all' && rec.metro && rec.metro !== metroFilter) return false;
     // Population threshold is designed for municipalities/CCAs. Census tracts
     // are deliberately sized at ~4K people but many fall below — applying the
     // 4,000 filter to them would hide ~2/3. Skip the filter for tracts.
@@ -5217,16 +5315,22 @@
     // (2025-26) edition -- only affects the rare in-state-percentile fallback (a school with a
     // state rank but no national rank), so low-impact if slightly stale.
     const NATIONAL_HS_TOTAL = 17945;
-    const IL_HS_TOTAL = 675;
-    const IN_HS_TOTAL = 340;
+    // Per-state ranked-school totals, only for states where this fallback has
+    // actually been confirmed -- a state missing here (e.g. MI, added for
+    // Niles) falls through to the niche/null branch below rather than
+    // borrowing another state's total, since a wrong total here would produce
+    // a specific-looking percentile that's actually fabricated. Low-impact:
+    // this whole branch only fires for a school with a state rank but no
+    // national rank, which is rare (nearly every school in this dataset has
+    // both).
+    const STATE_HS_TOTAL = { IL: 675, IN: 340 };
     const NICHE_SCORE = {'A+':97,'A':92,'A-':87,'B+':82,'B':77,'B-':68,'C+':57,'C':50,'C-':42,'D+':35,'D':25,'D-':18,'F':10};
     const MSR = (typeof MULTI_SCHOOL_RANKS !== 'undefined') ? MULTI_SCHOOL_RANKS : {};
 
-    function rankScoreFor(natl, state, niche, isIN) {
+    function rankScoreFor(natl, state, niche, stateAbbr) {
       if (natl != null) return Math.round((1 - natl / NATIONAL_HS_TOTAL) * 1000) / 10;
-      if (state != null) {
-        const total = isIN ? IN_HS_TOTAL : IL_HS_TOTAL;
-        return Math.round((1 - state / total) * 1000) / 10;
+      if (state != null && STATE_HS_TOTAL[stateAbbr] != null) {
+        return Math.round((1 - state / STATE_HS_TOTAL[stateAbbr]) * 1000) / 10;
       }
       if (niche && NICHE_SCORE[niche] != null) return NICHE_SCORE[niche];
       return null;
@@ -5234,10 +5338,12 @@
 
     DATA.forEach(d => {
       if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
-      const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)' : d.name;
+      const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
+                : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
+                : d.name;
       const sd = SCHOOL_DATA[key];
       if (!sd) return;
-      const isIN = (d.state === 'IN');
+      const stateAbbr = d.state;
 
       // MULTI_SCHOOL_RANKS holds per-INDIVIDUAL-SCHOOL data (US News rank + ISBE
       // government-sourced ACT/SAT). Many of these schools are shared across several
@@ -5256,12 +5362,12 @@
         .map(name => {
           const r = MSR[name];
           if (!r) return null;
-          return rankScoreFor(r.natl != null ? r.natl : null, r.state != null ? r.state : null, sd.niche, isIN);
+          return rankScoreFor(r.natl != null ? r.natl : null, r.state != null ? r.state : null, sd.niche, stateAbbr);
         })
         .filter(v => v != null);
       const rankScore = perSchoolRank.length
         ? Math.round((perSchoolRank.reduce((a, b) => a + b, 0) / perSchoolRank.length) * 10) / 10
-        : rankScoreFor(sd.usNewsNational, sd.usNewsState, sd.niche, isIN);
+        : rankScoreFor(sd.usNewsNational, sd.usNewsState, sd.niche, stateAbbr);
 
       const perSchoolAct = schoolNames.map(name => (MSR[name] && MSR[name].act != null) ? MSR[name].act : null).filter(v => v != null);
       const perSchoolSat = schoolNames.map(name => (MSR[name] && MSR[name].sat != null) ? MSR[name].sat : null).filter(v => v != null);
@@ -5293,7 +5399,6 @@
       }
 
       d.composite_score = composite;
-      d.school_score = composite; // legacy alias, in case anything else still reads it
       d.school_niche = sd.niche || null;
       // Verified-only (see actVerifiedAvg/satVerifiedAvg above) -- no Niche-sourced
       // town blend, so every consumer of these fields (schools comparison table,
@@ -5301,16 +5406,15 @@
       // number or nothing at all.
       d.school_avg_act = actVerifiedAvg;
       d.school_avg_sat = satVerifiedAvg;
-      d.school_natl_rank_text = sd.usNewsNational ? ('#' + sd.usNewsNational.toLocaleString()) : null;
-      d.school_state_rank_text = sd.usNewsState ? ('#' + sd.usNewsState + ' ' + (isIN ? 'IN' : 'IL')) : null;
 
       // Per-school breakdown -- composite_score above already averages every
       // constituent school's own rank for a split town (see rankScore just
-      // above), but school_natl_rank_text/school_state_rank_text only ever
-      // carried ONE representative school's numbers, silently dropping the
-      // second school for towns like Tinley Park (Victor J. Andrew HS +
-      // Tinley Park HS). d.schools lists every constituent school with its
-      // own individual rank so the UI can show all of them, not just one.
+      // above). d.schools lists every constituent school with its own
+      // individual rank so the UI can show all of them, not just one
+      // representative school (which silently dropped the second school for
+      // towns like Tinley Park -- Victor J. Andrew HS + Tinley Park HS --
+      // under this block's old school_natl_rank_text/school_state_rank_text
+      // fields; those were removed once nothing in the app read them anymore).
       //
       // MSR is consulted for every town, single-school or split — several schools
       // (Hinsdale Central, Naperville North, Downers Grove South, etc.) are the sole
@@ -5335,7 +5439,7 @@
           natlRank: natl,
           stateRank: state,
           natlRankText: natlBand ? ('#' + natlBand) : (natl ? ('#' + natl.toLocaleString()) : null),
-          stateRankText: stateBand ? ('#' + stateBand + ' ' + (isIN ? 'IN' : 'IL')) : (state ? ('#' + state + ' ' + (isIN ? 'IN' : 'IL')) : null),
+          stateRankText: stateBand ? ('#' + stateBand + ' ' + stateAbbr) : (state ? ('#' + state + ' ' + stateAbbr) : null),
           // ACT/SAT only shown when it's a verified per-school government figure
           // (MULTI_SCHOOL_RANKS' satSource, e.g. ISBE) -- never SCHOOL_DATA's
           // avgACT/avgSAT, which is a town-wide blend sourced from Niche.com (not
@@ -5373,7 +5477,9 @@
       if (!rec) return;
 
       // Build search index — keyed by lower-case name
-      nameToLayer[rec.name.toLowerCase()] = { rec, layer };
+      const nameKey = rec.name.toLowerCase();
+      nameToLayer[nameKey] = { rec, layer };
+      (nameToLayerAll[nameKey] || (nameToLayerAll[nameKey] = [])).push({ rec, layer });
 
       layer.on('click', () => {
         // Defensive guard, on top of the interactive-flag toggle in refresh():
@@ -5445,6 +5551,7 @@
   // (corrected 2026-07-25 along with add_community_category.py, which is
   // the actual source of the stored community_category field this checks).
   (function verifyCategories() {
+    if (!DEBUG) return;
     let mismatches = 0;
     DATA.forEach(rec => {
       if (rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract' || !rec.community_category) return;
@@ -5471,6 +5578,7 @@
   })();
 
   (function verifyBivariateLevels() {
+    if (!DEBUG) return;
     // Distribution sanity check — expect roughly 10/30/20/30/10% for
     // very_high/high/mid/low/very_low. A genuine bug in the percentile logic
     // (e.g. an off-by-one on the sort/index) would skew this badly, whereas
@@ -5746,6 +5854,62 @@
     if (bounds.isValid()) map.fitBounds(bounds, { padding: [20, 20] });
   }
 
+  // Zooms to a whole metro's extent (every region within it) -- the metro
+  // filter's own analog of zoomToRegion above. Reuses the same tract
+  // exclusion so granular polygons don't distort the bounds.
+  function zoomToMetro(metroKey) {
+    if (!geoLayer) return;
+    const bounds = L.latLngBounds([]);
+    geoLayer.eachLayer(layer => {
+      const rec = recordForFeature(layer.feature);
+      if (!rec || rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract') return;
+      if (metroKey && metroKey !== 'all' && rec.metro !== metroKey) return;
+      bounds.extend(layer.getBounds());
+    });
+    if (bounds.isValid()) map.fitBounds(bounds, { padding: [20, 20] });
+  }
+
+  // Chicagoland is the only metro with sub-regions right now -- the pilot
+  // metros (Rockford/Peoria/South Bend) are single-region datasets (every
+  // record's own `region` field is just its metro name). Rebuilding
+  // #region-filter's options per metro, rather than leaving Chicagoland's
+  // fixed North/West/etc. list showing regardless of metro, matters
+  // concretely: those values don't match any pilot-metro record's region,
+  // so picking one while on a pilot metro would silently empty the map.
+  const CHICAGOLAND_REGION_OPTIONS =
+    '<option value="all">All</option>' +
+    '<option value="Chicago">Chicago (CCAs)</option>' +
+    '<option value="North">North</option>' +
+    '<option value="Northwest">Northwest</option>' +
+    '<option value="West">West</option>' +
+    '<option value="Southwest">Southwest</option>' +
+    '<option value="South">South</option>' +
+    '<option value="NWI">NWI (Indiana)</option>';
+
+  function updateRegionFilterOptions(metroKey) {
+    const sel = document.getElementById('region-filter');
+    if (metroKey === 'Chicagoland') {
+      sel.innerHTML = CHICAGOLAND_REGION_OPTIONS;
+      sel.disabled = false;
+    } else {
+      sel.innerHTML = '<option value="all">All</option>';
+      sel.disabled = true; // no sub-regions to pick within a pilot metro yet
+    }
+    sel.value = 'all';
+  }
+
+  document.getElementById('metro-filter').addEventListener('change', e => {
+    metroFilter = e.target.value;
+    // A region from the old metro won't mean anything in the new one --
+    // reset to 'all' rather than silently carrying a stale region filter
+    // across the switch.
+    regionFilter = 'all';
+    updateRegionFilterOptions(metroFilter);
+    if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
+    zoomToMetro(metroFilter);
+    refresh();
+  });
+
   document.getElementById('region-filter').addEventListener('change', e => {
     regionFilter = e.target.value;
     if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
@@ -5779,7 +5943,7 @@
   function writeUrlState() {
     const p = new URLSearchParams({
       m: metric, y: selectedYear, tm: timelineMode,
-      r: regionFilter, p: minPop, c: tractsView,
+      mt: metroFilter, r: regionFilter, p: minPop, c: tractsView,
     });
     history.replaceState(null, '', '#' + p.toString());
   }
@@ -5791,7 +5955,18 @@
     if (p.get('m')) metric = p.get('m');
     if (p.get('y')) { const yr = parseInt(p.get('y'),10); if (YEARS.includes(yr)) selectedYear = yr; }
     if (p.get('tm') === 'point' || p.get('tm') === 'change') timelineMode = p.get('tm');
-    if (p.get('r')) regionFilter = p.get('r');
+    // Only restore a metro that actually has a selectable (non-disabled)
+    // option right now -- an old/malformed URL naming a not-yet-live pilot
+    // metro would otherwise silently filter the map down to zero records.
+    const mtVal = p.get('mt');
+    const metroOpt = mtVal && document.querySelector(`#metro-filter option[value="${mtVal}"]`);
+    if (metroOpt && !metroOpt.disabled) metroFilter = mtVal;
+    // Only honor a restored region if it's actually valid for the restored
+    // metro -- a pilot metro has no sub-regions at all (region must stay
+    // 'all'), and a Chicagoland region name restored alongside a pilot
+    // metro (or vice versa) would otherwise leave the JS state and the
+    // #region-filter UI showing different things, or silently empty the map.
+    if (p.get('r') && metroFilter === 'Chicagoland') regionFilter = p.get('r');
     if (p.get('p')) { const n = parseInt(p.get('p'),10); if (Number.isFinite(n)) minPop = n; }
     // Accept old ccas/tracts values too, from URLs written before the
     // Chicago-only toggle became the global census-tracts on/off switch.
@@ -5799,12 +5974,15 @@
     if (cVal === 'on' || cVal === 'tracts') tractsView = 'on';
     else if (cVal === 'off' || cVal === 'ccas') tractsView = 'off';
     // Sync UI controls to restored state
+    document.getElementById('metro-filter').value = metroFilter;
+    updateRegionFilterOptions(metroFilter);
     document.getElementById('region-filter').value = regionFilter;
     document.getElementById('min-pop').value = minPop;
     document.getElementById('tracts-view').value = tractsView;
     syncDropdowns();
     updateScrubberAvailability();
-    if (p.get('r')) zoomToRegion(regionFilter);
+    if (p.get('mt')) zoomToMetro(metroFilter);
+    else if (p.get('r')) zoomToRegion(regionFilter);
     refresh();
   }
 
@@ -6462,8 +6640,12 @@
     searchResults.innerHTML = '';
     if (!q || q.length < 2) { searchResults.style.display = 'none'; return; }
     const lower = q.toLowerCase();
-    // Start-of-word matches first, then substring
-    const all = Object.values(nameToLayer);
+    // Start-of-word matches first, then substring. Flattens nameToLayerAll
+    // (not nameToLayer) so two real, different towns sharing a name --
+    // e.g. Niles, IL vs Niles, MI -- both show up as distinct results
+    // instead of one silently shadowing the other; the existing region ·
+    // county · state line on each result already disambiguates them.
+    const all = Object.values(nameToLayerAll).flat();
     const startsWith = all.filter(x => x.rec.name.toLowerCase().startsWith(lower));
     const contains   = all.filter(x => !x.rec.name.toLowerCase().startsWith(lower)
                                        && x.rec.name.toLowerCase().includes(lower));
@@ -6566,7 +6748,9 @@
       const rows = [];
       DATA.forEach(d => {
         if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
-        const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)' : d.name;
+        const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
+                  : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
+                  : d.name;
         const sd = SCHOOL_DATA[key];
         if (!sd) return;
         // d.schools (built above from MULTI_SCHOOL_RANKS, the single source of
