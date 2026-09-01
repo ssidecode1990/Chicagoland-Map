@@ -480,68 +480,63 @@
 
   const CHICAGOLAND_NARRATIVE = [
     { h: 'The Fiscal Backdrop', p:
-      'Illinois carries one of the two worst-funded state pension systems in the country — about $143.5 ' +
-      'billion unfunded, a 56.4% funded ratio, effectively tied with New Jersey\'s 56.7% for last place ' +
-      '— and the highest per-capita pension debt of any state at ' +
-      'roughly $15,804 per resident, and the state has underfunded its own required contribution by ' +
-      'about $5 billion a year for years running. ' +
-      'Chicago\'s own exposure is worse than the state\'s: the city\'s four municipal pension funds sit ' +
-      'at a 28.15% aggregate funded ratio, and more than 80% of the city\'s property tax levy already goes ' +
-      'to pension costs rather than services. ' +
-      'In October 2025, Illinois enacted a police and fire pension benefit enhancement that added ' +
-      'roughly $11 billion in new liabilities with no funding source identified, landing on a city ' +
-      'government already running a $1.2 billion structural deficit in its Corporate Fund for FY2026. ' +
-      'S&P downgraded Chicago\'s general obligation credit rating from BBB+ to BBB in 2025, citing the ' +
-      'city\'s failure to address that structural imbalance — a market-confirmed deterioration, not a ' +
-      'projection.' },
-    { h: 'How This Shows Up on the Map', p:
-      'Every other pattern in this dataset sits on top of that fiscal position, not apart from it: the ' +
-      'prospering North Shore and struggling south suburbs separated by one county line, the ' +
-      'gentrifying lakefront neighborhoods and disinvesting communities five miles west, DuPage ' +
-      'County\'s 1.7–2.3% effective tax rate against Cook County\'s 2.5–3.5% — all of it is playing out ' +
-      'on top of a metro-wide structural problem that no single community\'s income trend created and ' +
-      'none can fix alone.' },
+      'Illinois has one of the two worst-funded state pension systems in the country: about $143.5 ' +
+      'billion unfunded, only 56.4% funded (tied for last place with New Jersey\'s 56.7%), and the ' +
+      'highest pension debt per resident of any state — roughly $15,804 per person. The state has also ' +
+      'been shorting its own required annual payment by about $5 billion a year. ' +
+      'Chicago\'s situation is even worse than the state\'s: the city\'s four pension funds are only ' +
+      '28.15% funded combined, and more than 80% of the city\'s property tax bill already goes to ' +
+      'pensions instead of services. ' +
+      'It got worse recently, too — in October 2025, Illinois added about $11 billion in new pension ' +
+      'costs for police and fire retirees without identifying how to pay for it, landing on a city ' +
+      'government already facing a $1.2 billion budget gap for 2026. ' +
+      'In 2025, S&P downgraded Chicago\'s credit rating from BBB+ to BBB, citing the city\'s failure to ' +
+      'fix this — a real financial consequence, not a hypothetical one.' },
+    { h: 'One Problem, Playing Out Across the Map', p:
+      'Every pattern on this map connects back to that same fiscal problem. The wealthy North Shore ' +
+      'and the struggling south suburbs sit just one county line apart. Gentrifying lakefront ' +
+      'neighborhoods and communities losing ground can be five miles apart. DuPage County\'s lower tax ' +
+      'rate (1.7–2.3%) versus Cook County\'s higher one (2.5–3.5%) is part of the same picture. No ' +
+      'single town created these differences, and no single town can fix them alone — they\'re all ' +
+      'shaped by the same metro-wide problem.' },
     { h: 'Income Trends Since 1980', p:
-      'The income data since 1980 tells the same structural story at the household level: aggregate ' +
-      'real income has grown modestly, but that growth has concentrated in the highest-income quintile ' +
-      'of communities while the bottom two quintiles have stagnated or declined, producing a polarized ' +
-      'map where adjacent communities can differ by $80K in median income and 40 points in college ' +
-      'attainment. ' +
-      'That modest, roughly-flat income trajectory also has to stretch further than it did a generation ' +
-      'ago: a $143.5 billion unfunded state pension liability and a Chicago pension system at a 28.15% ' +
-      'funded ratio are accumulated fixed costs that did not exist at anything like this scale in 1980 ' +
-      '— they show up in every property tax bill layered on top of a household income figure that looks ' +
-      'similar on paper to 45 years ago but now carries a materially heavier, and still growing, ' +
-      'obligation underneath it.' },
+      'Household income tells the same story. Since 1980, income across the region has grown only ' +
+      'modestly overall — and nearly all of that growth has gone to the wealthiest fifth of ' +
+      'communities, while the bottom two-fifths have stagnated or lost ground. The result is a ' +
+      'patchwork: two neighboring communities can differ by $80,000 in median income and 40 percentage ' +
+      'points in college graduation rates. ' +
+      'And that flat-looking income has to cover more than it used to. The pension debt didn\'t exist ' +
+      'at anything like this scale in 1980 — a household income figure that looks similar to 45 years ' +
+      'ago is now paying for a much bigger, still-growing bill underneath it.' },
     { h: 'Jobs, Migration & Corporate Departures', p:
-      'Metro-wide GDP and job growth have trailed peer U.S. metros for more than a decade, and domestic ' +
-      'out-migration has been running since the 2000s, not since the pandemic; the population increase ' +
-      'Chicago has posted since 2020 is driven almost entirely by international immigration, which ' +
-      'offsets the headline number without reversing the underlying domestic outflow. ' +
-      'Multiple Fortune 500 companies have left Illinois in recent years — Boeing to the Washington, ' +
-      'D.C. area, Caterpillar to Texas, Citadel to Florida, Tyson among them — and their leadership has ' +
-      'cited tax, regulatory, and talent-recruitment concerns publicly, not privately.' },
+      'The region\'s economy and job growth have lagged behind comparable U.S. metros for more than a ' +
+      'decade. People have been leaving for other states since the 2000s — this isn\'t a pandemic-era ' +
+      'trend. Chicago\'s population has grown since 2020, but that\'s almost entirely due to ' +
+      'international immigration, which masks the ongoing outflow of existing residents rather than ' +
+      'reversing it. ' +
+      'Several major companies have left Illinois in recent years, including Boeing (to the Washington, ' +
+      'D.C. area), Caterpillar (to Texas), Citadel (to Florida), and Tyson — and their leadership has ' +
+      'openly cited taxes, regulation, and difficulty recruiting talent as reasons.' },
     { h: 'Indiana\'s Growing Pull', p:
-      'Three catalysts are accelerating that outflow rather than reversing it, and all three sit on ' +
-      'the Indiana side of the state line: the Chicago Bears\' pursuit of a $5B stadium in the ' +
-      'Hammond/Wolf Lake area (advanced by a June 2026 board vote, though the exact site was not yet ' +
-      'finalized as of August 2026), the South Shore ' +
-      'Line\'s March 2026 Monon Corridor extension to Munster, and Indiana Dunes National Park\'s ' +
-      'emergence as a roughly 2.6–2.8-million-visitor-a-year destination. ' +
-      'They are real, and they make Indiana a more attractive exit than it already was, but they are ' +
-      'Indiana\'s catalysts, not Illinois\' — nothing about them touches Illinois\' pension math, ' +
-      'because none of them is an Illinois investment.' },
+      'Three things are making that outflow worse, and all three are happening on the Indiana side of ' +
+      'the state line: the Chicago Bears\' pursuit of a $5 billion stadium near Hammond (advanced by a ' +
+      'June 2026 vote, though the exact site wasn\'t finalized as of August 2026), a new commuter rail ' +
+      'extension into Munster opening in March 2026, and Indiana Dunes National Park now drawing ' +
+      'roughly 2.6–2.8 million visitors a year. ' +
+      'These are real, and they make Indiana a more attractive place to move to — but they\'re ' +
+      'investments in Indiana, not fixes for Illinois. None of them does anything about Illinois\' ' +
+      'pension debt.' },
     { h: 'A Diverging Trajectory — And What Would Change It', p:
-      'The state and the city are no longer moving in the same direction: Illinois\' state-level credit ' +
-      'rating has been upgraded eight times since 2021 on rising reserves and more disciplined ' +
-      'budgeting, even as the pension funded ratio driving Chicago\'s downgrade remains the worst in ' +
-      'the nation — a genuine divergence, not a contradiction to smooth over. ' +
-      'Nothing in this map changes on its current trajectory without one of three things happening: a ' +
-      'constitutional amendment enabling pension benefit restructuring, sustained full actuarial ' +
-      'contributions held for long enough to close a gap decades in the making, or a continuation of ' +
-      'the state\'s reserve-building discipline for long enough to decouple its credit trajectory from ' +
-      'the city\'s — and until one of those happens, every pattern in this dataset is really a story ' +
-      'about who is best positioned to absorb a bill that has not yet been paid.' },
+      'The state and the city are no longer on the same path. Illinois\' own credit rating has been ' +
+      'upgraded eight times since 2021 thanks to bigger reserves and more disciplined budgeting — even ' +
+      'as Chicago\'s pension shortfall, the worst in the nation, keeps dragging the city\'s own rating ' +
+      'down. That\'s a real split, not a contradiction. ' +
+      'Nothing here changes on its current path unless one of three things happens: Illinois amends its ' +
+      'constitution to allow pension benefits to be restructured, the state and city fully fund their ' +
+      'pension payments for long enough to close a decades-old gap, or the state keeps building its ' +
+      'reserves long enough to fully separate its own finances from the city\'s. Until one of those ' +
+      'happens, every pattern on this map is really about who\'s best positioned to absorb a bill that ' +
+      'hasn\'t been paid yet.' },
   ];
 
   const REGION_NARRATIVES = {
@@ -589,17 +584,17 @@
     ],
 
     'North': [
-      { h: 'A Wide Range, Ultra-Premium to Distant Exurb', p:
+      { h: 'From Ultra-Wealthy Lakefront to Distant Exurbs', p:
         'The 50 North Suburban communities span from the ultra-premium North Shore lakefront corridor ' +
         '— Wilmette, Winnetka, Glencoe, Lake Forest, Lake Bluff — to the distant Lake County ' +
         'exurbs of Zion, North Chicago, and Waukegan, and the income and structural data within the ' +
         'batch are correspondingly varied.' },
-      { h: 'Household-Size Compression, Not Decline', p:
-        'The defining characteristic of the North Shore\'s established tier is household-size ' +
-        'compression: median incomes have been declining or flat since 2010 across Glencoe, Green Oaks, ' +
-        'Lake Bluff, and Riverwoods not because individual earners are doing worse, but because children ' +
-        'have left and households have contracted — a demographic aging story that looks like economic ' +
-        'deterioration in census data but isn\'t.' },
+      { h: 'Why Income Looks Like It\'s Falling (But Usually Isn\'t)', p:
+        'The defining pattern on the North Shore\'s established tier is shrinking households, not ' +
+        'shrinking paychecks: median incomes have been declining or flat since 2010 across Glencoe, ' +
+        'Green Oaks, Lake Bluff, and Riverwoods not because individual earners are doing worse, but ' +
+        'because kids have grown up and moved out, leaving smaller households behind. That looks like ' +
+        'economic decline in census data, but usually isn\'t.' },
       { h: 'Except When It Isn\'t', p:
         'Not all of the decline in this tier is that kind of artifact, though: Green Oaks has given ' +
         'back its entire post-1980 real household income gain and then some, sitting below where it ' +
@@ -642,14 +637,14 @@
         'Rising, +9.2%) and South Elgin (24,217, Thriving, +9.3%) — a sharp contrast with West Dundee, ' +
         'Gilberts, and Hampshire just a few miles away, all Slipping or Established and down 7–14% ' +
         'over the same span.' },
-      { h: 'A Second Greenfield Boomtown', p:
-        'The batch has its own greenfield boomtown too, parallel to North\'s Volo: Pingree Grove has ' +
-        'grown 140.8% since 2010 (Thriving) on new-construction rooftops, though — as with Volo — ' +
-        'that pace reflects new residents arriving rather than existing residents getting richer.' },
-      { h: 'The Same Statewide Exposure', p:
-        'Every community in this batch carries the same exposure to that structural burden regardless ' +
+      { h: 'Another New-Construction Boomtown', p:
+        'The batch has its own boomtown too, parallel to North\'s Volo: Pingree Grove has ' +
+        'grown 140.8% since 2010 (Thriving) on brand-new subdivisions, though — as with Volo — ' +
+        'that pace reflects new residents moving in rather than existing residents getting richer.' },
+      { h: 'The Same Statewide Pension Burden', p:
+        'Every community in this batch carries the same exposure to that burden regardless ' +
         'of its current income tier — Illinois\' state pension system is 56.4% funded, effectively ' +
-        'tied with New Jersey for the worst in the nation, and that liability eventually shows up in every Illinois-side ' +
+        'tied with New Jersey for the worst in the nation, and that debt eventually shows up in every Illinois-side ' +
         'property tax bill whether the address is a Rolling Meadows starter home or a Barrington ' +
         'estate.' },
       { h: 'Rolling Meadows\' Employer Story', p:
@@ -683,10 +678,10 @@
         'and Cicero — fully urban, subway-accessible, under intense gentrification pressure — to ' +
         'the far Kane County exurbs of Sugar Grove and Elburn at the western end of the BNSF Metra ' +
         'line, 55 miles from the Loop.' },
-      { h: 'One Statewide Exposure, Regardless of Address', p:
-        'Every community across that range shares the same statewide exposure regardless of which ' +
+      { h: 'The Same Statewide Burden, Regardless of Address', p:
+        'Every community across that range shares the same statewide burden regardless of which ' +
         'end of it a community sits on: Illinois carries the highest per-capita pension debt of any ' +
-        'state in the country, and that liability does not stop at the DuPage-Cook county line or at ' +
+        'state in the country, and that debt does not stop at the DuPage-Cook county line or at ' +
         'any home-price threshold — it shows up in future tax bills whether the address is Oak Brook ' +
         'or Cicero.' },
       { h: 'DuPage\'s Tax Edge — But It Doesn\'t Explain Everything', p:
@@ -770,14 +765,14 @@
     ],
 
     'South': [
-      { h: 'The Most Economically Stressed Submarket in This Study', p:
+      { h: 'The Region Facing the Most Economic Stress', p:
         'The 35 South Suburban communities span south Cook County\'s traditional suburbs, the ' +
         'southeast Will County corridor, and a Kankakee County cluster (Kankakee, Bourbonnais, ' +
         'Bradley, Manteno, and Momence) that shares the same regional economy — together forming the ' +
-        'most economically stressed submarket in this ' +
-        'study: high effective tax rates (typically 2.5–3.8%), income that has declined 10–30% ' +
+        'most economically stressed part of the ' +
+        'metro area: high effective tax rates (typically 2.5–3.8%), income that has declined 10–30% ' +
         'in real terms since 2000 across most communities, and a legacy of racially stratified ' +
-        'disinvestment that has produced a large assessed-value gap relative to the north suburbs.' },
+        'disinvestment that has left home values well below the north suburbs.' },
       { h: 'A Tax Doom Loop That Doesn\'t Self-Correct', p:
         'The core of the problem is a tax doom loop: as assessed values fall relative to rising municipal costs, ' +
         'effective rates increase, which depresses home values further, which raises effective rates ' +
@@ -823,8 +818,8 @@
     ],
 
     'NWI': [
-      { h: 'The Most Important Counter-Narrative in This Dataset', p:
-        'The 40 NWI communities in Indiana are the most important counter-narrative in this dataset: ' +
+      { h: 'The Exception to the Rest of This Story', p:
+        'The 40 NWI communities in Indiana are the clearest exception to everything described above: ' +
         'Indiana\'s effective property tax rates — 0.70% to 1.20% across the batch, with Munster (one ' +
         'of this region\'s two headline picks) at the top of that range — produce structural carrying ' +
         'costs that are ' +
@@ -872,9 +867,9 @@
         'realize a professional-household premium — the income data for these three shows the most ' +
         'convincing combination of educational attainment, income stability, and forward catalysts of ' +
         'any communities in the northwest Indiana batch.' },
-      { h: 'A Distinct Lakefront Sub-Market', p:
+      { h: 'A Different Kind of Lakefront Community', p:
         'The Lake Michigan shoreline enclaves — Beverly Shores, Ogden Dunes, Dune Acres, Long Beach ' +
-        '— are a distinct sub-market: highly educated permanent populations, second-home demand, ' +
+        '— stand apart from the rest of the region: highly educated permanent populations, second-home demand, ' +
         'and Indiana tax rates that make a comparable North Shore, IL lakefront address cost $15–25K ' +
         'more per year to carry.' },
     ],
