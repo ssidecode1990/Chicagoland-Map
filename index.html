@@ -1955,6 +1955,10 @@
   // every single page load with zero benefit to a visitor. Off by default;
   // append ?debug=1 to the URL to see them in the console.
   const DEBUG = new URLSearchParams(location.search).has('debug');
+  const _PERF = new URLSearchParams(location.search).has('perf');
+  const _t0 = performance.now();
+  function _mark(label) { if (_PERF) console.log(label, (performance.now() - _t0).toFixed(0) + 'ms'); }
+  _mark('script-start');
 
   const map = L.map('map', {
     zoomControl: true,
@@ -2269,6 +2273,7 @@
 
   /* ===== Index data records by lookup keys ===== */
   // Computed columns the table also computes; mirror here.
+  _mark('bootstrap-forEach-1-start');
   DATA.forEach(d => {
     d.total_income_m = (d.per_capita_income != null && d.population != null)
       ? (d.per_capita_income * d.population) / 1_000_000 : null;
@@ -5294,6 +5299,7 @@
   /* ===== Bootstrap ===== */
   // DATA (from chicagoland_snippet.js) and POLYGONS (from chicagoland_polygons.js)
   // are already loaded as globals — no fetch needed, works on file:// just fine.
+  _mark('bootstrap-2-geoid-index-start');
   const geoidToRecord = {};
   DATA.forEach(d => {
     if (d.geoid && d.region !== 'Chicago') geoidToRecord[d.geoid] = d;
@@ -5336,6 +5342,7 @@
       return null;
     }
 
+    _mark('bootstrap-3-school-score-start');
     DATA.forEach(d => {
       if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
       const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
@@ -5470,6 +5477,7 @@
 
   polygonsFC = POLYGONS;
 
+  _mark('bootstrap-4-geoJSON-construct-start');
   geoLayer = L.geoJSON(POLYGONS, {
     style: styleFeature,
     onEachFeature: (f, layer) => {
@@ -5513,6 +5521,7 @@
       });
     },
   }).addTo(map);
+  _mark('bootstrap-4-geoJSON-construct-end');
 
   // ---- is_recovering CircleMarker overlays ----
   // Small white dots at polygon centroids for recovering communities.
@@ -5643,9 +5652,13 @@
   // out via writeUrlState(): calling refresh() first would overwrite a
   // shared/bookmarked URL's region (and metric/year/etc.) with the page's
   // hardcoded defaults before readUrlState() ever got a chance to read them.
+  _mark('bootstrap-5-readUrlState-start');
   readUrlState();
+  _mark('bootstrap-5-readUrlState-end');
 
+  _mark('bootstrap-6-refresh-start');
   refresh();
+  _mark('bootstrap-6-refresh-end');
 
   // Fit map to all visible polygons -- skipped when a region was just
   // restored from the URL hash above, since that already zoomed to the
@@ -5657,8 +5670,10 @@
       if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
     } catch (_) {}
   }
+  _mark('bootstrap-7-fitBounds-done');
 
   document.getElementById('loading').classList.add('hidden');
+  _mark('bootstrap-8-loading-hidden');
 
   /* ===== Wire up controls ===== */
 
