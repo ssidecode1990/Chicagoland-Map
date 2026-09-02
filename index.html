@@ -3203,6 +3203,17 @@
       case 'gross_rent': // monthly rent is small enough to show with commas
         return '$' + Math.round(v).toLocaleString();
       default: // money
+        // Census's own ACS topcode sentinel for median household/family
+        // income -- the published bracket table tops out at "$250,000 or
+        // more," so ACS reports exactly $250,001 when a place's true
+        // median falls above that (own real value is never disclosed).
+        // Showing that as a normal-looking "$250K" implies false
+        // precision; "$250,000+" is honest about it being a floor, not
+        // an exact figure. Checked by exact value, not by metric name,
+        // since 250001 is a distinctive-enough sentinel that no other
+        // money-kind metric (home value, tax, rent, housing cost) would
+        // ever coincidentally land on it for a real reason.
+        if (v === 250001) return '$250,000+';
         if (v >= 1_000_000) return '$' + (v / 1e6).toFixed(1) + 'M';
         if (v >= 1000)      return '$' + Math.round(v / 1000) + 'K';
         return '$' + Math.round(v);
@@ -3234,6 +3245,8 @@
       case 'total_income':        return '$' + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(1));
       case 'gross_rent':
       default: // money (incl. disposable + home value + tax + rent + housing)
+        // Same ACS topcode sentinel as fmtLabel() above -- see that comment.
+        if (v === 250001) return '$250,000+';
         return '$' + Math.round(v).toLocaleString();
     }
   }
@@ -3888,8 +3901,11 @@
       minFrac: 0.15,
       metric: c => c.val,
       colorFor: c => mhiColorForValue(c.val),
-      valueLabel: c => '$' + (c.val / 1000).toFixed(1) + 'k',
-      title: c => `${c.yr}: $${Math.round(c.val).toLocaleString()}`,
+      // c.val === 250001 is ACS's own topcode sentinel (see fmtLabel's
+      // comment) -- "$250.0k" would claim false precision for a value
+      // Census itself never actually measured past $250,000.
+      valueLabel: c => c.val === 250001 ? '$250k+' : '$' + (c.val / 1000).toFixed(1) + 'k',
+      title: c => c.val === 250001 ? `${c.yr}: $250,000+` : `${c.yr}: $${Math.round(c.val).toLocaleString()}`,
     });
     // % change bracket -- a horizontal line with short drop-legs at each end,
     // spanning from bar i's center to bar i+1's center, sitting in the fixed
@@ -4181,11 +4197,35 @@
     // each line here only fires when its corresponding chart would be
     // empty, so a fully-backfilled Chicagoland record is unaffected.
     if (rec.median_hh_income != null && rec.mhi_1980 == null && rec.mhi_1990 == null && rec.mhi_2000 == null && rec.mhi_2010 == null) {
+      const mhiText = rec.median_hh_income === 250001 ? '$250,000+' : `$${Math.round(rec.median_hh_income).toLocaleString()}`;
       parts.push(
         `<div class="rb-narrative-stat">` +
           `<div class="rb-narrative-stat-label">Median HH Income</div>` +
-          `<div class="rb-narrative-stat-main">$${Math.round(rec.median_hh_income).toLocaleString()}</div>` +
+          `<div class="rb-narrative-stat-main">${mhiText}</div>` +
           `<div class="rb-narrative-stat-detail">2024 — no historical backfill yet</div>` +
+        `</div>`
+      );
+    }
+    // ACS topcodes median household/family income at $250,001 -- its own
+    // published bracket table stops at "$250,000 or more," so it can't
+    // compute an exact figure past that point for wealthy places. For the
+    // handful where a clean single-town ZIP match exists, IRS Statistics of
+    // Income (SOI) data offers a REAL, uncapped, government-sourced number
+    // -- but it's a different statistic (mean AGI of returns already in the
+    // $200k+ bracket, not median household income), so it's shown as
+    // separate supplementary context, never as a replacement for the ACS
+    // figure above (which itself now displays "$250,000+" rather than a
+    // falsely-precise "$250,001" -- see fmtLabel/fmtVal). Deliberately NOT
+    // populated for towns where the ZIP-to-town match is too diluted by a
+    // larger/different neighboring town to mean anything specific (Winnetka,
+    // Long Grove) or where no usable ZIP exists at all (Kildeer) -- see
+    // tax_rate_lookup memory / session notes for the research behind this.
+    if (rec.irs_agi_mean_topbracket != null) {
+      parts.push(
+        `<div class="rb-narrative-stat">` +
+          `<div class="rb-narrative-stat-label">IRS Avg. Income, $200K+ Filers</div>` +
+          `<div class="rb-narrative-stat-main">$${Math.round(rec.irs_agi_mean_topbracket).toLocaleString()}</div>` +
+          `<div class="rb-narrative-stat-detail">ZIP ${rec.irs_agi_zip}, tax year ${rec.irs_agi_year} — mean AGI among filers already over $200K; not median household income</div>` +
         `</div>`
       );
     }

@@ -704,8 +704,10 @@
         "($739K) — despite La Grange and Western Springs carrying the higher rate. Buyers don't " +
         "always do the math you'd expect them to." },
       { h: 'The Sharpest Demographic Change in the Study', p:
-        "Nowhere in this study changed faster than Cicero — an Irish-American enclave in the 1960s, " +
-        "now the most thoroughly Hispanic large suburb in the metro at 88%. But change alone doesn't " +
+        "Nowhere in this study changed faster than Cicero — a Bohemian and Eastern European " +
+        "working-class enclave for most of the 20th century (its own main drag, Cermak Road, is " +
+        "named for a Czech-American mayor), now the most thoroughly Hispanic large suburb in the " +
+        "metro at 88%. But change alone doesn't " +
         "pay the bills: the working-class west Cook tier around it — Broadview, Hillside, Stone " +
         "Park, Stickney — has kept losing income right alongside that demographic shift, without the " +
         "recovery that showed up in the more transit-friendly parts of the metro." },
@@ -996,12 +998,27 @@
 
   function pct(a, b) { return (b - a) / a * 100; }
 
-  // Chicago's mhi_history[0] (1990 slot) is null on every CCA record; the
-  // real 1990 figure lives in a separate mhi_1990 field instead. Every other
-  // region has a real value at mhi_history[0] and no separate mhi_1990 field.
+  // mhi_history's slots aren't always [1990, 2000, 2010, 2024] -- a pilot
+  // metro record (Rockford/Peoria/South Bend, fetch_pilot_metro_history.py)
+  // has no 1990 data at all and uses a 3-element [2000, 2010, 2024] instead.
+  // histAt() looks up the correct slot via each record's own history_years
+  // rather than assuming a fixed position (mirrors index.html's histAt()).
+  // Currently a no-op for every record REGIONS lets through (all 4-element
+  // [1990,2000,2010,2024]), but guards this page against silently mislabeled
+  // values if a pilot-metro selector is ever added here too.
+  function histAt(p, arr, year) {
+    if (!arr) return null;
+    const hy = p.history_years || [1990, 2000, 2010, 2024];
+    const idx = hy.indexOf(year);
+    return idx === -1 ? null : arr[idx];
+  }
+
+  // Chicago's mhi_history 1990 slot is null on every CCA record; the real
+  // 1990 figure lives in a separate mhi_1990 field instead. Every other
+  // region has a real value in the 1990 slot and no separate mhi_1990 field.
   function mhi1990(p) {
     return p.region === 'Chicago' ? (p.mhi_1990 != null ? p.mhi_1990 : null)
-                                   : (p.mhi_history ? p.mhi_history[0] : null);
+                                   : histAt(p, p.mhi_history, 1990);
   }
 
   // Resolve a town/CCA's median household income at a given checkpoint year.
@@ -1012,10 +1029,10 @@
   function mhiAtYear(p, year) {
     if (year === 1980) return p.mhi_1980 != null ? p.mhi_1980 : null;
     if (year === 1990) return mhi1990(p);
-    if (year === 2000) return p.mhi_history ? p.mhi_history[1] : null;
-    if (year === 2010) return p.mhi_history ? p.mhi_history[2] : null;
+    if (year === 2000) return histAt(p, p.mhi_history, 2000);
+    if (year === 2010) return histAt(p, p.mhi_history, 2010);
     if (year === 2020) return p.mhi_2020 != null ? p.mhi_2020 : null;
-    if (year === 2024) return p.mhi_history ? p.mhi_history[3] : null;
+    if (year === 2024) return histAt(p, p.mhi_history, 2024);
     return null;
   }
 
