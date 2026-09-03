@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicagoland — A Statistical Portrait</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #4a4640;
+    --ink-faint: #7a7670;
+    --paper: #f4f0e8;
+    --paper-warm: #ebe5d6;
+    --rule: #2a2620;
+    --accent: #8b1a1a;
+    --accent-soft: #c9a96a;
+    --highlight: #f2e8c9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    padding: 0;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(139,26,26,0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(201,169,106,0.04) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== HEADER ===== */
+  .masthead {
+    border-bottom: 3px double var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+  }
+
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .kicker::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    opacity: 0.3;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 18px;
+    font-variation-settings: "opsz" 144;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .deck {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .byline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .byline span strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ===== METHODOLOGY ===== */
+  .methodology {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 36px 40px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .methodology::before {
+    content: '§';
+    position: absolute;
+    top: -18px;
+    left: 32px;
+    background: var(--paper);
+    padding: 0 12px;
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .methodology h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .methodology .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 36px;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 820px) {
+    .method-grid { grid-template-columns: 1fr; }
+  }
+
+  .method-item h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .method-item .formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    margin: 10px 0;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .method-item p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .method-item .source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+
+  /* ===== CONTROLS ===== */
+  .controls {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .search-wrap {
+    flex: 1;
+    min-width: 240px;
+    position: relative;
+  }
+
+  .search-wrap::before {
+    content: '⌕';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--ink-faint);
+    pointer-events: none;
+  }
+
+  .minpop-wrap {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .minpop-wrap label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    padding: 12px 12px 12px 16px;
+    background: var(--paper-warm);
+    border-right: 1px solid var(--rule);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .minpop-wrap input[type="number"] {
+    border: none;
+    background: var(--paper);
+    padding: 12px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    width: 110px;
+    color: var(--ink);
+  }
+
+  .minpop-wrap input[type="number"]:focus {
+    outline: none;
+    background: #fff;
+  }
+
+  .minpop-wrap:focus-within {
+    border-color: var(--accent);
+  }
+
+  input[type="text"], select {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 15px;
+    padding: 12px 16px 12px 40px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    width: 100%;
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  select {
+    padding: 12px 36px 12px 16px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1814' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    min-width: 180px;
+    width: auto;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+  }
+
+  .results-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    padding-left: 4px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .results-count strong { color: var(--ink); font-weight: 500; }
+
+  .scroll-hint {
+    color: var(--accent);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+
+  /* ===== TABLE ===== */
+  .table-wrap {
+    /* Break out of .container's max-width so the table spans the full
+       viewport — keeps the masthead/methodology readable above while the
+       data grid uses every available pixel for more visible columns. */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: #fdfaf2;
+    overflow-x: auto;
+    border-radius: 0;
+    /* Visual cue that there's more to scroll on small screens */
+    background-image:
+      linear-gradient(to right, #fdfaf2 30%, rgba(253, 250, 242, 0)),
+      linear-gradient(to right, rgba(253, 250, 242, 0), #fdfaf2 70%) 100% 0,
+      radial-gradient(farthest-side at 0% 50%, rgba(42,38,32,0.12), transparent),
+      radial-gradient(farthest-side at 100% 50%, rgba(42,38,32,0.12), transparent) 100% 0;
+    background-repeat: no-repeat;
+    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+    background-attachment: local, local, scroll, scroll;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    min-width: 1200px;
+  }
+
+  thead {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  th {
+    text-align: left;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  th:hover { background: #2a2620; }
+  th.numeric { text-align: right; }
+
+  th .sort-icon {
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0.35;
+    font-size: 9px;
+    transition: opacity 0.2s;
+  }
+
+  th.sorted .sort-icon { opacity: 1; color: var(--accent-soft); }
+
+  tbody tr {
+    border-top: 1px solid rgba(42, 38, 32, 0.08);
+    transition: background 0.12s;
+  }
+
+  tbody tr:hover { background: var(--highlight); }
+
+  tbody tr:nth-child(even) {
+    background: rgba(235, 229, 214, 0.3);
+  }
+
+  tbody tr:nth-child(even):hover { background: var(--highlight); }
+
+  td {
+    padding: 12px 16px;
+    vertical-align: baseline;
+  }
+
+  td.name {
+    font-family: 'Fraunces', serif;
+    font-size: 16.5px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  td.region {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  td.county {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+
+  td.numeric {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  td.numeric.income { font-weight: 500; }
+  td.muted { color: var(--ink-faint); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footnote {
+    margin-top: 16px;
+    font-family: 'Fraunces', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--ink-faint);
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.5;
+    max-width: 720px;
+  }
+
+  .empty {
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+  }
+
+  /* Subtle entrance */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .masthead, .methodology, .controls, .results-count, .table-wrap, .footer {
+    animation: rise 0.6s ease-out backwards;
+  }
+  .methodology { animation-delay: 0.1s; }
+  .controls { animation-delay: 0.18s; }
+  .results-count { animation-delay: 0.22s; }
+  .table-wrap { animation-delay: 0.28s; }
+  .footer { animation-delay: 0.36s; }
+
+  /* ===== SPARKLINES & ZOOM ===== */
+  .spark {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 22px;
+    cursor: help;
+    position: relative;
+  }
+
+  .spark-bar {
+    width: 14px;
+    background: var(--accent);
+    transition: opacity 0.15s;
+    border-radius: 1px 1px 0 0;
+  }
+
+  .spark-bar.null {
+    height: 2px !important;
+    background: var(--ink-faint);
+    opacity: 0.3;
+  }
+
+  .spark-bar:hover {
+    opacity: 0.7;
+  }
+
+  .spark-tip {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 10;
+    line-height: 1.5;
+  }
+
+  .spark-tip strong { color: var(--accent-soft); font-weight: 500; }
+  .spark-tip .nominal { color: var(--ink-faint); font-size: 10px; }
+
+  .spark:hover .spark-tip { opacity: 1; }
+
+  .zoom-controls {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .zoom-controls button {
+    background: var(--paper-warm);
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 0 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s;
+    line-height: 1;
+  }
+
+  .zoom-controls button:last-of-type {
+    border-right: none;
+    border-left: 1px solid var(--rule);
+  }
+
+  .zoom-controls button:hover {
+    background: var(--highlight);
+  }
+
+  .zoom-controls .zoom-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    background: var(--paper);
+    min-width: 70px;
+    justify-content: center;
+  }
+
+  /* Zoomable table — every dimension keyed off --table-zoom */
+  .table-wrap {
+    --table-zoom: 1;
+  }
+  .table-wrap table { font-size: calc(14px * var(--table-zoom)); }
+  .table-wrap th { padding: calc(14px * var(--table-zoom)) calc(16px * var(--table-zoom)); font-size: calc(10.5px * var(--table-zoom)); }
+  .table-wrap td { padding: calc(12px * var(--table-zoom)) calc(16px * var(--table-zoom)); }
+  .table-wrap td.name { font-size: calc(16.5px * var(--table-zoom)); }
+  .table-wrap td.region, .table-wrap td.county { font-size: calc(11px * var(--table-zoom)); }
+  .table-wrap .spark { height: calc(22px * var(--table-zoom)); }
+  .table-wrap .spark-bar { width: calc(14px * var(--table-zoom)); }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <div class="kicker">A Civic Data Project · Volume I &nbsp;·&nbsp; <a href="Chicagoland%20map.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">view as map →</a></div>
+    <h1>Chicagoland,<br><em>by the numbers</em></h1>
+    <p class="deck">A statistical portrait of every incorporated city, town, and CDP across the Chicago metropolitan area with a population of 4,000 or more — drawn from the most recent figures published by the United States Census Bureau.</p>
+    <div class="byline">
+      <span>Sources · <strong>U.S. Census Bureau · CMAP</strong></span>
+      <span>Dataset · <strong>ACS 2020–2024 5-Year + CMAP 2025 Snapshots</strong></span>
+      <span>Geography · <strong>Census Designated Places</strong></span>
+    </div>
+  </header>
+
+  <section class="methodology">
+    <h2>How to read this table</h2>
+    <p class="sub">Each statistic, defined</p>
+    <div class="method-grid">
+
+      <div class="method-item">
+        <h3>Per Capita Income</h3>
+        <div class="formula">Total aggregate income ÷ Total population</div>
+        <p>The average income for every resident — including children, retirees, and non-earners. Because it divides by <em>everyone</em>, it runs lower than household measures, but it gives the truest single number for a community's overall economic output per person.</p>
+        <div class="source">Census Table B19301 · 2024 inflation-adjusted dollars</div>
+      </div>
+
+      <div class="method-item">
+        <h3>Median Household Income</h3>
+        <div class="formula">The middle value among all households</div>
+        <p>Half of households in the community earn more than this amount; half earn less. This measure includes the income of every person living together at one address — whether related or not — and is the most commonly cited income statistic in American civic data.</p>
+        <div class="source">Census Table B19013 · 2024 inflation-adjusted dollars</div>
+      </div>
+
+      <div class="method-item">
+        <h3>Median Family Income</h3>
+        <div class="formula">The middle value among households of two or more related people</div>
+        <p>Like median household income, but limited to family households — those with two or more people related by birth, marriage, or adoption. Excludes people living alone or with roommates. Almost always higher than median household income.</p>
+        <div class="source">Census Table B19113 · 2024 inflation-adjusted dollars</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search municipality (e.g., Naperville, Evanston, Homewood)…" autocomplete="off">
+    </div>
+    <select id="region-filter">
+      <option value="all">All regions</option>
+      <option value="Chicago">Chicago (community areas)</option>
+      <option value="North">North</option>
+      <option value="Northwest">Northwest</option>
+      <option value="West">West</option>
+      <option value="Southwest">Southwest</option>
+      <option value="South">South</option>
+      <option value="NWI">NWI (Indiana)</option>
+    </select>
+    <div class="minpop-wrap">
+      <label for="min-pop">Population ></label>
+      <input type="number" id="min-pop" value="4000" min="0" step="500" inputmode="numeric">
+    </div>
+    <div class="zoom-controls">
+      <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+      <span class="zoom-label" id="zoom-label">100%</span>
+      <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+    </div>
+  </div>
+
+  <div class="results-count">
+    <span id="count"></span>
+    <span class="scroll-hint">↔ scroll horizontally to see all columns</span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th data-sort="name" data-type="string">Municipality<span class="sort-icon">▲▼</span></th>
+          <th data-sort="region" data-type="string">Region<span class="sort-icon">▲▼</span></th>
+          <th data-sort="county" data-type="string">County<span class="sort-icon">▲▼</span></th>
+          <th data-sort="per_capita_income" data-type="number" class="numeric sorted" data-default-desc="true">Per Capita Income<span class="sort-icon">▼</span></th>
+          <th class="numeric">PCI Trend<br><span style="font-size:9px;opacity:0.6;">1990 · 2000 · 2010 · 2024 ($2024)</span></th>
+          <th data-sort="population" data-type="number" class="numeric">Total Population<span class="sort-icon">▲▼</span></th>
+          <th data-sort="total_income_m" data-type="number" class="numeric">Total Municipal Income ($M)<span class="sort-icon">▲▼</span></th>
+          <th data-sort="household_size" data-type="number" class="numeric">Avg. Household Size<span class="sort-icon">▲▼</span></th>
+          <th data-sort="median_hh_income" data-type="number" class="numeric">Median HH Income<span class="sort-icon">▲▼</span></th>
+          <th class="numeric">HH Income Trend<br><span style="font-size:9px;opacity:0.6;">1990 · 2000 · 2010 · 2024 ($2024)</span></th>
+          <th data-sort="median_family_income" data-type="number" class="numeric">Median Family Income<span class="sort-icon">▲▼</span></th>
+          <th data-sort="pct_bachelors" data-type="number" class="numeric">% Bachelor's+<span class="sort-icon">▲▼</span></th>
+          <th data-sort="pct_under_18" data-type="number" class="numeric">% Under 18<span class="sort-icon">▲▼</span></th>
+          <th data-sort="num_under_18" data-type="number" class="numeric"># Under 18<span class="sort-icon">▲▼</span></th>
+          <th data-sort="median_home_value" data-type="number" class="numeric">Median Home Value<span class="sort-icon">▲▼</span></th>
+          <th data-sort="effective_property_tax_rate" data-type="number" class="numeric">Property Tax %<span class="sort-icon">▲▼</span></th>
+          <th data-sort="avg_property_tax_annual" data-type="number" class="numeric">Property Tax (yr)<span class="sort-icon">▲▼</span></th>
+          <th data-sort="disposable_per_capita_income" data-type="number" class="numeric">Disposable PCI<span class="sort-icon">▲▼</span></th>
+          <th data-sort="disposable_median_hh_income" data-type="number" class="numeric">Disposable MHI<span class="sort-icon">▲▼</span></th>
+          <th data-sort="disposable_median_family_income" data-type="number" class="numeric">Disposable Fam. Inc.<span class="sort-icon">▲▼</span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <p class="footnote">This volume covers every Census-designated municipality across the seven Illinois Chicagoland counties (Cook, DuPage, Kane, Kendall, Lake, McHenry, Will) and the three Indiana NWI counties (Lake, Porter, LaPorte) with a population of 4,000 or more, plus all 77 Chicago community areas. Suburb data is pulled directly from the U.S. Census Bureau's American Community Survey (2020–2024 5-Year Estimates). Chicago community area data is sourced from the Chicago Metropolitan Agency for Planning's (CMAP) 2025 Community Data Snapshots, which aggregate the same ACS variables by community area. Median family income is not published by CMAP at the community-area level and appears blank for Chicago entries. Westville (LaPorte County, IN) is excluded from display: the Westville Correctional Facility houses a large incarcerated population that the Census counts as residents, producing per-capita income, age, and education figures not comparable to ordinary civilian communities. Pines (Porter County, IN) is omitted because the Census Bureau suppresses estimates for places of its size due to insufficient sample.</p>
+
+  <footer class="footer">
+    <span>Data current as of · ACS 5-Year 2020–2024</span>
+    <span>Chicagoland · Cook · DuPage · Kane · Kendall · Lake · McHenry · Will · NWI</span>
+  </footer>
+
+</div>
+
+<script>
+  // Source: U.S. Census Bureau, ACS 2024 5-Year Estimates (released Dec 2025)
+  // Tables: B01001, B01003, B15003, B19013, B19113, B19301, B25010
+  // Pulled directly from api.census.gov via fetch_nwi_data.py on 2026-05-07
+  //
+  // Westville is excluded due to prison-skewed numbers (see footnote on page).
+  // Pines is omitted because Census did not publish ACS estimates for it.
+  const DATA = [
+    { name: "Winnetka", region: "North", county: "Cook", state: "IL", population: 12484, household_size: 2.99, median_hh_income: 250001, median_family_income: 250001, per_capita_income: 162186, pct_under_18: 34.5, pct_bachelors: 86.7, pci_history: [158431,150244,162186], mhi_history: [315337,299158,250001], pci_history_nominal: [84134,104440,162186], mhi_history_nominal: [167458,207955,250001] },
+    { name: "Glencoe", region: "North", county: "Cook", state: "IL", population: 8701, household_size: 2.92, median_hh_income: 248933, median_family_income: 250001, per_capita_income: 145670, pct_under_18: 27.5, pct_bachelors: 88.2, pci_history: [165822,150933,145670], mhi_history: [309638,278466,248933], pci_history_nominal: [88059,104919,145670], mhi_history_nominal: [164432,193571,248933] },
+    { name: "Hinsdale", region: "West", county: "DuPage", state: "IL", population: 17175, household_size: 2.96, median_hh_income: 250001, median_family_income: 250001, per_capita_income: 122593, pct_under_18: 31.1, pct_bachelors: 80.8, pci_history: [120075,114955,122593], mhi_history: [196878,240361,250001], pci_history_nominal: [63765,79909,122593], mhi_history_nominal: [104551,167083,250001] },
+    { name: "Near North Side", region: "Chicago", county: "Cook", state: "IL", population: 104712, household_size: 1.55, median_hh_income: 122603, median_family_income: null, per_capita_income: 119603, pct_under_18: 7.4, pct_bachelors: 85.4, pci_history: [null,null,119603], mhi_history: [null,null,122603], pci_history_nominal: [null,null,119603], mhi_history_nominal: [null,null,122603] },
+    { name: "Dune Acres", region: "NWI", county: "Porter", state: "IN", population: 293, household_size: 2.22, median_hh_income: 163333, median_family_income: 175625, per_capita_income: 118419, pct_under_18: 9.2, pct_bachelors: 79.3, pci_history: [128145,204407,118419], mhi_history: [178597,190011,163333], pci_history_nominal: [68051,142090,118419], mhi_history_nominal: [94843,132083,163333] },
+    { name: "Long Grove", region: "North", county: "Lake (IL)", state: "IL", population: 8305, household_size: 2.91, median_hh_income: 250001, median_family_income: 250001, per_capita_income: 117776, pct_under_18: 21.0, pct_bachelors: 75.7, pci_history: [117099,96492,117776], mhi_history: [278978,234346,250001], pci_history_nominal: [62185,67075,117776], mhi_history_nominal: [148150,162902,250001] },
+    { name: "Long Beach", region: "NWI", county: "LaPorte", state: "IN", population: 1111, household_size: 1.89, median_hh_income: 121827, median_family_income: 159167, per_capita_income: 115710, pct_under_18: 5.9, pct_bachelors: 73.0, pci_history: [81272,74119,115710], mhi_history: [134384,125361,121827], pci_history_nominal: [43159,51523,115710], mhi_history_nominal: [71364,87143,121827] },
+    { name: "Lincoln Park", region: "Chicago", county: "Cook", state: "IL", population: 67831, household_size: 1.95, median_hh_income: 137504, median_family_income: null, per_capita_income: 113396, pct_under_18: 15.6, pct_bachelors: 85.7, pci_history: [null,null,113396], mhi_history: [null,null,137504], pci_history_nominal: [null,null,113396], mhi_history_nominal: [null,null,137504] },
+    { name: "Wilmette", region: "North", county: "Cook", state: "IL", population: 27503, household_size: 2.66, median_hh_income: 190662, median_family_income: 248261, per_capita_income: 112774, pct_under_18: 30.5, pct_bachelors: 83.6, pci_history: [104720,99784,112774], mhi_history: [201062,184177,190662], pci_history_nominal: [55611,69363,112774], mhi_history_nominal: [106773,128028,190662] },
+    { name: "Northfield", region: "North", county: "Cook", state: "IL", population: 5487, household_size: 2.38, median_hh_income: 161500, median_family_income: 250001, per_capita_income: 111184, pct_under_18: 22.0, pct_bachelors: 80.7, pci_history: [120248,114353,111184], mhi_history: [171950,154328,161500], pci_history_nominal: [63857,79491,111184], mhi_history_nominal: [91313,107279,161500] },
+    { name: "Lake Forest", region: "North", county: "Lake (IL)", state: "IL", population: 19416, household_size: 2.63, median_hh_income: 235081, median_family_income: 250001, per_capita_income: 109918, pct_under_18: 19.2, pct_bachelors: 80.5, pci_history: [145170,133420,109918], mhi_history: [256969,196798,235081], pci_history_nominal: [77092,92745,109918], mhi_history_nominal: [136462,136801,235081] },
+    { name: "Kildeer", region: "North", county: "Lake (IL)", state: "IL", population: 4292, household_size: 2.86, median_hh_income: 250001, median_family_income: 250001, per_capita_income: 109650, pct_under_18: 24.4, pct_bachelors: 80.9, pci_history: [97869,93927,109650], mhi_history: [258920,254387,250001], pci_history_nominal: [51973,65292,109650], mhi_history_nominal: [137498,176833,250001] },
+    { name: "Riverwoods", region: "North", county: "Lake (IL)", state: "IL", population: 4013, household_size: 3.09, median_hh_income: 249205, median_family_income: 236364, per_capita_income: 108010, pct_under_18: 21.6, pct_bachelors: 76.6, pci_history: [127820,107312,108010], mhi_history: [299391,247404,249205], pci_history_nominal: [67878,74596,108010], mhi_history_nominal: [158990,171979,249205] },
+    { name: "Lake Bluff", region: "North", county: "Lake (IL)", state: "IL", population: 6041, household_size: 2.73, median_hh_income: 204000, median_family_income: 226029, per_capita_income: 106944, pct_under_18: 24.0, pct_bachelors: 81.6, pci_history: [103238,96351,106944], mhi_history: [215652,210607,204000], pci_history_nominal: [54824,66977,106944], mhi_history_nominal: [114521,146400,204000] },
+    { name: "The Loop", region: "Chicago", county: "Cook", state: "IL", population: 42181, household_size: 1.61, median_hh_income: 119836, median_family_income: null, per_capita_income: 106173, pct_under_18: 7.8, pct_bachelors: 83.5, pci_history: [null,null,106173], mhi_history: [null,null,119836], pci_history_nominal: [null,null,106173], mhi_history_nominal: [null,null,119836] },
+    { name: "Oak Brook", region: "West", county: "DuPage", state: "IL", population: 8056, household_size: 2.6, median_hh_income: 175870, median_family_income: 206875, per_capita_income: 104806, pct_under_18: 17.9, pct_bachelors: 66.4, pci_history: [144372,116885,104806], mhi_history: [275941,189487,175870], pci_history_nominal: [76668,81251,104806], mhi_history_nominal: [146537,131719,175870] },
+    { name: "Western Springs", region: "West", county: "Cook", state: "IL", population: 13446, household_size: 3.0, median_hh_income: 230255, median_family_income: 250001, per_capita_income: 104158, pct_under_18: 32.4, pct_bachelors: 83.8, pci_history: [82289,79254,104158], mhi_history: [186191,191137,230255], pci_history_nominal: [43699,55092,104158], mhi_history_nominal: [98876,132866,230255] },
+    { name: "Burr Ridge", region: "West", county: "DuPage", state: "IL", population: 11141, household_size: 2.42, median_hh_income: 156829, median_family_income: 201475, per_capita_income: 100503, pct_under_18: 18.2, pct_bachelors: 66.6, pci_history: [110194,127357,100503], mhi_history: [243872,206678,156829], pci_history_nominal: [58518,88530,100503], mhi_history_nominal: [129507,143669,156829] },
+    { name: "South Barrington", region: "Northwest", county: "Cook", state: "IL", population: 5021, household_size: 3.02, median_hh_income: 221575, median_family_income: 245811, per_capita_income: 99079, pct_under_18: 25.8, pct_bachelors: 73.6, pci_history: [143261,101592,99079], mhi_history: [321545,252179,221575], pci_history_nominal: [76078,70620,99079], mhi_history_nominal: [170755,175298,221575] },
+    { name: "Highland Park", region: "North", county: "Lake (IL)", state: "IL", population: 30398, household_size: 2.55, median_hh_income: 168094, median_family_income: 225878, per_capita_income: 98275, pct_under_18: 23.8, pct_bachelors: 76.9, pci_history: [104193,95212,98275], mhi_history: [190129,161898,168094], pci_history_nominal: [55331,66185,98275], mhi_history_nominal: [100967,112541,168094] },
+    { name: "Inverness", region: "Northwest", county: "Cook", state: "IL", population: 7275, household_size: 2.66, median_hh_income: 207434, median_family_income: 226533, per_capita_income: 96936, pct_under_18: 19.1, pct_bachelors: 68.5, pci_history: [137975,96016,96936], mhi_history: [266780,204637,207434], pci_history_nominal: [73271,66744,96936], mhi_history_nominal: [141672,142250,207434] },
+    { name: "Near South Side", region: "Chicago", county: "Cook", state: "IL", population: 29174, household_size: 1.76, median_hh_income: 124966, median_family_income: null, per_capita_income: 95928, pct_under_18: 13.1, pct_bachelors: 83.0, pci_history: [null,null,95928], mhi_history: [null,null,124966], pci_history_nominal: [null,null,95928], mhi_history_nominal: [null,null,124966] },
+    { name: "Deerfield", region: "North", county: "Lake (IL)", state: "IL", population: 19518, household_size: 2.59, median_hh_income: 181660, median_family_income: 216643, per_capita_income: 94846, pct_under_18: 24.4, pct_bachelors: 82.1, pci_history: [95404,87151,94846], mhi_history: [201855,189221,181660], pci_history_nominal: [50664,60582,94846], mhi_history_nominal: [107194,131534,181660] },
+    { name: "Palos Park", region: "Southwest", county: "Cook", state: "IL", population: 4816, household_size: 2.32, median_hh_income: 121696, median_family_income: 170586, per_capita_income: 94436, pct_under_18: 16.2, pct_bachelors: 51.7, pci_history: [75061,70192,94436], mhi_history: [147728,122566,121696], pci_history_nominal: [39861,48793,94436], mhi_history_nominal: [78450,85200,121696] },
+    { name: "Lincolnshire", region: "North", county: "Lake (IL)", state: "IL", population: 7980, household_size: 2.39, median_hh_income: 185580, median_family_income: 231198, per_capita_income: 93736, pct_under_18: 20.6, pct_bachelors: 77.0, pci_history: [113201,91459,93736], mhi_history: [252820,205775,185580], pci_history_nominal: [60115,63576,93736], mhi_history_nominal: [134259,143041,185580] },
+    { name: "River Forest", region: "West", county: "Cook", state: "IL", population: 11992, household_size: 2.47, median_hh_income: 146786, median_family_income: 237258, per_capita_income: 91438, pct_under_18: 24.5, pct_bachelors: 72.9, pci_history: [86853,88196,91438], mhi_history: [168129,167634,146786], pci_history_nominal: [46123,61308,91438], mhi_history_nominal: [89284,116528,146786] },
+    { name: "Lake View", region: "Chicago", county: "Cook", state: "IL", population: 101163, household_size: 1.78, median_hh_income: 104135, median_family_income: null, per_capita_income: 90354, pct_under_18: 11.8, pct_bachelors: 83.7, pci_history: [null,null,90354], mhi_history: [null,null,104135], pci_history_nominal: [null,null,90354], mhi_history_nominal: [null,null,104135] },
+    { name: "North Center", region: "Chicago", county: "Cook", state: "IL", population: 35408, household_size: 2.41, median_hh_income: 145156, median_family_income: null, per_capita_income: 89169, pct_under_18: 26.3, pct_bachelors: 79.1, pci_history: [null,null,89169], mhi_history: [null,null,145156], pci_history_nominal: [null,null,89169], mhi_history_nominal: [null,null,145156] },
+    { name: "Beverly Shores", region: "NWI", county: "Porter", state: "IN", population: 650, household_size: 1.87, median_hh_income: 119948, median_family_income: 128413, per_capita_income: 88550, pct_under_18: 8.0, pct_bachelors: 74.5, pci_history: [76877,66130,88550], mhi_history: [111303,111807,119948], pci_history_nominal: [40825,45969,88550], mhi_history_nominal: [59107,77721,119948] },
+    { name: "West Town", region: "Chicago", county: "Cook", state: "IL", population: 86598, household_size: 2.04, median_hh_income: 134321, median_family_income: null, per_capita_income: 87702, pct_under_18: 12.9, pct_bachelors: 74.2, pci_history: [null,null,87702], mhi_history: [null,null,134321], pci_history_nominal: [null,null,87702], mhi_history_nominal: [null,null,134321] },
+    { name: "Hawthorn Woods", region: "North", county: "Lake (IL)", state: "IL", population: 9143, household_size: 3.04, median_hh_income: 219631, median_family_income: 232708, per_capita_income: 87506, pct_under_18: 29.9, pct_bachelors: 75.7, pci_history: [92922,90289,87506], mhi_history: [249922,231070,219631], pci_history_nominal: [49346,62763,87506], mhi_history_nominal: [132720,160625,219631] },
+    { name: "Northbrook", region: "North", county: "Cook", state: "IL", population: 34585, household_size: 2.55, median_hh_income: 157782, median_family_income: 211168, per_capita_income: 87173, pct_under_18: 21.2, pct_bachelors: 72.6, pci_history: [95595,82889,87173], mhi_history: [180145,162687,157782], pci_history_nominal: [50765,57619,87173], mhi_history_nominal: [95665,113089,157782] },
+    { name: "Green Oaks", region: "North", county: "Lake (IL)", state: "IL", population: 4096, household_size: 2.56, median_hh_income: 147614, median_family_income: 239531, per_capita_income: 82452, pct_under_18: 22.7, pct_bachelors: 60.9, pci_history: [96161,95569,82452], mhi_history: [240855,226126,147614], pci_history_nominal: [51066,66433,82452], mhi_history_nominal: [127905,157188,147614] },
+    { name: "Libertyville", region: "North", county: "Lake (IL)", state: "IL", population: 20525, household_size: 2.61, median_hh_income: 165667, median_family_income: 206139, per_capita_income: 82024, pct_under_18: 25.2, pct_bachelors: 71.0, pci_history: [76125,70801,82024], mhi_history: [167270,147443,165667], pci_history_nominal: [40426,49216,82024], mhi_history_nominal: [88828,102493,165667] },
+    { name: "Campton Hills", region: "West", county: "Kane", state: "IL", population: 10877, household_size: 2.94, median_hh_income: 209134, median_family_income: 213177, per_capita_income: 81211, pct_under_18: 26.1, pct_bachelors: 59.7, pci_history: [null,74285,81211], mhi_history: [null,194761,209134], pci_history_nominal: [null,51638,81211], mhi_history_nominal: [null,135385,209134] },
+    { name: "Glenview", region: "North", county: "Cook", state: "IL", population: 47752, household_size: 2.53, median_hh_income: 143056, median_family_income: 190362, per_capita_income: 80691, pct_under_18: 24.1, pct_bachelors: 68.3, pci_history: [81696,76598,80691], mhi_history: [152021,153980,143056], pci_history_nominal: [43384,53246,80691], mhi_history_nominal: [80730,107037,143056] },
+    { name: "Clarendon Hills", region: "West", county: "DuPage", state: "IL", population: 8659, household_size: 2.7, median_hh_income: 130388, median_family_income: 179583, per_capita_income: 80352, pct_under_18: 29.1, pct_bachelors: 72.3, pci_history: [78824,86308,80352], mhi_history: [159676,160765,130388], pci_history_nominal: [41859,59996,80352], mhi_history_nominal: [84795,111753,130388] },
+    { name: "La Grange", region: "West", county: "Cook", state: "IL", population: 15998, household_size: 2.71, median_hh_income: 159929, median_family_income: 209595, per_capita_income: 79689, pct_under_18: 28.4, pct_bachelors: 67.2, pci_history: [65695,67955,79689], mhi_history: [151290,136131,159929], pci_history_nominal: [34887,47238,79689], mhi_history_nominal: [80342,94629,159929] },
+    { name: "Michiana Shores", region: "NWI", county: "LaPorte", state: "IN", population: 364, household_size: 2.12, median_hh_income: 91250, median_family_income: 124063, per_capita_income: 79681, pct_under_18: 8.2, pct_bachelors: 51.7, pci_history: [57684,64603,79681], mhi_history: [87092,58442,91250], pci_history_nominal: [30633,44908,79681], mhi_history_nominal: [46250,40625,91250] },
+    { name: "Lakewood", region: "Northwest", county: "McHenry", state: "IL", population: 4707, household_size: 2.97, median_hh_income: 173625, median_family_income: 194125, per_capita_income: 79413, pct_under_18: 29.1, pct_bachelors: 61.3, pci_history: [83946,74587,79413], mhi_history: [209346,168944,173625], pci_history_nominal: [44579,51848,79413], mhi_history_nominal: [111172,117439,173625] },
+    { name: "Near West Side", region: "Chicago", county: "Cook", state: "IL", population: 66084, household_size: 1.8, median_hh_income: 110651, median_family_income: null, per_capita_income: 79355, pct_under_18: 12.4, pct_bachelors: 71.0, pci_history: [null,null,79355], mhi_history: [null,null,110651], pci_history_nominal: [null,null,79355], mhi_history_nominal: [null,null,110651] },
+    { name: "Barrington", region: "Northwest", county: "Cook", state: "IL", population: 11077, household_size: 2.53, median_hh_income: 147989, median_family_income: 186940, per_capita_income: 79159, pct_under_18: 28.8, pct_bachelors: 68.0, pci_history: [82746,78286,79159], mhi_history: [156456,147266,147989], pci_history_nominal: [43942,54419,79159], mhi_history_nominal: [83085,102370,147989] },
+    { name: "Elmhurst", region: "West", county: "DuPage", state: "IL", population: 45671, household_size: 2.64, median_hh_income: 149644, median_family_income: 187610, per_capita_income: 77937, pct_under_18: 24.2, pct_bachelors: 64.2, pci_history: [60287,60116,77937], mhi_history: [131428,122712,149644], pci_history_nominal: [32015,41789,77937], mhi_history_nominal: [69794,85301,149644] },
+    { name: "Park Ridge", region: "North", county: "Cook", state: "IL", population: 38667, household_size: 2.56, median_hh_income: 142986, median_family_income: 201101, per_capita_income: 77214, pct_under_18: 24.7, pct_bachelors: 66.1, pci_history: [67877,64546,77214], mhi_history: [137755,123569,142986], pci_history_nominal: [36046,44868,77214], mhi_history_nominal: [73154,85897,142986] },
+    { name: "Ogden Dunes", region: "NWI", county: "Porter", state: "IN", population: 1140, household_size: 2.27, median_hh_income: 117000, median_family_income: 195750, per_capita_income: 76116, pct_under_18: 20.5, pct_bachelors: 73.4, pci_history: [93875,81098,76116], mhi_history: [144854,134866,117000], pci_history_nominal: [49852,56374,76116], mhi_history_nominal: [76924,93750,117000] },
+    { name: "Lake Barrington", region: "North", county: "Lake (IL)", state: "IL", population: 5442, household_size: 2.26, median_hh_income: 141958, median_family_income: 211908, per_capita_income: 74380, pct_under_18: 17.7, pct_bachelors: 63.6, pci_history: [118932,111564,74380], mhi_history: [201397,159254,141958], pci_history_nominal: [63158,77552,74380], mhi_history_nominal: [106951,110703,141958] },
+    { name: "Glen Ellyn", region: "West", county: "DuPage", state: "IL", population: 28390, household_size: 2.64, median_hh_income: 140938, median_family_income: 182482, per_capita_income: 74079, pct_under_18: 26.2, pct_bachelors: 68.2, pci_history: [74915,71713,74079], mhi_history: [140941,130651,140938], pci_history_nominal: [39783,49850,74079], mhi_history_nominal: [74846,90820,140938] },
+    { name: "Naperville", region: "West", county: "DuPage", state: "IL", population: 150692, household_size: 2.7, median_hh_income: 155105, median_family_income: 184096, per_capita_income: 73721, pct_under_18: 24.8, pct_bachelors: 72.5, pci_history: [66945,65438,73721], mhi_history: [167163,146606,155105], pci_history_nominal: [35551,45488,73721], mhi_history_nominal: [88771,101911,155105] },
+    { name: "Geneva", region: "West", county: "Kane", state: "IL", population: 21258, household_size: 2.53, median_hh_income: 144341, median_family_income: 174028, per_capita_income: 73547, pct_under_18: 22.8, pct_bachelors: 63.8, pci_history: [62191,61087,73547], mhi_history: [145560,131746,144341], pci_history_nominal: [33026,42464,73547], mhi_history_nominal: [77299,91581,144341] },
+    { name: "Forest Glen", region: "Chicago", county: "Cook", state: "IL", population: 19517, household_size: 2.76, median_hh_income: 138253, median_family_income: null, per_capita_income: 72082, pct_under_18: 24.6, pct_bachelors: 60.9, pci_history: [null,null,72082], mhi_history: [null,null,138253], pci_history_nominal: [null,null,72082], mhi_history_nominal: [null,null,138253] },
+    { name: "Oak Park", region: "West", county: "Cook", state: "IL", population: 53292, household_size: 2.26, median_hh_income: 110820, median_family_income: 181730, per_capita_income: 71362, pct_under_18: 23.9, pct_bachelors: 72.5, pci_history: [68431,64951,71362], mhi_history: [111446,105113,110820], pci_history_nominal: [36340,45150,71362], mhi_history_nominal: [59183,73068,110820] },
+    { name: "Flossmoor", region: "South", county: "Cook", state: "IL", population: 9391, household_size: 2.65, median_hh_income: 133663, median_family_income: 148958, per_capita_income: 70991, pct_under_18: 21.7, pct_bachelors: 64.4, pci_history: [80633,74354,70991], mhi_history: [177427,150623,133663], pci_history_nominal: [42820,51686,70991], mhi_history_nominal: [94222,104703,133663] },
+    { name: "Riverside", region: "West", county: "Cook", state: "IL", population: 9039, household_size: 2.57, median_hh_income: 153686, median_family_income: 193133, per_capita_income: 68832, pct_under_18: 26.1, pct_bachelors: 72.5, pci_history: [65365,62499,68832], mhi_history: [122270,124976,153686], pci_history_nominal: [34712,43445,68832], mhi_history_nominal: [64931,86875,153686] },
+    { name: "Downers Grove", region: "West", county: "DuPage", state: "IL", population: 50054, household_size: 2.39, median_hh_income: 115114, median_family_income: 157521, per_capita_income: 67928, pct_under_18: 21.9, pct_bachelors: 58.2, pci_history: [59468,60452,67928], mhi_history: [123415,112961,115114], pci_history_nominal: [31580,42022,67928], mhi_history_nominal: [65539,78523,115114] },
+    { name: "Logan Square", region: "Chicago", county: "Cook", state: "IL", population: 70869, household_size: 2.17, median_hh_income: 103469, median_family_income: null, per_capita_income: 66814, pct_under_18: 16.1, pct_bachelors: 61.7, pci_history: [null,null,66814], mhi_history: [null,null,103469], pci_history_nominal: [null,null,66814], mhi_history_nominal: [null,null,103469] },
+    { name: "Evanston", region: "North", county: "Cook", state: "IL", population: 76340, household_size: 2.17, median_hh_income: 96434, median_family_income: 157058, per_capita_income: 66712, pct_under_18: 17.9, pct_bachelors: 69.5, pci_history: [63356,61751,66712], mhi_history: [106083,97977,96434], pci_history_nominal: [33645,42925,66712], mhi_history_nominal: [56335,68107,96434] },
+    { name: "Beverly", region: "Chicago", county: "Cook", state: "IL", population: 19570, household_size: 2.62, median_hh_income: 127056, median_family_income: null, per_capita_income: 66443, pct_under_18: 22.5, pct_bachelors: 59.3, pci_history: [null,null,66443], mhi_history: [null,null,127056], pci_history_nominal: [null,null,66443], mhi_history_nominal: [null,null,127056] },
+    { name: "Edison Park", region: "Chicago", county: "Cook", state: "IL", population: 11203, household_size: 2.44, median_hh_income: 133209, median_family_income: null, per_capita_income: 66429, pct_under_18: 21.5, pct_bachelors: 57.6, pci_history: [null,null,66429], mhi_history: [null,null,133209], pci_history_nominal: [null,null,66429], mhi_history_nominal: [null,null,133209] },
+    { name: "Grandwood Park", region: "North", county: "Lake (IL)", state: "IL", population: 5262, household_size: 2.68, median_hh_income: 126736, median_family_income: 157090, per_capita_income: 66248, pct_under_18: 20.4, pct_bachelors: 59.2, pci_history: [58210,59161,66248], mhi_history: [134968,142270,126736], pci_history_nominal: [30912,41125,66248], mhi_history_nominal: [71674,98897,126736] },
+    { name: "Vernon Hills", region: "North", county: "Lake (IL)", state: "IL", population: 26876, household_size: 2.43, median_hh_income: 121943, median_family_income: 149205, per_capita_income: 65910, pct_under_18: 22.2, pct_bachelors: 67.8, pci_history: [60722,58134,65910], mhi_history: [134258,125866,121943], pci_history_nominal: [32246,40411,65910], mhi_history_nominal: [71297,87494,121943] },
+    { name: "Winfield", region: "West", county: "DuPage", state: "IL", population: 10095, household_size: 2.51, median_hh_income: 135795, median_family_income: 164417, per_capita_income: 64670, pct_under_18: 21.2, pct_bachelors: 59.7, pci_history: [66815,60560,64670], mhi_history: [167707,131962,135795], pci_history_nominal: [35482,42097,64670], mhi_history_nominal: [89060,91731,135795] },
+    { name: "Arlington Heights", region: "Northwest", county: "Cook", state: "IL", population: 76005, household_size: 2.39, median_hh_income: 116723, median_family_income: 153956, per_capita_income: 62826, pct_under_18: 22.6, pct_bachelors: 60.4, pci_history: [63166,57941,62826], mhi_history: [127686,108263,116723], pci_history_nominal: [33544,40277,62826], mhi_history_nominal: [67807,75257,116723] },
+    { name: "Frankfort", region: "Southwest", county: "Will", state: "IL", population: 20651, household_size: 3.02, median_hh_income: 154375, median_family_income: 171949, per_capita_income: 62793, pct_under_18: 28.5, pct_bachelors: 59.3, pci_history: [63964,63148,62793], mhi_history: [156399,168743,154375], pci_history_nominal: [33968,43896,62793], mhi_history_nominal: [83055,117299,154375] },
+    { name: "Spring Grove", region: "Northwest", county: "McHenry", state: "IL", population: 5917, household_size: 3.05, median_hh_income: 134210, median_family_income: 136186, per_capita_income: 62786, pct_under_18: 27.9, pct_bachelors: 44.9, pci_history: [48030,55707,62786], mhi_history: [151667,147771,134210], pci_history_nominal: [25506,38724,62786], mhi_history_nominal: [80542,102721,134210] },
+    { name: "Itasca", region: "West", county: "DuPage", state: "IL", population: 9355, household_size: 2.45, median_hh_income: 114294, median_family_income: 115859, per_capita_income: 62712, pct_under_18: 21.0, pct_bachelors: 52.9, pci_history: [64245,52387,62712], mhi_history: [132109,116947,114294], pci_history_nominal: [34117,36416,62712], mhi_history_nominal: [70156,81294,114294] },
+    { name: "Buffalo Grove", region: "North", county: "Lake (IL)", state: "IL", population: 42891, household_size: 2.63, median_hh_income: 129395, median_family_income: 153583, per_capita_income: 62568, pct_under_18: 24.5, pct_bachelors: 68.6, pci_history: [69101,62412,62568], mhi_history: [151635,125233,129395], pci_history_nominal: [36696,43385,62568], mhi_history_nominal: [80525,87054,129395] },
+    { name: "Wheaton", region: "West", county: "DuPage", state: "IL", population: 53557, household_size: 2.54, median_hh_income: 120008, median_family_income: 154670, per_capita_income: 62088, pct_under_18: 22.0, pct_bachelors: 64.5, pci_history: [64302,60850,62088], mhi_history: [138190,124047,120008], pci_history_nominal: [34147,42299,62088], mhi_history_nominal: [73385,86229,120008] },
+    { name: "Lisle", region: "West", county: "DuPage", state: "IL", population: 23407, household_size: 2.25, median_hh_income: 107479, median_family_income: 141935, per_capita_income: 61682, pct_under_18: 20.7, pct_bachelors: 61.9, pci_history: [67213,60315,61682], mhi_history: [123946,111660,107479], pci_history_nominal: [35693,41927,61682], mhi_history_nominal: [65821,77619,107479] },
+    { name: "St. Charles", region: "West", county: "Kane", state: "IL", population: 32854, household_size: 2.47, median_hh_income: 114300, median_family_income: 146445, per_capita_income: 61527, pct_under_18: 20.1, pct_bachelors: 52.0, pci_history: [63966,60459,61527], mhi_history: [130731,111236,114300], pci_history_nominal: [33969,42027,61527], mhi_history_nominal: [69424,77324,114300] },
+    { name: "Lake Zurich", region: "North", county: "Lake (IL)", state: "IL", population: 19832, household_size: 2.65, median_hh_income: 135968, median_family_income: 160449, per_capita_income: 61196, pct_under_18: 22.4, pct_bachelors: 60.7, pci_history: [57033,53811,61196], mhi_history: [158414,153442,135968], pci_history_nominal: [30287,37406,61196], mhi_history_nominal: [84125,106663,135968] },
+    { name: "Lincoln Square", region: "Chicago", county: "Cook", state: "IL", population: 41673, household_size: 2.1, median_hh_income: 93605, median_family_income: null, per_capita_income: 60914, pct_under_18: 18.0, pct_bachelors: 67.4, pci_history: [null,null,60914], mhi_history: [null,null,93605], pci_history_nominal: [null,null,60914], mhi_history_nominal: [null,null,93605] },
+    { name: "La Grange Park", region: "West", county: "Cook", state: "IL", population: 13447, household_size: 2.47, median_hh_income: 120408, median_family_income: 162237, per_capita_income: 59540, pct_under_18: 24.1, pct_bachelors: 57.3, pci_history: [56957,54371,59540], mhi_history: [110947,105577,120408], pci_history_nominal: [30247,37795,59540], mhi_history_nominal: [58918,73390,120408] },
+    { name: "Lake Holiday", region: "Southwest", county: "Kendall", state: "IL", population: 5641, household_size: 2.35, median_hh_income: 107875, median_family_income: 142829, per_capita_income: 59371, pct_under_18: 17.4, pct_bachelors: 31.0, pci_history: [null,45516,59371], mhi_history: [null,115536,107875], pci_history_nominal: [null,31640,59371], mhi_history_nominal: [null,80313,107875] },
+    { name: "Lincolnwood", region: "North", county: "Cook", state: "IL", population: 13112, household_size: 2.8, median_hh_income: 109731, median_family_income: 134680, per_capita_income: 59080, pct_under_18: 23.4, pct_bachelors: 56.5, pci_history: [67623,54843,59080], mhi_history: [134139,119222,109731], pci_history_nominal: [35911,38123,59080], mhi_history_nominal: [71234,82875,109731] },
+    { name: "Gurnee", region: "North", county: "Lake (IL)", state: "IL", population: 30510, household_size: 2.59, median_hh_income: 119628, median_family_income: 158467, per_capita_income: 58525, pct_under_18: 20.3, pct_bachelors: 56.7, pci_history: [59349,52719,58525], mhi_history: [142628,123323,119628], pci_history_nominal: [31517,36647,58525], mhi_history_nominal: [75742,85726,119628] },
+    { name: "Batavia", region: "West", county: "Kane", state: "IL", population: 27151, household_size: 2.53, median_hh_income: 120056, median_family_income: 155306, per_capita_income: 58410, pct_under_18: 24.8, pct_bachelors: 56.5, pci_history: [52318,56038,58410], mhi_history: [129285,126273,120056], pci_history_nominal: [27783,38954,58410], mhi_history_nominal: [68656,87777,120056] },
+    { name: "Crete", region: "Southwest", county: "Will", state: "IL", population: 8386, household_size: 2.49, median_hh_income: 97147, median_family_income: 107177, per_capita_income: 58086, pct_under_18: 19.7, pct_bachelors: 32.3, pci_history: [55873,44997,58086], mhi_history: [127430,100806,97147], pci_history_nominal: [29671,31279,58086], mhi_history_nominal: [67671,70074,97147] },
+    { name: "Kenwood", region: "Chicago", county: "Cook", state: "IL", population: 18138, household_size: 1.81, median_hh_income: 61078, median_family_income: null, per_capita_income: 57985, pct_under_18: 20.1, pct_bachelors: 55.8, pci_history: [null,null,57985], mhi_history: [null,null,61078], pci_history_nominal: [null,null,57985], mhi_history_nominal: [null,null,61078] },
+    { name: "Hyde Park", region: "Chicago", county: "Cook", state: "IL", population: 29591, household_size: 1.81, median_hh_income: 68166, median_family_income: null, per_capita_income: 57968, pct_under_18: 13.9, pct_bachelors: 77.2, pci_history: [null,null,57968], mhi_history: [null,null,68166], pci_history_nominal: [null,null,57968], mhi_history_nominal: [null,null,68166] },
+    { name: "Sugar Grove", region: "West", county: "Kane", state: "IL", population: 9240, household_size: 2.67, median_hh_income: 121207, median_family_income: 137770, per_capita_income: 57546, pct_under_18: 22.4, pct_bachelors: 45.9, pci_history: [57055,54827,57546], mhi_history: [142843,147062,121207], pci_history_nominal: [30299,38112,57546], mhi_history_nominal: [75856,102228,121207] },
+    { name: "Munster", region: "NWI", county: "Lake", state: "IN", population: 23733, household_size: 2.47, median_hh_income: 110187, median_family_income: 138152, per_capita_income: 57382, pct_under_18: 19.5, pct_bachelors: 49.9, pci_history: [58285,49723,57382], mhi_history: [119092,101032,110187], pci_history_nominal: [30952,34564,57382], mhi_history_nominal: [63243,70231,110187] },
+    { name: "Willow Springs", region: "Southwest", county: "Cook", state: "IL", population: 5868, household_size: 2.33, median_hh_income: 103583, median_family_income: 119659, per_capita_income: 57333, pct_under_18: 18.2, pct_bachelors: 37.9, pci_history: [57234,62421,57333], mhi_history: [109825,111197,103583], pci_history_nominal: [30394,43391,57333], mhi_history_nominal: [58322,77297,103583] },
+    { name: "Willowbrook", region: "West", county: "DuPage", state: "IL", population: 9131, household_size: 2.27, median_hh_income: 99239, median_family_income: 135313, per_capita_income: 57261, pct_under_18: 15.0, pct_bachelors: 53.1, pci_history: [71020,60259,57261], mhi_history: [106818,86405,99239], pci_history_nominal: [37715,41888,57261], mhi_history_nominal: [56725,60063,99239] },
+    { name: "Palos Heights", region: "Southwest", county: "Cook", state: "IL", population: 12152, household_size: 2.44, median_hh_income: 108740, median_family_income: 125430, per_capita_income: 57205, pct_under_18: 18.9, pct_bachelors: 43.6, pci_history: [61944,62966,57205], mhi_history: [131640,121769,108740], pci_history_nominal: [32895,43770,57205], mhi_history_nominal: [69907,84646,108740] },
+    { name: "Olympia Fields", region: "South", county: "Cook", state: "IL", population: 4734, household_size: 2.38, median_hh_income: 123875, median_family_income: 139844, per_capita_income: 56655, pct_under_18: 21.0, pct_bachelors: 50.4, pci_history: [87936,66629,56655], mhi_history: [178567,118537,123875], pci_history_nominal: [46698,46316,56655], mhi_history_nominal: [94827,82399,123875] },
+    { name: "Westmont", region: "West", county: "DuPage", state: "IL", population: 23724, household_size: 2.19, median_hh_income: 88090, median_family_income: 129238, per_capita_income: 56592, pct_under_18: 17.9, pct_bachelors: 50.1, pci_history: [49702,49055,56592], mhi_history: [96832,86277,88090], pci_history_nominal: [26394,34100,56592], mhi_history_nominal: [51422,59974,88090] },
+    { name: "Johnsburg", region: "Northwest", county: "McHenry", state: "IL", population: 6386, household_size: 2.59, median_hh_income: 121023, median_family_income: 138225, per_capita_income: 56427, pct_under_18: 21.1, pct_bachelors: 24.3, pci_history: [51939,50554,56427], mhi_history: [131559,115232,121023], pci_history_nominal: [27582,35142,56427], mhi_history_nominal: [69864,80102,121023] },
+    { name: "Bloomingdale", region: "West", county: "DuPage", state: "IL", population: 22457, household_size: 2.39, median_hh_income: 102928, median_family_income: 117892, per_capita_income: 56388, pct_under_18: 20.1, pct_bachelors: 45.0, pci_history: [58264,53365,56388], mhi_history: [126854,99378,102928], pci_history_nominal: [30941,37096,56388], mhi_history_nominal: [67365,69081,102928] },
+    { name: "Pingree Grove", region: "Northwest", county: "Kane", state: "IL", population: 10914, household_size: 3.0, median_hh_income: 114294, median_family_income: 121798, per_capita_income: 56149, pct_under_18: 28.8, pct_bachelors: 42.9, pci_history: [44057,41612,56149], mhi_history: [85328,106667,114294], pci_history_nominal: [23396,28926,56149], mhi_history_nominal: [45313,74148,114294] },
+    { name: "Grayslake", region: "North", county: "Lake (IL)", state: "IL", population: 20929, household_size: 2.54, median_hh_income: 113972, median_family_income: 142214, per_capita_income: 55937, pct_under_18: 23.5, pct_bachelors: 58.5, pci_history: [54417,55686,55937], mhi_history: [137734,132006,113972], pci_history_nominal: [28898,38709,55937], mhi_history_nominal: [73143,91762,113972] },
+    { name: "Elburn", region: "West", county: "Kane", state: "IL", population: 6354, household_size: 2.58, median_hh_income: 127731, median_family_income: 144363, per_capita_income: 55928, pct_under_18: 29.0, pct_bachelors: 55.6, pci_history: [50431,44017,55928], mhi_history: [127650,132277,127731], pci_history_nominal: [26781,30598,55928], mhi_history_nominal: [67788,91950,127731] },
+    { name: "Darien", region: "West", county: "DuPage", state: "IL", population: 21879, household_size: 2.5, median_hh_income: 111215, median_family_income: 123426, per_capita_income: 55898, pct_under_18: 18.8, pct_bachelors: 52.4, pci_history: [65522,57582,55898], mhi_history: [140922,109409,111215], pci_history_nominal: [34795,40027,55898], mhi_history_nominal: [74836,76054,111215] },
+    { name: "Beecher", region: "Southwest", county: "Will", state: "IL", population: 4728, household_size: 2.65, median_hh_income: 103415, median_family_income: 107422, per_capita_income: 55189, pct_under_18: 22.3, pct_bachelors: 23.1, pci_history: [44166,44829,55189], mhi_history: [96508,111921,103415], pci_history_nominal: [23454,31162,55189], mhi_history_nominal: [51250,77800,103415] },
+    { name: "Hampshire", region: "Northwest", county: "Kane", state: "IL", population: 8524, household_size: 3.27, median_hh_income: 94773, median_family_income: 107917, per_capita_income: 55087, pct_under_18: 25.4, pct_bachelors: 28.6, pci_history: [41697,43216,55087], mhi_history: [110196,104926,94773], pci_history_nominal: [22143,30041,55087], mhi_history_nominal: [58519,72938,94773] },
+    { name: "Edgewater", region: "Chicago", county: "Cook", state: "IL", population: 56146, household_size: 1.77, median_hh_income: 70188, median_family_income: null, per_capita_income: 54965, pct_under_18: 11.7, pct_bachelors: 61.4, pci_history: [null,null,54965], mhi_history: [null,null,70188], pci_history_nominal: [null,null,54965], mhi_history_nominal: [null,null,70188] },
+    { name: "St. John", region: "NWI", county: "Lake", state: "IN", population: 22567, household_size: 2.87, median_hh_income: 131467, median_family_income: 155574, per_capita_income: 54962, pct_under_18: 24.2, pct_bachelors: 43.7, pci_history: [47277,47325,54962], mhi_history: [134410,126350,131467], pci_history_nominal: [25106,32897,54962], mhi_history_nominal: [71378,87830,131467] },
+    { name: "Lemont", region: "Southwest", county: "Cook", state: "IL", population: 17820, household_size: 2.73, median_hh_income: 123370, median_family_income: 156507, per_capita_income: 54818, pct_under_18: 25.0, pct_bachelors: 46.9, pci_history: [53393,54246,54818], mhi_history: [132876,128477,123370], pci_history_nominal: [28354,37708,54818], mhi_history_nominal: [70563,89309,123370] },
+    { name: "Homer Glen", region: "Southwest", county: "Will", state: "IL", population: 24529, household_size: 3.01, median_hh_income: 136678, median_family_income: 149258, per_capita_income: 54643, pct_under_18: 23.6, pct_bachelors: 40.2, pci_history: [null,50951,54643], mhi_history: [null,140688,136678], pci_history_nominal: [null,35418,54643], mhi_history_nominal: [null,97797,136678] },
+    { name: "Forest Park", region: "West", county: "Cook", state: "IL", population: 13943, household_size: 1.92, median_hh_income: 77221, median_family_income: 106508, per_capita_income: 54640, pct_under_18: 16.3, pct_bachelors: 51.5, pci_history: [49045,47923,54640], mhi_history: [83049,74489,77221], pci_history_nominal: [26045,33313,54640], mhi_history_nominal: [44103,51780,77221] },
+    { name: "Plainfield", region: "Southwest", county: "Will", state: "IL", population: 46708, household_size: 3.17, median_hh_income: 144000, median_family_income: 162717, per_capita_income: 54333, pct_under_18: 28.5, pct_bachelors: 56.0, pci_history: [53182,47605,54333], mhi_history: [152151,152340,144000], pci_history_nominal: [28242,33092,54333], mhi_history_nominal: [80799,105897,144000] },
+    { name: "Volo", region: "North", county: "Lake (IL)", state: "IL", population: 6706, household_size: 2.96, median_hh_income: 160792, median_family_income: 165224, per_capita_income: 54188, pct_under_18: 30.7, pct_bachelors: 52.2, pci_history: [42917,53843,54188], mhi_history: [86307,120138,160792], pci_history_nominal: [22791,37428,54188], mhi_history_nominal: [45833,83512,160792] },
+    { name: "Algonquin", region: "Northwest", county: "McHenry", state: "IL", population: 30067, household_size: 2.74, median_hh_income: 134525, median_family_income: 150317, per_capita_income: 54037, pct_under_18: 20.8, pct_bachelors: 43.6, pci_history: [56153,54558,54037], mhi_history: [150138,138832,134525], pci_history_nominal: [29820,37925,54037], mhi_history_nominal: [79730,96507,134525] },
+    { name: "Bartlett", region: "Northwest", county: "Cook", state: "IL", population: 40501, household_size: 2.85, median_hh_income: 133240, median_family_income: 149454, per_capita_income: 53757, pct_under_18: 23.2, pct_bachelors: 49.5, pci_history: [55837,49365,53757], mhi_history: [150115,130005,133240], pci_history_nominal: [29652,34315,53757], mhi_history_nominal: [79718,90371,133240] },
+    { name: "Lake Villa", region: "North", county: "Lake (IL)", state: "IL", population: 8683, household_size: 2.77, median_hh_income: 118750, median_family_income: 145938, per_capita_income: 52971, pct_under_18: 26.9, pct_bachelors: 55.6, pci_history: [49408,50536,52971], mhi_history: [122547,138742,118750], pci_history_nominal: [26238,35129,52971], mhi_history_nominal: [65078,96444,118750] },
+    { name: "Fox River Grove", region: "North", county: "Lake (IL)", state: "IL", population: 4523, household_size: 2.68, median_hh_income: 121506, median_family_income: 133765, per_capita_income: 52887, pct_under_18: 22.7, pct_bachelors: 45.7, pci_history: [54364,51573,52887], mhi_history: [125166,110953,121506], pci_history_nominal: [28870,35850,52887], mhi_history_nominal: [66469,77127,121506] },
+    { name: "Lindenhurst", region: "North", county: "Lake (IL)", state: "IL", population: 14417, household_size: 2.78, median_hh_income: 131474, median_family_income: 146641, per_capita_income: 52881, pct_under_18: 24.4, pct_bachelors: 47.9, pci_history: [51849,52327,52881], mhi_history: [140932,139724,131474], pci_history_nominal: [27534,36374,52881], mhi_history_nominal: [74841,97127,131474] },
+    { name: "Norwood Park", region: "Chicago", county: "Cook", state: "IL", population: 38895, household_size: 2.54, median_hh_income: 108893, median_family_income: null, per_capita_income: 52749, pct_under_18: 24.6, pct_bachelors: 45.5, pci_history: [null,null,52749], mhi_history: [null,null,108893], pci_history_nominal: [null,null,52749], mhi_history_nominal: [null,null,108893] },
+    { name: "Tinley Park", region: "Southwest", county: "Cook", state: "IL", population: 54842, household_size: 2.45, median_hh_income: 105189, median_family_income: 131591, per_capita_income: 52743, pct_under_18: 20.5, pct_bachelors: 37.0, pci_history: [47467,46506,52743], mhi_history: [116088,110202,105189], pci_history_nominal: [25207,32328,52743], mhi_history_nominal: [61648,76605,105189] },
+    { name: "Dyer", region: "NWI", county: "Lake", state: "IN", population: 16400, household_size: 2.51, median_hh_income: 107159, median_family_income: 125238, per_capita_income: 52743, pct_under_18: 19.1, pct_bachelors: 38.5, pci_history: [51578,49352,52743], mhi_history: [118719,110223,107159], pci_history_nominal: [27390,34306,52743], mhi_history_nominal: [63045,76620,107159] },
+    { name: "Countryside", region: "Southwest", county: "Cook", state: "IL", population: 6267, household_size: 2.21, median_hh_income: 80968, median_family_income: 105000, per_capita_income: 52592, pct_under_18: 19.4, pct_bachelors: 37.0, pci_history: [47922,41360,52592], mhi_history: [85622,90610,80968], pci_history_nominal: [25449,28751,52592], mhi_history_nominal: [45469,62986,80968] },
+    { name: "Roselle", region: "West", county: "DuPage", state: "IL", population: 22752, household_size: 2.63, median_hh_income: 111318, median_family_income: 132406, per_capita_income: 52503, pct_under_18: 20.3, pct_bachelors: 40.9, pci_history: [53670,48253,52503], mhi_history: [122878,111068,111318], pci_history_nominal: [28501,33542,52503], mhi_history_nominal: [65254,77207,111318] },
+    { name: "Lockport", region: "Southwest", county: "Will", state: "IL", population: 26409, household_size: 2.65, median_hh_income: 111981, median_family_income: 130318, per_capita_income: 52441, pct_under_18: 23.4, pct_bachelors: 44.5, pci_history: [46962,44242,52441], mhi_history: [111439,113785,111981], pci_history_nominal: [24939,30754,52441], mhi_history_nominal: [59179,79096,111981] },
+    { name: "Mokena", region: "Southwest", county: "Will", state: "IL", population: 20021, household_size: 2.71, median_hh_income: 123889, median_family_income: 153750, per_capita_income: 52109, pct_under_18: 21.9, pct_bachelors: 42.5, pci_history: [50348,51655,52109], mhi_history: [140672,143335,123889], pci_history_nominal: [26737,35907,52109], mhi_history_nominal: [74703,99637,123889] },
+    { name: "South Elgin", region: "Northwest", county: "Kane", state: "IL", population: 24217, household_size: 2.74, median_hh_income: 127203, median_family_income: 139875, per_capita_income: 52103, pct_under_18: 22.8, pct_bachelors: 37.7, pci_history: [48350,44550,52103], mhi_history: [126775,116350,127203], pci_history_nominal: [25676,30968,52103], mhi_history_nominal: [67323,80879,127203] },
+    { name: "Uptown", region: "Chicago", county: "Cook", state: "IL", population: 57331, household_size: 1.69, median_hh_income: 68444, median_family_income: null, per_capita_income: 52004, pct_under_18: 13.0, pct_bachelors: 60.0, pci_history: [null,null,52004], mhi_history: [null,null,68444], pci_history_nominal: [null,null,52004], mhi_history_nominal: [null,null,68444] },
+    { name: "Westchester", region: "West", county: "Cook", state: "IL", population: 16436, household_size: 2.36, median_hh_income: 98954, median_family_income: 118636, per_capita_income: 51964, pct_under_18: 16.9, pct_bachelors: 43.6, pci_history: [55803,43072,51964], mhi_history: [110966,100238,98954], pci_history_nominal: [29634,29941,51964], mhi_history_nominal: [58928,69679,98954] },
+    { name: "West Dundee", region: "Northwest", county: "Kane", state: "IL", population: 7906, household_size: 2.45, median_hh_income: 105368, median_family_income: 122619, per_capita_income: 51737, pct_under_18: 21.4, pct_bachelors: 50.0, pci_history: [57762,55827,51737], mhi_history: [117768,122411,105368], pci_history_nominal: [30674,38807,51737], mhi_history_nominal: [62540,85092,105368] },
+    { name: "Schaumburg", region: "Northwest", county: "Cook", state: "IL", population: 76868, household_size: 2.41, median_hh_income: 97514, median_family_income: 118634, per_capita_income: 51322, pct_under_18: 23.2, pct_bachelors: 50.4, pci_history: [57598,51505,51322], mhi_history: [114757,96012,97514], pci_history_nominal: [30587,35803,51322], mhi_history_nominal: [60941,66741,97514] },
+    { name: "Highwood", region: "North", county: "Lake (IL)", state: "IL", population: 5301, household_size: 2.57, median_hh_income: 107875, median_family_income: 127727, per_capita_income: 51301, pct_under_18: 21.7, pct_bachelors: 39.1, pci_history: [45454,45341,51301], mhi_history: [80959,100520,107875], pci_history_nominal: [24138,31518,51301], mhi_history_nominal: [42993,69875,107875] },
+    { name: "Monee", region: "Southwest", county: "Will", state: "IL", population: 5108, household_size: 2.41, median_hh_income: 91969, median_family_income: 142292, per_capita_income: 51263, pct_under_18: 17.4, pct_bachelors: 31.4, pci_history: [52137,46886,51263], mhi_history: [110396,100030,91969], pci_history_nominal: [27687,32592,51263], mhi_history_nominal: [58625,69534,91969] },
+    { name: "New Lenox", region: "Southwest", county: "Will", state: "IL", population: 28006, household_size: 3.05, median_hh_income: 140865, median_family_income: 156538, per_capita_income: 51234, pct_under_18: 30.0, pct_bachelors: 47.6, pci_history: [47380,46175,51234], mhi_history: [127479,127713,140865], pci_history_nominal: [25161,32098,51234], mhi_history_nominal: [67697,88778,140865] },
+    { name: "Mount Greenwood", region: "Chicago", county: "Cook", state: "IL", population: 18553, household_size: 2.5, median_hh_income: 115749, median_family_income: null, per_capita_income: 51210, pct_under_18: 25.5, pct_bachelors: 41.9, pci_history: [null,null,51210], mhi_history: [null,null,115749], pci_history_nominal: [null,null,51210], mhi_history_nominal: [null,null,115749] },
+    { name: "Palatine", region: "Northwest", county: "Cook", state: "IL", population: 66293, household_size: 2.42, median_hh_income: 97819, median_family_income: 129806, per_capita_income: 51147, pct_under_18: 20.9, pct_bachelors: 51.1, pci_history: [57737,52096,51147], mhi_history: [119238,106541,97819], pci_history_nominal: [30661,36214,51147], mhi_history_nominal: [63321,74060,97819] },
+    { name: "Brookfield", region: "West", county: "Cook", state: "IL", population: 19331, household_size: 2.5, median_hh_income: 110295, median_family_income: 132429, per_capita_income: 51076, pct_under_18: 24.3, pct_bachelors: 42.3, pci_history: [45772,42575,51076], mhi_history: [99118,96187,110295], pci_history_nominal: [24307,29595,51076], mhi_history_nominal: [52636,66863,110295] },
+    { name: "Orland Park", region: "Southwest", county: "Cook", state: "IL", population: 57916, household_size: 2.47, median_hh_income: 98910, median_family_income: 120615, per_capita_income: 51045, pct_under_18: 20.8, pct_bachelors: 45.4, pci_history: [57372,53113,51045], mhi_history: [127247,114486,98910], pci_history_nominal: [30467,36921,51045], mhi_history_nominal: [67574,79583,98910] },
+    { name: "Woodridge", region: "West", county: "DuPage", state: "IL", population: 33941, household_size: 2.55, median_hh_income: 101000, median_family_income: 121641, per_capita_income: 50891, pct_under_18: 23.2, pct_bachelors: 46.5, pci_history: [52446,48067,50891], mhi_history: [116645,102616,101000], pci_history_nominal: [27851,33413,50891], mhi_history_nominal: [61944,71332,101000] },
+    { name: "Cary", region: "Northwest", county: "McHenry", state: "IL", population: 17923, household_size: 2.76, median_hh_income: 113026, median_family_income: 134352, per_capita_income: 50715, pct_under_18: 23.7, pct_bachelors: 44.7, pci_history: [50660,50838,50715], mhi_history: [144622,139389,113026], pci_history_nominal: [26903,35339,50715], mhi_history_nominal: [76801,96894,113026] },
+    { name: "Morton Grove", region: "North", county: "Cook", state: "IL", population: 24619, household_size: 2.65, median_hh_income: 111116, median_family_income: 130019, per_capita_income: 50636, pct_under_18: 21.4, pct_bachelors: 55.2, pci_history: [50792,47021,50636], mhi_history: [119596,101936,111116], pci_history_nominal: [26973,32686,50636], mhi_history_nominal: [63511,70859,111116] },
+    { name: "Warrenville", region: "West", county: "DuPage", state: "IL", population: 14718, household_size: 2.56, median_hh_income: 100321, median_family_income: 116859, per_capita_income: 50505, pct_under_18: 22.8, pct_bachelors: 44.9, pci_history: [54462,44823,50505], mhi_history: [117561,109990,100321], pci_history_nominal: [28922,31158,50505], mhi_history_nominal: [62430,76458,100321] },
+    { name: "Lombard", region: "West", county: "DuPage", state: "IL", population: 43619, household_size: 2.48, median_hh_income: 100362, median_family_income: 121959, per_capita_income: 50380, pct_under_18: 19.7, pct_bachelors: 49.9, pci_history: [52099,48195,50380], mhi_history: [113013,102820,100362], pci_history_nominal: [27667,33502,50380], mhi_history_nominal: [60015,71474,100362] },
+    { name: "Shorewood", region: "Southwest", county: "Will", state: "IL", population: 18343, household_size: 2.66, median_hh_income: 122105, median_family_income: 139042, per_capita_income: 50261, pct_under_18: 20.7, pct_bachelors: 41.1, pci_history: [53101,49655,50261], mhi_history: [144700,128169,122105], pci_history_nominal: [28199,34517,50261], mhi_history_nominal: [76842,89095,122105] },
+    { name: "Chesterton", region: "NWI", county: "Porter", state: "IN", population: 14446, household_size: 2.37, median_hh_income: 91060, median_family_income: 114545, per_capita_income: 50086, pct_under_18: 24.5, pct_bachelors: 42.5, pci_history: [49975,40807,50086], mhi_history: [104567,82765,91060], pci_history_nominal: [26539,28366,50086], mhi_history_nominal: [55530,57533,91060] },
+    { name: "Huntley", region: "Northwest", county: "McHenry", state: "IL", population: 28005, household_size: 2.29, median_hh_income: 88536, median_family_income: 122743, per_capita_income: 50023, pct_under_18: 19.8, pct_bachelors: 42.5, pci_history: [51692,47126,50023], mhi_history: [113843,101457,88536], pci_history_nominal: [27451,32759,50023], mhi_history_nominal: [60456,70526,88536] },
+    { name: "Gilberts", region: "Northwest", county: "Kane", state: "IL", population: 8606, household_size: 3.06, median_hh_income: 146333, median_family_income: 164286, per_capita_income: 49927, pct_under_18: 26.9, pct_bachelors: 49.5, pci_history: [60066,50366,49927], mhi_history: [165423,156624,146333], pci_history_nominal: [31898,35011,49927], mhi_history_nominal: [87847,108875,146333] },
+    { name: "North Aurora", region: "West", county: "Kane", state: "IL", population: 18696, household_size: 2.61, median_hh_income: 114305, median_family_income: 139156, per_capita_income: 49904, pct_under_18: 21.7, pct_bachelors: 40.5, pci_history: [48116,45860,49904], mhi_history: [110267,114486,114305], pci_history_nominal: [25552,31879,49904], mhi_history_nominal: [58557,79583,114305] },
+    { name: "Mundelein", region: "North", county: "Lake (IL)", state: "IL", population: 31915, household_size: 2.72, median_hh_income: 108340, median_family_income: 128806, per_capita_income: 49674, pct_under_18: 23.5, pct_bachelors: 46.0, pci_history: [49487,48629,49674], mhi_history: [131158,119055,108340], pci_history_nominal: [26280,33804,49674], mhi_history_nominal: [69651,82759,108340] },
+    { name: "Winfield", region: "NWI", county: "Lake", state: "IN", population: 7816, household_size: 3.13, median_hh_income: 135870, median_family_income: 138325, per_capita_income: 49156, pct_under_18: 28.4, pct_bachelors: 42.5, pci_history: [46634,46113,49156], mhi_history: [123607,123255,135870], pci_history_nominal: [24765,32055,49156], mhi_history_nominal: [65641,85679,135870] },
+    { name: "Gages Lake", region: "North", county: "Lake (IL)", state: "IL", population: 10819, household_size: 2.64, median_hh_income: 103318, median_family_income: 124861, per_capita_income: 48915, pct_under_18: 22.1, pct_bachelors: 42.5, pci_history: [53463,51540,48915], mhi_history: [135111,114913,103318], pci_history_nominal: [28391,35827,48915], mhi_history_nominal: [71750,79880,103318] },
+    { name: "Wonder Lake", region: "Northwest", county: "McHenry", state: "IL", population: 4292, household_size: 2.62, median_hh_income: 94655, median_family_income: 111538, per_capita_income: 48701, pct_under_18: 24.5, pct_bachelors: 21.8, pci_history: [40351,45171,48701], mhi_history: [112442,112388,94655], pci_history_nominal: [21428,31400,48701], mhi_history_nominal: [59712,78125,94655] },
+    { name: "Mount Prospect", region: "Northwest", county: "Cook", state: "IL", population: 55472, household_size: 2.56, median_hh_income: 101720, median_family_income: 131777, per_capita_income: 48661, pct_under_18: 22.9, pct_bachelors: 48.6, pci_history: [49834,47773,48661], mhi_history: [107646,97653,101720], pci_history_nominal: [26464,33209,48661], mhi_history_nominal: [57165,67882,101720] },
+    { name: "Irving Park", region: "Chicago", county: "Cook", state: "IL", population: 53832, household_size: 2.43, median_hh_income: 88437, median_family_income: null, per_capita_income: 48646, pct_under_18: 22.7, pct_bachelors: 47.7, pci_history: [null,null,48646], mhi_history: [null,null,88437], pci_history_nominal: [null,null,48646], mhi_history_nominal: [null,null,88437] },
+    { name: "Winthrop Harbor", region: "North", county: "Lake (IL)", state: "IL", population: 6559, household_size: 2.28, median_hh_income: 95690, median_family_income: 111450, per_capita_income: 48491, pct_under_18: 15.0, pct_bachelors: 22.2, pci_history: [45676,43853,48491], mhi_history: [118248,107842,95690], pci_history_nominal: [24256,30484,48491], mhi_history_nominal: [62795,74965,95690] },
+    { name: "Avondale", region: "Chicago", county: "Cook", state: "IL", population: 35489, household_size: 2.4, median_hh_income: 92644, median_family_income: null, per_capita_income: 48384, pct_under_18: 17.8, pct_bachelors: 46.5, pci_history: [null,null,48384], mhi_history: [null,null,92644], pci_history_nominal: [null,null,48384], mhi_history_nominal: [null,null,92644] },
+    { name: "Yorkville", region: "Southwest", county: "Kendall", state: "IL", population: 23617, household_size: 2.87, median_hh_income: 108513, median_family_income: 122724, per_capita_income: 48117, pct_under_18: 26.8, pct_bachelors: 37.9, pci_history: [46162,47939,48117], mhi_history: [113721,117973,108513], pci_history_nominal: [24514,33324,48117], mhi_history_nominal: [60391,82007,108513] },
+    { name: "Prospect Heights", region: "Northwest", county: "Cook", state: "IL", population: 15618, household_size: 2.32, median_hh_income: 85008, median_family_income: 110657, per_capita_income: 48072, pct_under_18: 16.7, pct_bachelors: 41.3, pci_history: [53103,42713,48072], mhi_history: [104776,82373,85008], pci_history_nominal: [28200,29691,48072], mhi_history_nominal: [55641,57260,85008] },
+    { name: "Hoffman Estates", region: "Northwest", county: "Cook", state: "IL", population: 51175, household_size: 2.75, median_hh_income: 106806, median_family_income: 118832, per_capita_income: 48050, pct_under_18: 24.0, pct_bachelors: 48.5, pci_history: [50220,46687,48050], mhi_history: [124165,108621,106806], pci_history_nominal: [26669,32454,48050], mhi_history_nominal: [65937,75506,106806] },
+    { name: "Antioch", region: "North", county: "Lake (IL)", state: "IL", population: 14859, household_size: 2.8, median_hh_income: 108899, median_family_income: 131477, per_capita_income: 47925, pct_under_18: 25.4, pct_bachelors: 39.2, pci_history: [48416,45673,47925], mhi_history: [106358,125469,108899], pci_history_nominal: [25711,31749,47925], mhi_history_nominal: [56481,87218,108899] },
+    { name: "Oswego", region: "Southwest", county: "Kendall", state: "IL", population: 36375, household_size: 2.96, median_hh_income: 123792, median_family_income: 132933, per_capita_income: 47866, pct_under_18: 26.3, pct_bachelors: 44.3, pci_history: [51227,47394,47866], mhi_history: [134644,132090,123792], pci_history_nominal: [27204,32945,47866], mhi_history_nominal: [71502,91820,123792] },
+    { name: "Schererville", region: "NWI", county: "Lake", state: "IN", population: 29701, household_size: 2.38, median_hh_income: 89466, median_family_income: 111566, per_capita_income: 47520, pct_under_18: 19.8, pct_bachelors: 34.4, pci_history: [53720,47021,47520], mhi_history: [111559,96957,89466], pci_history_nominal: [28528,32686,47520], mhi_history_nominal: [59243,67398,89466] },
+    { name: "Channahon", region: "Southwest", county: "Will", state: "IL", population: 13927, household_size: 3.06, median_hh_income: 119494, median_family_income: 131920, per_capita_income: 47476, pct_under_18: 25.1, pct_bachelors: 28.3, pci_history: [43060,41740,47476], mhi_history: [135565,120305,119494], pci_history_nominal: [22867,29015,47476], mhi_history_nominal: [71991,83628,119494] },
+    { name: "Manhattan", region: "Southwest", county: "Will", state: "IL", population: 11026, household_size: 3.03, median_hh_income: 128522, median_family_income: 133143, per_capita_income: 47385, pct_under_18: 30.6, pct_bachelors: 35.0, pci_history: [40799,42960,47385], mhi_history: [104622,115789,128522], pci_history_nominal: [21666,29863,47385], mhi_history_nominal: [55559,80489,128522] },
+    { name: "North Riverside", region: "West", county: "Cook", state: "IL", population: 7249, household_size: 2.36, median_hh_income: 77170, median_family_income: 105135, per_capita_income: 46780, pct_under_18: 21.0, pct_bachelors: 42.9, pci_history: [45258,42001,46780], mhi_history: [82584,70936,77170], pci_history_nominal: [24034,29196,46780], mhi_history_nominal: [43856,49310,77170] },
+    { name: "Pottawattamie Park", region: "NWI", county: "LaPorte", state: "IN", population: 247, household_size: 2.46, median_hh_income: 103889, median_family_income: 122250, per_capita_income: 46560, pct_under_18: 21.9, pct_bachelors: 51.1, pci_history: [null,55041,46560], mhi_history: [null,86914,103889], pci_history_nominal: [null,38261,46560], mhi_history_nominal: [null,60417,103889] },
+    { name: "Skokie", region: "North", county: "Cook", state: "IL", population: 66219, household_size: 2.68, median_hh_income: 95337, median_family_income: 122733, per_capita_income: 46534, pct_under_18: 22.3, pct_bachelors: 53.8, pci_history: [51099,44686,46534], mhi_history: [108042,95888,95337], pci_history_nominal: [27136,31063,46534], mhi_history_nominal: [57375,66655,95337] },
+    { name: "Wauconda", region: "North", county: "Lake (IL)", state: "IL", population: 14027, household_size: 2.76, median_hh_income: 111239, median_family_income: 130690, per_capita_income: 46478, pct_under_18: 28.1, pct_bachelors: 38.2, pci_history: [49629,43045,46478], mhi_history: [108851,99141,111239], pci_history_nominal: [26355,29922,46478], mhi_history_nominal: [57805,68916,111239] },
+    { name: "Crystal Lake", region: "Northwest", county: "McHenry", state: "IL", population: 40579, household_size: 2.72, median_hh_income: 108418, median_family_income: 125833, per_capita_income: 46472, pct_under_18: 23.4, pct_bachelors: 42.0, pci_history: [49235,43374,46472], mhi_history: [125925,107923,108418], pci_history_nominal: [26146,30151,46472], mhi_history_nominal: [66872,75021,108418] },
+    { name: "Elk Grove Village", region: "Northwest", county: "Cook", state: "IL", population: 31987, household_size: 2.44, median_hh_income: 94175, median_family_income: 114866, per_capita_income: 46193, pct_under_18: 21.5, pct_bachelors: 41.2, pci_history: [53696,47015,46193], mhi_history: [116999,99599,94175], pci_history_nominal: [28515,32682,46193], mhi_history_nominal: [62132,69235,94175] },
+    { name: "Rolling Meadows", region: "Northwest", county: "Cook", state: "IL", population: 24027, household_size: 2.53, median_hh_income: 98514, median_family_income: 117949, per_capita_income: 46120, pct_under_18: 22.3, pct_bachelors: 43.7, pci_history: [49295,44132,46120], mhi_history: [112109,85772,98514], pci_history_nominal: [26178,30678,46120], mhi_history_nominal: [59535,59623,98514] },
+    { name: "McHenry", region: "Northwest", county: "McHenry", state: "IL", population: 28074, household_size: 2.33, median_hh_income: 86315, median_family_income: 110000, per_capita_income: 45734, pct_under_18: 19.8, pct_bachelors: 25.7, pci_history: [43823,41906,45734], mhi_history: [104999,94516,86315], pci_history_nominal: [23272,29130,45734], mhi_history_nominal: [55759,65701,86315] },
+    { name: "Matteson", region: "South", county: "Cook", state: "IL", population: 18645, household_size: 2.5, median_hh_income: 95457, median_family_income: 111939, per_capita_income: 45726, pct_under_18: 21.0, pct_bachelors: 39.7, pci_history: [47122,41680,45726], mhi_history: [112200,96017,95457], pci_history_nominal: [25024,28973,45726], mhi_history_nominal: [59583,66745,95457] },
+    { name: "Jefferson Park", region: "Chicago", county: "Cook", state: "IL", population: 26643, household_size: 2.42, median_hh_income: 93706, median_family_income: null, per_capita_income: 45659, pct_under_18: 20.5, pct_bachelors: 43.2, pci_history: [null,null,45659], mhi_history: [null,null,93706], pci_history_nominal: [null,null,45659], mhi_history_nominal: [null,null,93706] },
+    { name: "Carol Stream", region: "West", county: "DuPage", state: "IL", population: 39460, household_size: 2.71, median_hh_income: 102309, median_family_income: 121939, per_capita_income: 45625, pct_under_18: 20.6, pct_bachelors: 42.8, pci_history: [47363,41693,45625], mhi_history: [122199,102921,102309], pci_history_nominal: [25152,28982,45625], mhi_history_nominal: [64893,71544,102309] },
+    { name: "Minooka", region: "Southwest", county: "Will", state: "IL", population: 12891, household_size: 3.12, median_hh_income: 115445, median_family_income: 121926, per_capita_income: 45392, pct_under_18: 28.1, pct_bachelors: 30.4, pci_history: [49062,43170,45392], mhi_history: [141700,115553,115445], pci_history_nominal: [26054,30009,45392], mhi_history_nominal: [75249,80325,115445] },
+    { name: "Norridge", region: "West", county: "Cook", state: "IL", population: 15439, household_size: 2.59, median_hh_income: 87807, median_family_income: 109864, per_capita_income: 45165, pct_under_18: 20.1, pct_bachelors: 31.5, pci_history: [44122,37301,45165], mhi_history: [89987,74670,87807], pci_history_nominal: [23431,25929,45165], mhi_history_nominal: [47787,51906,87807] },
+    { name: "Des Plaines", region: "Northwest", county: "Cook", state: "IL", population: 59156, household_size: 2.58, median_hh_income: 97875, median_family_income: 117344, per_capita_income: 45076, pct_under_18: 20.4, pct_bachelors: 38.9, pci_history: [45469,42035,45076], mhi_history: [101005,87573,97875], pci_history_nominal: [24146,29220,45076], mhi_history_nominal: [53638,60875,97875] },
+    { name: "Orland Hills", region: "Southwest", county: "Cook", state: "IL", population: 6719, household_size: 2.79, median_hh_income: 122039, median_family_income: 122500, per_capita_income: 44938, pct_under_18: 21.4, pct_bachelors: 36.3, pci_history: [40326,41330,44938], mhi_history: [116532,101091,122039], pci_history_nominal: [21415,28730,44938], mhi_history_nominal: [61884,70272,122039] },
+    { name: "Villa Park", region: "West", county: "DuPage", state: "IL", population: 22345, household_size: 2.67, median_hh_income: 95015, median_family_income: 118790, per_capita_income: 44740, pct_under_18: 22.3, pct_bachelors: 36.3, pci_history: [42094,41278,44740], mhi_history: [104899,96128,95015], pci_history_nominal: [22354,28694,44740], mhi_history_nominal: [55706,66822,95015] },
+    { name: "Lake In The Hills", region: "Northwest", county: "McHenry", state: "IL", population: 28800, household_size: 2.97, median_hh_income: 117151, median_family_income: 133434, per_capita_income: 44465, pct_under_18: 27.6, pct_bachelors: 35.8, pci_history: [49410,44445,44465], mhi_history: [138054,119253,117151], pci_history_nominal: [26239,30895,44465], mhi_history_nominal: [73313,82897,117151] },
+    { name: "Frankfort Square", region: "Southwest", county: "Will", state: "IL", population: 9560, household_size: 2.98, median_hh_income: 126897, median_family_income: 130448, per_capita_income: 44151, pct_under_18: 23.4, pct_bachelors: 32.9, pci_history: [41499,40116,44151], mhi_history: [130797,119771,126897], pci_history_nominal: [22038,27886,44151], mhi_history_nominal: [69459,83257,126897] },
+    { name: "Evergreen Park", region: "Southwest", county: "Cook", state: "IL", population: 19420, household_size: 2.67, median_hh_income: 95719, median_family_income: 116538, per_capita_income: 43987, pct_under_18: 26.2, pct_bachelors: 42.7, pci_history: [43382,40289,43987], mhi_history: [100771,90395,95719], pci_history_nominal: [23038,28006,43987], mhi_history_nominal: [53514,62837,95719] },
+    { name: "Oak Forest", region: "Southwest", county: "Cook", state: "IL", population: 26805, household_size: 2.58, median_hh_income: 91990, median_family_income: 114182, per_capita_income: 43191, pct_under_18: 21.2, pct_bachelors: 31.2, pci_history: [44228,38338,43191], mhi_history: [113122,102541,91990], pci_history_nominal: [23487,26650,43191], mhi_history_nominal: [60073,71280,91990] },
+    { name: "O'Hare", region: "Chicago", county: "Cook", state: "IL", population: 14004, household_size: 2.13, median_hh_income: 75645, median_family_income: null, per_capita_income: 43121, pct_under_18: 18.8, pct_bachelors: 40.6, pci_history: [null,null,43121], mhi_history: [null,null,75645], pci_history_nominal: [null,null,43121], mhi_history_nominal: [null,null,75645] },
+    { name: "Lakemoor", region: "Northwest", county: "McHenry", state: "IL", population: 6467, household_size: 2.6, median_hh_income: 100414, median_family_income: 125795, per_capita_income: 42979, pct_under_18: 26.6, pct_bachelors: 36.5, pci_history: [42367,49520,42979], mhi_history: [105861,108424,100414], pci_history_nominal: [22499,34423,42979], mhi_history_nominal: [56217,75369,100414] },
+    { name: "Peotone", region: "Southwest", county: "Will", state: "IL", population: 4587, household_size: 2.67, median_hh_income: 108523, median_family_income: 132031, per_capita_income: 42966, pct_under_18: 21.3, pct_bachelors: 35.3, pci_history: [44092,43613,42966], mhi_history: [106213,93388,108523], pci_history_nominal: [23415,30317,42966], mhi_history_nominal: [56404,64917,108523] },
+    { name: "Elmwood Park", region: "West", county: "Cook", state: "IL", population: 23868, household_size: 2.55, median_hh_income: 91955, median_family_income: 110748, per_capita_income: 42786, pct_under_18: 20.3, pct_bachelors: 32.6, pci_history: [42418,38669,42786], mhi_history: [89098,79265,91955], pci_history_nominal: [22526,26880,42786], mhi_history_nominal: [47315,55100,91955] },
+    { name: "Woodstock", region: "Northwest", county: "McHenry", state: "IL", population: 26147, household_size: 2.39, median_hh_income: 82758, median_family_income: 102670, per_capita_income: 42631, pct_under_18: 19.1, pct_bachelors: 30.6, pci_history: [43706,37706,42631], mhi_history: [90145,82171,82758], pci_history_nominal: [23210,26211,42631], mhi_history_nominal: [47871,57120,82758] },
+    { name: "Harwood Heights", region: "West", county: "Cook", state: "IL", population: 8821, household_size: 2.42, median_hh_income: 81086, median_family_income: 101818, per_capita_income: 42596, pct_under_18: 21.3, pct_bachelors: 35.3, pci_history: [42479,35826,42596], mhi_history: [81515,77761,81086], pci_history_nominal: [22558,24904,42596], mhi_history_nominal: [43288,54054,81086] },
+    { name: "Crown Point", region: "NWI", county: "Lake", state: "IN", population: 34393, household_size: 2.7, median_hh_income: 101686, median_family_income: 113463, per_capita_income: 42523, pct_under_18: 23.8, pct_bachelors: 34.6, pci_history: [46263,45119,42523], mhi_history: [99594,91876,101686], pci_history_nominal: [24568,31364,42523], mhi_history_nominal: [52889,63866,101686] },
+    { name: "Round Lake", region: "North", county: "Lake (IL)", state: "IL", population: 18628, household_size: 2.9, median_hh_income: 111977, median_family_income: 120692, per_capita_income: 42490, pct_under_18: 28.2, pct_bachelors: 41.5, pci_history: [40646,40861,42490], mhi_history: [109315,109754,111977], pci_history_nominal: [21585,28404,42490], mhi_history_nominal: [58051,76294,111977] },
+    { name: "Kouts", region: "NWI", county: "Porter", state: "IN", population: 2372, household_size: 2.57, median_hh_income: 77607, median_family_income: 107188, per_capita_income: 42467, pct_under_18: 27.9, pct_bachelors: 25.6, pci_history: [36229,32670,42467], mhi_history: [84456,85020,77607], pci_history_nominal: [19239,22710,42467], mhi_history_nominal: [44850,59100,77607] },
+    { name: "Highland", region: "NWI", county: "Lake", state: "IN", population: 23680, household_size: 2.27, median_hh_income: 78062, median_family_income: 102277, per_capita_income: 42248, pct_under_18: 18.9, pct_bachelors: 29.6, pci_history: [46192,41465,42248], mhi_history: [96596,83561,78062], pci_history_nominal: [24530,28824,42248], mhi_history_nominal: [51297,58086,78062] },
+    { name: "Wood Dale", region: "West", county: "DuPage", state: "IL", population: 13933, household_size: 2.6, median_hh_income: 91382, median_family_income: 97039, per_capita_income: 42223, pct_under_18: 19.3, pct_bachelors: 28.9, pci_history: [48032,40851,42223], mhi_history: [108294,90647,91382], pci_history_nominal: [25507,28397,42223], mhi_history_nominal: [57509,63012,91382] },
+    { name: "Fox Lake", region: "North", county: "Lake (IL)", state: "IL", population: 11131, household_size: 2.1, median_hh_income: 70819, median_family_income: 99935, per_capita_income: 42203, pct_under_18: 16.3, pct_bachelors: 25.7, pci_history: [45853,41583,42203], mhi_history: [87654,80756,70819], pci_history_nominal: [24350,28906,42203], mhi_history_nominal: [46548,56136,70819] },
+    { name: "Bolingbrook", region: "Southwest", county: "Will", state: "IL", population: 74096, household_size: 3.08, median_hh_income: 108400, median_family_income: 122443, per_capita_income: 42112, pct_under_18: 24.1, pct_bachelors: 39.6, pci_history: [44192,39694,42112], mhi_history: [127771,116680,108400], pci_history_nominal: [23468,27593,42112], mhi_history_nominal: [67852,81108,108400] },
+    { name: "Oak Lawn", region: "Southwest", county: "Cook", state: "IL", population: 56861, household_size: 2.61, median_hh_income: 83911, median_family_income: 120254, per_capita_income: 41927, pct_under_18: 23.3, pct_bachelors: 31.6, pci_history: [44962,42144,41927], mhi_history: [89606,84948,83911], pci_history_nominal: [23877,29296,41927], mhi_history_nominal: [47585,59050,83911] },
+    { name: "Portage Park", region: "Chicago", county: "Cook", state: "IL", population: 61793, household_size: 2.63, median_hh_income: 89490, median_family_income: null, per_capita_income: 41707, pct_under_18: 20.3, pct_bachelors: 37.4, pci_history: [null,null,41707], mhi_history: [null,null,89490], pci_history_nominal: [null,null,41707], mhi_history_nominal: [null,null,89490] },
+    { name: "Wheeling", region: "Northwest", county: "Cook", state: "IL", population: 38433, household_size: 2.49, median_hh_income: 85205, median_family_income: 95234, per_capita_income: 41499, pct_under_18: 20.6, pct_bachelors: 40.8, pci_history: [47056,38407,41499], mhi_history: [104494,80372,85205], pci_history_nominal: [24989,26698,41499], mhi_history_nominal: [55491,55869,85205] },
+    { name: "Island Lake", region: "North", county: "Lake (IL)", state: "IL", population: 8014, household_size: 2.74, median_hh_income: 103156, median_family_income: 108371, per_capita_income: 41302, pct_under_18: 23.3, pct_bachelors: 30.4, pci_history: [45582,39713,41302], mhi_history: [119491,102139,103156], pci_history_nominal: [24206,27606,41302], mhi_history_nominal: [63455,71000,103156] },
+    { name: "Crestwood", region: "Southwest", county: "Cook", state: "IL", population: 10579, household_size: 2.02, median_hh_income: 75752, median_family_income: 119946, per_capita_income: 41223, pct_under_18: 16.7, pct_bachelors: 26.2, pci_history: [41418,39286,41223], mhi_history: [86270,76106,75752], pci_history_nominal: [21995,27309,41223], mhi_history_nominal: [45813,52904,75752] },
+    { name: "Cedar Lake", region: "NWI", county: "Lake", state: "IN", population: 15295, household_size: 2.78, median_hh_income: 83381, median_family_income: 105742, per_capita_income: 40962, pct_under_18: 23.7, pct_bachelors: 27.4, pci_history: [33566,34739,40962], mhi_history: [82831,84710,83381], pci_history_nominal: [17825,24148,40962], mhi_history_nominal: [43987,58885,83381] },
+    { name: "Aurora", region: "West", county: "Kane", state: "IL", population: 179898, household_size: 2.91, median_hh_income: 93633, median_family_income: 104969, per_capita_income: 40937, pct_under_18: 25.2, pct_bachelors: 38.5, pci_history: [41674,36671,40937], mhi_history: [103308,87305,93633], pci_history_nominal: [22131,25491,40937], mhi_history_nominal: [54861,60689,93633] },
+    { name: "Burns Harbor", region: "NWI", county: "Porter", state: "IN", population: 2155, household_size: 2.48, median_hh_income: 98500, median_family_income: 100429, per_capita_income: 40608, pct_under_18: 30.5, pct_bachelors: 34.6, pci_history: [43959,31644,40608], mhi_history: [101553,80320,98500], pci_history_nominal: [23344,21997,40608], mhi_history_nominal: [53929,55833,98500] },
+    { name: "Griffith", region: "NWI", county: "Lake", state: "IN", population: 16273, household_size: 2.33, median_hh_income: 76636, median_family_income: 84063, per_capita_income: 40565, pct_under_18: 20.2, pct_bachelors: 27.9, pci_history: [41175,36663,40565], mhi_history: [94210,76515,76636], pci_history_nominal: [21866,25486,40565], mhi_history_nominal: [50030,53188,76636] },
+    { name: "Niles", region: "North", county: "Cook", state: "IL", population: 30064, household_size: 2.51, median_hh_income: 75274, median_family_income: 97691, per_capita_income: 40380, pct_under_18: 17.6, pct_bachelors: 39.3, pci_history: [44333,39181,40380], mhi_history: [91568,73121,75274], pci_history_nominal: [23543,27236,40380], mhi_history_nominal: [48627,50829,75274] },
+    { name: "Homewood", region: "South", county: "Cook", state: "IL", population: 19294, household_size: 2.68, median_hh_income: 100139, median_family_income: 112711, per_capita_income: 40339, pct_under_18: 27.0, pct_bachelors: 47.4, pci_history: [49099,45663,40339], mhi_history: [107737,102419,100139], pci_history_nominal: [26074,31742,40339], mhi_history_nominal: [57213,71195,100139] },
+    { name: "Albany Park", region: "Chicago", county: "Cook", state: "IL", population: 46620, household_size: 2.62, median_hh_income: 82249, median_family_income: null, per_capita_income: 40327, pct_under_18: 19.8, pct_bachelors: 42.8, pci_history: [null,null,40327], mhi_history: [null,null,82249], pci_history_nominal: [null,null,40327], mhi_history_nominal: [null,null,82249] },
+    { name: "Dunning", region: "Chicago", county: "Cook", state: "IL", population: 41816, household_size: 2.57, median_hh_income: 84684, median_family_income: null, per_capita_income: 40158, pct_under_18: 19.8, pct_bachelors: 27.3, pci_history: [null,null,40158], mhi_history: [null,null,84684], pci_history_nominal: [null,null,40158], mhi_history_nominal: [null,null,84684] },
+    { name: "Porter", region: "NWI", county: "Porter", state: "IN", population: 5217, household_size: 2.45, median_hh_income: 74542, median_family_income: 92340, per_capita_income: 39927, pct_under_18: 19.0, pct_bachelors: 27.8, pci_history: [46352,44271,39927], mhi_history: [95331,93507,74542], pci_history_nominal: [24615,30774,39927], mhi_history_nominal: [50625,65000,74542] },
+    { name: "Bridgeport", region: "Chicago", county: "Cook", state: "IL", population: 33090, household_size: 2.41, median_hh_income: 73225, median_family_income: null, per_capita_income: 39868, pct_under_18: 16.8, pct_bachelors: 39.9, pci_history: [null,null,39868], mhi_history: [null,null,73225], pci_history_nominal: [null,null,39868], mhi_history_nominal: [null,null,73225] },
+    { name: "Braidwood", region: "Southwest", county: "Will", state: "IL", population: 6062, household_size: 2.34, median_hh_income: 82202, median_family_income: 107969, per_capita_income: 39862, pct_under_18: 17.8, pct_bachelors: 17.5, pci_history: [38688,36353,39862], mhi_history: [102392,90565,82202], pci_history_nominal: [20545,25270,39862], mhi_history_nominal: [54375,62955,82202] },
+    { name: "Morgan Park", region: "Chicago", county: "Cook", state: "IL", population: 21324, household_size: 2.45, median_hh_income: 73828, median_family_income: null, per_capita_income: 39855, pct_under_18: 27.1, pct_bachelors: 39.5, pci_history: [null,null,39855], mhi_history: [null,null,73828], pci_history_nominal: [null,null,39855], mhi_history_nominal: [null,null,73828] },
+    { name: "Addison", region: "West", county: "DuPage", state: "IL", population: 35489, household_size: 2.76, median_hh_income: 90431, median_family_income: 101772, per_capita_income: 39589, pct_under_18: 19.5, pct_bachelors: 23.7, pci_history: [39923,35396,39589], mhi_history: [101856,88166,90431], pci_history_nominal: [21201,24605,39589], mhi_history_nominal: [54090,61287,90431] },
+    { name: "Calumet Heights", region: "Chicago", county: "Cook", state: "IL", population: 11645, household_size: 2.11, median_hh_income: 68354, median_family_income: null, per_capita_income: 39509, pct_under_18: 19.9, pct_bachelors: 37.8, pci_history: [null,null,39509], mhi_history: [null,null,68354], pci_history_nominal: [null,null,39509], mhi_history_nominal: [null,null,68354] },
+    { name: "Palos Hills", region: "Southwest", county: "Cook", state: "IL", population: 18081, household_size: 2.34, median_hh_income: 83533, median_family_income: 100318, per_capita_income: 39406, pct_under_18: 20.9, pct_bachelors: 27.6, pci_history: [47700,42504,39406], mhi_history: [98540,82378,83533], pci_history_nominal: [25331,29546,39406], mhi_history_nominal: [52329,57264,83533] },
+    { name: "Hillside", region: "West", county: "Cook", state: "IL", population: 8084, household_size: 2.47, median_hh_income: 72320, median_family_income: 83896, per_capita_income: 39210, pct_under_18: 16.5, pct_bachelors: 23.8, pci_history: [40746,34914,39210], mhi_history: [95615,82744,72320], pci_history_nominal: [21638,24270,39210], mhi_history_nominal: [50776,57518,72320] },
+    { name: "Hebron", region: "NWI", county: "Porter", state: "IN", population: 3976, household_size: 2.39, median_hh_income: 73812, median_family_income: 109468, per_capita_income: 39148, pct_under_18: 22.0, pct_bachelors: 15.0, pci_history: [34120,35994,39148], mhi_history: [79283,81858,73812], pci_history_nominal: [18119,25021,39148], mhi_history_nominal: [42103,56902,73812] },
+    { name: "Richton Park", region: "South", county: "Cook", state: "IL", population: 12521, household_size: 2.26, median_hh_income: 64554, median_family_income: 95190, per_capita_income: 39125, pct_under_18: 19.9, pct_bachelors: 29.3, pci_history: [42607,36433,39125], mhi_history: [90951,78655,64554], pci_history_nominal: [22626,25326,39125], mhi_history_nominal: [48299,54676,64554] },
+    { name: "Lynwood", region: "South", county: "Cook", state: "IL", population: 9083, household_size: 2.68, median_hh_income: 85237, median_family_income: 87484, per_capita_income: 39120, pct_under_18: 20.9, pct_bachelors: 31.4, pci_history: [42652,35261,39120], mhi_history: [106496,81921,85237], pci_history_nominal: [22650,24511,39120], mhi_history_nominal: [56554,56946,85237] },
+    { name: "Valparaiso", region: "NWI", county: "Porter", state: "IN", population: 34733, household_size: 2.19, median_hh_income: 69872, median_family_income: 99329, per_capita_income: 38894, pct_under_18: 19.1, pct_bachelors: 40.6, pci_history: [42386,36452,38894], mhi_history: [86243,68132,69872], pci_history_nominal: [22509,25339,38894], mhi_history_nominal: [45799,47361,69872] },
+    { name: "Country Club Hills", region: "Southwest", county: "Cook", state: "IL", population: 16324, household_size: 2.85, median_hh_income: 75197, median_family_income: 95705, per_capita_income: 38789, pct_under_18: 21.8, pct_bachelors: 29.7, pci_history: [40601,34717,38789], mhi_history: [108656,85668,75197], pci_history_nominal: [21561,24133,38789], mhi_history_nominal: [57701,59551,75197] },
+    { name: "Lower West Side", region: "Chicago", county: "Cook", state: "IL", population: 33279, household_size: 2.3, median_hh_income: 71734, median_family_income: null, per_capita_income: 38739, pct_under_18: 17.6, pct_bachelors: 40.0, pci_history: [null,null,38739], mhi_history: [null,null,71734], pci_history_nominal: [null,null,38739], mhi_history_nominal: [null,null,71734] },
+    { name: "North Park", region: "Chicago", county: "Cook", state: "IL", population: 18742, household_size: 2.63, median_hh_income: 77368, median_family_income: null, per_capita_income: 38663, pct_under_18: 23.7, pct_bachelors: 48.1, pci_history: [null,null,38663], mhi_history: [null,null,77368], pci_history_nominal: [null,null,38663], mhi_history_nominal: [null,null,77368] },
+    { name: "Glendale Heights", region: "West", county: "DuPage", state: "IL", population: 32808, household_size: 2.93, median_hh_income: 86545, median_family_income: 94438, per_capita_income: 38555, pct_under_18: 19.8, pct_bachelors: 29.9, pci_history: [41260,36856,38555], mhi_history: [105989,91335,86545], pci_history_nominal: [21911,25620,38555], mhi_history_nominal: [56285,63490,86545] },
+    { name: "Garfield Ridge", region: "Chicago", county: "Cook", state: "IL", population: 36426, household_size: 2.85, median_hh_income: 91762, median_family_income: null, per_capita_income: 38170, pct_under_18: 23.6, pct_bachelors: 24.2, pci_history: [null,null,38170], mhi_history: [null,null,91762], pci_history_nominal: [null,null,38170], mhi_history_nominal: [null,null,91762] },
+    { name: "West Chicago", region: "West", county: "DuPage", state: "IL", population: 25395, household_size: 3.35, median_hh_income: 99927, median_family_income: 122753, per_capita_income: 38037, pct_under_18: 26.2, pct_bachelors: 32.2, pci_history: [36319,35242,38037], mhi_history: [119432,93212,99927], pci_history_nominal: [19287,24498,38037], mhi_history_nominal: [63424,64795,99927] },
+    { name: "Rogers Park", region: "Chicago", county: "Cook", state: "IL", population: 54388, household_size: 1.96, median_hh_income: 59553, median_family_income: null, per_capita_income: 37894, pct_under_18: 17.4, pct_bachelors: 51.3, pci_history: [null,null,37894], mhi_history: [null,null,59553], pci_history_nominal: [null,null,37894], mhi_history_nominal: [null,null,59553] },
+    { name: "Romeoville", region: "Southwest", county: "Will", state: "IL", population: 41152, household_size: 3.05, median_hh_income: 106325, median_family_income: 112325, per_capita_income: 37771, pct_under_18: 22.0, pct_bachelors: 28.3, pci_history: [39961,33371,37771], mhi_history: [114374,96622,106325], pci_history_nominal: [21221,23197,37771], mhi_history_nominal: [60738,67165,106325] },
+    { name: "Streamwood", region: "Northwest", county: "Cook", state: "IL", population: 39001, household_size: 2.97, median_hh_income: 101218, median_family_income: 114946, per_capita_income: 37746, pct_under_18: 22.9, pct_bachelors: 27.8, pci_history: [45120,39251,37746], mhi_history: [122543,100283,101218], pci_history_nominal: [23961,27285,37746], mhi_history_nominal: [65076,69710,101218] },
+    { name: "Lowell", region: "NWI", county: "Lake", state: "IN", population: 11073, household_size: 2.6, median_hh_income: 84024, median_family_income: 94613, per_capita_income: 37683, pct_under_18: 24.7, pct_bachelors: 24.2, pci_history: [37195,31276,37683], mhi_history: [92597,80858,84024], pci_history_nominal: [19752,21741,37683], mhi_history_nominal: [49173,56207,84024] },
+    { name: "Hickory Hills", region: "Southwest", county: "Cook", state: "IL", population: 14526, household_size: 2.56, median_hh_income: 77262, median_family_income: 100670, per_capita_income: 37216, pct_under_18: 25.0, pct_bachelors: 24.8, pci_history: [44717,37649,37216], mhi_history: [103153,89450,77262], pci_history_nominal: [23747,26171,37216], mhi_history_nominal: [54779,62180,77262] },
+    { name: "Glenwood", region: "South", county: "Cook", state: "IL", population: 8603, household_size: 2.63, median_hh_income: 77391, median_family_income: 93904, per_capita_income: 37196, pct_under_18: 22.2, pct_bachelors: 39.7, pci_history: [45864,39100,37196], mhi_history: [101487,83600,77391], pci_history_nominal: [24356,27180,37196], mhi_history_nominal: [53894,58113,77391] },
+    { name: "Montgomery", region: "West", county: "Kane", state: "IL", population: 21515, household_size: 3.01, median_hh_income: 103734, median_family_income: 106659, per_capita_income: 37156, pct_under_18: 28.5, pct_bachelors: 28.7, pci_history: [44055,36498,37156], mhi_history: [96090,99110,103734], pci_history_nominal: [23395,25371,37156], mhi_history_nominal: [51028,68895,103734] },
+    { name: "Douglas", region: "Chicago", county: "Cook", state: "IL", population: 21756, household_size: 1.89, median_hh_income: 47426, median_family_income: null, per_capita_income: 37119, pct_under_18: 18.6, pct_bachelors: 44.3, pci_history: [null,null,37119], mhi_history: [null,null,47426], pci_history_nominal: [null,null,37119], mhi_history_nominal: [null,null,47426] },
+    { name: "Kingsbury", region: "NWI", county: "LaPorte", state: "IN", population: 210, household_size: 2.47, median_hh_income: 70250, median_family_income: 100417, per_capita_income: 37082, pct_under_18: 23.8, pct_bachelors: 4.0, pci_history: [34076,26486,37082], mhi_history: [94154,68590,70250], pci_history_nominal: [18096,18411,37082], mhi_history_nominal: [50000,47679,70250] },
+    { name: "Elgin", region: "Northwest", county: "Kane", state: "IL", population: 114934, household_size: 2.88, median_hh_income: 90282, median_family_income: 100009, per_capita_income: 37057, pct_under_18: 25.3, pct_bachelors: 27.0, pci_history: [39756,33673,37057], mhi_history: [99059,82309,90282], pci_history_nominal: [21112,23407,37057], mhi_history_nominal: [52605,57216,90282] },
+    { name: "Grand Boulevard", region: "Chicago", county: "Cook", state: "IL", population: 26345, household_size: 2.14, median_hh_income: 49092, median_family_income: null, per_capita_income: 37042, pct_under_18: 22.3, pct_bachelors: 37.5, pci_history: [null,null,37042], mhi_history: [null,null,49092], pci_history_nominal: [null,null,37042], mhi_history_nominal: [null,null,49092] },
+    { name: "Joliet", region: "Southwest", county: "Will", state: "IL", population: 150445, household_size: 2.89, median_hh_income: 92201, median_family_income: 107462, per_capita_income: 36812, pct_under_18: 24.4, pct_bachelors: 25.5, pci_history: [36513,32471,36812], mhi_history: [89938,87341,92201], pci_history_nominal: [19390,22572,36812], mhi_history_nominal: [47761,60714,92201] },
+    { name: "Trail Creek", region: "NWI", county: "LaPorte", state: "IN", population: 2351, household_size: 2.43, median_hh_income: 77635, median_family_income: 88681, per_capita_income: 36751, pct_under_18: 22.5, pct_bachelors: 23.4, pci_history: [38206,37816,36751], mhi_history: [82385,72528,77635], pci_history_nominal: [20289,26287,36751], mhi_history_nominal: [43750,50417,77635] },
+    { name: "Wanatah", region: "NWI", county: "LaPorte", state: "IN", population: 1178, household_size: 2.47, median_hh_income: 68409, median_family_income: 110313, per_capita_income: 36633, pct_under_18: 26.6, pct_bachelors: 20.5, pci_history: [37558,34215,36633], mhi_history: [95331,82227,68409], pci_history_nominal: [19945,23784,36633], mhi_history_nominal: [50625,57159,68409] },
+    { name: "Merrillville", region: "NWI", county: "Lake", state: "IN", population: 36476, household_size: 2.32, median_hh_income: 67587, median_family_income: 84257, per_capita_income: 36629, pct_under_18: 20.5, pct_bachelors: 26.1, pci_history: [41979,33211,36629], mhi_history: [93297,71619,67587], pci_history_nominal: [22293,23086,36629], mhi_history_nominal: [49545,49785,67587] },
+    { name: "Hobart", region: "NWI", county: "Lake", state: "IN", population: 29558, household_size: 2.4, median_hh_income: 75160, median_family_income: 91051, per_capita_income: 36514, pct_under_18: 19.8, pct_bachelors: 21.2, pci_history: [40501,35543,36514], mhi_history: [89934,78116,75160], pci_history_nominal: [21508,24707,36514], mhi_history_nominal: [47759,54301,75160] },
+    { name: "Portage", region: "NWI", county: "Porter", state: "IN", population: 38082, household_size: 2.53, median_hh_income: 76276, median_family_income: 90990, per_capita_income: 36293, pct_under_18: 20.8, pct_bachelors: 18.4, pci_history: [37937,33260,36293], mhi_history: [89446,71875,76276], pci_history_nominal: [20146,23120,36293], mhi_history_nominal: [47500,49963,76276] },
+    { name: "Lansing", region: "South", county: "Cook", state: "IL", population: 28284, household_size: 2.5, median_hh_income: 75569, median_family_income: 91848, per_capita_income: 36031, pct_under_18: 23.7, pct_bachelors: 28.2, pci_history: [42458,35879,36031], mhi_history: [89548,72738,75569], pci_history_nominal: [22547,24941,36031], mhi_history_nominal: [47554,50563,75569] },
+    { name: "McKinley Park", region: "Chicago", county: "Cook", state: "IL", population: 15443, household_size: 2.68, median_hh_income: 76145, median_family_income: null, per_capita_income: 35820, pct_under_18: 20.1, pct_bachelors: 31.7, pci_history: [null,null,35820], mhi_history: [null,null,76145], pci_history_nominal: [null,null,35820], mhi_history_nominal: [null,null,76145] },
+    { name: "Oakland", region: "Chicago", county: "Cook", state: "IL", population: 6946, household_size: 2.03, median_hh_income: 29959, median_family_income: null, per_capita_income: 35551, pct_under_18: 27.3, pct_bachelors: 37.6, pci_history: [null,null,35551], mhi_history: [null,null,29959], pci_history_nominal: [null,null,35551], mhi_history_nominal: [null,null,29959] },
+    { name: "Midlothian", region: "Southwest", county: "Cook", state: "IL", population: 13948, household_size: 2.44, median_hh_income: 70000, median_family_income: 95000, per_capita_income: 35437, pct_under_18: 21.5, pct_bachelors: 20.2, pci_history: [37944,32802,35437], mhi_history: [94154,85939,70000], pci_history_nominal: [20150,22802,35437], mhi_history_nominal: [50000,59739,70000] },
+    { name: "Crest Hill", region: "Southwest", county: "Will", state: "IL", population: 20628, household_size: 2.25, median_hh_income: 73033, median_family_income: 80599, per_capita_income: 35379, pct_under_18: 17.4, pct_bachelors: 23.9, pci_history: [42025,32955,35379], mhi_history: [85328,76213,73033], pci_history_nominal: [22317,22908,35379], mhi_history_nominal: [45313,52978,73033] },
+    { name: "Bensenville", region: "West", county: "DuPage", state: "IL", population: 18603, household_size: 2.62, median_hh_income: 79515, median_family_income: 87992, per_capita_income: 35193, pct_under_18: 23.4, pct_bachelors: 19.4, pci_history: [37737,31912,35193], mhi_history: [102933,75525,79515], pci_history_nominal: [20040,22183,35193], mhi_history_nominal: [54662,52500,79515] },
+    { name: "Marengo", region: "Northwest", county: "McHenry", state: "IL", population: 7040, household_size: 2.57, median_hh_income: 73523, median_family_income: 104886, per_capita_income: 35044, pct_under_18: 26.0, pct_bachelors: 15.4, pci_history: [41851,33086,35044], mhi_history: [94557,81586,73523], pci_history_nominal: [22225,22999,35044], mhi_history_nominal: [50214,56713,73523] },
+    { name: "Stickney", region: "West", county: "Cook", state: "IL", population: 6952, household_size: 2.87, median_hh_income: 66942, median_family_income: 86745, per_capita_income: 35040, pct_under_18: 24.8, pct_bachelors: 23.2, pci_history: [35984,37432,35040], mhi_history: [80543,71616,66942], pci_history_nominal: [19109,26020,35040], mhi_history_nominal: [42772,49783,66942] },
+    { name: "River Grove", region: "West", county: "Cook", state: "IL", population: 10451, household_size: 2.48, median_hh_income: 69858, median_family_income: 83735, per_capita_income: 34837, pct_under_18: 22.8, pct_bachelors: 25.0, pci_history: [38396,32548,34837], mhi_history: [75417,71244,69858], pci_history_nominal: [20390,22625,34837], mhi_history_nominal: [40050,49524,69858] },
+    { name: "Boulder Hill", region: "Southwest", county: "Kendall", state: "IL", population: 8989, household_size: 3.0, median_hh_income: 80377, median_family_income: 84668, per_capita_income: 34831, pct_under_18: 21.8, pct_bachelors: 19.2, pci_history: [40554,33986,34831], mhi_history: [113015,98433,80377], pci_history_nominal: [21536,23625,34831], mhi_history_nominal: [60016,68424,80377] },
+    { name: "Berwyn", region: "West", county: "Cook", state: "IL", population: 55595, household_size: 2.71, median_hh_income: 78408, median_family_income: 96944, per_capita_income: 34812, pct_under_18: 22.4, pct_bachelors: 24.2, pci_history: [35991,29580,34812], mhi_history: [82541,70073,78408], pci_history_nominal: [19113,20562,34812], mhi_history_nominal: [43833,48710,78408] },
+    { name: "Montclare", region: "Chicago", county: "Cook", state: "IL", population: 14084, household_size: 2.87, median_hh_income: 78841, median_family_income: null, per_capita_income: 34707, pct_under_18: 24.5, pct_bachelors: 19.1, pci_history: [null,null,34707], mhi_history: [null,null,78841], pci_history_nominal: [null,null,34707], mhi_history_nominal: [null,null,78841] },
+    { name: "Wilmington", region: "Southwest", county: "Will", state: "IL", population: 5494, household_size: 2.29, median_hh_income: 66154, median_family_income: 94592, per_capita_income: 34682, pct_under_18: 20.4, pct_bachelors: 19.8, pci_history: [45866,37430,34682], mhi_history: [85980,78665,66154], pci_history_nominal: [24357,26019,34682], mhi_history_nominal: [45659,54683,66154] },
+    { name: "Alsip", region: "Southwest", county: "Cook", state: "IL", population: 18583, household_size: 2.4, median_hh_income: 66585, median_family_income: 90813, per_capita_income: 34532, pct_under_18: 23.9, pct_bachelors: 18.7, pci_history: [38599,34537,34532], mhi_history: [90318,73977,66585], pci_history_nominal: [20498,24008,34532], mhi_history_nominal: [47963,51424,66585] },
+    { name: "South Holland", region: "South", county: "Cook", state: "IL", population: 20911, household_size: 2.76, median_hh_income: 85280, median_family_income: 98011, per_capita_income: 34383, pct_under_18: 23.4, pct_bachelors: 26.0, pci_history: [47034,35977,34383], mhi_history: [113448,87241,85280], pci_history_nominal: [24977,25009,34383], mhi_history_nominal: [60246,60644,85280] },
+    { name: "Beach Park", region: "North", county: "Lake (IL)", state: "IL", population: 14115, household_size: 2.74, median_hh_income: 85664, median_family_income: 97095, per_capita_income: 34156, pct_under_18: 20.5, pct_bachelors: 19.2, pci_history: [44823,37657,34156], mhi_history: [106494,98677,85664], pci_history_nominal: [23803,26177,34156], mhi_history_nominal: [56553,68594,85664] },
+    { name: "Schiller Park", region: "West", county: "Cook", state: "IL", population: 11393, household_size: 2.62, median_hh_income: 69696, median_family_income: 100833, per_capita_income: 33812, pct_under_18: 21.2, pct_bachelors: 26.2, pci_history: [33483,34304,33812], mhi_history: [78304,70087,69696], pci_history_nominal: [17781,23846,33812], mhi_history_nominal: [41583,48720,69696] },
+    { name: "Clearing", region: "Chicago", county: "Cook", state: "IL", population: 24924, household_size: 2.73, median_hh_income: 78378, median_family_income: null, per_capita_income: 33801, pct_under_18: 25.0, pct_bachelors: 23.0, pci_history: [null,null,33801], mhi_history: [null,null,78378], pci_history_nominal: [null,null,33801], mhi_history_nominal: [null,null,78378] },
+    { name: "Broadview", region: "West", county: "Cook", state: "IL", population: 7896, household_size: 2.5, median_hh_income: 64697, median_family_income: 84743, per_capita_income: 33398, pct_under_18: 24.1, pct_bachelors: 17.8, pci_history: [41763,39529,33398], mhi_history: [89731,68651,64697], pci_history_nominal: [22178,27478,33398], mhi_history_nominal: [47651,47722,64697] },
+    { name: "Summit", region: "Southwest", county: "Cook", state: "IL", population: 10846, household_size: 2.92, median_hh_income: 61863, median_family_income: 72066, per_capita_income: 33359, pct_under_18: 22.3, pct_bachelors: 14.0, pci_history: [27514,25268,33359], mhi_history: [71806,70130,61863], pci_history_nominal: [14611,17565,33359], mhi_history_nominal: [38132,48750,61863] },
+    { name: "Plano", region: "Southwest", county: "Kendall", state: "IL", population: 12203, household_size: 2.93, median_hh_income: 86271, median_family_income: 85424, per_capita_income: 33274, pct_under_18: 29.4, pct_bachelors: 22.9, pci_history: [33588,35009,33274], mhi_history: [87612,83627,86271], pci_history_nominal: [17837,24336,33274], mhi_history_nominal: [46526,58132,86271] },
+    { name: "West Ridge", region: "Chicago", county: "Cook", state: "IL", population: 78227, household_size: 2.91, median_hh_income: 71524, median_family_income: null, per_capita_income: 33270, pct_under_18: 29.1, pct_bachelors: 42.1, pci_history: [null,null,33270], mhi_history: [null,null,71524], pci_history_nominal: [null,null,33270], mhi_history_nominal: [null,null,71524] },
+    { name: "Berkeley", region: "West", county: "Cook", state: "IL", population: 5199, household_size: 2.88, median_hh_income: 85823, median_family_income: 93750, per_capita_income: 33254, pct_under_18: 26.9, pct_bachelors: 18.6, pci_history: [45823,32998,33254], mhi_history: [111072,77618,85823], pci_history_nominal: [24334,22938,33254], mhi_history_nominal: [58984,53955,85823] },
+    { name: "Waukegan", region: "North", county: "Lake (IL)", state: "IL", population: 89076, household_size: 2.72, median_hh_income: 71919, median_family_income: 84337, per_capita_income: 33249, pct_under_18: 22.8, pct_bachelors: 20.9, pci_history: [32705,28905,33249], mhi_history: [79720,69033,71919], pci_history_nominal: [17368,20093,33249], mhi_history_nominal: [42335,47987,71919] },
+    { name: "Hanover Park", region: "Northwest", county: "Cook", state: "IL", population: 36732, household_size: 3.27, median_hh_income: 91763, median_family_income: 93432, per_capita_income: 33213, pct_under_18: 26.6, pct_bachelors: 28.9, pci_history: [37586,30429,33213], mhi_history: [115542,91564,91763], pci_history_nominal: [19960,21152,33213], mhi_history_nominal: [61358,63649,91763] },
+    { name: "Round Lake Beach", region: "North", county: "Lake (IL)", state: "IL", population: 27079, household_size: 3.16, median_hh_income: 86059, median_family_income: 94660, per_capita_income: 33191, pct_under_18: 27.7, pct_bachelors: 16.2, pci_history: [34108,29509,33191], mhi_history: [111778,90211,86059], pci_history_nominal: [18113,20513,33191], mhi_history_nominal: [59359,62709,86059] },
+    { name: "University Park", region: "Southwest", county: "Will", state: "IL", population: 7306, household_size: 2.86, median_hh_income: 73844, median_family_income: 74110, per_capita_income: 32951, pct_under_18: 28.9, pct_bachelors: 26.5, pci_history: [37694,30247,32951], mhi_history: [95382,66292,73844], pci_history_nominal: [20017,21026,32951], mhi_history_nominal: [50652,46082,73844] },
+    { name: "Hometown", region: "Southwest", county: "Cook", state: "IL", population: 4215, household_size: 2.38, median_hh_income: 61101, median_family_income: 83636, per_capita_income: 32820, pct_under_18: 20.6, pct_bachelors: 16.4, pci_history: [36059,31417,32820], mhi_history: [74404,67921,61101], pci_history_nominal: [19149,21839,32820], mhi_history_nominal: [39512,47214,61101] },
+    { name: "Zion", region: "North", county: "Lake (IL)", state: "IL", population: 24600, household_size: 2.74, median_hh_income: 63104, median_family_income: 80080, per_capita_income: 32277, pct_under_18: 28.5, pct_bachelors: 15.1, pci_history: [33387,29993,32277], mhi_history: [86100,73186,63104], pci_history_nominal: [17730,20849,32277], mhi_history_nominal: [45723,50874,63104] },
+    { name: "Avalon Park", region: "Chicago", county: "Cook", state: "IL", population: 9447, household_size: 2.33, median_hh_income: 56018, median_family_income: null, per_capita_income: 32204, pct_under_18: 21.7, pct_bachelors: 29.8, pci_history: [null,null,32204], mhi_history: [null,null,56018], pci_history_nominal: [null,null,32204], mhi_history_nominal: [null,null,56018] },
+    { name: "Justice", region: "Southwest", county: "Cook", state: "IL", population: 12324, household_size: 2.51, median_hh_income: 57170, median_family_income: 69471, per_capita_income: 32113, pct_under_18: 22.6, pct_bachelors: 21.0, pci_history: [39006,32633,32113], mhi_history: [94632,72631,57170], pci_history_nominal: [20714,22684,32113], mhi_history_nominal: [50254,50488,57170] },
+    { name: "Lyons", region: "West", county: "Cook", state: "IL", population: 10339, household_size: 2.56, median_hh_income: 70993, median_family_income: 97377, per_capita_income: 32056, pct_under_18: 22.2, pct_bachelors: 18.4, pci_history: [37985,33983,32056], mhi_history: [83432,76305,70993], pci_history_nominal: [20172,23623,32056], mhi_history_nominal: [44306,53042,70993] },
+    { name: "Pullman", region: "Chicago", county: "Cook", state: "IL", population: 6741, household_size: 2.09, median_hh_income: 54685, median_family_income: null, per_capita_income: 31937, pct_under_18: 21.9, pct_bachelors: 33.3, pci_history: [null,null,31937], mhi_history: [null,null,54685], pci_history_nominal: [null,null,31937], mhi_history_nominal: [null,null,54685] },
+    { name: "Carpentersville", region: "Northwest", county: "Kane", state: "IL", population: 37346, household_size: 3.22, median_hh_income: 86917, median_family_income: 91813, per_capita_income: 31916, pct_under_18: 28.2, pct_bachelors: 24.3, pci_history: [32811,30040,31916], mhi_history: [102677,79587,86917], pci_history_nominal: [17424,20882,31916], mhi_history_nominal: [54526,55324,86917] },
+    { name: "Washington Heights", region: "Chicago", county: "Cook", state: "IL", population: 25312, household_size: 2.65, median_hh_income: 69526, median_family_income: null, per_capita_income: 31820, pct_under_18: 21.3, pct_bachelors: 28.4, pci_history: [null,null,31820], mhi_history: [null,null,69526], pci_history_nominal: [null,null,31820], mhi_history_nominal: [null,null,69526] },
+    { name: "Steger", region: "Southwest", county: "Will", state: "IL", population: 9418, household_size: 2.32, median_hh_income: 66575, median_family_income: 79948, per_capita_income: 31792, pct_under_18: 22.2, pct_bachelors: 17.9, pci_history: [37315,34211,31792], mhi_history: [81490,63411,66575], pci_history_nominal: [19816,23781,31792], mhi_history_nominal: [43275,44079,66575] },
+    { name: "Bellwood", region: "West", county: "Cook", state: "IL", population: 18256, household_size: 3.05, median_hh_income: 79513, median_family_income: 90335, per_capita_income: 31431, pct_under_18: 22.6, pct_bachelors: 17.2, pci_history: [36569,29538,31431], mhi_history: [99532,83039,79513], pci_history_nominal: [19420,20533,31431], mhi_history_nominal: [52856,57723,79513] },
+    { name: "Burbank", region: "Southwest", county: "Cook", state: "IL", population: 28739, household_size: 2.99, median_hh_income: 80116, median_family_income: 93373, per_capita_income: 31395, pct_under_18: 24.5, pct_bachelors: 15.6, pci_history: [35634,30627,31395], mhi_history: [93002,81115,80116], pci_history_nominal: [18923,21290,31395], mhi_history_nominal: [49388,56386,80116] },
+    { name: "Franklin Park", region: "West", county: "Cook", state: "IL", population: 18197, household_size: 3.03, median_hh_income: 76519, median_family_income: 85955, per_capita_income: 31284, pct_under_18: 23.9, pct_bachelors: 19.7, pci_history: [33048,29541,31284], mhi_history: [87917,78311,76519], pci_history_nominal: [17550,20535,31284], mhi_history_nominal: [46688,54437,76519] },
+    { name: "Worth", region: "Southwest", county: "Cook", state: "IL", population: 10700, household_size: 2.41, median_hh_income: 56288, median_family_income: 71164, per_capita_income: 31106, pct_under_18: 24.0, pct_bachelors: 18.7, pci_history: [36624,36866,31106], mhi_history: [80451,67475,56288], pci_history_nominal: [19449,25627,31106], mhi_history_nominal: [42723,46904,56288] },
+    { name: "La Porte", region: "NWI", county: "LaPorte", state: "IN", population: 22449, household_size: 2.44, median_hh_income: 59307, median_family_income: 69603, per_capita_income: 30823, pct_under_18: 26.7, pct_bachelors: 20.1, pci_history: [33707,29393,30823], mhi_history: [66616,52882,59307], pci_history_nominal: [17900,20432,30823], mhi_history_nominal: [35376,36760,59307] },
+    { name: "Whiting", region: "NWI", county: "Lake", state: "IN", population: 4532, household_size: 2.97, median_hh_income: 71708, median_family_income: 94750, per_capita_income: 30799, pct_under_18: 26.8, pct_bachelors: 17.4, pci_history: [32988,30234,30799], mhi_history: [65855,60837,71708], pci_history_nominal: [17518,21017,30799], mhi_history_nominal: [34972,42290,71708] },
+    { name: "South Shore", region: "Chicago", county: "Cook", state: "IL", population: 54345, household_size: 2.0, median_hh_income: 40124, median_family_income: null, per_capita_income: 30797, pct_under_18: 23.1, pct_bachelors: 24.9, pci_history: [null,null,30797], mhi_history: [null,null,40124], pci_history_nominal: [null,null,30797], mhi_history_nominal: [null,null,40124] },
+    { name: "Hegewisch", region: "Chicago", county: "Cook", state: "IL", population: 9041, household_size: 2.45, median_hh_income: 59478, median_family_income: null, per_capita_income: 30796, pct_under_18: 23.6, pct_bachelors: 14.0, pci_history: [null,null,30796], mhi_history: [null,null,59478], pci_history_nominal: [null,null,30796], mhi_history_nominal: [null,null,59478] },
+    { name: "Northlake", region: "West", county: "Cook", state: "IL", population: 12513, household_size: 2.77, median_hh_income: 83892, median_family_income: 93886, per_capita_income: 30569, pct_under_18: 19.4, pct_bachelors: 14.9, pci_history: [34120,29509,30569], mhi_history: [91152,75634,83892], pci_history_nominal: [18119,20513,30569], mhi_history_nominal: [48406,52576,83892] },
+    { name: "Ashburn", region: "Chicago", county: "Cook", state: "IL", population: 42079, household_size: 3.15, median_hh_income: 80909, median_family_income: null, per_capita_income: 30254, pct_under_18: 25.3, pct_bachelors: 22.3, pci_history: [null,null,30254], mhi_history: [null,null,80909], pci_history_nominal: [null,null,30254], mhi_history_nominal: [null,null,80909] },
+    { name: "Hazel Crest", region: "South", county: "Cook", state: "IL", population: 13792, household_size: 2.82, median_hh_income: 68393, median_family_income: 69401, per_capita_income: 30135, pct_under_18: 27.6, pct_bachelors: 23.2, pci_history: [37488,32929,30135], mhi_history: [95239,76129,68393], pci_history_nominal: [19908,22890,30135], mhi_history_nominal: [50576,52920,68393] },
+    { name: "Chatham", region: "Chicago", county: "Cook", state: "IL", population: 30782, household_size: 2.06, median_hh_income: 42086, median_family_income: null, per_capita_income: 30035, pct_under_18: 19.0, pct_bachelors: 29.3, pci_history: [null,null,30035], mhi_history: [null,null,42086], pci_history_nominal: [null,null,30035], mhi_history_nominal: [null,null,42086] },
+    { name: "Park Forest", region: "South", county: "Cook", state: "IL", population: 21156, household_size: 2.53, median_hh_income: 61072, median_family_income: 70317, per_capita_income: 30021, pct_under_18: 23.1, pct_bachelors: 24.3, pci_history: [40473,31826,30021], mhi_history: [89595,69470,61072], pci_history_nominal: [21493,22123,30021], mhi_history_nominal: [47579,48291,61072] },
+    { name: "Melrose Park", region: "West", county: "Cook", state: "IL", population: 24549, household_size: 2.89, median_hh_income: 66189, median_family_income: 75117, per_capita_income: 29979, pct_under_18: 22.6, pct_bachelors: 15.0, pci_history: [30517,24236,29979], mhi_history: [76621,62546,66189], pci_history_nominal: [16206,16847,29979], mhi_history_nominal: [40689,43478,66189] },
+    { name: "Chicago Ridge", region: "Southwest", county: "Cook", state: "IL", population: 14099, household_size: 2.62, median_hh_income: 68964, median_family_income: 83514, per_capita_income: 29973, pct_under_18: 24.6, pct_bachelors: 28.6, pci_history: [38185,31594,29973], mhi_history: [83046,69154,68964], pci_history_nominal: [20278,21962,29973], mhi_history_nominal: [44101,48071,68964] },
+    { name: "La Crosse", region: "NWI", county: "LaPorte", state: "IN", population: 651, household_size: 2.69, median_hh_income: 74107, median_family_income: 74167, per_capita_income: 29916, pct_under_18: 28.7, pct_bachelors: 16.9, pci_history: [33824,28497,29916], mhi_history: [69047,72927,74107], pci_history_nominal: [17962,19809,29916], mhi_history_nominal: [36667,50694,74107] },
+    { name: "Michigan City", region: "NWI", county: "LaPorte", state: "IN", population: 31814, household_size: 2.23, median_hh_income: 53089, median_family_income: 73418, per_capita_income: 29810, pct_under_18: 20.4, pct_bachelors: 20.3, pci_history: [32003,26347,29810], mhi_history: [63520,50973,53089], pci_history_nominal: [16995,18315,29810], mhi_history_nominal: [33732,35433,53089] },
+    { name: "West Elsdon", region: "Chicago", county: "Cook", state: "IL", population: 18568, household_size: 3.31, median_hh_income: 70782, median_family_income: null, per_capita_income: 29751, pct_under_18: 25.4, pct_bachelors: 16.2, pci_history: [null,null,29751], mhi_history: [null,null,70782], pci_history_nominal: [null,null,29751], mhi_history_nominal: [null,null,70782] },
+    { name: "Bridgeview", region: "Southwest", county: "Cook", state: "IL", population: 16849, household_size: 2.68, median_hh_income: 66655, median_family_income: 78295, per_capita_income: 29711, pct_under_18: 22.6, pct_bachelors: 18.1, pci_history: [35406,31663,29711], mhi_history: [79227,64559,66655], pci_history_nominal: [18802,22010,29711], mhi_history_nominal: [42073,44877,66655] },
+    { name: "Armour Square", region: "Chicago", county: "Cook", state: "IL", population: 14239, household_size: 2.44, median_hh_income: 43488, median_family_income: null, per_capita_income: 29090, pct_under_18: 18.8, pct_bachelors: 28.7, pci_history: [null,null,29090], mhi_history: [null,null,43488], pci_history_nominal: [null,null,29090], mhi_history_nominal: [null,null,43488] },
+    { name: "Hammond", region: "NWI", county: "Lake", state: "IN", population: 76768, household_size: 2.55, median_hh_income: 55504, median_family_income: 65448, per_capita_income: 28736, pct_under_18: 23.5, pct_bachelors: 17.4, pci_history: [30608,25670,28736], mhi_history: [66902,55441,55504], pci_history_nominal: [16254,17844,28736], mhi_history_nominal: [35528,38539,55504] },
+    { name: "Blue Island", region: "South", county: "Cook", state: "IL", population: 21741, household_size: 2.56, median_hh_income: 59489, median_family_income: 72821, per_capita_income: 28709, pct_under_18: 20.3, pct_bachelors: 20.7, pci_history: [30423,25169,28709], mhi_history: [68770,62340,59489], pci_history_nominal: [16156,17496,28709], mhi_history_nominal: [36520,43335,59489] },
+    { name: "Burnside", region: "Chicago", county: "Cook", state: "IL", population: 2148, household_size: 2.3, median_hh_income: 48227, median_family_income: null, per_capita_income: 28119, pct_under_18: 23.1, pct_bachelors: 20.8, pci_history: [null,null,28119], mhi_history: [null,null,48227], pci_history_nominal: [null,null,28119], mhi_history_nominal: [null,null,48227] },
+    { name: "Calumet City", region: "South", county: "Cook", state: "IL", population: 35100, household_size: 2.45, median_hh_income: 55369, median_family_income: 68280, per_capita_income: 28113, pct_under_18: 24.8, pct_bachelors: 21.4, pci_history: [34127,29659,28113], mhi_history: [73256,63083,55369], pci_history_nominal: [18123,20617,28113], mhi_history_nominal: [38902,43851,55369] },
+    { name: "New Chicago", region: "NWI", county: "Lake", state: "IN", population: 2225, household_size: 2.57, median_hh_income: 57313, median_family_income: 73333, per_capita_income: 27883, pct_under_18: 27.1, pct_bachelors: 13.4, pci_history: [30773,24398,27883], mhi_history: [61688,58272,57313], pci_history_nominal: [16342,16960,27883], mhi_history_nominal: [32759,40507,57313] },
+    { name: "Round Lake Park", region: "North", county: "Lake (IL)", state: "IL", population: 7919, household_size: 2.46, median_hh_income: 55813, median_family_income: 66898, per_capita_income: 27665, pct_under_18: 17.9, pct_bachelors: 16.5, pci_history: [34421,29478,27665], mhi_history: [84543,64892,55813], pci_history_nominal: [18279,20491,27665], mhi_history_nominal: [44896,45109,55813] },
+    { name: "Hermosa", region: "Chicago", county: "Cook", state: "IL", population: 22776, household_size: 3.01, median_hh_income: 67039, median_family_income: null, per_capita_income: 27635, pct_under_18: 24.7, pct_bachelors: 21.9, pci_history: [null,null,27635], mhi_history: [null,null,67039], pci_history_nominal: [null,null,27635], mhi_history_nominal: [null,null,67039] },
+    { name: "Maywood", region: "West", county: "Cook", state: "IL", population: 23201, household_size: 3.11, median_hh_income: 68815, median_family_income: 83108, per_capita_income: 27535, pct_under_18: 25.9, pct_bachelors: 19.2, pci_history: [28086,27711,27535], mhi_history: [78980,65912,68815], pci_history_nominal: [14915,19263,27535], mhi_history_nominal: [41942,45818,68815] },
+    { name: "Dolton", region: "South", county: "Cook", state: "IL", population: 20825, household_size: 2.62, median_hh_income: 57887, median_family_income: 65798, per_capita_income: 27432, pct_under_18: 24.6, pct_bachelors: 22.7, pci_history: [34088,28179,27432], mhi_history: [90425,73497,57887], pci_history_nominal: [18102,19588,27432], mhi_history_nominal: [48020,51090,57887] },
+    { name: "East Side", region: "Chicago", county: "Cook", state: "IL", population: 22722, household_size: 3.07, median_hh_income: 62060, median_family_income: null, per_capita_income: 27076, pct_under_18: 27.9, pct_bachelors: 13.7, pci_history: [null,null,27076], mhi_history: [null,null,62060], pci_history_nominal: [null,null,27076], mhi_history_nominal: [null,null,62060] },
+    { name: "Lake Station", region: "NWI", county: "Lake", state: "IN", population: 13185, household_size: 2.78, median_hh_income: 59591, median_family_income: 67096, per_capita_income: 26896, pct_under_18: 25.5, pct_bachelors: 7.4, pci_history: [28847,24900,26896], mhi_history: [69644,53509,59591], pci_history_nominal: [15319,17309,26896], mhi_history_nominal: [36984,37196,59591] },
+    { name: "Chicago Heights", region: "South", county: "Cook", state: "IL", population: 26736, household_size: 2.81, median_hh_income: 54798, median_family_income: 72120, per_capita_income: 26891, pct_under_18: 27.2, pct_bachelors: 20.9, pci_history: [28177,23946,26891], mhi_history: [69595,56064,54798], pci_history_nominal: [14963,16646,26891], mhi_history_nominal: [36958,38972,54798] },
+    { name: "Schneider", region: "NWI", county: "Lake", state: "IN", population: 230, household_size: 2.35, median_hh_income: 63182, median_family_income: 66250, per_capita_income: 26890, pct_under_18: 29.6, pct_bachelors: 6.0, pci_history: [31001,26463,26890], mhi_history: [87260,66534,63182], pci_history_nominal: [16463,18395,26890], mhi_history_nominal: [46339,46250,63182] },
+    { name: "Archer Heights", region: "Chicago", county: "Cook", state: "IL", population: 14021, household_size: 3.04, median_hh_income: 67397, median_family_income: null, per_capita_income: 26771, pct_under_18: 24.0, pct_bachelors: 12.0, pci_history: [null,null,26771], mhi_history: [null,null,67397], pci_history_nominal: [null,null,26771], mhi_history_nominal: [null,null,67397] },
+    { name: "Humboldt Park", region: "Chicago", county: "Cook", state: "IL", population: 55598, household_size: 2.89, median_hh_income: 53567, median_family_income: null, per_capita_income: 26585, pct_under_18: 28.4, pct_bachelors: 23.7, pci_history: [null,null,26585], mhi_history: [null,null,53567], pci_history_nominal: [null,null,26585], mhi_history_nominal: [null,null,53567] },
+    { name: "Roseland", region: "Chicago", county: "Cook", state: "IL", population: 36700, household_size: 2.6, median_hh_income: 50453, median_family_income: null, per_capita_income: 26293, pct_under_18: 22.4, pct_bachelors: 23.7, pci_history: [null,null,26293], mhi_history: [null,null,50453], pci_history_nominal: [null,null,26293], mhi_history_nominal: [null,null,50453] },
+    { name: "Belmont Cragin", region: "Chicago", county: "Cook", state: "IL", population: 72918, household_size: 3.17, median_hh_income: 67004, median_family_income: null, per_capita_income: 26229, pct_under_18: 24.8, pct_bachelors: 16.1, pci_history: [null,null,26229], mhi_history: [null,null,67004], pci_history_nominal: [null,null,26229], mhi_history_nominal: [null,null,67004] },
+    { name: "Harvard", region: "Northwest", county: "McHenry", state: "IL", population: 9598, household_size: 3.06, median_hh_income: 67617, median_family_income: 75766, per_capita_income: 26172, pct_under_18: 32.9, pct_bachelors: 18.7, pci_history: [32489,26500,26172], mhi_history: [83539,66161,67617], pci_history_nominal: [17253,18421,26172], mhi_history_nominal: [44363,45991,67617] },
+    { name: "Park City", region: "North", county: "Lake (IL)", state: "IL", population: 7827, household_size: 2.85, median_hh_income: 60171, median_family_income: 65846, per_capita_income: 26067, pct_under_18: 25.0, pct_bachelors: 18.0, pci_history: [35016,25886,26067], mhi_history: [68747,60344,60171], pci_history_nominal: [18595,17994,26067], mhi_history_nominal: [36508,41947,60171] },
+    { name: "West Lawn", region: "Chicago", county: "Cook", state: "IL", population: 32649, household_size: 3.36, median_hh_income: 73411, median_family_income: null, per_capita_income: 26040, pct_under_18: 26.5, pct_bachelors: 18.0, pci_history: [null,null,26040], mhi_history: [null,null,73411], pci_history_nominal: [null,null,26040], mhi_history_nominal: [null,null,73411] },
+    { name: "Calumet Park", region: "South", county: "Cook", state: "IL", population: 6855, household_size: 2.41, median_hh_income: 53556, median_family_income: 73438, per_capita_income: 26002, pct_under_18: 27.1, pct_bachelors: 25.8, pci_history: [34428,33986,26002], mhi_history: [85411,67390,53556], pci_history_nominal: [18283,23625,26002], mhi_history_nominal: [45357,46845,53556] },
+    { name: "Sauk Village", region: "South", county: "Cook", state: "IL", population: 9678, household_size: 3.13, median_hh_income: 69973, median_family_income: 69489, per_capita_income: 25779, pct_under_18: 28.7, pct_bachelors: 20.0, pci_history: [31255,25877,25779], mhi_history: [87974,74673,69973], pci_history_nominal: [16598,17988,25779], mhi_history_nominal: [46718,51908,69973] },
+    { name: "Austin", region: "Chicago", county: "Cook", state: "IL", population: 98882, household_size: 2.73, median_hh_income: 44883, median_family_income: null, per_capita_income: 25590, pct_under_18: 25.0, pct_bachelors: 15.5, pci_history: [null,null,25590], mhi_history: [null,null,44883], pci_history_nominal: [null,null,25590], mhi_history_nominal: [null,null,44883] },
+    { name: "Cicero", region: "West", county: "Cook", state: "IL", population: 82797, household_size: 3.36, median_hh_income: 70842, median_family_income: 76137, per_capita_income: 25547, pct_under_18: 25.8, pct_bachelors: 10.8, pci_history: [23518,20589,25547], mhi_history: [71640,63008,70842], pci_history_nominal: [12489,14312,25547], mhi_history_nominal: [38044,43799,70842] },
+    { name: "West Pullman", region: "Chicago", county: "Cook", state: "IL", population: 24470, household_size: 2.58, median_hh_income: 50429, median_family_income: null, per_capita_income: 25489, pct_under_18: 22.3, pct_bachelors: 18.4, pci_history: [null,null,25489], mhi_history: [null,null,50429], pci_history_nominal: [null,null,25489], mhi_history_nominal: [null,null,50429] },
+    { name: "Markham", region: "South", county: "Cook", state: "IL", population: 11355, household_size: 3.09, median_hh_income: 57302, median_family_income: 71557, per_capita_income: 25372, pct_under_18: 26.8, pct_bachelors: 17.7, pci_history: [28001,25844,25372], mhi_history: [78321,62338,57302], pci_history_nominal: [14870,17965,25372], mhi_history_nominal: [41592,43333,57302] },
+    { name: "Greater Grand Crossing", region: "Chicago", county: "Cook", state: "IL", population: 29563, household_size: 2.29, median_hh_income: 40337, median_family_income: null, per_capita_income: 25235, pct_under_18: 25.2, pct_bachelors: 20.9, pci_history: [null,null,25235], mhi_history: [null,null,40337], pci_history_nominal: [null,null,25235], mhi_history_nominal: [null,null,40337] },
+    { name: "Woodlawn", region: "Chicago", county: "Cook", state: "IL", population: 23956, household_size: 2.18, median_hh_income: 35029, median_family_income: null, per_capita_income: 25084, pct_under_18: 21.0, pct_bachelors: 28.6, pci_history: [null,null,25084], mhi_history: [null,null,35029], pci_history_nominal: [null,null,25084], mhi_history_nominal: [null,null,35029] },
+    { name: "Auburn Gresham", region: "Chicago", county: "Cook", state: "IL", population: 45049, household_size: 2.53, median_hh_income: 45489, median_family_income: null, per_capita_income: 24852, pct_under_18: 23.7, pct_bachelors: 17.6, pci_history: [null,null,24852], mhi_history: [null,null,45489], pci_history_nominal: [null,null,24852], mhi_history_nominal: [null,null,45489] },
+    { name: "South Chicago", region: "Chicago", county: "Cook", state: "IL", population: 29381, household_size: 2.57, median_hh_income: 42455, median_family_income: null, per_capita_income: 24792, pct_under_18: 26.0, pct_bachelors: 21.7, pci_history: [null,null,24792], mhi_history: [null,null,42455], pci_history_nominal: [null,null,24792], mhi_history_nominal: [null,null,42455] },
+    { name: "Brighton Park", region: "Chicago", county: "Cook", state: "IL", population: 42062, household_size: 3.16, median_hh_income: 58095, median_family_income: null, per_capita_income: 24600, pct_under_18: 24.0, pct_bachelors: 15.2, pci_history: [null,null,24600], mhi_history: [null,null,58095], pci_history_nominal: [null,null,24600], mhi_history_nominal: [null,null,58095] },
+    { name: "North Chicago", region: "North", county: "Lake (IL)", state: "IL", population: 30643, household_size: 2.71, median_hh_income: 60172, median_family_income: 69469, per_capita_income: 24592, pct_under_18: 18.2, pct_bachelors: 20.8, pci_history: [27425,25739,24592], mhi_history: [71896,64598,60172], pci_history_nominal: [14564,17892,24592], mhi_history_nominal: [38180,44904,60172] },
+    { name: "Harvey", region: "South", county: "Cook", state: "IL", population: 20230, household_size: 2.65, median_hh_income: 42429, median_family_income: 63866, per_capita_income: 24272, pct_under_18: 23.4, pct_bachelors: 10.9, pci_history: [23230,19854,24272], mhi_history: [60179,47362,42429], pci_history_nominal: [12336,13801,24272], mhi_history_nominal: [31958,32923,42429] },
+    { name: "South Deering", region: "Chicago", county: "Cook", state: "IL", population: 14210, household_size: 2.58, median_hh_income: 37095, median_family_income: null, per_capita_income: 23974, pct_under_18: 21.8, pct_bachelors: 14.1, pci_history: [null,null,23974], mhi_history: [null,null,37095], pci_history_nominal: [null,null,23974], mhi_history_nominal: [null,null,37095] },
+    { name: "East Garfield Park", region: "Chicago", county: "Cook", state: "IL", population: 20526, household_size: 2.59, median_hh_income: 36811, median_family_income: null, per_capita_income: 23689, pct_under_18: 27.4, pct_bachelors: 22.4, pci_history: [null,null,23689], mhi_history: [null,null,36811], pci_history_nominal: [null,null,23689], mhi_history_nominal: [null,null,36811] },
+    { name: "East Chicago", region: "NWI", county: "Lake", state: "IN", population: 26022, household_size: 2.61, median_hh_income: 42125, median_family_income: 53196, per_capita_income: 23656, pct_under_18: 25.3, pct_bachelors: 10.7, pci_history: [25454,19924,23656], mhi_history: [49973,41717,42125], pci_history_nominal: [13517,13850,23656], mhi_history_nominal: [26538,28999,42125] },
+    { name: "Gary", region: "NWI", county: "Lake", state: "IN", population: 68113, household_size: 2.48, median_hh_income: 38731, median_family_income: 44242, per_capita_income: 23453, pct_under_18: 28.5, pct_bachelors: 14.8, pci_history: [27084,22130,23453], mhi_history: [51210,40058,38731], pci_history_nominal: [14383,15383,23453], mhi_history_nominal: [27195,27846,38731] },
+    { name: "Chicago Lawn", region: "Chicago", county: "Cook", state: "IL", population: 53460, household_size: 3.02, median_hh_income: 48783, median_family_income: null, per_capita_income: 23153, pct_under_18: 24.9, pct_bachelors: 11.0, pci_history: [null,null,23153], mhi_history: [null,null,48783], pci_history_nominal: [null,null,23153], mhi_history_nominal: [null,null,48783] },
+    { name: "North Lawndale", region: "Chicago", county: "Cook", state: "IL", population: 31244, household_size: 2.52, median_hh_income: 37247, median_family_income: null, per_capita_income: 23016, pct_under_18: 25.6, pct_bachelors: 16.2, pci_history: [null,null,23016], mhi_history: [null,null,37247], pci_history_nominal: [null,null,23016], mhi_history_nominal: [null,null,37247] },
+    { name: "New City", region: "Chicago", county: "Cook", state: "IL", population: 41789, household_size: 2.97, median_hh_income: 49405, median_family_income: null, per_capita_income: 22821, pct_under_18: 28.3, pct_bachelors: 14.4, pci_history: [null,null,22821], mhi_history: [null,null,49405], pci_history_nominal: [null,null,22821], mhi_history_nominal: [null,null,49405] },
+    { name: "Posen", region: "South", county: "Cook", state: "IL", population: 5292, household_size: 3.5, median_hh_income: 73051, median_family_income: 74449, per_capita_income: 22747, pct_under_18: 23.9, pct_bachelors: 11.5, pci_history: [32621,23660,22747], mhi_history: [93156,73817,73051], pci_history_nominal: [17323,16447,22747], mhi_history_nominal: [49470,51313,73051] },
+    { name: "Stone Park", region: "West", county: "Cook", state: "IL", population: 4482, household_size: 3.78, median_hh_income: 67224, median_family_income: 63779, per_capita_income: 22707, pct_under_18: 30.8, pct_bachelors: 11.5, pci_history: [24267,22839,22707], mhi_history: [74922,77535,67224], pci_history_nominal: [12887,15876,22707], mhi_history_nominal: [39787,53897,67224] },
+    { name: "Kingsford Heights", region: "NWI", county: "LaPorte", state: "IN", population: 1358, household_size: 2.44, median_hh_income: 57830, median_family_income: 54545, per_capita_income: 22587, pct_under_18: 27.0, pct_bachelors: 7.3, pci_history: [26290,22872,22587], mhi_history: [60577,57244,57830], pci_history_nominal: [13961,15899,22587], mhi_history_nominal: [32169,39792,57830] },
+    { name: "Robbins", region: "South", county: "Cook", state: "IL", population: 4556, household_size: 2.59, median_hh_income: 40668, median_family_income: 83906, per_capita_income: 22215, pct_under_18: 26.3, pct_bachelors: 13.8, pci_history: [18524,18665,22215], mhi_history: [45467,32341,40668], pci_history_nominal: [9837,12975,22215], mhi_history_nominal: [24145,22481,40668] },
+    { name: "Gage Park", region: "Chicago", county: "Cook", state: "IL", population: 35691, household_size: 3.38, median_hh_income: 57446, median_family_income: null, per_capita_income: 21593, pct_under_18: 24.6, pct_bachelors: 11.2, pci_history: [null,null,21593], mhi_history: [null,null,57446], pci_history_nominal: [null,null,21593], mhi_history_nominal: [null,null,57446] },
+    { name: "West Englewood", region: "Chicago", county: "Cook", state: "IL", population: 26729, household_size: 2.67, median_hh_income: 34376, median_family_income: null, per_capita_income: 20511, pct_under_18: 23.3, pct_bachelors: 10.8, pci_history: [null,null,20511], mhi_history: [null,null,34376], pci_history_nominal: [null,null,20511], mhi_history_nominal: [null,null,34376] },
+    { name: "South Lawndale", region: "Chicago", county: "Cook", state: "IL", population: 68798, household_size: 2.92, median_hh_income: 47515, median_family_income: null, per_capita_income: 20062, pct_under_18: 32.7, pct_bachelors: 12.9, pci_history: [null,null,20062], mhi_history: [null,null,47515], pci_history_nominal: [null,null,20062], mhi_history_nominal: [null,null,47515] },
+    { name: "West Garfield Park", region: "Chicago", county: "Cook", state: "IL", population: 15619, household_size: 2.66, median_hh_income: 38178, median_family_income: null, per_capita_income: 19293, pct_under_18: 24.3, pct_bachelors: 9.0, pci_history: [null,null,19293], mhi_history: [null,null,38178], pci_history_nominal: [null,null,19293], mhi_history_nominal: [null,null,38178] },
+    { name: "Riverdale", region: "South", county: "Cook", state: "IL", population: 10340, household_size: 2.75, median_hh_income: 39833, median_family_income: 41488, per_capita_income: 19290, pct_under_18: 32.2, pct_bachelors: 17.0, pci_history: [27231,23980,19290], mhi_history: [72161,61413,39833], pci_history_nominal: [14461,16669,19290], mhi_history_nominal: [38321,42690,39833] },
+    { name: "Englewood", region: "Chicago", county: "Cook", state: "IL", population: 21411, household_size: 2.27, median_hh_income: 29726, median_family_income: null, per_capita_income: 19181, pct_under_18: 21.2, pct_bachelors: 11.7, pci_history: [null,null,19181], mhi_history: [null,null,29726], pci_history_nominal: [null,null,19181], mhi_history_nominal: [null,null,29726] },
+    { name: "Washington Park", region: "Chicago", county: "Cook", state: "IL", population: 13111, household_size: 2.44, median_hh_income: 27868, median_family_income: null, per_capita_income: 18617, pct_under_18: 32.5, pct_bachelors: 24.0, pci_history: [null,null,18617], mhi_history: [null,null,27868], pci_history_nominal: [null,null,18617], mhi_history_nominal: [null,null,27868] },
+    { name: "Fuller Park", region: "Chicago", county: "Cook", state: "IL", population: 2221, household_size: 2.14, median_hh_income: 17297, median_family_income: null, per_capita_income: 16916, pct_under_18: 19.4, pct_bachelors: 16.2, pci_history: [null,null,16916], mhi_history: [null,null,17297], pci_history_nominal: [null,null,16916], mhi_history_nominal: [null,null,17297] },
+    { name: "Riverdale", region: "Chicago", county: "Cook", state: "IL", population: 7536, household_size: 2.64, median_hh_income: 20515, median_family_income: null, per_capita_income: 14601, pct_under_18: 41.3, pct_bachelors: 6.7, pci_history: [null,null,14601], mhi_history: [null,null,20515], pci_history_nominal: [null,null,14601], mhi_history_nominal: [null,null,20515] },
+    { name: "Westville", region: "NWI", county: "LaPorte", state: "IN", population: 5279, household_size: 2.28, median_hh_income: 60794, median_family_income: 77727, per_capita_income: 13908, pct_under_18: 7.6, pct_bachelors: 7.9, pci_history: [34472,16174,13908], mhi_history: [69224,69231,60794], pci_history_nominal: [18306,11243,13908], mhi_history_nominal: [36761,48125,60794] },
+  ];
+
+  // Computed columns
+  DATA.forEach(d => {
+    d.total_income_m = (d.per_capita_income != null && d.population != null)
+      ? (d.per_capita_income * d.population) / 1_000_000
+      : null;
+    d.num_under_18 = (d.pct_under_18 != null && d.population != null)
+      ? Math.round(d.population * d.pct_under_18 / 100)
+      : null;
+  });
+
+  const tbody = document.getElementById('tbody');
+  const search = document.getElementById('search');
+  const regionFilter = document.getElementById('region-filter');
+  const minPopInput = document.getElementById('min-pop');
+  const countEl = document.getElementById('count');
+  const headers = document.querySelectorAll('th[data-sort]');
+
+  let sortKey = 'per_capita_income';
+  let sortDir = 'desc';
+
+  // Formatters
+  function fmtNum(n) {
+    if (n === null || n === undefined) return '—';
+    return n.toLocaleString('en-US');
+  }
+  function fmtMoney(n) {
+    if (n === null || n === undefined) return '—';
+    return '$' + n.toLocaleString('en-US');
+  }
+  function fmtPct(n) {
+    if (n === null || n === undefined) return '—';
+    return n.toFixed(1) + '%';
+  }
+  function fmtSize(n) {
+    if (n === null || n === undefined) return '—';
+    return n.toFixed(2);
+  }
+  function fmtMillions(n) {
+    if (n === null || n === undefined) return '—';
+    if (n >= 1000) return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  }
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const c = regionFilter.value;
+    const minPopRaw = parseInt(minPopInput.value, 10);
+    const minPop = Number.isFinite(minPopRaw) && minPopRaw >= 0 ? minPopRaw : 0;
+
+    let rows = DATA.filter(d => {
+      if ((d.population ?? 0) <= minPop) return false;
+      if (c !== 'all' && d.region !== c) return false;
+      if (q && !d.name.toLowerCase().includes(q) && !d.county.toLowerCase().includes(q)) return false;
+      return true;
+    });
+
+    rows.sort((a, b) => {
+      const av = a[sortKey], bv = b[sortKey];
+      // Nulls sort to the bottom regardless of direction
+      if (av === null || av === undefined) return 1;
+      if (bv === null || bv === undefined) return -1;
+      let cmp;
+      if (typeof av === 'number') cmp = av - bv;
+      else cmp = String(av).localeCompare(String(bv));
+      return sortDir === 'asc' ? cmp : -cmp;
+    });
+
+    const eligibleCount = DATA.filter(d => (d.population ?? 0) > minPop).length;
+    countEl.innerHTML = `Showing <strong>${rows.length}</strong> of <strong>${eligibleCount}</strong> municipalities (population &gt; ${minPop.toLocaleString('en-US')})`;
+
+    if (rows.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="20" class="empty">No municipalities match your filters.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = rows.map(d => `
+      <tr>
+        <td class="name">${d.name}</td>
+        <td class="region">${d.region}</td>
+        <td class="county">${d.county}</td>
+        <td class="numeric income">${fmtMoney(d.per_capita_income)}</td>
+        <td class="numeric">${sparkline(d.pci_history, d.pci_history_nominal, 'Per Capita Income')}</td>
+        <td class="numeric">${fmtNum(d.population)}</td>
+        <td class="numeric income">${fmtMillions(d.total_income_m)}</td>
+        <td class="numeric">${fmtSize(d.household_size)}</td>
+        <td class="numeric income">${fmtMoney(d.median_hh_income)}</td>
+        <td class="numeric">${sparkline(d.mhi_history, d.mhi_history_nominal, 'Median HH Income')}</td>
+        <td class="numeric">${fmtMoney(d.median_family_income)}</td>
+        <td class="numeric">${fmtPct(d.pct_bachelors)}</td>
+        <td class="numeric">${fmtPct(d.pct_under_18)}</td>
+        <td class="numeric">${fmtNum(d.num_under_18)}</td>
+        <td class="numeric income">${fmtMoney(d.median_home_value)}</td>
+        <td class="numeric">${d.effective_property_tax_rate != null ? d.effective_property_tax_rate.toFixed(2) + '%' : '—'}</td>
+        <td class="numeric">${fmtMoney(d.avg_property_tax_annual)}</td>
+        <td class="numeric income">${fmtMoney(d.disposable_per_capita_income)}</td>
+        <td class="numeric income">${fmtMoney(d.disposable_median_hh_income)}</td>
+        <td class="numeric income">${fmtMoney(d.disposable_median_family_income)}</td>
+      </tr>
+    `).join('');
+  }
+
+  function updateSortIcons() {
+    headers.forEach(h => {
+      const key = h.dataset.sort;
+      const icon = h.querySelector('.sort-icon');
+      if (key === sortKey) {
+        h.classList.add('sorted');
+        icon.textContent = sortDir === 'asc' ? '▲' : '▼';
+      } else {
+        h.classList.remove('sorted');
+        icon.textContent = '▲▼';
+      }
+    });
+  }
+
+  headers.forEach(h => {
+    h.addEventListener('click', () => {
+      const key = h.dataset.sort;
+      if (sortKey === key) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortKey = key;
+        sortDir = h.dataset.type === 'number' ? 'desc' : 'asc';
+      }
+      updateSortIcons();
+      render();
+    });
+  });
+
+  search.addEventListener('input', render);
+  regionFilter.addEventListener('change', render);
+  minPopInput.addEventListener('input', render);
+
+
+  // ===== Sparklines =====
+  const SPARK_YEARS = [1990, 2000, 2010, 2024];
+  const SPARK_HEIGHT = 22;
+  function sparkline(values, nominal, label) {
+    if (!values || values.every(v => v == null)) {
+      return '<span style="color:var(--ink-faint);opacity:0.5">—</span>';
+    }
+    const maxVal = Math.max(...values.filter(v => v != null), 1);
+    const bars = values.map((v, i) => {
+      if (v == null) return '<span class="spark-bar null" title="No data"></span>';
+      const h = Math.max(2, Math.round((v / maxVal) * SPARK_HEIGHT));
+      return `<span class="spark-bar" style="height:${h}px"></span>`;
+    }).join('');
+    const tipLines = values.map((v, i) => {
+      const yr = SPARK_YEARS[i];
+      const nom = nominal && nominal[i];
+      if (v == null) return `<div>${yr}: <strong>—</strong></div>`;
+      const realStr = '$' + Math.round(v).toLocaleString('en-US');
+      const nomStr = (yr === 2024 || nom == null) ? '' :
+        ` <span class="nominal">(nom. $${nom.toLocaleString('en-US')})</span>`;
+      return `<div>${yr}: <strong>${realStr}</strong>${nomStr}</div>`;
+    }).join('');
+    return `<span class="spark"><span class="spark-tip"><div style="font-weight:500;color:var(--paper);margin-bottom:4px">${label} — 2024 dollars</div>${tipLines}</span>${bars}</span>`;
+  }
+
+  // ===== Zoom controls =====
+  const tableWrap = document.querySelector('.table-wrap');
+  const zoomLabel = document.getElementById('zoom-label');
+  const zoomIn = document.getElementById('zoom-in');
+  const zoomOut = document.getElementById('zoom-out');
+  let tableZoom = 1.0;
+  function applyZoom() {
+    tableWrap.style.setProperty('--table-zoom', tableZoom);
+    zoomLabel.textContent = Math.round(tableZoom * 100) + '%';
+  }
+  zoomIn.addEventListener('click', () => { tableZoom = Math.min(2.0, +(tableZoom + 0.1).toFixed(2)); applyZoom(); });
+  zoomOut.addEventListener('click', () => { tableZoom = Math.max(0.5, +(tableZoom - 0.1).toFixed(2)); applyZoom(); });
+  applyZoom();
+
+  updateSortIcons();
+  render();
+</script>
+</body>
+</html>
