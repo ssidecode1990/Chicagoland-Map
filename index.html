@@ -3763,22 +3763,33 @@
   // Renders one bar + value label (above) + year label (below) per column.
   // opts: { minFrac, metric(col)->number, colorFor(col)->css, valueLabel(col)->str, title(col)->str }
   // Returns the SVG markup plus each bar's center-x/top (the brackets need both).
+  // opts.metric may return null for a column that has no reliable value to
+  // draw a bar from (e.g. a race-group year with a known % share but no
+  // known headcount, see raceGroupBarChartSVG) -- that column still gets
+  // its x-slot and year label, just no rect/value-label. The two other
+  // callers (mhiBarChartSVG, medianAgeBarChartSVG) already pre-filter their
+  // COLS to non-null values before calling this, so this is a no-op
+  // widening for them, not a behavior change.
   function renderBarColumns(COLS, geo, opts) {
     const { BW, GAP, BH, baseline } = geo;
-    const maxVal = Math.max(...COLS.map(opts.metric));
+    const realVals = COLS.map(opts.metric).filter(v => v != null);
+    const maxVal = realVals.length ? Math.max(...realVals) : 1;
     let svg = '';
     const barCenterX = [];
     const barTop = [];
     COLS.forEach((col, ci) => {
       const x = GAP + ci * (BW + GAP);
-      const barH = Math.max(opts.minFrac, opts.metric(col) / maxVal) * BH;
-      const top = baseline - barH;
+      const val = opts.metric(col);
+      const top = val == null ? baseline : baseline - Math.max(opts.minFrac, val / maxVal) * BH;
       barCenterX.push(x + BW / 2);
       barTop.push(top);
-      svg += `<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="${opts.colorFor(col)}" rx="1.5">` +
-               `<title>${opts.title(col)}</title></rect>` +
-             `<text x="${(x + BW / 2).toFixed(1)}" y="${(top - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${opts.valueLabel(col)}</text>` +
-             `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
+      if (val != null) {
+        const barH = baseline - top;
+        svg += `<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${BW}" height="${barH.toFixed(1)}" fill="${opts.colorFor(col)}" rx="1.5">` +
+                 `<title>${opts.title(col)}</title></rect>` +
+               `<text x="${(x + BW / 2).toFixed(1)}" y="${(top - 4).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="9.5" font-weight="600" opacity="0.9">${opts.valueLabel(col)}</text>`;
+      }
+      svg += `<text x="${(x + BW / 2).toFixed(1)}" y="${(baseline + 16).toFixed(1)}" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.65">${col.yr}</text>`;
     });
     return { svg, barCenterX, barTop, maxVal };
   }
@@ -3791,6 +3802,10 @@
     let svg = '';
     for (let i = 0; i < COLS.length - 1; i++) {
       const chg = opts.delta(COLS[i], COLS[i + 1]);
+      // opts.delta returns null when either side has no real value to
+      // compare (a dot-only, no-bar column) -- skip that one segment
+      // rather than drawing a bracket over a gap with nothing to measure.
+      if (chg == null || !isFinite(chg)) continue;
       const color = opts.colorFor(chg);
       const x1 = barCenterX[i], x2 = barCenterX[i + 1];
       const midX = (x1 + x2) / 2;
@@ -3807,11 +3822,18 @@
     const YEARS = [1980, 1990, 2000, 2010, 2024];
     function shareAt(yr) { return yr === 2024 ? rec[`pct_${groupKey}`] : rec[raceShareField(groupKey, yr)]; }
     function popAt(yr) { return yr === 2024 ? rec.population : (RACE_POP_FIELD[yr] ? rec[RACE_POP_FIELD[yr]] : null); }
+    // A year needs a % SHARE to appear at all (drives the dot+line, which
+    // is always drawable). It separately needs a POPULATION for that same
+    // year to get a bar (bar height = headcount = pop × share/100) -- tract
+    // records commonly have the former without the latter (F-6, 2026-09-03
+    // audit). Rather than drop those years entirely, they render as a dot
+    // + year label with no bar -- see renderBarColumns'/renderDeltaBrackets'
+    // null-metric handling above. count stays null for those years.
     const COLS = YEARS.map(yr => {
       const share = shareAt(yr), pop = popAt(yr);
       const count = (share != null && share > 0 && pop != null && pop > 0) ? Math.round(pop * share / 100) : null;
       return { yr, share, count };
-    }).filter(c => c.count != null);
+    }).filter(c => c.share != null);
     if (COLS.length < 2) return '';
 
     const geo = barChartGeometry(COLS.length);
@@ -3827,9 +3849,10 @@
     let r = barsSvg;
 
     // Δ% vs Prior bracket (headcount change), same fixed top zone as the
-    // income/population charts.
+    // income/population charts. Skipped (by renderDeltaBrackets itself)
+    // for any pair where either side has no real headcount to compare.
     r += renderDeltaBrackets(COLS, barCenterX, geo, {
-      delta: (a, b) => (b.count - a.count) / a.count * 100,
+      delta: (a, b) => (a.count != null && b.count != null) ? (b.count - a.count) / a.count * 100 : null,
       colorFor: chg => chg >= 0 ? '#2a7a4a' : '#c0392b',
       label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)}%`,
     });
