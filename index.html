@@ -367,73 +367,49 @@
     margin-left: auto;
   }
 
-  /* Context header strip */
-  .view-header {
-    background: var(--paper-warm);
-    border-bottom: 1px solid var(--rule);
-    padding: 6px 24px;
+  /* Live caption for the currently-selected metric -- what the map colors
+     mean right now. UX audit item 2 (2026-09-03): previously its own
+     full-width strip (.view-header, ~36-50px of vertical space at every
+     viewport, spent before a visitor asks for anything). Same three live
+     pieces (title/race-note/scope), same update calls (updateViewHeader
+     targets these IDs, unchanged), now living inline in .tl-toprow right
+     after #metric-wrap instead of on its own row -- "here's the dropdown,
+     here's what it currently shows" reads as one unit. The "You are
+     viewing" kicker label is dropped: redundant once this sits directly
+     against the selector it's describing. Wraps onto its own line at
+     narrow widths via .tl-toprow's existing flex-wrap, same as every
+     other control in that row -- never clipped. */
+  .vh-caption {
     display: flex;
     align-items: baseline;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .view-header .vh-kicker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .view-header .vh-race-note {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.05em;
+    gap: 8px;
+    font-size: 11px;
     color: var(--ink-faint);
-    font-style: italic;
+    white-space: nowrap;
   }
-  .view-header .vh-title {
+  .vh-caption .vh-title {
     font-family: 'Fraunces', serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--ink);
     letter-spacing: -0.005em;
-    text-align: left;
   }
-  .view-header .vh-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .view-header .vh-scope {
+  .vh-caption .vh-title em { font-style: italic; color: var(--accent); }
+  .vh-caption .vh-race-note {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 9.5px;
+    letter-spacing: 0.03em;
     color: var(--ink-faint);
-    margin-left: auto;
+    font-style: italic;
   }
-  /* Wide screens: the view-header's content is compact by design (see the
-     base rule above, sized for normal desktop widths) -- on a big monitor
-     that leaves it looking small against a lot of unused width. Kicker and
-     title stay clustered together at the LEFT edge (that's the metric name
-     the user is looking at -- it shouldn't drift toward the middle); the
-     race note sits after it in normal flow, and vh-scope's own
-     margin-left:auto pushes the scope stats to the right edge -- with a
-     larger type size throughout to stay legible at this scale. */
-  @media (min-width: 1400px) {
-    .view-header {
-      padding: 10px 40px;
-    }
-    .view-header .vh-kicker { font-size: 13px; }
-    .view-header .vh-title { font-size: 19px; }
-    .view-header .vh-race-note { font-size: 12px; }
-    .view-header .vh-scope { font-size: 12.5px; }
+  .vh-caption .vh-scope {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
   }
-
-  .view-header .vh-scope strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
+  .vh-caption .vh-scope strong { color: var(--ink); font-weight: 500; }
 
   /* Region / Metro narrative banner */
   #region-banner {
@@ -479,10 +455,14 @@
      charts tall" regardless of window width. A narrower window instead
      scrolls the row horizontally (overflow-x:auto) rather than reflowing
      columns onto additional lines (the old behavior, which grew the
-     banner's height instead of its width). Every column that could
-     otherwise grow taller than the chart columns -- narrative prose,
-     table rows -- gets its own max-height + overflow-y:auto below so nothing
-     can blow the row taller than the fixed budget either. */
+     banner's height instead of its width). The stats column (table rows)
+     still gets its own max-height + overflow-y:auto below to hold the row
+     near the chart columns' height -- its content is short, fixed-length
+     blocks that comfortably fit the cap (verified, doesn't clip). The
+     narrative column does NOT: prose length varies per record and a real
+     cap there silently truncated some towns' write-ups (2026-09-03, see
+     .rb-narrative-col below), so it's left free to grow the row -- and the
+     banner -- taller when a narrative genuinely needs it. */
   .rb-pop-row { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 18px; overflow-x: auto; overflow-y: hidden; }
   .rb-charts-col {
     flex-shrink: 0;
@@ -498,12 +478,20 @@
      .rb-charts-col so it reads as one more column in the same row.
      Split from the stats column below on request: variable-length prose
      sharing a scroll area with fixed-size stat blocks meant a long
-     narrative could push the stats out of view. */
+     narrative could push the stats out of view.
+     No max-height/overflow here (2026-09-03): it used to carry the same
+     285px cap as .rb-stats-col, but narrative length varies per record and
+     several real towns run past 285px -- that silently truncated the
+     narrative behind an internal scrollbar nobody would think to open,
+     the same failure mode already called out and rejected for the pane
+     itself (see the U-3 note on #region-banner's collapse behavior below,
+     and .rb-text's own pop-mode override two rules up, which drops its cap
+     for the identical reason). Left uncapped so the column -- and with it
+     .rb-pop-row and #region-banner -- grows to fit the real narrative;
+     nothing about a town's write-up is ever hidden. */
   .rb-narrative-col {
     flex-shrink: 0;
     width: 240px;
-    max-height: 285px;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1632,11 +1620,65 @@
     }
   }
 
+  /* UX audit item 1 (2026-09-03): brand + 5 nav-links no longer fit one
+     row at 1280px, so the 5th ("Tutorial") wraps onto its own line, costing
+     an extra ~57px of topbar height on the viewport with the least to
+     spare. Tightens padding/font-size/gap just enough that all five still
+     fit one row at 1280 -- no nav destination removed, this is sizing
+     only. 1400px (not 1280) so the tightened state engages with a little
+     margin before the wrap point actually hits. */
+  @media (max-width: 1400px) {
+    .topbar { gap: 12px; padding: 12px 20px; }
+    .brand { font-size: 19px; }
+    .topbar .nav-link {
+      font-size: 10.5px;
+      padding: 7px 9px;
+      letter-spacing: 0.05em;
+    }
+  }
+
   /* C3 — Responsive compare drawer on narrow viewports */
   @media (max-width: 900px) {
     .compare-drawer { width: 100vw; right: -100vw; }
   }
   body.cmp-open .leaflet-bottom.leaflet-right { right: 520px; transition: right 0.28s; }
+
+  /* UX audit item 3 (2026-09-03): chart-title labels above each SVG in
+     #region-banner, tightened to match the reduced chart geometry
+     isCompactPane()/barChartGeometry() apply under the same condition --
+     see that function's comment. Typographic tightening only (smaller
+     font, less headroom), not a content change -- every title is still
+     there and still legible. */
+  @media (max-height: 900px) {
+    .rb-chart-title { font-size: 9.5px; margin-bottom: -4px; }
+  }
+
+  /* UX audit item 3 follow-up (2026-09-03): shrinking the chart columns
+     alone did nothing, because .rb-stats-col also carries its own
+     pre-existing max-height:285px cap (unrelated to today's work) -- once
+     the charts got shorter, the stats column became the new tallest
+     element in the row and capped the pane right back near its original
+     height. Compacted here to match: 4 short, fixed-length stat blocks
+     (Population/Crime/Tax/Home value). 235px, not a rounder-looking 220 --
+     measured live first: the Home Value block runs a line longer than its
+     three siblings (231px real content), so the cap is sized off that,
+     not the shortest block -- a tighter number here silently clipped it.
+     .rb-narrative-col is deliberately NOT included in this reduction, on
+     the same "don't hide overflow" principle applied the other direction:
+     first attempt gave it the same 220px cap and a real narrative (St.
+     Charles, 413px of content at the compacted font size) came out
+     clipped -- narrative prose is long-form and was ALREADY an
+     overflow-y:auto scroll region for longer entries before today at its
+     original 285px, unlike the stats column's fixed handful of short
+     lines. Shrinking it further only makes an existing scroll worse for
+     no real height win, so it keeps its original size and type scale. */
+  @media (max-height: 900px) {
+    .rb-stats-col { max-height: 235px; gap: 6px; }
+    .rb-narrative-stat-label { font-size: 8.5px; }
+    .rb-narrative-stat-main { font-size: 15px; }
+    .rb-narrative-stat-sub { font-size: 10px; }
+    .rb-narrative-stat-detail { font-size: 10px; }
+  }
 
   /* M2 — Mobile layout (sub-600px). Two changes, scoped entirely inside
      this query so nothing here touches desktop: (1) the side pane becomes
@@ -1670,16 +1712,20 @@
   }
 
   /* Without a floor, .map-wrap's flex:1 resolves toward 0 height once the
-     stack above it -- topbar, view-header, timeline-bar, and especially an
+     stack above it -- topbar, timeline-bar (which absorbed the old separate
+     view-header strip as an inline caption, 2026-09-03), and especially an
      expanded #region-banner showing a full town profile -- grows past what
      the viewport has left to give. The map is the actual product; giving it
      a protected floor means the page scrolls instead of the map collapsing
-     to an unusable sliver. Scoped to 900px (not just the 600px mobile-
-     layout tier above) since the profile panel alone is tall enough to
-     starve the map well above the phone-width breakpoint. */
-  @media (max-width: 900px) {
-    .map-wrap { min-height: 50vh; }
-  }
+     to an unusable sliver. UNCONDITIONAL, not gated behind a max-width
+     query: the failure mode is driven by how tall the stack above the map
+     is relative to the viewport's HEIGHT, and window WIDTH has nothing to
+     do with that -- a 2026-09-03 audit measured the map collapsing to 0px
+     at a 960px-wide layout viewport (1440x900 at 150% display scaling),
+     comfortably above any width-based breakpoint, while plenty of narrow-
+     but-tall windows never needed the floor at all. Costs nothing on a
+     screen tall enough that flex:1 already clears 50vh on its own. */
+  .map-wrap { min-height: 50vh; }
 </style>
 </head>
 <body>
@@ -1700,13 +1746,6 @@
   <button class="nav-link" id="score-guide-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;" title="How the Community Health Score is calculated">community score guide</button>
   <button class="nav-link" id="tutorial-reopen-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;" title="Replay the welcome tour">Tutorial</button>
 </header>
-
-<div class="view-header">
-  <span class="vh-kicker">You are viewing</span>
-  <span class="vh-title" id="vh-title">—</span>
-  <span class="vh-race-note" id="vh-race-note"></span>
-  <span class="vh-scope" id="vh-scope">—</span>
-</div>
 
 <div class="timeline-bar">
   <div class="tl-toprow">
@@ -1772,6 +1811,11 @@
         </optgroup>
       </select>
     </div><!-- /#metric-wrap -->
+    <div class="vh-caption">
+      <span class="vh-title" id="vh-title">—</span>
+      <span class="vh-race-note" id="vh-race-note"></span>
+      <span class="vh-scope" id="vh-scope">—</span>
+    </div>
     <div class="ctrl-sep"></div>
     <div class="filter-cluster">
       <span class="cluster-badge">filters</span>
@@ -1831,7 +1875,6 @@
       <button class="tl-stop" data-year="1990">1990</button>
       <button class="tl-stop" data-year="2000">2000</button>
       <button class="tl-stop" data-year="2010">2010</button>
-      <button class="tl-stop" data-year="2020">2020</button>
       <button class="tl-stop active" data-year="2024">2024</button>
     </div>
     <button class="tl-play" id="tl-play">▶ PLAY</button>
@@ -1845,7 +1888,6 @@
       <button class="tl-stop" data-baseline="1990">1990</button>
       <button class="tl-stop" data-baseline="2000">2000</button>
       <button class="tl-stop" data-baseline="2010">2010</button>
-      <button class="tl-stop" data-baseline="2020">2020</button>
       <button class="tl-stop" data-baseline="2024" disabled title="2024 is the fixed endpoint, not a baseline — pick the year to compare it against.">2024</button>
     </div>
     <span class="tl-note" id="tl-note-change"></span>
@@ -3509,7 +3551,14 @@
     num_asian_nh: {1990:'num_asian_nh_1990', 2000:'num_asian_nh_2000', 2010:'num_asian_nh_2010', 2020:'num_asian_nh_2020', 2024:'num_asian_nh'},
     num_other_nh: {1980:'num_other_nh_1980', 1990:'num_other_nh_1990', 2000:'num_other_nh_2000', 2010:'num_other_nh_2010', 2020:'num_other_nh_2020', 2024:'num_other_nh'},
   };
-  const YEARS = [1980, 1990, 2000, 2010, 2020, 2024];
+  // 2020 excluded (2026-09-04): dropped as a stop on both timeline bars --
+  // the 2020 ACS 5-year (2016-2020) estimate straddles the COVID collection
+  // disruption and Felix judged it unreliable enough to not offer as a
+  // point-in-time/% change option. The underlying *_2020 fields and
+  // ACS_2020_NOTE are untouched -- the per-town race/income/age bar charts
+  // in the side pane still show 2020 (with its "†" vintage marker), since
+  // that's a labeled historical data point, not an interactive selector.
+  const YEARS = [1980, 1990, 2000, 2010, 2024];
 
   // ── Timeline B: "% Change Since" ─────────────────────────────────────────
   // Baseline-year -> field name storing that metric's % (or pp/yrs/pts) real
@@ -3589,6 +3638,26 @@
   // same year line up vertically between the two stacked charts.
   const POP_CHART_GAP = 13;
 
+  // 2026-09-03, UX audit item 3: on a short viewport the stacked pair of
+  // per-group charts in #region-banner (raceGroupBarChartSVG, plus
+  // medianAgeBarChartSVG/bachelorsBarChartSVG via the same barChartGeometry)
+  // is the single largest contributor to the pane's ~343px height. Rather
+  // than clip that overflow behind max-height+overflow (the exact silent-
+  // truncation problem flagged elsewhere in this same audit, U-3 -- a
+  // scrollbar hiding a real column is not an acceptable fix here either),
+  // the charts themselves render smaller: every dimension below scales
+  // down, not a CSS transform:scale() (which would blur the SVG text at a
+  // non-integer ratio) -- every column, bar, and label that's present at
+  // full size is still present here, just drawn at reduced geometry.
+  // Checked at render time (not cached) so a chart drawn before a resize
+  // reflects the OLD size until the next render -- consistent with this
+  // app's existing behavior elsewhere (no resize listener anywhere re-runs
+  // chart rendering; see e.g. barChartGeometry's other callers).
+  function isCompactPane() {
+    try { return window.matchMedia('(max-height: 900px)').matches; }
+    catch (e) { return false; }
+  }
+
   // Population-scaled race/ethnicity composition-over-time chart -- lives in
   // the top-of-page population banner (see buildPopBannerHTML below), to the
   // left of the population table, rather than in the side pane, so it sits
@@ -3639,12 +3708,20 @@
       .map(yr => ({yr, f: k => YEAR_FIELDS[yr][k], pop: rec[POP_FIELDS[yr]]}))
       .filter(c => RG.some(g => rec[c.f(g.k)] != null));
     if (COLS.length < 2) return '';
-    const BW = COLS.length >= 5 ? 34 : COLS.length === 4 ? 39 : 46;
-    const BH = 60;           // full (max-population-year) bar height
+    // Same compact-pane geometry reduction as barChartGeometry() (2026-09-03,
+    // UX audit item 3) -- this chart doesn't call that shared function (its
+    // bar height encodes total population, not a per-group count/share, a
+    // different metric), but the two must still shrink by the same amount
+    // so every chart in the pane's row stays vertically aligned.
+    const compact = isCompactPane();
+    const BW = compact
+      ? (COLS.length >= 5 ? 26 : COLS.length === 4 ? 30 : 36)
+      : (COLS.length >= 5 ? 34 : COLS.length === 4 ? 39 : 46);
+    const BH = compact ? 42 : 60;           // full (max-population-year) bar height
     const MIN_FRAC = 0.25;   // floor -- a real but small year still reads as a bar, not a sliver
-    const BRACKET_H = 20;    // fixed top zone for the total-population %-change brackets
-    const POP_LABEL_H = 15;  // headroom above the tallest bar for the population figure
-    const YEAR_LABEL_H = 20; // room below the baseline for the year label
+    const BRACKET_H = compact ? 15 : 20;    // fixed top zone for the total-population %-change brackets
+    const POP_LABEL_H = compact ? 12 : 15;  // headroom above the tallest bar for the population figure
+    const YEAR_LABEL_H = compact ? 15 : 20; // room below the baseline for the year label
     const SVG_H = BRACKET_H + POP_LABEL_H + BH + YEAR_LABEL_H;
     const baseline = BRACKET_H + POP_LABEL_H + BH; // every bar's bottom edge, regardless of its own height
     const W = COLS.length * BW + (COLS.length + 1) * POP_CHART_GAP;
@@ -3746,12 +3823,15 @@
   // formatting -- only the mechanical SVG-string assembly is shared.
 
   function barChartGeometry(colCount) {
-    const BW = colCount >= 5 ? 34 : colCount === 4 ? 39 : 46;
+    const compact = isCompactPane();
+    const BW = compact
+      ? (colCount >= 5 ? 26 : colCount === 4 ? 30 : 36)
+      : (colCount >= 5 ? 34 : colCount === 4 ? 39 : 46);
     const GAP = POP_CHART_GAP;
-    const BH = 60;
-    const BRACKET_H = 20;   // fixed top zone for the Δ brackets
-    const VAL_LABEL_H = 15; // headroom for each bar's own value label
-    const YEAR_LABEL_H = 20;
+    const BH = compact ? 42 : 60;
+    const BRACKET_H = compact ? 15 : 20;   // fixed top zone for the Δ brackets
+    const VAL_LABEL_H = compact ? 12 : 15; // headroom for each bar's own value label
+    const YEAR_LABEL_H = compact ? 15 : 20;
     return {
       BW, GAP, BH, BRACKET_H, VAL_LABEL_H, YEAR_LABEL_H,
       SVG_H: BRACKET_H + VAL_LABEL_H + BH + YEAR_LABEL_H,
@@ -5801,7 +5881,7 @@
       btn.title = !avail ? (pointDisabled
         ? 'This metric is inherently a measure of change — use % Change Since below.'
         : 'No historical data available for this metric at ' + yr + '.')
-        : (yr === 2020 ? ACS_2020_NOTE : '');
+        : '';
     });
     const note = document.getElementById('tl-note');
     if (note) note.textContent = yearMap ? '' : (pointDisabled ? '' : '2024 only for this metric');
@@ -5825,8 +5905,7 @@
       if (yr === 2024) return;
       const avail = !!(cf && cf[yr] != null);
       btn.disabled = !avail;
-      btn.title = !avail ? 'No baseline data available for this metric at ' + yr + '.'
-        : (yr === 2020 ? ACS_2020_NOTE : '');
+      btn.title = !avail ? 'No baseline data available for this metric at ' + yr + '.' : '';
     });
     const noteC = document.getElementById('tl-note-change');
     if (noteC) noteC.textContent = supportsChange ? '' : (reason || '');
@@ -5841,7 +5920,7 @@
       else if (yearMap && !yearMap[selectedYear]) selectedYear = 2024;
     } else {
       if (!cf || cf[selectedYear] == null) {
-        const avail = [1980, 1990, 2000, 2010, 2020].filter(y => cf && cf[y] != null);
+        const avail = [1980, 1990, 2000, 2010].filter(y => cf && cf[y] != null);
         selectedYear = avail.length ? avail[avail.length - 1] : 2010;
       }
     }
@@ -6210,6 +6289,12 @@
     // does. Sticky across town switches within the session -- reapplied in
     // _showPopBanner below -- since the point is reclaiming map space for
     // as long as the user wants it, not just for the current town.
+    //
+    // Starts EXPANDED by default (2026-09-03: the UX audit's U-2 suggested
+    // defaulting to collapsed on first visit; explicitly rejected -- the
+    // pane stays expanded out of the box, full stop. Height pressure from
+    // this pane is instead addressed by shrinking it directly, see the
+    // #region-banner chart-geometry media query below, not by hiding it).
     let bannerCollapsed = false;
     function applyCollapsedState() {
       banner.classList.toggle('collapsed', bannerCollapsed);
