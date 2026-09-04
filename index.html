@@ -455,14 +455,15 @@
      charts tall" regardless of window width. A narrower window instead
      scrolls the row horizontally (overflow-x:auto) rather than reflowing
      columns onto additional lines (the old behavior, which grew the
-     banner's height instead of its width). The stats column (table rows)
-     still gets its own max-height + overflow-y:auto below to hold the row
-     near the chart columns' height -- its content is short, fixed-length
-     blocks that comfortably fit the cap (verified, doesn't clip). The
-     narrative column does NOT: prose length varies per record and a real
-     cap there silently truncated some towns' write-ups (2026-09-03, see
-     .rb-narrative-col below), so it's left free to grow the row -- and the
-     banner -- taller when a narrative genuinely needs it. */
+     banner's height instead of its width). Both the narrative and stats
+     columns get their own max-height + overflow-y:auto below so a long
+     write-up or a stat-heavy town can never blow the row -- and with it
+     the whole pane -- taller than the chart columns (2026-09-04: narrative
+     briefly went uncapped instead, on the theory that a scrollbar hides
+     content nobody thinks to open; Felix's call was the opposite -- a
+     fixed-height pane matters more than always-visible prose, same
+     trade-off already made for .rb-stats-col, so narrative now scrolls
+     internally exactly like it). */
   .rb-pop-row { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 18px; overflow-x: auto; overflow-y: hidden; }
   .rb-charts-col {
     flex-shrink: 0;
@@ -479,19 +480,15 @@
      Split from the stats column below on request: variable-length prose
      sharing a scroll area with fixed-size stat blocks meant a long
      narrative could push the stats out of view.
-     No max-height/overflow here (2026-09-03): it used to carry the same
-     285px cap as .rb-stats-col, but narrative length varies per record and
-     several real towns run past 285px -- that silently truncated the
-     narrative behind an internal scrollbar nobody would think to open,
-     the same failure mode already called out and rejected for the pane
-     itself (see the U-3 note on #region-banner's collapse behavior below,
-     and .rb-text's own pop-mode override two rules up, which drops its cap
-     for the identical reason). Left uncapped so the column -- and with it
-     .rb-pop-row and #region-banner -- grows to fit the real narrative;
-     nothing about a town's write-up is ever hidden. */
+     Capped at the same 285px as .rb-stats-col (2026-09-04) so the top pane
+     never grows taller for a long write-up -- a fixed pane height matters
+     more here than every word always being visible without scrolling;
+     scroll to read the rest, same as the stats column beside it. */
   .rb-narrative-col {
     flex-shrink: 0;
     width: 240px;
+    max-height: 285px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1663,17 +1660,17 @@
      measured live first: the Home Value block runs a line longer than its
      three siblings (231px real content), so the cap is sized off that,
      not the shortest block -- a tighter number here silently clipped it.
-     .rb-narrative-col is deliberately NOT included in this reduction, on
-     the same "don't hide overflow" principle applied the other direction:
-     first attempt gave it the same 220px cap and a real narrative (St.
-     Charles, 413px of content at the compacted font size) came out
-     clipped -- narrative prose is long-form and was ALREADY an
-     overflow-y:auto scroll region for longer entries before today at its
-     original 285px, unlike the stats column's fixed handful of short
-     lines. Shrinking it further only makes an existing scroll worse for
-     no real height win, so it keeps its original size and type scale. */
+     (A town with more stat blocks -- e.g. School Quality's multi-line
+     detail -- can still exceed 235px; it scrolls, same as narrative below,
+     rather than growing the pane.)
+     .rb-narrative-col matches at the same 235px (2026-09-04) -- briefly
+     left uncapped here instead so nothing scrolled, but Felix wants the
+     pane's height fixed regardless of narrative length; scrolling to read
+     a long write-up beats the pane growing every time you click a
+     long-narrative town. See .rb-narrative-col's own comment above. */
   @media (max-height: 900px) {
     .rb-stats-col { max-height: 235px; gap: 6px; }
+    .rb-narrative-col { max-height: 235px; }
     .rb-narrative-stat-label { font-size: 8.5px; }
     .rb-narrative-stat-main { font-size: 15px; }
     .rb-narrative-stat-sub { font-size: 10px; }
