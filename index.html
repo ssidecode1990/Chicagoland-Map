@@ -1758,6 +1758,9 @@
           <option value="median_hh_income">Median HH Income</option>
           <option value="disposable_median_hh_income">Median HH Income, Disposable (2024)</option>
         </optgroup>
+        <optgroup label="Income — Average HH">
+          <option value="avg_household_income">Average Household Income (2024)</option>
+        </optgroup>
         <optgroup label="Income — Median Family">
           <option value="median_family_income">Median Family Income (2024)</option>
           <option value="disposable_median_family_income">Median Family Income, Disposable (2024)</option>
@@ -3293,6 +3296,14 @@
     per_capita_income:    'Per Capita Income',
     median_hh_income:     'Median HH Income',
     median_family_income: 'Median Family Income',
+    // Mean, not median -- B19025 (aggregate household income) / B11001
+    // (households), 2024 only (fetch_avg_household_income.py, 2026-09-11).
+    // No historical backfill, so it never has a YEAR_FIELD/CHANGE_FIELD
+    // entry -- resolvedField() falls back to the metric name itself,
+    // which correctly always resolves to this field regardless of the
+    // selected timeline year (the point-in-time row shows only 2024 as
+    // clickable for it, same automatic behavior median_family_income gets).
+    avg_household_income: 'Average Household Income',
     median_age:           'Median Age',
     pct_bachelors:        "% Bachelor's+",
     population:           'Total Population',
@@ -4631,13 +4642,12 @@
   /* ===== State ===== */
   let geoLayer = null;       // current Leaflet GeoJSON layer
   let polygonsFC = null;     // raw FeatureCollection
-  // Default view recreates the old "Income Change 2010→24 (Household)"
-  // default via the current metric+timeline architecture (same resolved
-  // field, mhi_change_pct_10_24) — 'median_hh_income' is a real option in
-  // the merged dropdown, unlike the old alias value.
+  // Default view: Median HH Income, % Real Change Since 2000 (resolved
+  // field mhi_change_pct) -- 2026-09-11, changed from the 2010 baseline
+  // this used to open on, per explicit request.
   let metric = 'median_hh_income';
   let timelineMode = 'change'; // 'point' (Timeline A) | 'change' (Timeline B)
-  let selectedYear = 2010;   // controlled by the timeline scrubber
+  let selectedYear = 2000;   // controlled by the timeline scrubber
   let playInterval = null;
   let metroFilter = 'Chicagoland';
   let regionFilter = 'all';
@@ -6676,6 +6686,7 @@
       ['↳ Disposable PCI',     'disposable_per_capita_income', false],
       ['Median HH Income',     'median_hh_income',             false],
       ['↳ Disposable MHI',     'disposable_median_hh_income',  false],
+      ['Average HH Income',    'avg_household_income',         false],
       { section: 'Income Change' },
       ['Δ PCI 2010→2024',      'pci_change_pct_10_24',         false],
       ['Δ PCI 2000→2024',      'pci_change_pct',               false],
