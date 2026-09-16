@@ -1759,7 +1759,7 @@
           <option value="disposable_median_hh_income">Median HH Income, Disposable (2024)</option>
         </optgroup>
         <optgroup label="Income — Average HH">
-          <option value="avg_household_income">Average Household Income (2024)</option>
+          <option value="avg_household_income">Average Household Income</option>
         </optgroup>
         <optgroup label="Income — Median Family">
           <option value="median_family_income">Median Family Income (2024)</option>
@@ -1827,6 +1827,8 @@
           <option value="Rockford">Rockford</option>
           <option value="Peoria">Peoria</option>
           <option value="South Bend">South Bend</option>
+          <option value="Jamestown">Jamestown</option>
+          <option value="Austin">Austin</option>
         </select>
       </div>
       <div class="filter-item">
@@ -2421,6 +2423,8 @@
     d.mhi_change_pct       = pctChange(histAt(mh, 2000), histAt(mh, 2024));
     d.mhi_change_pct_10_24 = pctChange(histAt(mh, 2010), histAt(mh, 2024));
     d.mhi_change_pct_20_24 = pctChange(d.mhi_2020, histAt(mh, 2024));
+    d.avg_household_income_change_pct       = pctChange(d.avg_household_income_2000, d.avg_household_income);
+    d.avg_household_income_change_pct_10_24 = pctChange(d.avg_household_income_2010, d.avg_household_income);
     d.age_change_90_24     = absChange(age1990, histAt(ah, 2024));
     d.age_change           = absChange(histAt(ah, 2000), histAt(ah, 2024));
     d.age_change_10_24     = absChange(histAt(ah, 2010), histAt(ah, 2024));
@@ -3256,6 +3260,12 @@
         // money-kind metric (home value, tax, rent, housing cost) would
         // ever coincidentally land on it for a real reason.
         if (v === 250001) return '$250,000+';
+        // Same pattern, separate sentinel: median home value (B25077)
+        // topcodes at "$2,000,000 or more" -- ACS reports 2,000,001. No
+        // Chicagoland/pilot-metro town had ever actually hit this ceiling
+        // until Austin (Barton Creek, Rollingwood), which is why it wasn't
+        // needed until 2026-09-14.
+        if (v === 2000001) return '$2,000,000+';
         if (v >= 1_000_000) return '$' + (v / 1e6).toFixed(1) + 'M';
         if (v >= 1000)      return '$' + Math.round(v / 1000) + 'K';
         return '$' + Math.round(v);
@@ -3287,8 +3297,9 @@
       case 'total_income':        return '$' + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(1));
       case 'gross_rent':
       default: // money (incl. disposable + home value + tax + rent + housing)
-        // Same ACS topcode sentinel as fmtLabel() above -- see that comment.
+        // Same ACS topcode sentinels as fmtLabel() above -- see those comments.
         if (v === 250001) return '$250,000+';
+        if (v === 2000001) return '$2,000,000+';
         return '$' + Math.round(v).toLocaleString();
     }
   }
@@ -3297,12 +3308,12 @@
     median_hh_income:     'Median HH Income',
     median_family_income: 'Median Family Income',
     // Mean, not median -- B19025 (aggregate household income) / B11001
-    // (households), 2024 only (fetch_avg_household_income.py, 2026-09-11).
-    // No historical backfill, so it never has a YEAR_FIELD/CHANGE_FIELD
-    // entry -- resolvedField() falls back to the metric name itself,
-    // which correctly always resolves to this field regardless of the
-    // selected timeline year (the point-in-time row shows only 2024 as
-    // clickable for it, same automatic behavior median_family_income gets).
+    // (households). Originally 2024-only (fetch_avg_household_income.py,
+    // 2026-09-11); backfilled to 2000 (2026-09-14, see
+    // fetch_avg_household_income_history.py) -- 2000 is this metric's real
+    // live-API floor, same reasoning median_hh_income/per_capita_income's
+    // own 1990 floor has, just one Census vintage shallower (no NHGIS
+    // extract has ever been pulled for this specific metric).
     avg_household_income: 'Average Household Income',
     median_age:           'Median Age',
     pct_bachelors:        "% Bachelor's+",
@@ -3468,6 +3479,12 @@
     // and individual records just render "—" if their own pci_1980/etc is null).
     per_capita_income: {1980:'pci_1980', 1990:'pci_1990', 2000:'pci_2000', 2010:'pci_2010', 2020:'pci_2020', 2024:'per_capita_income'},
     median_hh_income:  {1980:'mhi_1980', 1990:'mhi_1990', 2000:'mhi_2000', 2010:'mhi_2010', 2020:'mhi_2020', 2024:'median_hh_income'},
+    // Mean, not median -- see METRIC_LABELS' own comment on this metric.
+    // No 1980/1990/2020 entries: this metric has no NHGIS-extract backfill
+    // (1980/1990) and no 2016-2020 ACS pull (2020) the way MHI/PCI do --
+    // 2000 is this metric's actual live-API floor (fetch_avg_household_
+    // income_history.py, 2026-09-14), not an oversight.
+    avg_household_income: {2000:'avg_household_income_2000', 2010:'avg_household_income_2010', 2024:'avg_household_income'},
     median_age:        {1980:'age_1980', 1990:'age_1990', 2000:'age_2000', 2010:'age_2010', 2020:'age_2020', 2024:'median_age'},
     // Historical Community Health Score — no 1980 entry (that stop
     // auto-disables itself, matching every other metric's convention here)
@@ -3580,6 +3597,7 @@
   const CHANGE_FIELD = {
     per_capita_income: {1980:'pci_change_pct_80_24', 1990:'pci_change_pct_90_24', 2000:'pci_change_pct', 2010:'pci_change_pct_10_24', 2020:'pci_change_pct_20_24'},
     median_hh_income:  {1980:'mhi_change_pct_80_24', 1990:'mhi_change_pct_90_24', 2000:'mhi_change_pct', 2010:'mhi_change_pct_10_24', 2020:'mhi_change_pct_20_24'},
+    avg_household_income: {2000:'avg_household_income_change_pct', 2010:'avg_household_income_change_pct_10_24'},
     median_age:        {1980:'age_change_80_24',     1990:'age_change_90_24',     2000:'age_change',     2010:'age_change_10_24',    2020:'age_change_20_24'},
     population:        {2000:'population_change_pct_00_24', 2010:'population_change_pct_10_24', 2020:'population_change_pct_20_24'},
     pct_hispanic: {1980:'pct_hispanic_chg_80_24', 1990:'pct_hispanic_chg_90_24', 2000:'pct_hispanic_chg_00_24', 2010:'pct_hispanic_chg_10_24', 2020:'pct_hispanic_chg_20_24'},
@@ -4030,6 +4048,42 @@
     return `<div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
   }
 
+  // Average Household Income bar chart -- the mean (avg_household_income),
+  // not the median mhiBarChartSVG above already charts. Same trending-bar-
+  // plus-%-change-bracket treatment, 2000/2010/2024 (this metric's real
+  // live-API floor -- see YEAR_FIELD's own comment on it, no NHGIS-extract
+  // backfill has ever been done for it, so no 1980/1990 columns exist to
+  // chart). Flat bar color, not mhiColorForValue's dynamic red-yellow-blue
+  // scale: that scale's LOW/HIGH thresholds are calibrated to MEDIAN
+  // household income's real distribution, and the mean runs meaningfully
+  // higher (often much higher in skewed, high-end towns -- Winnetka's own
+  // mean is ~$484K against a median capped at ACS's $250K topcode), so
+  // reusing it here would peg nearly every bar at the "high" end and lose
+  // the actual town-to-town variation this chart exists to show. Same flat-
+  // color choice medianAgeBarChartSVG already makes for the identical reason.
+  function avgHouseholdIncomeBarChartSVG(rec) {
+    const YEARS = [2000, 2010, 2024];
+    const AHI_FIELD_LOCAL = {2000:'avg_household_income_2000', 2010:'avg_household_income_2010'};
+    function valAt(yr) { return yr === 2024 ? rec.avg_household_income : rec[AHI_FIELD_LOCAL[yr]]; }
+    const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
+    if (COLS.length < 2) return '';
+
+    const geo = barChartGeometry(COLS.length);
+    const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
+      minFrac: 0.15,
+      metric: c => c.val,
+      colorFor: () => '#8a6d3b',
+      valueLabel: c => '$' + (c.val / 1000).toFixed(1) + 'k',
+      title: c => `${c.yr}: $${Math.round(c.val).toLocaleString()}`,
+    });
+    const bracketsSvg = renderDeltaBrackets(COLS, barCenterX, geo, {
+      delta: (a, b) => (b.val - a.val) / a.val * 100,
+      colorFor: chg => chg >= 0 ? '#2a7a4a' : '#c0392b',
+      label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)}%`,
+    });
+    return `<div class="rb-chart-title">Avg. Household Income</div><div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
+  }
+
   // Full-precision population-and-race-by-year table for the top-of-page
   // banner slot (shown in place of the region/metro narrative while a
   // town's side pane is open -- see the Region Banner Logic block below).
@@ -4198,6 +4252,9 @@
     agg.mhi_1990 = wavg('mhi_1990', 'population_1990');
     agg.mhi_2000 = wavg('mhi_2000', 'population_2000');
     agg.mhi_2010 = wavg('mhi_2010', 'population_2010');
+    agg.avg_household_income      = wavg('avg_household_income', 'population');
+    agg.avg_household_income_2000 = wavg('avg_household_income_2000', 'population_2000');
+    agg.avg_household_income_2010 = wavg('avg_household_income_2010', 'population_2010');
     agg.per_capita_income = wavg('per_capita_income', 'population');
     agg.pci_1980 = wavg('pci_1980', 'population_1980');
     agg.pci_1990 = wavg('pci_1990', 'population_1990');
@@ -4235,6 +4292,8 @@
     agg.population_change_pct_20_24 = pctChg(agg.population_2020, agg.population);
     agg.mhi_change_pct_10_24 = pctChg(agg.mhi_2010, agg.median_hh_income);
     agg.mhi_change_pct       = pctChg(agg.mhi_2000, agg.median_hh_income);
+    agg.avg_household_income_change_pct_10_24 = pctChg(agg.avg_household_income_2010, agg.avg_household_income);
+    agg.avg_household_income_change_pct       = pctChg(agg.avg_household_income_2000, agg.avg_household_income);
     agg.pci_change_pct_10_24 = pctChg(agg.pci_2010, agg.per_capita_income);
     agg.pci_change_pct       = pctChg(agg.pci_2000, agg.per_capita_income);
     agg.pct_bachelors_chg_10_24 = ppChg(agg.pct_bachelors_2010, agg.pct_bachelors);
@@ -4496,6 +4555,7 @@
     const allCharts = [
       { cls: 'rb-race-chart-wrap',       html: raceStackSVG(rec) },
       { cls: 'rb-mhi-chart-wrap',        html: mhiBarChartSVG(rec) },
+      { cls: 'rb-ahi-chart-wrap',        html: avgHouseholdIncomeBarChartSVG(rec) },
       { cls: 'rb-race-group-chart-wrap', html: raceGroupBarChartSVG(rec, 'white_nh') },
       { cls: 'rb-race-group-chart-wrap', html: raceGroupBarChartSVG(rec, 'hispanic') },
       { cls: 'rb-race-group-chart-wrap', html: raceGroupBarChartSVG(rec, 'black_nh') },
@@ -4547,7 +4607,7 @@
   // resolved field name, unchanged from how those functions already format
   // e.g. mhi_change_pct_10_24 or pct_white_nh_chg_00_24.
   const CHANGE_UNIT = {
-    per_capita_income: 'dollar', median_hh_income: 'dollar', median_gross_rent: 'dollar',
+    per_capita_income: 'dollar', median_hh_income: 'dollar', avg_household_income: 'dollar', median_gross_rent: 'dollar',
     median_age: 'yrs', population: 'pct',
     pct_hispanic: 'pp', pct_white_nh: 'pp', pct_black_nh: 'pp', pct_asian_nh: 'pp',
     pct_bachelors: 'pp', demographic_churn: 'pp',

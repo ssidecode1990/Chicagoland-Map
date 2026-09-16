@@ -1015,6 +1015,220 @@ const MULTI_SCHOOL_RANKS = {
   },
   "Bremen Senior High School": {
     "natl": 4606, "state": 113
+  },
+
+  // ── JAMESTOWN METRO (NY), added 2026-09-14 ──────────────────────────────
+  // US News 2026-2027 edition, same live-profile-page methodology as every
+  // other school in this file. SAT/ACT: researched and confirmed NOT
+  // available anywhere government-sourced for New York, the same finding
+  // Illinois' ACT situation already established the precedent for -- NYSED's
+  // own School Report Card has no SAT/ACT field at all (only Regents/ELA-
+  // math-science assessment results), and the one dataset that looked like
+  // a statewide SAT source turned out to redirect to NYC DOE's own
+  // NYC-only data, inapplicable here. sat/act keys omitted entirely below,
+  // same convention as this file's ~24 no-verified-SAT Indiana schools.
+  "Jamestown High School": {
+    "natl": 12495, "state": 631
+  },
+  "Dunkirk Senior High School": {
+    "natl": 15664, "state": 1123,
+    "natlBand": "13,427–17,901", "stateBand": "1,012–1,233"
+  },
+  "Fredonia High School": {
+    "natl": 1893, "state": 182
+  },
+  "Westfield High School": {
+    "natl": 4115, "state": 364
+  },
+  "Southwestern Senior High School": {
+    "natl": 3305, "state": 307
+  },
+  "Silver Creek High School": {
+    "natl": 10650, "state": 841
+  },
+  "Falconer Middle/High School": {
+    "natl": 7197, "state": 622
+  },
+  "Frewsburg Junior-Senior High School": {
+    "natl": 9348, "state": 762
+  },
+  "Cassadaga Valley High School": {
+    "natl": 13178, "state": 993
+  },
+  "Brocton Middle High School": {
+    "natl": 15664, "state": 1123,
+    "natlBand": "13,427–17,901", "stateBand": "1,012–1,233"
+  },
+  "Sherman High School": {
+    "natl": 6538, "state": 545
+  },
+  "Chautauqua Lake Secondary School": {
+    "natl": 3249, "state": 302
+  },
+  "Forestville Central High School": {
+    "natl": 15703, "state": 979,
+    "natlBand": "13,460–17,945", "stateBand": "726–1,232"
+  },
+
+  // ── AUSTIN METRO (TX), added 2026-09-14 ─────────────────────────────────
+  // US News 2026-2027 edition, live profile pages (search-snippet caches
+  // found stale for at least Dripping Springs and Bastrop, confirmed
+  // against the live page instead). SAT/ACT -- unlike Illinois, Indiana,
+  // Michigan, and New York -- Texas's own state education agency (TEA)
+  // DOES calculate and publish real campus-level SAT/ACT averages, sourced
+  // directly from College Board/ACT raw data, downloaded and directly
+  // inspected (not summarized secondhand): "Texas Education Agency, SAT/ACT
+  // Participation and Performance by Campus, Class of 2024" --
+  // tea.texas.gov/reports-and-data/school-performance/accountability-
+  // research/satact/. Where act is omitted below, TEA's own file shows the
+  // cell suppressed or near-zero test-takers (Texas is overwhelmingly an
+  // SAT state) -- an honest null per FERPA suppression, not a missing field.
+  "Austin High School": {
+    "natl": null, "state": null,
+    "sat": 1095, "act": 25.4, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Westlake High School": {
+    "natl": 376, "state": 53,
+    "sat": 1264, "act": 27.9, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Lake Travis High School": {
+    "natl": 1172, "state": 151,
+    "sat": 1144, "act": 25.2, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Vandegrift High School": {
+    "natl": 798, "state": 107,
+    "sat": 1190, "act": 26.4, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Westwood High School": {
+    "natl": 419, "state": 59,
+    "sat": 1254, "act": 29.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Georgetown High School": {
+    "natl": 5410, "state": 531,
+    "sat": 1021, "act": 23.5, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Hendrickson High School": {
+    "natl": 1607, "state": 204,
+    "sat": 1034, "act": 24.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Jack C. Hays High School": {
+    "natl": 5118, "state": 507,
+    "sat": 939, "act": 22.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Hutto High School": {
+    "natl": 12524, "state": 1226,
+    "sat": 1082, "act": 21.2, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Dripping Springs High School": {
+    "natl": 2108, "state": 259,
+    "sat": 1125, "act": 24.4, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "San Marcos High School": {
+    "natl": 13338, "state": 1299,
+    "sat": 907, "act": 22.4, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Wimberley High School": {
+    "natl": 2387, "state": 284,
+    "sat": 1159, "act": 23.2, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Liberty Hill High School": {
+    "natl": 4638, "state": 464,
+    "sat": 1041, "act": 25.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Taylor High School": {
+    "natl": 15703, "state": 1452,
+    "natlBand": "13,460–17,945", "stateBand": "1,311–1,592",
+    "sat": 852, "act": 22.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Thrall High School": {
+    "natl": 4653, "state": 410,
+    "sat": 992, "act": 17.8, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Bastrop High School": {
+    "natl": 9725, "state": 968,
+    "sat": 893, "act": 20.4, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Elgin High School": {
+    "natl": 15703, "state": 1452,
+    "natlBand": "13,460–17,945", "stateBand": "1,311–1,592",
+    "sat": 850, "act": 15.3, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Smithville High School": {
+    "natl": 11826, "state": 1083,
+    "sat": 944, "act": 17.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "McDade High School": {
+    "natl": 15703, "state": 1452,
+    "natlBand": "13,460–17,945", "stateBand": "1,311–1,592",
+    "sat": 929, "satYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Lockhart High School": {
+    "natl": 12206, "state": 1116,
+    "sat": 867, "satYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Luling High School": {
+    "natl": 15664, "state": 1403,
+    "natlBand": "13,427–17,901", "stateBand": "1,227–1,578",
+    "sat": 860, "act": 20.0, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Lago Vista High School": {
+    "natl": 7441, "state": 643,
+    "sat": 1014, "act": 22.6, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Manor High School": {
+    "natl": 15664, "state": 1403,
+    "natlBand": "13,427–17,901", "stateBand": "1,227–1,578",
+    "sat": 850, "satYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Del Valle High School": {
+    "natl": 15703, "state": 1452,
+    "natlBand": "13,460–17,945", "stateBand": "1,311–1,592",
+    "sat": 846, "act": 15.1, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Florence High School": {
+    "natl": 12310, "state": 1206,
+    "sat": 973, "act": 17.6, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Jarrell High School": {
+    "natl": 11675, "state": 1066,
+    "sat": 889, "act": 18.2, "satYear": 2024, "actYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024", "actSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Bartlett Schools": {
+    "natl": 15664, "state": 1403,
+    "natlBand": "13,427–17,901", "stateBand": "1,227–1,578",
+    "sat": 834, "satYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Granger School": {
+    "natl": null, "state": null,
+    "sat": 1050, "satYear": 2024,
+    "satSource": "TEA SAT/ACT by Campus, Class of 2024"
   }
 };
 
@@ -4258,6 +4472,605 @@ const SCHOOL_DATA = {
     usNewsNational: 10751, usNewsState: 264,
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     note: 'Simonton Lake shares Elkhart High School (264th in IN) with the city of Elkhart.'
+  },
+
+  // ── JAMESTOWN METRO (NY), added 2026-09-14 ──────────────────────────────
+  // School district boundaries verified, not assumed -- Southwestern CSD's
+  // own district description explicitly names Lakewood, Celoron, and the
+  // "suburban area of West Ellicott" as the villages/areas it serves;
+  // Ripley's own high school building closed and its 7-12 students have
+  // attended Chautauqua Lake CSD (Mayville) on a tuition contract since
+  // 2013-14, confirmed via a NY State Comptroller audit of that district.
+  'Jamestown': {
+    hs: 'Jamestown High School',
+    district: 'Jamestown Public Schools',
+    usNewsNational: 12495, usNewsState: 631,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jamestown High School, ranked 631st in New York.'
+  },
+  'Dunkirk': {
+    hs: 'Dunkirk Senior High School',
+    district: 'Dunkirk City School District',
+    usNewsNational: 15664, usNewsState: 1123,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Dunkirk Senior High School falls in a US News band rank (13,427-17,901 national, 1,012-1,233 state) rather than a precise single rank.'
+  },
+  'Fredonia': {
+    hs: 'Fredonia High School',
+    district: 'Fredonia Central School District',
+    usNewsNational: 1893, usNewsState: 182,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Fredonia High School, ranked 182nd in New York -- the strongest school in the Jamestown metro, in a village that is also home to SUNY Fredonia.'
+  },
+  'Westfield': {
+    hs: 'Westfield High School',
+    district: 'Westfield Academy and Central School',
+    usNewsNational: 4115, usNewsState: 364,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Westfield High School, ranked 364th in New York.'
+  },
+  'Lakewood': {
+    hs: 'Southwestern Senior High School',
+    district: 'Southwestern Central School District',
+    usNewsNational: 3305, usNewsState: 307,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Southwestern CSD, ranked 307th in New York, explicitly serves the villages of Lakewood and Celoron plus the Town of Busti and the West Ellicott suburban area -- shared with those places below.'
+  },
+  'Celoron': {
+    hs: 'Southwestern Senior High School',
+    district: 'Southwestern Central School District',
+    usNewsNational: 3305, usNewsState: 307,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Celoron shares Southwestern Senior High School (307th in NY) with Lakewood and West Ellicott.'
+  },
+  'Jamestown West': {
+    hs: 'Southwestern Senior High School',
+    district: 'Southwestern Central School District',
+    usNewsNational: 3305, usNewsState: 307,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jamestown West (West Ellicott) shares Southwestern Senior High School (307th in NY) with Lakewood and Celoron.'
+  },
+  'Silver Creek': {
+    hs: 'Silver Creek High School',
+    district: 'Silver Creek Central School District',
+    usNewsNational: 10650, usNewsState: 841,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Silver Creek High School, ranked 841st in New York.'
+  },
+  'Falconer': {
+    hs: 'Falconer Middle/High School',
+    district: 'Falconer Central School District',
+    usNewsNational: 7197, usNewsState: 622,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Falconer Middle/High School, ranked 622nd in New York.'
+  },
+  'Frewsburg': {
+    hs: 'Frewsburg Junior-Senior High School',
+    district: 'Frewsburg Central School District',
+    usNewsNational: 9348, usNewsState: 762,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Frewsburg Junior-Senior High School, ranked 762nd in New York.'
+  },
+  'Cassadaga': {
+    hs: 'Cassadaga Valley High School',
+    district: 'Cassadaga Valley Central School District',
+    usNewsNational: 13178, usNewsState: 993,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Cassadaga Valley High School (993rd in NY) also serves Sinclairville.'
+  },
+  'Sinclairville': {
+    hs: 'Cassadaga Valley High School',
+    district: 'Cassadaga Valley Central School District',
+    usNewsNational: 13178, usNewsState: 993,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Sinclairville shares Cassadaga Valley High School (993rd in NY) with Cassadaga.'
+  },
+  'Brocton': {
+    hs: 'Brocton Middle High School',
+    district: 'Brocton Central School District',
+    usNewsNational: 15664, usNewsState: 1123,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Brocton Middle High School falls in a US News band rank (13,427-17,901 national, 1,012-1,233 state) rather than a precise single rank.'
+  },
+  'Sherman': {
+    hs: 'Sherman High School',
+    district: 'Sherman Central School District',
+    usNewsNational: 6538, usNewsState: 545,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Sherman High School, ranked 545th in New York.'
+  },
+  'Ripley': {
+    hs: 'Chautauqua Lake Secondary School',
+    district: 'Chautauqua Lake Central School District',
+    usNewsNational: 3249, usNewsState: 302,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ripley's own high school building closed; its 7-12 students attend Chautauqua Lake Secondary School (302nd in NY, in Mayville) on a tuition contract since 2013-14."
+  },
+  'Mayville': {
+    hs: 'Chautauqua Lake Secondary School',
+    district: 'Chautauqua Lake Central School District',
+    usNewsNational: 3249, usNewsState: 302,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Chautauqua Lake Secondary School, ranked 302nd in New York -- the second-strongest school in the Jamestown metro. Also serves Ripley.'
+  },
+  'Forestville': {
+    hs: 'Forestville Central High School',
+    district: 'Forestville Central School District',
+    usNewsNational: 15703, usNewsState: 979,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Forestville Central High School falls in a US News band rank (13,460-17,945 national, 726-1,232 state) rather than a precise single rank.'
+  },
+
+  // ── AUSTIN METRO (TX), added 2026-09-14 ─────────────────────────────────
+  // District/school assignment individually verified per town (district's
+  // own attendance-zone materials or a NY-State-Comptroller-style official
+  // source), not assumed from name similarity. Austin ISD alone runs ~23
+  // comprehensive high schools; Austin HS below is ONE representative
+  // example (a real zoned comprehensive school with real TEA SAT/ACT data),
+  // not a claim that every Austin ISD student attends it -- a full per-
+  // neighborhood AISD breakdown is planned as its own later phase (the
+  // tract-level detail phase), not attempted here at the town-record level.
+  'Austin': {
+    hs: 'Austin High School',
+    district: 'Austin ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Austin ISD runs about 23 comprehensive high schools; Austin High School is shown as one representative zoned campus with real TEA-verified SAT/ACT data, not a single citywide rank -- a fuller per-neighborhood breakdown is a separate, later phase of this project.'
+  },
+  'Manchaca': {
+    hs: 'Austin High School',
+    district: 'Austin ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Part of Austin ISD (~23 comprehensive high schools); Austin High School shown as a representative example, not this specific area’s confirmed zoned school.'
+  },
+  'San Leanna': {
+    hs: 'Austin High School',
+    district: 'Austin ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Part of Austin ISD (~23 comprehensive high schools); Austin High School shown as a representative example, not this specific area’s confirmed zoned school.'
+  },
+  'Shady Hollow': {
+    hs: 'Austin High School',
+    district: 'Austin ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Part of Austin ISD (~23 comprehensive high schools); Austin High School shown as a representative example, not this specific area’s confirmed zoned school.'
+  },
+  'Sunset Valley': {
+    hs: 'Austin High School',
+    district: 'Austin ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Part of Austin ISD (~23 comprehensive high schools); Austin High School shown as a representative example, not this specific area’s confirmed zoned school.'
+  },
+  'Barton Creek': {
+    hs: 'Austin High School',
+    district: 'Austin ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Most of Barton Creek falls in Austin ISD; Austin High School shown as a representative example, not a confirmed zoned school for this specific area.'
+  },
+  'West Lake Hills': {
+    hs: 'Westlake High School',
+    district: 'Eanes ISD',
+    usNewsNational: 376, usNewsState: 53,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Westlake High School (Eanes ISD), ranked 53rd in Texas -- the strongest school in the Austin metro portion of this dataset.'
+  },
+  'Rollingwood': {
+    hs: 'Westlake High School',
+    district: 'Eanes ISD',
+    usNewsNational: 376, usNewsState: 53,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Rollingwood shares Westlake High School (53rd in Texas) with West Lake Hills and Lost Creek.'
+  },
+  'Lost Creek': {
+    hs: 'Westlake High School',
+    district: 'Eanes ISD',
+    usNewsNational: 376, usNewsState: 53,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lost Creek shares Westlake High School (53rd in Texas) with West Lake Hills and Rollingwood.'
+  },
+  'Bee Cave': {
+    hs: 'Lake Travis High School',
+    district: 'Lake Travis ISD',
+    usNewsNational: 1172, usNewsState: 151,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Bee Cave splits across Lake Travis ISD, Eanes ISD, and Hays CISD depending on the specific parcel; Lake Travis HS (151st in Texas) shown as the primary district.'
+  },
+  'Briarcliff': {
+    hs: 'Lake Travis High School',
+    district: 'Lake Travis ISD',
+    usNewsNational: 1172, usNewsState: 151,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lake Travis High School, ranked 151st in Texas, also serves Hudson Bend, The Hills, and Lakeway.'
+  },
+  'Hudson Bend': {
+    hs: 'Lake Travis High School',
+    district: 'Lake Travis ISD',
+    usNewsNational: 1172, usNewsState: 151,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lake Travis High School, ranked 151st in Texas, also serves Briarcliff, The Hills, and Lakeway.'
+  },
+  'The Hills': {
+    hs: 'Lake Travis High School',
+    district: 'Lake Travis ISD',
+    usNewsNational: 1172, usNewsState: 151,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lake Travis High School, ranked 151st in Texas, also serves Briarcliff, Hudson Bend, and Lakeway.'
+  },
+  'Lakeway': {
+    hs: 'Lake Travis High School',
+    district: 'Lake Travis ISD',
+    usNewsNational: 1172, usNewsState: 151,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lake Travis High School, ranked 151st in Texas, also serves Briarcliff, Hudson Bend, and The Hills.'
+  },
+  'Creedmoor': {
+    hs: 'Del Valle High School',
+    district: 'Del Valle ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Del Valle High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state). Also serves Garfield, Hornsby Bend, and Mustang Ridge.'
+  },
+  'Garfield': {
+    hs: 'Del Valle High School',
+    district: 'Del Valle ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Del Valle High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state). Also serves Creedmoor, Hornsby Bend, and Mustang Ridge.'
+  },
+  'Hornsby Bend': {
+    hs: 'Del Valle High School',
+    district: 'Del Valle ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Del Valle High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state). Also serves Creedmoor, Garfield, and Mustang Ridge.'
+  },
+  'Mustang Ridge': {
+    hs: 'Del Valle High School',
+    district: 'Del Valle ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Del Valle High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state). Also serves Creedmoor, Garfield, and Hornsby Bend.'
+  },
+  'Jonestown': {
+    hs: 'Lago Vista High School',
+    district: 'Lago Vista ISD',
+    usNewsNational: 7441, usNewsState: 643,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Jonestown splits between Leander ISD and Lago Vista ISD (Lago Vista ISD’s own materials note it takes "portions of nearby Jonestown"); Lago Vista HS (643rd in Texas) shown as one real zoned option, not confirmed for every address in town.'
+  },
+  'Lago Vista': {
+    hs: 'Lago Vista High School',
+    district: 'Lago Vista ISD',
+    usNewsNational: 7441, usNewsState: 643,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lago Vista High School, ranked 643rd in Texas, also serves Point Venture.'
+  },
+  'Point Venture': {
+    hs: 'Lago Vista High School',
+    district: 'Lago Vista ISD',
+    usNewsNational: 7441, usNewsState: 643,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Point Venture shares Lago Vista High School (643rd in Texas) with the village of Lago Vista.'
+  },
+  'Steiner Ranch': {
+    hs: 'Vandegrift High School',
+    district: 'Leander ISD',
+    usNewsNational: 798, usNewsState: 107,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Vandegrift High School (Leander ISD), ranked 107th in Texas, zones most of Steiner Ranch. Also serves Cedar Park, Leander, and Volente.'
+  },
+  'Volente': {
+    hs: 'Vandegrift High School',
+    district: 'Leander ISD',
+    usNewsNational: 798, usNewsState: 107,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Vandegrift High School (Leander ISD), ranked 107th in Texas. Also serves Cedar Park, Leander, and Steiner Ranch.'
+  },
+  'Manor': {
+    hs: 'Manor High School',
+    district: 'Manor ISD',
+    usNewsNational: 15664, usNewsState: 1403,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Manor High School falls in a US News band rank (13,427-17,901 national, 1,227-1,578 state). Manor ISD also runs Manor New Technology High School.'
+  },
+  'Pflugerville': {
+    hs: 'Hendrickson High School',
+    district: 'Pflugerville ISD',
+    usNewsNational: 1607, usNewsState: 204,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Hendrickson High School, ranked 204th in Texas -- one of Pflugerville ISD’s comprehensive high schools.'
+  },
+  'Wells Branch': {
+    hs: 'Westwood High School',
+    district: 'Round Rock ISD',
+    usNewsNational: 419, usNewsState: 59,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Unresolved with full confidence: sources conflict on whether Wells Branch falls in Round Rock ISD or Pflugerville ISD. Westwood High School (Round Rock ISD, 59th in Texas) shown as the more commonly cited option, not a verified certainty.'
+  },
+  'Bartlett': {
+    hs: 'Bartlett Schools',
+    district: 'Bartlett ISD',
+    usNewsNational: 15664, usNewsState: 1403,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bartlett Schools (a single K-12 campus) falls in a US News band rank (13,427-17,901 national, 1,227-1,578 state).'
+  },
+  'Brushy Creek': {
+    hs: 'Westwood High School',
+    district: 'Round Rock ISD',
+    usNewsNational: 419, usNewsState: 59,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Westwood High School, ranked 59th in Texas -- the highest-ranked of Round Rock ISD’s 7 high schools. Also serves the city of Round Rock.'
+  },
+  'Round Rock': {
+    hs: 'Westwood High School',
+    district: 'Round Rock ISD',
+    usNewsNational: 419, usNewsState: 59,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Round Rock ISD runs 5 comprehensive high schools (Westwood, Round Rock HS, McNeil, Cedar Ridge, Stony Point -- the district lists 10 total campuses, but the rest are alternative/choice/disciplinary programs, not comprehensive); Westwood HS (59th in Texas, the district’s highest-ranked) shown as one representative campus, not a single citywide rank.'
+  },
+  'Cedar Park': {
+    hs: 'Vandegrift High School',
+    district: 'Leander ISD',
+    usNewsNational: 798, usNewsState: 107,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Leander ISD runs 6 comprehensive high schools (Vandegrift, Cedar Park, Vista Ridge, Rouse, Leander, Glenn -- New Hope HS and Leander Extended Opportunity are alternative campuses, not comprehensive); Vandegrift HS (107th in Texas, the district’s highest-ranked) shown as one representative campus serving part of Cedar Park.'
+  },
+  'Leander': {
+    hs: 'Vandegrift High School',
+    district: 'Leander ISD',
+    usNewsNational: 798, usNewsState: 107,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Leander ISD runs 6 comprehensive high schools (Vandegrift, Cedar Park, Vista Ridge, Rouse, Leander, Glenn -- New Hope HS and Leander Extended Opportunity are alternative campuses, not comprehensive); Vandegrift HS (107th in Texas, the district’s highest-ranked) shown as one representative campus serving part of Leander.'
+  },
+  'Florence': {
+    hs: 'Florence High School',
+    district: 'Florence ISD',
+    usNewsNational: 12310, usNewsState: 1206,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Florence High School, ranked 1,206th in Texas.'
+  },
+  'Georgetown': {
+    hs: 'Georgetown High School',
+    district: 'Georgetown ISD',
+    usNewsNational: 5410, usNewsState: 531,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Georgetown High School, ranked 531st in Texas -- higher-ranked than East View HS, Georgetown ISD’s other comprehensive high school.'
+  },
+  'Serenada': {
+    hs: 'Georgetown High School',
+    district: 'Georgetown ISD',
+    usNewsNational: 5410, usNewsState: 531,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Georgetown High School, ranked 531st in Texas.'
+  },
+  'Granger': {
+    hs: 'Granger School',
+    district: 'Granger ISD',
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Granger ISD opened a new combined junior-high/high-school campus in 2026; no current US News rank exists yet for the new campus.'
+  },
+  'Hutto': {
+    hs: 'Hutto High School',
+    district: 'Hutto ISD',
+    usNewsNational: 12524, usNewsState: 1226,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Hutto High School, ranked 1,226th in Texas.'
+  },
+  'Jarrell': {
+    hs: 'Jarrell High School',
+    district: 'Jarrell ISD',
+    usNewsNational: 11675, usNewsState: 1066,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jarrell High School, ranked 1,066th in Texas. Also serves Sonterra.'
+  },
+  'Sonterra': {
+    hs: 'Jarrell High School',
+    district: 'Jarrell ISD',
+    usNewsNational: 11675, usNewsState: 1066,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Sonterra shares Jarrell High School (1,066th in Texas) with the town of Jarrell.'
+  },
+  'Liberty Hill': {
+    hs: 'Liberty Hill High School',
+    district: 'Liberty Hill ISD',
+    usNewsNational: 4638, usNewsState: 464,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Liberty Hill High School, ranked 464th in Texas.'
+  },
+  'Santa Rita Ranch': {
+    hs: 'Liberty Hill High School',
+    district: 'Liberty Hill ISD',
+    usNewsNational: 4638, usNewsState: 464,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: 'Santa Rita Ranch splits between Liberty Hill ISD (zoned to the brand-new Legacy Ranch HS, opened 2026, too new for a US News rank) and Georgetown ISD; Liberty Hill HS shown as the nearest ranked option, not a confirmed zoned school.'
+  },
+  'Taylor': {
+    hs: 'Taylor High School',
+    district: 'Taylor ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Taylor High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state).'
+  },
+  'Thrall': {
+    hs: 'Thrall High School',
+    district: 'Thrall ISD',
+    usNewsNational: 4653, usNewsState: 410,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Thrall High School, ranked 410th in Texas.'
+  },
+  'Bear Creek': {
+    hs: 'Jack C. Hays High School',
+    district: 'Hays CISD',
+    usNewsNational: 5118, usNewsState: 507,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jack C. Hays High School, ranked 507th in Texas -- the highest-ranked of Hays CISD’s 3 comprehensive high schools (Hays, Johnson, Lehman; a 4th was under construction, not yet open, as of this data).'
+  },
+  'Buda': {
+    hs: 'Jack C. Hays High School',
+    district: 'Hays CISD',
+    usNewsNational: 5118, usNewsState: 507,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jack C. Hays High School, ranked 507th in Texas -- the highest-ranked of Hays CISD’s 3 comprehensive high schools (Hays, Johnson, Lehman; a 4th was under construction, not yet open, as of this data).'
+  },
+  'Kyle': {
+    hs: 'Jack C. Hays High School',
+    district: 'Hays CISD',
+    usNewsNational: 5118, usNewsState: 507,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jack C. Hays High School, ranked 507th in Texas -- the highest-ranked of Hays CISD’s 3 comprehensive high schools (Hays, Johnson, Lehman; a 4th was under construction, not yet open, as of this data).'
+  },
+  'Mountain City': {
+    hs: 'Jack C. Hays High School',
+    district: 'Hays CISD',
+    usNewsNational: 5118, usNewsState: 507,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jack C. Hays High School, ranked 507th in Texas -- the highest-ranked of Hays CISD’s 3 comprehensive high schools (Hays, Johnson, Lehman; a 4th was under construction, not yet open, as of this data).'
+  },
+  'Uhland': {
+    hs: 'Jack C. Hays High School',
+    district: 'Hays CISD',
+    usNewsNational: 5118, usNewsState: 507,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Jack C. Hays High School, ranked 507th in Texas -- the highest-ranked of Hays CISD’s 3 comprehensive high schools (Hays, Johnson, Lehman; a 4th was under construction, not yet open, as of this data).'
+  },
+  'Niederwald': {
+    hs: 'Jack C. Hays High School',
+    district: 'Hays CISD',
+    usNewsNational: 5118, usNewsState: 507,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Mostly Hays CISD (a small slice may fall in Lockhart ISD instead); Jack C. Hays High School, ranked 507th in Texas, shown as the primary option.'
+  },
+  'Belterra': {
+    hs: 'Dripping Springs High School',
+    district: 'Dripping Springs ISD',
+    usNewsNational: 2108, usNewsState: 259,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Dripping Springs High School, ranked 259th in Texas.'
+  },
+  'Dripping Springs': {
+    hs: 'Dripping Springs High School',
+    district: 'Dripping Springs ISD',
+    usNewsNational: 2108, usNewsState: 259,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Dripping Springs High School, ranked 259th in Texas.'
+  },
+  'San Marcos': {
+    hs: 'San Marcos High School',
+    district: 'San Marcos CISD',
+    usNewsNational: 13338, usNewsState: 1299,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'San Marcos High School, ranked 1,299th in Texas, in a city built around Texas State University -- also serves the village of Martindale.'
+  },
+  'Wimberley': {
+    hs: 'Wimberley High School',
+    district: 'Wimberley ISD',
+    usNewsNational: 2387, usNewsState: 284,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Wimberley High School, ranked 284th in Texas.'
+  },
+  'Woodcreek': {
+    hs: 'Wimberley High School',
+    district: 'Wimberley ISD',
+    usNewsNational: 2387, usNewsState: 284,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Woodcreek shares Wimberley High School (284th in Texas) with the village of Wimberley.'
+  },
+  'Bastrop': {
+    hs: 'Bastrop High School',
+    district: 'Bastrop ISD',
+    usNewsNational: 9725, usNewsState: 968,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bastrop High School, ranked 968th in Texas -- higher-ranked than Cedar Creek HS, Bastrop ISD’s other comprehensive high school.'
+  },
+  "Camp Swift": {
+    hs: 'Bastrop High School',
+    district: 'Bastrop ISD',
+    usNewsNational: 9725, usNewsState: 968,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bastrop High School, ranked 968th in Texas.'
+  },
+  'Cedar Creek': {
+    hs: 'Bastrop High School',
+    district: 'Bastrop ISD',
+    usNewsNational: 9725, usNewsState: 968,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bastrop High School, ranked 968th in Texas -- Bastrop ISD also runs Cedar Creek High School, ranked lower.'
+  },
+  'Circle D-Kc Estates': {
+    hs: 'Bastrop High School',
+    district: 'Bastrop ISD',
+    usNewsNational: 9725, usNewsState: 968,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bastrop High School, ranked 968th in Texas.'
+  },
+  'Wyldwood': {
+    hs: 'Bastrop High School',
+    district: 'Bastrop ISD',
+    usNewsNational: 9725, usNewsState: 968,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bastrop High School, ranked 968th in Texas.'
+  },
+  'Elgin': {
+    hs: 'Elgin High School',
+    district: 'Elgin ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Elgin High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state).'
+  },
+  'Mcdade': {
+    hs: 'McDade High School',
+    district: 'McDade ISD',
+    usNewsNational: 15703, usNewsState: 1452,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'McDade High School falls in a US News band rank (13,460-17,945 national, 1,311-1,592 state).'
+  },
+  'Rosanky': {
+    hs: 'Smithville High School',
+    district: 'Smithville ISD',
+    usNewsNational: 11826, usNewsState: 1083,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Smithville High School, ranked 1,083rd in Texas.'
+  },
+  'Smithville': {
+    hs: 'Smithville High School',
+    district: 'Smithville ISD',
+    usNewsNational: 11826, usNewsState: 1083,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Smithville High School, ranked 1,083rd in Texas.'
+  },
+  'Lockhart': {
+    hs: 'Lockhart High School',
+    district: 'Lockhart ISD',
+    usNewsNational: 12206, usNewsState: 1116,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Lockhart High School, ranked 1,116th in Texas.'
+  },
+  'Luling': {
+    hs: 'Luling High School',
+    district: 'Luling ISD',
+    usNewsNational: 15664, usNewsState: 1403,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Luling High School falls in a US News band rank (13,427-17,901 national, 1,227-1,578 state).'
+  },
+  'Martindale': {
+    hs: 'San Marcos High School',
+    district: 'San Marcos CISD',
+    usNewsNational: 13338, usNewsState: 1299,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Martindale shares San Marcos High School (1,299th in Texas) with the city of San Marcos.'
   },
 
 };
