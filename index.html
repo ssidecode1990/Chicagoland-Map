@@ -3213,7 +3213,7 @@
     // Race share-change fields are percentage-POINT deltas, not percentages.
     if (metric.includes('_chg_')) return 'pct_chg_pp';
     if (metric.startsWith('pct_')) return 'pct';
-    if (metric.startsWith('pci_change_pct') || metric.startsWith('mhi_change_pct')) return 'pci_mhi_change';
+    if (metric.startsWith('pci_change_pct') || metric.startsWith('mhi_change_pct') || metric.startsWith('avg_household_income_change_pct')) return 'pci_mhi_change';
     if (metric === 'total_income_m') return 'total_income';
     if (metric === 'median_gross_rent' || metric === 'median_gross_rent_2010' || metric === 'median_gross_rent_2020') return 'gross_rent';
     return 'money'; // PCI / MHI / median family income / disposable / home value / tax / housing cost
@@ -4702,12 +4702,12 @@
   /* ===== State ===== */
   let geoLayer = null;       // current Leaflet GeoJSON layer
   let polygonsFC = null;     // raw FeatureCollection
-  // Default view: Median HH Income, % Real Change Since 2000 (resolved
-  // field mhi_change_pct) -- 2026-09-11, changed from the 2010 baseline
-  // this used to open on, per explicit request.
+  // Default view: Median HH Income, % Real Change Since 2010 (resolved
+  // field mhi_change_pct) -- 2026-09-16, reverted back to the 2010
+  // baseline per explicit request.
   let metric = 'median_hh_income';
   let timelineMode = 'change'; // 'point' (Timeline A) | 'change' (Timeline B)
-  let selectedYear = 2000;   // controlled by the timeline scrubber
+  let selectedYear = 2010;   // controlled by the timeline scrubber
   let playInterval = null;
   let metroFilter = 'Chicagoland';
   let regionFilter = 'all';
@@ -5554,7 +5554,15 @@
 
     _mark('bootstrap-3-school-score-start');
     DATA.forEach(d => {
-      if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
+      // is_neighborhood_rollup (Austin's 55 neighborhood/"Rest of Austin"
+      // records, 2026-09-15): a plain-name SCHOOL_DATA lookup with no real
+      // per-record school research behind it is actively dangerous here,
+      // not just empty -- 4 of these 55 names (Franklin Park, Highland,
+      // Riverside, St. John) collide with real, unrelated IL/IN towns
+      // already in this dataset, so without this guard an Austin
+      // neighborhood would silently display that OTHER town's real school
+      // ranking. Found live, not by inspection.
+      if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract' || d.is_neighborhood_rollup) return;
       const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
                 : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
                 : d.name;
@@ -5667,6 +5675,53 @@
           satSource: hasOwnSat ? msr.satSource : null,
         };
       });
+    });
+
+    // Chicago Community Areas (CCAs, region "Chicago"): CPS is one unified,
+    // citywide-open-enrollment district with 180+ high schools of wildly
+    // different quality -- there's no single zoned "neighborhood high
+    // school" the way a suburb has, so there is no defensible way to
+    // research a distinct school figure per CCA (same underlying problem
+    // the is_neighborhood_rollup guard above solves for Austin's
+    // neighborhoods, just caused by "no research exists" instead of
+    // "research exists but collides with the wrong town"). Give every CCA
+    // the SAME real, sourced district-wide composite instead of leaving
+    // School Quality blank for all 77 -- d.schools is deliberately left
+    // unset so every consumer (schoolLabelParts, buildNarrativeColHTML,
+    // buildNarrative) falls back to its no-specific-school path rather than
+    // implying a researched per-neighborhood school.
+    //   rankScore: enrollment-weighted average of every US News-ranked CPS
+    //     high school's own rankScore (see CPS_HIGH_SCHOOLS in
+    //     school_data_lookup.js for the full 135-school table + sourcing) --
+    //     NOT a district letter grade or a plain per-school average, so a
+    //     handful of tiny, high-ranked selective schools (Northside: 1,061
+    //     students, national rank 30) don't get the same say as the large
+    //     comprehensive schools most CPS students actually attend (Lane
+    //     Tech: 4,389 students). Every ranked school's own rankScoreFor()
+    //     value, weighted by its own "Enrollment 9-12".
+    //   testScore: ISBE's real district-wide average SAT (2024 Report Card
+    //     Public Data Set, District 299 row -- Reading 453.4 + Math 441.7 =
+    //     895.1 combined /1600) -- government-verified, not a survey-based
+    //     estimate.
+    const CPS_DISTRICT_SAT = 453.4 + 441.7; // ISBE 2024 Report Card, District 299, Reading + Math avg
+    const cpsRankable = (typeof CPS_HIGH_SCHOOLS !== 'undefined' ? CPS_HIGH_SCHOOLS : [])
+      .filter(s => s.enrollment > 0)
+      .map(s => ({ enrollment: s.enrollment, rankScore: rankScoreFor(s.natlRank != null ? s.natlRank : s.natlRankMid, null, null, null) }));
+    const cpsTotalEnrollment = cpsRankable.reduce((sum, s) => sum + s.enrollment, 0);
+    const cpsRankScore = cpsTotalEnrollment
+      ? Math.round((cpsRankable.reduce((sum, s) => sum + s.rankScore * s.enrollment, 0) / cpsTotalEnrollment) * 10) / 10
+      : null;
+    const cpsTestScore = Math.round((CPS_DISTRICT_SAT / 1600) * 1000) / 10;
+    const cpsComposite = (cpsRankScore != null)
+      ? Math.round((0.6 * cpsRankScore + 0.4 * cpsTestScore) * 10) / 10
+      : Math.round(cpsTestScore * 10) / 10;
+    DATA.forEach(d => {
+      if (d.region !== 'Chicago') return;
+      d.composite_score = cpsComposite;
+      d.school_niche = null; // no Niche input in this composite -- see cpsRankScore above
+      d.school_avg_sat = CPS_DISTRICT_SAT;
+      d.school_avg_act = null; // no verified district-wide ACT figure -- same not-published policy as individual schools
+      d.school_is_district_level = true; // one shared CPS-wide number, not neighborhood-specific research
     });
 
     // Rank every town by composite_score (highest = #1) so the side pane can show
@@ -6978,7 +7033,10 @@
       if (typeof SCHOOL_DATA === 'undefined') return [];
       const rows = [];
       DATA.forEach(d => {
-        if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
+        // Same is_neighborhood_rollup guard as the composite_score block
+        // above (search that comment for the Franklin Park/Highland/
+        // Riverside/St. John name-collision this prevents).
+        if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract' || d.is_neighborhood_rollup) return;
         const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
                   : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
                   : d.name;

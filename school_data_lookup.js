@@ -5074,3 +5074,170 @@ const SCHOOL_DATA = {
   },
 
 };
+
+// Every CPS (Chicago Public Schools, District 299) high school that carries a
+// US News 2026-2027 national + state rank, plus its own "Enrollment 9-12"
+// figure -- both pulled straight from US News' own district-scoped JSON API
+// (usnews.com/education/best-high-schools/illinois/districts/
+// chicago-public-schools-110570?format=json&page=N, 2026-09-16), the same
+// first-party source already used for MULTI_SCHOOL_RANKS above. NOT the
+// district page's default "District Rank" sort (a 1-169 local reordering
+// with the same field names but different values) -- these are each
+// school's TRUE statewide/national rank, fetched via the
+// state-urlname=illinois search endpoint and filtered to
+// school.district === "Chicago Public Schools".
+//
+// Used by index.html's composite_score bootstrap to give Chicago's 77
+// community areas (CCAs) an enrollment-weighted average rankScore, since
+// CPS is one citywide open-enrollment district with no zoned
+// neighborhood high school per CCA -- see the is_neighborhood_rollup /
+// CPS-district comment there for why every CCA shares one number instead
+// of each getting its own researched figure.
+//
+// 135 of CPS's 169 high schools carry a rank (77 with a precise numeric
+// rank, 58 sharing US News' bottom-tier shared band "13,460-17,945"
+// national / "469-675" state -- band schools carry natlRankMid, the
+// range's midpoint, so the weighted-average math has a number to work
+// with; natlBand/stateBand are the true displayable range). The other 34
+// are unranked (mostly tiny alternative/juvenile-justice programs) and are
+// deliberately left out of this table -- together they're only ~1,720
+// students, 1.7% of CPS's ~101K high-school enrollment, so excluding them
+// barely moves the weighted average and including a fabricated rank for
+// them would be worse than leaving them out.
+const CPS_HIGH_SCHOOLS = [
+  { name: "Northside College Preparatory High School", natlRank: 30, stateRank: 1, enrollment: 1061 },
+  { name: "Payton College Preparatory High School", natlRank: 54, stateRank: 2, enrollment: 1260 },
+  { name: "Lane Technical High School", natlRank: 80, stateRank: 3, enrollment: 4389 },
+  { name: "Jones College Prep High School", natlRank: 99, stateRank: 5, enrollment: 1954 },
+  { name: "Young Magnet High School", natlRank: 107, stateRank: 6, enrollment: 1941 },
+  { name: "Hancock College Preparatory High School", natlRank: 269, stateRank: 10, enrollment: 1050 },
+  { name: "Brooks College Prep Academy High School", natlRank: 379, stateRank: 16, enrollment: 888 },
+  { name: "Lindblom Math and Science Academy", natlRank: 623, stateRank: 28, enrollment: 1077 },
+  { name: "DeVry Advantage Academy High School", natlRank: 746, stateRank: 36, enrollment: 152 },
+  { name: "Lincoln Park High School", natlRank: 752, stateRank: 37, enrollment: 2214 },
+  { name: "Westinghouse High School", natlRank: 1008, stateRank: 49, enrollment: 1230 },
+  { name: "Von Steuben Metro Science High School", natlRank: 1091, stateRank: 52, enrollment: 1698 },
+  { name: "Noble St Chtr-Pritzker College Prep", natlRank: 1418, stateRank: 65, enrollment: 993 },
+  { name: "Chicago Math and Science Elementary Charter", natlRank: 1490, stateRank: 68, enrollment: 438 },
+  { name: "Phoenix Military Academy High School", natlRank: 1581, stateRank: 72, enrollment: 372 },
+  { name: "Solorio Academy High School", natlRank: 1841, stateRank: 81, enrollment: 1287 },
+  { name: "Noble St Chtr-Noble Campus", natlRank: 2167, stateRank: 90, enrollment: 696 },
+  { name: "Kenwood Academy High School", natlRank: 2214, stateRank: 92, enrollment: 1964 },
+  { name: "Chicago High School for the Arts", natlRank: 2334, stateRank: 96, enrollment: 578 },
+  { name: "Noble St Charter - Mansueto", natlRank: 2466, stateRank: 102, enrollment: 1106 },
+  { name: "Back of The Yards College Prepatory High School", natlRank: 2610, stateRank: 107, enrollment: 1039 },
+  { name: "Intrinsic Charter High School", natlRank: 3199, stateRank: 130, enrollment: 684 },
+  { name: "Senn High School", natlRank: 3622, stateRank: 141, enrollment: 1570 },
+  { name: "Rickover Naval Academy High School", natlRank: 3868, stateRank: 151, enrollment: 527 },
+  { name: "Amundsen High School", natlRank: 3949, stateRank: 155, enrollment: 1507 },
+  { name: "Chicago Academy High School", natlRank: 4097, stateRank: 160, enrollment: 580 },
+  { name: "Ogden Int High School", natlRank: 4380, stateRank: 172, enrollment: 519 },
+  { name: "Noble St Chtr-Muchin College Prep", natlRank: 4487, stateRank: 177, enrollment: 909 },
+  { name: "Noble St Chtr-Uic College Prep", natlRank: 4517, stateRank: 179, enrollment: 957 },
+  { name: "Mather High School", natlRank: 4900, stateRank: 190, enrollment: 1777 },
+  { name: "Disney II Magnet High School", natlRank: 4914, stateRank: 191, enrollment: 587 },
+  { name: "Taft High School", natlRank: 5089, stateRank: 199, enrollment: 4314 },
+  { name: "Chicago High School for Agricult Sciences", natlRank: 5178, stateRank: 203, enrollment: 827 },
+  { name: "Horizon Science Academy - Southwest Charter", natlRank: 5226, stateRank: 206, enrollment: 225 },
+  { name: "Noble St Chtr-Golder College Prep", natlRank: 5240, stateRank: 207, enrollment: 633 },
+  { name: "CICS Northtown Academy", natlRank: 5784, stateRank: 227, enrollment: 878 },
+  { name: "Noble St Chtr-Itw Speer Acad", natlRank: 6192, stateRank: 235, enrollment: 1135 },
+  { name: "Prosser Career Academy High School", natlRank: 6494, stateRank: 244, enrollment: 1185 },
+  { name: "South Shore International Col Prep High School", natlRank: 6534, stateRank: 245, enrollment: 625 },
+  { name: "Lake View High School", natlRank: 6794, stateRank: 253, enrollment: 1431 },
+  { name: "Catalyst Charter - Maria Elementary School", natlRank: 7039, stateRank: 259, enrollment: 574 },
+  { name: "Noble St Chtr-Chicago Bulls Prep", natlRank: 7042, stateRank: 260, enrollment: 1060 },
+  { name: "Alcott College Prep", natlRank: 7350, stateRank: 268, enrollment: 373 },
+  { name: "Hubbard High School", natlRank: 7490, stateRank: 272, enrollment: 1710 },
+  { name: "Noble St Chtr-The Noble Academy", natlRank: 7509, stateRank: 273, enrollment: 415 },
+  { name: "Curie Metropolitan High School", natlRank: 8152, stateRank: 290, enrollment: 3099 },
+  { name: "Noble St Chtr Rauner College Prep", natlRank: 8320, stateRank: 293, enrollment: 558 },
+  { name: "Marine Leadership Academy - Ames", natlRank: 8373, stateRank: 296, enrollment: 442 },
+  { name: "Aspira Charter - Early College Prep High School", natlRank: 8881, stateRank: 309, enrollment: 285 },
+  { name: "Air Force Academy High School", natlRank: 9467, stateRank: 321, enrollment: 131 },
+  { name: "World Language High School", natlRank: 9534, stateRank: 324, enrollment: 389 },
+  { name: "Washington G High School", natlRank: 9609, stateRank: 331, enrollment: 1520 },
+  { name: "Infinity Math Science and Tech High School", natlRank: 9768, stateRank: 335, enrollment: 427 },
+  { name: "Noble St Chtr-Baker Campus", natlRank: 9927, stateRank: 341, enrollment: 285 },
+  { name: "Kennedy High School", natlRank: 9940, stateRank: 342, enrollment: 1647 },
+  { name: "King College Prep High School", natlRank: 10018, stateRank: 344, enrollment: 819 },
+  { name: "Noble St Chtr-Butler College Prep - Crimson", natlRank: 10272, stateRank: 359, enrollment: 695 },
+  { name: "Acero Charter School Network - Major Hector P Garcia MD Campus", natlRank: 10284, stateRank: 360, enrollment: 666 },
+  { name: "Noble St Charter-Rowe-Clark Middle School Academy", natlRank: 10389, stateRank: 364, enrollment: 320 },
+  { name: "Thomas Kelly College Preparatory", natlRank: 10519, stateRank: 368, enrollment: 1762 },
+  { name: "Acero Charter School Network Victoria Soto Campus", natlRank: 11105, stateRank: 382, enrollment: 561 },
+  { name: "Noble St Chtr-Comer College Prep", natlRank: 11154, stateRank: 385, enrollment: 752 },
+  { name: "North-Grand High School", natlRank: 11974, stateRank: 406, enrollment: 1061 },
+  { name: "Noble St Chtr-Hansberry College Prep - Silver", natlRank: 12076, stateRank: 410, enrollment: 534 },
+  { name: "Noble St Chtr-Drw Trading College Prep", natlRank: 12181, stateRank: 414, enrollment: 323 },
+  { name: "Perspectives Charter - IIT Campus", natlRank: 12252, stateRank: 417, enrollment: 378 },
+  { name: "Univ of Chicago Chtr-Woodlawn", natlRank: 12418, stateRank: 425, enrollment: 362 },
+  { name: "Schurz High School", natlRank: 12525, stateRank: 430, enrollment: 1244 },
+  { name: "Simeon Career Academy High School", natlRank: 12776, stateRank: 436, enrollment: 1095 },
+  { name: "Perspectives Charter - Joslin Campus", natlRank: 12847, stateRank: 441, enrollment: 270 },
+  { name: "Carver Military Academy High School", natlRank: 12981, stateRank: 446, enrollment: 420 },
+  { name: "Juarez Community Academy High School", natlRank: 13110, stateRank: 449, enrollment: 1585 },
+  { name: "Aspira Charter - Business and Finance High School", natlRank: 13213, stateRank: 457, enrollment: 426 },
+  { name: "Corliss High School", natlRank: 13227, stateRank: 459, enrollment: 430 },
+  { name: "Epic Academy High School", natlRank: 13306, stateRank: 463, enrollment: 255 },
+  { name: "Perspectives Charter - Leadership Acad", natlRank: 13317, stateRank: 464, enrollment: 707 },
+  { name: "Crane Medical Prep High School", natlRank: 13345, stateRank: 466, enrollment: 295 },
+  { name: "Acero Charter School Newtwork- Sor Juana Ines De La Cruz", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 120 },
+  { name: "Art In Motion Charter School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 512 },
+  { name: "Austin College and Career Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 190 },
+  { name: "Bogan High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 716 },
+  { name: "Bowen High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 278 },
+  { name: "Chicago Collegiate Charter School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 180 },
+  { name: "Chicago Excel Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 0 },
+  { name: "Chicago Military Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 209 },
+  { name: "Chicago Technology Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 315 },
+  { name: "Chicago Vocational Career Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 673 },
+  { name: "Cics - Longwood Campus", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 447 },
+  { name: "Cics - Ralph Ellison Campus", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 247 },
+  { name: "Clark Academy Prep Magnet High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 453 },
+  { name: "Clemente Community Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 745 },
+  { name: "Collins Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 228 },
+  { name: "Dunbar Vocational Career Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 355 },
+  { name: "Englewood Stem High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 778 },
+  { name: "Farragut Career Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 490 },
+  { name: "Fenger Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 312 },
+  { name: "Foreman High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 650 },
+  { name: "Gage Park High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 392 },
+  { name: "Goode Stem Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 991 },
+  { name: "Harlan Community Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 220 },
+  { name: "Hirsch Metropolitan High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 183 },
+  { name: "Hyde Park Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 838 },
+  { name: "Ihsca Charter High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 567 },
+  { name: "Ijla Charter High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 95 },
+  { name: "Julian High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 440 },
+  { name: "Kelvyn Park High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 470 },
+  { name: "Legal Prep Academy Charter High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 210 },
+  { name: "Manley Career Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 193 },
+  { name: "Marshall Metropolitan High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 239 },
+  { name: "Morgan Park High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 1250 },
+  { name: "Multicultural Academy of Scholarship High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 283 },
+  { name: "Noble St Chtr-Johnson College Prep", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 529 },
+  { name: "North Lawndale Prep Charter - Christiana", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 258 },
+  { name: "North Lawndale Prep Chtr-Collins", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 276 },
+  { name: "Orr Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 361 },
+  { name: "Perspectives Charter - High School of Technology", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 320 },
+  { name: "Phillips Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 467 },
+  { name: "Raby High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 128 },
+  { name: "Richards Career Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 348 },
+  { name: "Roosevelt High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 1144 },
+  { name: "School of Social Justice High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 269 },
+  { name: "Steinmetz College Prep High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 1230 },
+  { name: "Sullivan High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 762 },
+  { name: "Tilden Career Communty Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 288 },
+  { name: "Uplift Community High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 224 },
+  { name: "Urban Prep Charter Academy -- Bronzeville Campus", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 148 },
+  { name: "Urban Prep Charter Academy Englewood High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 87 },
+  { name: "Walter Henri Dyett High School for the Arts", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 538 },
+  { name: "Wells Community Academy High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 398 },
+  { name: "YCCS-Albizu Campos Puerto Rican High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 184 },
+  { name: "YCCS-Aspira Pantoja Alt High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 200 },
+  { name: "YCCS-Innovations of Arts Integr High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 392 },
+  { name: "YCCS- Mckinley-Lakeside Leadership Academy", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 103 },
+  { name: "YCCS-Olive Harvey Mid College High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 128 },
+  { name: "YCCS-Truman Middle College High School", natlBand: "13,460–17,945", stateBand: "469–675", natlRankMid: 15702.5, enrollment: 192 },
+];
