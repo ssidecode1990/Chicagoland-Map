@@ -1112,7 +1112,14 @@
   // regions combined (i.e. the whole Chicagoland dataset, still excluding
   // Chicago Tract/Suburban Tract detail records, which aren't in REGIONS).
   function regionRecs(region) {
-    return region === 'ALL' ? DATA.filter(p => REGIONS.includes(p.region)) : DATA.filter(p => p.region === region);
+    // Westville IN is excluded from NWI aggregates the same way index.html's
+    // shouldShow() excludes it from the map -- a state correctional facility
+    // dominates its population figures and distorts any regional average it
+    // touches. index.html and this file must agree or NWI's own numbers here
+    // won't match the map's (implementation_brief.md #11, "Westville in
+    // regional-trends.html").
+    const recs = region === 'ALL' ? DATA.filter(p => REGIONS.includes(p.region)) : DATA.filter(p => p.region === region);
+    return recs.filter(p => p.name !== 'Westville');
   }
   function computeRegionalTrend(region, startYear, endYear) { return trendForRecs(regionRecs(region), startYear, endYear); }
 

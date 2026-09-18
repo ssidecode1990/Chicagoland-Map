@@ -1229,6 +1229,19 @@ const MULTI_SCHOOL_RANKS = {
     "natl": null, "state": null,
     "sat": 1050, "satYear": 2024,
     "satSource": "TEA SAT/ACT by Campus, Class of 2024"
+  },
+  "Kankakee High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675"
+  },
+  "Bradley-Bourbonnais C High School": {
+    "natl": 3437, "state": 138
+  },
+  "Manteno High School": {
+    "natl": 4458, "state": 175
+  },
+  "Momence High School": {
+    "natl": 10491, "state": 367
   }
 };
 
@@ -5071,6 +5084,49 @@ const SCHOOL_DATA = {
     usNewsNational: 13338, usNewsState: 1299,
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     note: 'Martindale shares San Marcos High School (1,299th in Texas) with the city of San Marcos.'
+  },
+
+  // ── KANKAKEE COUNTY (added 2026-09-18, implementation_brief.md #11 "no
+  // decision needed" item -- these 5 towns had complete demographic
+  // histories but zero school_data_lookup.js entries at all. US News
+  // national/state ranks verified live against usnews.com's 2026-2027
+  // Best High Schools edition; stateGrade/niche/avgACT/avgSAT left null,
+  // same as every other town in this file where that research wasn't
+  // independently done, rather than guessed. ──────────────────────────
+  'Kankakee': {
+    hs: 'Kankakee High School',
+    district: 'Kankakee SD 111',
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Kankakee High School falls in a US News band rank (13,460-17,945 national, 469-675 Illinois) rather than a precise number.'
+  },
+  'Bourbonnais': {
+    hs: 'Bradley-Bourbonnais C High School',
+    district: 'Bradley-Bourbonnais Community HSD 307',
+    usNewsNational: 3437, usNewsState: 138,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bourbonnais shares Bradley-Bourbonnais Community High School, ranked 138th in Illinois, with the town of Bradley.'
+  },
+  'Bradley': {
+    hs: 'Bradley-Bourbonnais C High School',
+    district: 'Bradley-Bourbonnais Community HSD 307',
+    usNewsNational: 3437, usNewsState: 138,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Bradley shares Bradley-Bourbonnais Community High School, ranked 138th in Illinois, with the town of Bourbonnais.'
+  },
+  'Manteno': {
+    hs: 'Manteno High School',
+    district: 'Manteno CUSD 5',
+    usNewsNational: 4458, usNewsState: 175,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Manteno High School ranks 175th in Illinois with a 92% graduation rate.'
+  },
+  'Momence': {
+    hs: 'Momence High School',
+    district: 'Momence CUSD 1',
+    usNewsNational: 10491, usNewsState: 367,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: 'Momence High School ranks 367th in Illinois.'
   },
 
 };

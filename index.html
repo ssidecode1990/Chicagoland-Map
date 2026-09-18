@@ -60,11 +60,115 @@
     position: relative;
   }
 
+  .brand-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-right: 4px;
+  }
+  /* Masthead kicker, salvaged from the retired nwi_table.html so the map
+     carries the same newspaper voice as the rest of the project. */
+  .brand-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    line-height: 1;
+  }
   .brand {
     font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: -0.01em;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 144;
+  }
+  .brand em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  /* Change 10 Part A (2026-09-17 review): the real lede, restated live for
+     whatever metro/region/metric/year is selected (see buildLedeSentence).
+     Inside .brand-block (not a new full-width row) so it inherits the
+     existing topbar order:1 treatment from Change 8's mobile layout for
+     free -- a new row here would need its own order value and eat into
+     the 62vh map floor that change explicitly protects. Small and
+     single-purpose by design: this is a strapline, not a second headline. */
+  .page-lede {
+    font-family: 'Fraunces', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--ink-soft, var(--ink));
+    max-width: 46ch;
+    margin-top: 1px;
+  }
+  .page-lede strong { font-weight: 700; font-style: normal; color: var(--ink); }
+  @media (max-width: 700px) {
+    .brand-kicker { display: none; }
+    .brand { font-size: 21px; }
+    .page-lede { font-size: 12px; max-width: none; }
+  }
+
+  /* Change 10 Part B: chapter chips row. */
+  .chapter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--rule);
+  }
+  .chapter-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .chapter-chip:hover { border-color: var(--accent); }
+  .chapter-chip.active {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+  .chapter-chip-clear {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    background: none;
+    border: none;
+    color: var(--ink-faint);
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 7px 4px;
+    display: none;
+  }
+  .chapter-chip-clear.visible { display: inline-block; }
+  @media (max-width: 700px) {
+    .chapter-chips { padding: 8px 14px; }
+    .chapter-chip { font-size: 9.5px; padding: 6px 11px; }
+  }
+  /* Map annotation callouts (Change 10 Part B) -- small permanent labels
+     Leaflet drops on specific towns while a chapter is active. */
+  .chapter-annotation {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(244,240,232,0.95);
+    border: 1.5px solid var(--accent);
+    border-radius: 4px;
+    padding: 3px 8px;
+    color: var(--ink);
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(26,24,20,0.2);
   }
   .brand em { font-style: italic; font-weight: 400; color: var(--accent); }
 
@@ -486,7 +590,17 @@
      scroll to read the rest, same as the stats column beside it. */
   .rb-narrative-col {
     flex-shrink: 0;
-    width: 240px;
+    /* Change 6 (2026-09-17 review), part (a): 240px at 13.5px was ~36
+       characters/line against a 466px-tall narrative in a 235-285px box --
+       nearly half the text needed a scroll nobody could see (see part (b)
+       below). Widened to 380px (~55-62 chars/line) so far fewer lines are
+       needed to show the same prose. Taken from .rb-pop-row's own
+       overflow-x:auto (it already horizontally scrolls when its columns
+       don't fit the pane, e.g. for a tract with every chart present) rather
+       than shrinking .rb-charts-col's fixed chart geometry, which would
+       touch barChartGeometry() and every chart SVG's proportions for a
+       narrative-readability fix. */
+    width: 380px;
     max-height: 285px;
     overflow-y: auto;
     display: flex;
@@ -494,7 +608,34 @@
     gap: 10px;
     border-right: 1px solid var(--rule);
     padding-right: 18px;
+    /* Change 6, part (b): NOT switching to unbounded height here --
+       Felix explicitly wants the pane's height fixed regardless of
+       narrative length (see the max-height:235px comment below); removing
+       the cap would undo that. The actual bug this retires (F1... U1-007)
+       is that the clip was SILENT: an invisible overlay scrollbar with no
+       visual cue at all that there was more to read. Fixed two ways
+       instead, height cap kept: a real, visible scrollbar (not
+       platform-dependent overlay behavior) and a top/bottom fade-and-shadow
+       so unread content is visibly implied even at rest, before the user
+       has scrolled. Classic multi-layer-background technique: two gradients
+       with background-attachment:local mask the content near each edge and
+       scroll away once you reach that edge; two more with
+       background-attachment:scroll stay fixed to the viewport as the actual
+       shadow cue. */
+    background:
+      linear-gradient(var(--paper-warm) 30%, rgba(235,229,214,0)) 0 0,
+      linear-gradient(rgba(235,229,214,0), var(--paper-warm) 70%) 0 100%,
+      linear-gradient(to bottom, rgba(26,24,20,0.12), rgba(26,24,20,0)) 0 0,
+      linear-gradient(to top, rgba(26,24,20,0.12), rgba(26,24,20,0)) 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 20px, 100% 20px, 100% 10px, 100% 10px;
+    background-attachment: local, local, scroll, scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(26,24,20,0.3) transparent;
   }
+  .rb-narrative-col::-webkit-scrollbar { width: 6px; }
+  .rb-narrative-col::-webkit-scrollbar-thumb { background: rgba(26,24,20,0.3); border-radius: 3px; }
+  .rb-narrative-col::-webkit-scrollbar-track { background: transparent; }
   /* Second banner column -- population/health/school/crime/tax/housing stat
      blocks (see buildStatsColHTML). Narrower than the narrative column
      since each block is a short label+number, not prose. */
@@ -545,6 +686,13 @@
     color: var(--ink-faint);
     margin-top: 1px;
   }
+  .rb-estimate-mark {
+    cursor: help;
+    color: var(--ink-faint);
+    font-weight: 400;
+    border-bottom: 1px dotted var(--ink-faint);
+  }
+  .rb-estimate-note { font-style: italic; }
   .rb-chart-title {
     font-family: 'Inter Tight', sans-serif;
     font-size: 10.5px;
@@ -852,6 +1000,25 @@
     letter-spacing: 0;
     line-height: 1.3;
   }
+  /* Change 4: "no data" swatch, CSS hatch matching the canvas-rendered
+     NO_DATA_FILL pattern on the polygons themselves (#EDEAE4 + 45° hatch). */
+  .map-legend .legend-nodata {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 4px;
+  }
+  .map-legend .legend-nodata-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    flex: none;
+    background-color: #EDEAE4;
+    background-image: repeating-linear-gradient(45deg, rgba(26,24,20,0.35) 0 1.5px, transparent 1.5px 6px);
+    border: 1px solid rgba(26,24,20,0.35);
+  }
   .legend-cat-list { margin: 0; padding: 0; list-style: none; }
   .legend-cat-row {
     display: flex; align-items: center; gap: 6px;
@@ -1083,7 +1250,7 @@
     border-bottom: 1px solid rgba(42,38,32,0.08);
   }
   .sri:last-child { border-bottom: none; }
-  .sri:hover { background: var(--paper-warm); }
+  .sri:hover, .sri.active { background: var(--paper-warm); }
   .sri-name { font-weight: 500; color: var(--ink); }
   .sri-meta { font-size: 10px; color: var(--ink-faint); letter-spacing: 0.04em; }
 
@@ -1316,6 +1483,20 @@
     border-collapse: collapse;
     font-size: 12.5px;
     margin: 4px 0 14px;
+  }
+  .meth-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
+  .meth-src {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 5px;
+    letter-spacing: 0.04em;
   }
   .meth-table th {
     font-family: 'JetBrains Mono', monospace;
@@ -1677,35 +1858,13 @@
     .rb-narrative-stat-detail { font-size: 10px; }
   }
 
-  /* M2 — Mobile layout (sub-600px). Two changes, scoped entirely inside
-     this query so nothing here touches desktop: (1) the side pane becomes
-     a full-width bottom sheet instead of a narrow right-hand drawer —
-     295px fixed width is unusable on a phone screen; (2) the topbar's nav
-     links wrap onto their own row under the brand instead of fighting the
-     brand for space in one line, which is what "collapse to stacked"
-     means here — the topbar was already fairly light (the heavier
-     controls live in .timeline-bar, which already wraps via its own
-     flex-wrap from the earlier compaction pass), so no bottom-sheet
-     treatment was needed for the topbar itself, just stacking. */
+  /* M2 — Mobile layout (sub-600px). The side pane becomes a full-width
+     bottom sheet instead of a narrow right-hand drawer — 295px fixed width
+     is unusable on a phone screen. (The topbar nav-link stacking this
+     block used to do is superseded by Change 8's overflow-menu treatment
+     below, which now handles the topbar at the wider 700px breakpoint.) */
   @media (max-width: 600px) {
-    .topbar {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-      padding: 10px 14px;
-    }
     .topbar .brand { font-size: 18px; }
-    .topbar .nav-link {
-      font-size: 10.5px;
-      padding: 6px 9px;
-      flex: 1 1 auto;
-      text-align: center;
-    }
-    .topbar > .nav-link:first-of-type { margin-left: 0; }
-    /* .nav-link's own margin-left:auto (desktop right-alignment) fights
-       the stacked layout — every link should just sit in the wrapped row. */
-    .topbar .nav-link { margin-left: 0; }
-
   }
 
   /* Without a floor, .map-wrap's flex:1 resolves toward 0 height once the
@@ -1721,8 +1880,160 @@
      at a 960px-wide layout viewport (1440x900 at 150% display scaling),
      comfortably above any width-based breakpoint, while plenty of narrow-
      but-tall windows never needed the floor at all. Costs nothing on a
-     screen tall enough that flex:1 already clears 50vh on its own. */
+     screen tall enough that flex:1 already clears 50vh on its own.
+     Placed BEFORE Change 8's @media (max-width: 700px) block below (not
+     after, where it used to sit) -- same specificity, so source order
+     decides, and the unconditional 50vh floor must lose to the mobile
+     block's own 62vh so it doesn't quietly override it back down. */
   .map-wrap { min-height: 50vh; }
+
+  /* Nav overflow menu / filters sheet toggle buttons: hidden above 700px,
+     desktop keeps the plain always-visible row/bar these replace. Same
+     source-order fix as .map-wrap's min-height just above -- this
+     unconditional rule must come BEFORE the @media block below, not after,
+     or it wins the cascade at equal specificity and the buttons never show. */
+  .nav-more-btn, .mobile-filters-btn { display: none; }
+
+  /* Change 8 (2026-09-17 review): a real mobile layout, not the desktop
+     one reflowed. Three problems fixed together, all scoped to this one
+     query so desktop is untouched:
+       (1) .timeline-bar (map selector + every filter + both timeline
+           scrubbers) doesn't wrap or shrink below ~700px content width —
+           #min-pop/#tracts-view/#tl-play sat past x=465-687 on a 390px
+           viewport, and the row's own overflow just pushed html/body wider
+           (measured live: document.scrollWidth 722 against a 390 viewport)
+           rather than clipping, because nothing capped its width. Solved by
+           taking it out of the flex flow entirely (position:fixed) and
+           making it a slide-up bottom sheet, toggled by #mobile-filters-btn
+           -- exactly what the review asked for, and it structurally can't
+           overflow the viewport width anymore since a fixed element is
+           sized against the viewport, not its content.
+       (2) The map sat below ~1,060px of chrome (topbar + the always-visible
+           metro-overview banner + the old inline timeline-bar), so it was
+           never visible without scrolling first. Solved with flex `order`
+           on body's direct children -- .map-wrap moves visually to right
+           after the topbar. Pure CSS reorder, no DOM/JS change: every
+           existing getElementById/addEventListener call still finds the
+           same element in the same place in the DOM, just painted
+           elsewhere on screen.
+       (3) Five nav destinations (Regional Trends / School Data Table /
+           Community Score Guide / Tutorial) ate horizontal space the
+           topbar doesn't have at this width. Collapsed into one "···"
+           toggle (#nav-more-btn) that shows/hides the same #nav-links-wrap
+           already wrapping them in the HTML -- again, the links themselves
+           never move in the DOM, so nothing that references them by ID
+           needs to know this happened. */
+  @media (max-width: 700px) {
+    body { position: relative; }
+    header.topbar { order: 1; }
+    .chapter-chips { order: 1; }
+    #region-banner { order: 3; }
+    .map-wrap {
+      order: 2;
+      flex: 0 0 62vh;
+      min-height: 62vh;
+    }
+
+    /* --- (3) nav overflow menu --- */
+    .nav-more-btn {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      line-height: 1;
+      background: none;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 4px 10px;
+      cursor: pointer;
+      color: var(--ink);
+      margin-left: auto;
+    }
+    .nav-links-wrap {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 14px;
+      z-index: 1200;
+      flex-direction: column;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(26,24,20,0.18);
+      min-width: 220px;
+      padding: 6px;
+    }
+    .topbar.nav-open .nav-links-wrap { display: flex; }
+    .nav-links-wrap .nav-link {
+      margin-left: 0 !important;
+      text-align: left;
+      padding: 10px 12px;
+      width: 100%;
+    }
+
+    /* --- (1) filters/timeline bottom sheet --- */
+    .mobile-filters-btn {
+      display: block;
+      position: absolute;
+      /* top-right, not bottom-right -- the map legend already occupies
+         bottom-right (Leaflet's own 'bottomright' control position) and a
+         390px-wide map has no room for both side by side. */
+      right: 12px;
+      top: 12px;
+      z-index: 900;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      border-radius: 20px;
+      padding: 9px 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(26,24,20,0.2);
+    }
+    .timeline-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      max-height: 75vh;
+      overflow-y: auto;
+      z-index: 1500;
+      background: var(--paper);
+      border-top: 2px solid var(--rule);
+      box-shadow: 0 -6px 20px rgba(26,24,20,0.2);
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+      padding-bottom: max(14px, env(safe-area-inset-bottom));
+    }
+    .timeline-bar.mobile-open { transform: translateY(0); }
+    /* Every child row (.tl-toprow's own sub-rows, .tl-row scrubbers)
+       already wraps via flex-wrap from the earlier compaction pass -- the
+       overflow was never that these couldn't wrap, it's that nothing
+       capped .timeline-bar's own width so they never had to. Constraining
+       the sheet to the viewport width here is what actually makes that
+       existing wrap behavior kick in. */
+    .tl-toprow, .tl-row { max-width: 100%; }
+    /* Three elements inside .timeline-bar don't wrap even though the rows
+       around them do (measured live: .timeline-bar's own scrollWidth was
+       still 555-572px against a 390px sheet even after the fixes above).
+       .filter-cluster (METRO/REGION/POP/CENSUS TRACTS) is a plain nowrap
+       flex row with no wrap of its own; .vh-caption (the "Metric — % Real
+       Change Since Year — N places" line) has white-space:nowrap on the
+       text itself, not just the row it sits in; .tl-row (the year-scrubber
+       track + PLAY button + note) is five buttons plus label plus note all
+       on one nowrap flex line, and forcing THAT to wrap would put
+       individual year-stop buttons on their own broken-up lines, worse
+       than the row it replaces. Let it scroll horizontally within itself
+       instead -- same "row has more than fits, scroll it" pattern the top
+       pane's own chart row (.rb-pop-row) already uses elsewhere in this
+       file, not a new UX language for this page. */
+    .filter-cluster { flex-wrap: wrap; }
+    .vh-caption { white-space: normal; }
+    .tl-row { overflow-x: auto; }
+  }
 </style>
 </head>
 <body>
@@ -1736,13 +2047,35 @@
 </div>
 
 <header class="topbar">
+  <div class="brand-block">
+  <div class="brand-kicker">A Civic Data Project · Volume I</div>
   <div class="brand">Chicagoland, <em>by the numbers</em></div>
+  <div class="page-lede" id="page-lede"></div>
+</div>
+  <!-- Change 8 (2026-09-17 review): mobile-only overflow toggle for the 4
+       nav-links below. Hidden above 700px (desktop keeps the plain row).
+       Doesn't move regional-trends-btn/school-table-btn/score-guide-btn/
+       tutorial-reopen-btn in the DOM -- same elements, same IDs, same
+       listeners; .nav-links-wrap + this button only change how they're
+       SHOWN under the mobile query, so nothing that already queries them
+       by ID needs to change. -->
+  <button class="nav-more-btn" id="nav-more-btn" type="button" aria-label="More menu" title="More">···</button>
+  <div class="nav-links-wrap" id="nav-links-wrap">
   <a class="nav-link" id="regional-trends-btn" href="regional-trends.html" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;" title="Regional real income trends, 1980–2024">Regional Trends Since 1980</a>
-  <a class="nav-link" href="nwi_table.html">← table view</a>
-  <button class="nav-link" id="school-table-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;">school data table →</button>
+    <button class="nav-link" id="school-table-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;">school data table →</button>
   <button class="nav-link" id="score-guide-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;" title="How the Community Health Score is calculated">community score guide</button>
   <button class="nav-link" id="tutorial-reopen-btn" type="button" style="cursor:pointer;font-family:'JetBrains Mono',monospace;" title="Replay the welcome tour">Tutorial</button>
+  </div>
 </header>
+
+<!-- Change 10 Part B (2026-09-17 review): fixed row of chapter chips. Each
+     sets metro/region/metric/year and fits the map to that chapter's real
+     bounds (see CHAPTERS + applyChapter() below) -- not literal region-
+     filter values for chapters whose geography doesn't match one (North
+     Shore, South Side, Cicero, NWI's Route-30 split all needed real
+     custom bounds, found while verifying each of the review's 4 proposed
+     headlines against actual data before building any of this). -->
+<div class="chapter-chips" id="chapter-chips"></div>
 
 <div class="timeline-bar">
   <div class="tl-toprow">
@@ -1899,6 +2232,11 @@
   <div id="map"></div>
   <div id="hover-card"></div>
   <div class="loading" id="loading">Loading boundaries…</div>
+  <!-- Change 8: mobile-only floating toggle for the filters/timeline bottom
+       sheet (.timeline-bar becomes position:fixed off-screen at the bottom
+       under the mobile query -- see its own comment). Hidden above 700px;
+       desktop keeps .timeline-bar inline where it already was. -->
+  <button class="mobile-filters-btn" id="mobile-filters-btn" type="button">Filters &amp; Map Selector ▲</button>
 </div>
 
 <div class="compare-drawer" id="compare-drawer"></div>
@@ -1967,6 +2305,19 @@
 
       <h3>Important caveats</h3>
       <p>The score weights reflect deliberate judgment calls, not objective truth. Income trend carries the most weight (45% combined between household and per capita) because it's the most direct, legible signal of a community's trajectory — but a user who disagrees with that weight should discount the trajectory score accordingly. Crime data coverage is uneven: Chicago CCAs use a 2022–2024 average from the city's data portal; most Illinois suburbs use 2018–2019 FBI UCR data; some smaller communities have no coverage. Missing components are handled by proportional re-weighting rather than being counted as zero.</p>
+      <h3>How the income statistics are defined</h3>
+      <table class="meth-table">
+        <thead><tr><th>Statistic</th><th>What it means</th></tr></thead>
+        <tbody>
+        <tr><td><strong>Per Capita Income</strong><div class="meth-formula">Total aggregate income ÷ Total population</div></td><td>The average income for every resident — including children, retirees, and non-earners. Because it divides by <em>everyone</em>, it runs lower than household measures, but it gives the truest single number for a community's overall economic output per person.<div class="meth-src">Census Table B19301 · 2024 inflation-adjusted dollars</div></td></tr>
+        <tr><td><strong>Median Household Income</strong><div class="meth-formula">The middle value among all households</div></td><td>Half of households in the community earn more than this amount; half earn less. This measure includes the income of every person living together at one address — whether related or not — and is the most commonly cited income statistic in American civic data.<div class="meth-src">Census Table B19013 · 2024 inflation-adjusted dollars</div></td></tr>
+        <tr><td><strong>Median Family Income</strong><div class="meth-formula">The middle value among households of two or more related people</div></td><td>Like median household income, but limited to family households — those with two or more people related by birth, marriage, or adoption. Excludes people living alone or with roommates. Almost always higher than median household income.<div class="meth-src">Census Table B19113 · 2024 inflation-adjusted dollars</div></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Coverage &amp; sources</h3>
+      <p class="meth-note">This volume covers every Census-designated municipality across the seven Illinois Chicagoland counties (Cook, DuPage, Kane, Kendall, Lake, McHenry, Will) and the three Indiana NWI counties (Lake, Porter, LaPorte) with a population of 4,000 or more, plus all 77 Chicago community areas. Suburb data is pulled directly from the U.S. Census Bureau's American Community Survey (2020–2024 5-Year Estimates). Chicago community area data is sourced from the Chicago Metropolitan Agency for Planning's (CMAP) 2025 Community Data Snapshots, which aggregate the same ACS variables by community area. Median family income is not published by CMAP at the community-area level and appears blank for Chicago entries. Westville (LaPorte County, IN) is excluded from display: the Westville Correctional Facility houses a large incarcerated population that the Census counts as residents, producing per-capita income, age, and education figures not comparable to ordinary civilian communities. Pines (Porter County, IN) is omitted because the Census Bureau suppresses estimates for places of its size due to insufficient sample.</p>
+
       <p class="meth-note">All income figures are inflation-adjusted to 2024 dollars. School quality data sourced from US News &amp; World Report (2026-2027 Best High Schools rankings), Niche, and the Illinois State Board of Education's Illinois Report Card (SAT scores, 2024 administration — the last year SAT was Illinois' mandatory state test before the switch to the ACT Suite). Score is recomputed from source data each time the map loads — it is not stored in the dataset.</p>
     </div>
   </div>
@@ -2511,6 +2862,13 @@
     d.population_change_pct_10_24 = popChg(d.population_2010, d.population);
     d.population_change_pct_00_10 = popChg(d.population_2000, d.population_2010);
     d.population_change_pct_20_24 = popChg(d.population_2020, d.population);
+    // Change 10 Part B (2026-09-17 review): added for the "South Side lost
+    // a third of its people" chapter chip -- true only from a 1980
+    // baseline (-33.0% for the 32 standard South Side CCAs; only -4.4%
+    // from 2010), and no _80_24 variant existed despite population_1980
+    // being real, populated data on these same records. Same popChg helper
+    // and naming convention as the three siblings just above.
+    d.population_change_pct_80_24 = popChg(d.population_1980, d.population);
 
     // Bachelor's degree pp-change over time
     d.pct_bachelors_chg_10_24 = d.pct_bachelors != null && d.pct_bachelors_2010 != null
@@ -2595,6 +2953,34 @@
   function rgbStr(c) { return `rgb(${c[0]},${c[1]},${c[2]})`; }
   function lerpRgb(a, b, t) {
     return [lerp(a[0],b[0],t), lerp(a[1],b[1],t), lerp(a[2],b[2],t)];
+  }
+
+  // Change 5 (2026-09-17 review): race-share metrics get their own ramp,
+  // not the red/yellow/blue COLORS above -- that scale reads as good/bad
+  // (income, community health), so a suburb whose Black share fell rendered
+  // alarm-red and one where it rose rendered "good" blue, an editorial
+  // claim the project doesn't intend to make. Level: single-hue sequential
+  // (just a share of population, no direction implied). Change: a neutral
+  // two-hue divergence in the same family (brown <-> cream <-> plum) so it
+  // reads as "this map's race palette," not a second copy of the health/
+  // income ramp. RdYlBu itself is kept for every non-race metric.
+  const RACE_LEVEL_COLORS  = { low: [247, 244, 239], high: [74, 58, 107] };   // #F7F4EF -> #4A3A6B
+  const RACE_CHANGE_COLORS = { low: [140, 109, 70], mid: [247, 244, 239], high: [74, 58, 107] };
+  function raceLevelColor(p) {
+    if (p == null || isNaN(p)) return '#cccccc';
+    return rgbStr(lerpRgb(RACE_LEVEL_COLORS.low, RACE_LEVEL_COLORS.high, Math.max(0, Math.min(1, p))));
+  }
+  function raceChangeColor(p) {
+    if (p == null || isNaN(p)) return '#cccccc';
+    if (p <= 0.5) return rgbStr(lerpRgb(RACE_CHANGE_COLORS.low, RACE_CHANGE_COLORS.mid, p / 0.5));
+    return rgbStr(lerpRgb(RACE_CHANGE_COLORS.mid, RACE_CHANGE_COLORS.high, (p - 0.5) / 0.5));
+  }
+  // Dispatcher every color-computation call site should use instead of
+  // calling colorFromPercentile directly, so a race metric never falls
+  // through to the valenced ramp by omission.
+  function metricColorFromPercentile(m, p) {
+    if (RACE_PCT_METRICS.has(m)) return isChangeMetric(m) ? raceChangeColor(p) : raceLevelColor(p);
+    return colorFromPercentile(p);
   }
 
   /* ===== Community Classification constants ===== */
@@ -2682,6 +3068,26 @@
   DATA.forEach(d => {
     if (d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
     d.bivariate_level = bivariateLevelTier(d.median_hh_income);
+  });
+
+  // implementation_brief.md #11 "bivariate_trend on topcoded records":
+  // add_bivariate_level_trend.py derives the trend tier by differencing
+  // mhi_history[2] (2010) against mhi_history[3] (2024). ACS's own topcode
+  // sentinel (a real median above $250,000 reports as exactly 250001 --
+  // see fmtLabel's "$250,000+" handling above) makes that diff meaningless
+  // whenever either endpoint is capped: Winnetka reads "declining_severe"
+  // purely because a capped 2024 figure is differenced against an
+  // uncapped, lower 2010 one, not because its income actually fell. Null
+  // it out here rather than in the Python source (no pipeline re-run, no
+  // risk of the destructive-script chain CLAUDE.md warns about) so every
+  // consumer -- tooltip, choropleth outline, legend breakdown counts --
+  // falls back to its existing "trend unknown" path for free, the same
+  // path a genuinely-missing-history record already takes.
+  DATA.forEach(d => {
+    if (d.region === 'Chicago Tract' || d.region === 'Suburban Tract') return;
+    const hist = d.mhi_history;
+    if (!hist || hist.length < 4) return;
+    if (hist[2] === 250001 || hist[3] === 250001) d.bivariate_trend = null;
   });
 
   // Trend outline — rising/flat share the map's default border (no special
@@ -2928,6 +3334,46 @@
     if (p == null || isNaN(p)) return '#cccccc';
     if (p <= 0.5) return rgbStr(lerpRgb(COLORS.low, COLORS.mid, p / 0.5));
     return rgbStr(lerpRgb(COLORS.mid, COLORS.high, (p - 0.5) / 0.5));
+  }
+
+  // Change 4 (2026-09-17 review): a 45°-hatched swatch for "no data" in the
+  // generic continuous-gradient branch, so a place with no value for the
+  // current metric reads as an honest, visible gap -- not the old #cccccc
+  // at fillOpacity 0.15 (near-invisible, indistinguishable from
+  // unincorporated land, no legend entry). The main polygon layer renders
+  // on <canvas> (preferCanvas:true, see map init), so a CSS/SVG
+  // `url(#pattern)` fill isn't available here -- built as a real
+  // CanvasPattern instead, which Leaflet's canvas renderer accepts
+  // anywhere a fillColor string would go.
+  const NO_DATA_FILL = (() => {
+    const size = 8;
+    const tile = document.createElement('canvas');
+    tile.width = size; tile.height = size;
+    const tctx = tile.getContext('2d');
+    tctx.fillStyle = '#EDEAE4';
+    tctx.fillRect(0, 0, size, size);
+    tctx.strokeStyle = 'rgba(26,24,20,0.35)';
+    tctx.lineWidth = 1.5;
+    // 45° diagonal hatch -- extra short segments at the corners so the
+    // line continues unbroken across tile boundaries when repeated.
+    tctx.beginPath();
+    tctx.moveTo(0, size); tctx.lineTo(size, 0);
+    tctx.moveTo(-1, 1);   tctx.lineTo(1, -1);
+    tctx.moveTo(size - 1, size + 1); tctx.lineTo(size + 1, size - 1);
+    tctx.stroke();
+    return tctx.createPattern(tile, 'repeat');
+  })();
+
+  // Change 3 (2026-09-17 review): a change/delta metric's neutral point is
+  // real zero (no change), not the median of whatever's currently visible.
+  // The old rank-based percentile put "neutral yellow" wherever the middle
+  // town happened to land -- e.g. +18.8 points on Community Health Score
+  // change, which rendered a town that GAINED 15 points as red. Detected by
+  // timelineMode (the "% Change Since" scrubber) or by the metric's own
+  // name, so a metric that is inherently a change/delta (e.g. age_change)
+  // gets the same treatment even outside Timeline B.
+  function isChangeMetric(m) {
+    return timelineMode === 'change' || m.includes('_change');
   }
 
   // Metrics where lower values are better for the typical resident /
@@ -3266,6 +3712,20 @@
         // until Austin (Barton Creek, Rollingwood), which is why it wasn't
         // needed until 2026-09-14.
         if (v === 2000001) return '$2,000,000+';
+        // implementation_brief.md #11 "Disposable income": these two
+        // fields (never disposable_median_hh_income, which subtracts the
+        // same population-wide housing cost from a population-wide income
+        // figure and never goes negative) divide/restrict to a narrower
+        // subpopulation -- family households, or income ÷ household size
+        // -- that in a handful of heavily-renter tracts (all Austin pilot,
+        // 2 tracts as of this writing) isn't the same population the
+        // housing-cost blend was computed over. A negative result there
+        // isn't a real "spends more than it earns" finding, it's two
+        // mismatched subpopulations netted against each other -- an
+        // honest "not measurable" beats a nonsense negative dollar figure.
+        if (v < 0 && (metric === 'disposable_median_family_income' || metric === 'disposable_per_capita_income')) {
+          return 'not measurable';
+        }
         if (v >= 1_000_000) return '$' + (v / 1e6).toFixed(1) + 'M';
         if (v >= 1000)      return '$' + Math.round(v / 1000) + 'K';
         return '$' + Math.round(v);
@@ -3297,9 +3757,14 @@
       case 'total_income':        return '$' + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(1));
       case 'gross_rent':
       default: // money (incl. disposable + home value + tax + rent + housing)
-        // Same ACS topcode sentinels as fmtLabel() above -- see those comments.
+        // Same ACS topcode sentinels, and the same disposable-income
+        // population-mismatch suppression, as fmtLabel() above -- see
+        // those comments.
         if (v === 250001) return '$250,000+';
         if (v === 2000001) return '$2,000,000+';
+        if (v < 0 && (metric === 'disposable_median_family_income' || metric === 'disposable_per_capita_income')) {
+          return 'not measurable';
+        }
         return '$' + Math.round(v).toLocaleString();
     }
   }
@@ -3599,7 +4064,7 @@
     median_hh_income:  {1980:'mhi_change_pct_80_24', 1990:'mhi_change_pct_90_24', 2000:'mhi_change_pct', 2010:'mhi_change_pct_10_24', 2020:'mhi_change_pct_20_24'},
     avg_household_income: {2000:'avg_household_income_change_pct', 2010:'avg_household_income_change_pct_10_24'},
     median_age:        {1980:'age_change_80_24',     1990:'age_change_90_24',     2000:'age_change',     2010:'age_change_10_24',    2020:'age_change_20_24'},
-    population:        {2000:'population_change_pct_00_24', 2010:'population_change_pct_10_24', 2020:'population_change_pct_20_24'},
+    population:        {1980:'population_change_pct_80_24', 2000:'population_change_pct_00_24', 2010:'population_change_pct_10_24', 2020:'population_change_pct_20_24'},
     pct_hispanic: {1980:'pct_hispanic_chg_80_24', 1990:'pct_hispanic_chg_90_24', 2000:'pct_hispanic_chg_00_24', 2010:'pct_hispanic_chg_10_24', 2020:'pct_hispanic_chg_20_24'},
     pct_white_nh: {1980:'pct_white_nh_chg_80_24', 1990:'pct_white_nh_chg_90_24', 2000:'pct_white_nh_chg_00_24', 2010:'pct_white_nh_chg_10_24', 2020:'pct_white_nh_chg_20_24'},
     pct_black_nh: {1980:'pct_black_nh_chg_80_24', 1990:'pct_black_nh_chg_90_24', 2000:'pct_black_nh_chg_00_24', 2010:'pct_black_nh_chg_10_24', 2020:'pct_black_nh_chg_20_24'},
@@ -3733,7 +4198,7 @@
     const COLS = Object.keys(YEAR_FIELDS)
       .map(yr => ({yr, f: k => YEAR_FIELDS[yr][k], pop: rec[POP_FIELDS[yr]]}))
       .filter(c => RG.some(g => rec[c.f(g.k)] != null));
-    if (COLS.length < 2) return '';
+    if (COLS.length < 2) return emptyChartState(null, chartThinReason(rec, COLS.length));
     // Same compact-pane geometry reduction as barChartGeometry() (2026-09-03,
     // UX audit item 3) -- this chart doesn't call that shared function (its
     // bar height encodes total population, not a per-group count/share, a
@@ -3848,6 +4313,42 @@
   // Each chart function still owns its own data shaping, colors, and label
   // formatting -- only the mechanical SVG-string assembly is shared.
 
+  // Change 7 (2026-09-17 review): every trend-chart function used to
+  // `return ''` when it had fewer than 2 real data points to plot --
+  // notably killing the % Bachelor's+ chart for every one of the 1,585
+  // tract records (pct_bachelors_2010/_2020 were never backfilled at tract
+  // level, confirmed: 0/1585 have either field, so COLS.length is always
+  // exactly 1 there) and leaving Lake Eliza IN, Bonnie Brae IL and a
+  // handful of other thin-history places with a silent gap in the row. A
+  // blank area with no explanation reads as broken, not as "no data here."
+  // This renders a small labelled placeholder instead, roughly matching a
+  // real chart's footprint so the row doesn't visibly jump, with a reason
+  // string each call site supplies based on what it actually knows about
+  // why the data's thin (structural absence vs. a genuinely sparse record).
+  // Shared reason for the history-trend charts (mhi/age/avg-household-income/
+  // race) that CAN have 2+ tract-level checkpoints -- unlike % Bachelor's+
+  // above, these fields were genuinely backfilled at tract level this
+  // project (2000/2010 Decennial+ACS, see fetch_tract_income_age_history.py
+  // etc.), so a thin record isn't "not available at tract level" as a
+  // blanket claim -- it's this specific tract's own 2000/2010-vintage
+  // boundary not cleanly matching a current one (same documented, honest
+  // limitation as Austin's tracts -- real, not a bug, not fabricable).
+  function chartThinReason(rec, colsLength) {
+    const isTract = rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract';
+    if (colsLength === 0) return 'No data on record.';
+    if (isTract) return 'Only one year on record for this tract — its boundary has changed too much since 2000/2010 to match cleanly.';
+    return 'Only one checkpoint available — can\'t chart a trend from a single point.';
+  }
+
+  function emptyChartState(title, reason) {
+    const w = 130, h = 78;
+    return (title ? `<div class="rb-chart-title">${title}</div>` : '') +
+      `<div class="sp-race-spark rb-chart-empty" style="width:${w}px;height:${h}px;` +
+      `display:flex;align-items:center;justify-content:center;text-align:center;` +
+      `font-size:10px;line-height:1.3;color:var(--ink-faint);font-style:italic;padding:4px;">` +
+      `${reason}</div>`;
+  }
+
   function barChartGeometry(colCount) {
     const compact = isCompactPane();
     const BW = compact
@@ -3940,7 +4441,13 @@
       const count = (share != null && share > 0 && pop != null && pop > 0) ? Math.round(pop * share / 100) : null;
       return { yr, share, count };
     }).filter(c => c.share != null);
-    if (COLS.length < 2) return '';
+    const groupLabel = (RACE_GROUPS.find(g => g.key === groupKey) || {}).label || groupKey;
+    // Change 7: this COLS.length<2 guard is a DIFFERENT case from the dot-
+    // without-a-bar handling below (which the 2026-09-17 review correctly
+    // left alone, already hardened) -- this one fires when fewer than 2
+    // years have a % SHARE at all, not just a missing headcount for a year
+    // that does have one. That case was still a silent '' before this fix.
+    if (COLS.length < 2) return emptyChartState(groupLabel, chartThinReason(rec, COLS.length));
 
     const geo = barChartGeometry(COLS.length);
     const color = RACE_GROUP_COLORS[groupKey] || '#5c7d8a';
@@ -3987,7 +4494,6 @@
              `fill="#ffffff" stroke="#2a2620" stroke-width="2.25" paint-order="stroke" stroke-linejoin="round">${col.share.toFixed(1)}% of Tot</text>`;
     });
 
-    const groupLabel = (RACE_GROUPS.find(g => g.key === groupKey) || {}).label || groupKey;
     return `<div class="rb-chart-title">${groupLabel}</div><div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${r}</svg></div>`;
   }
 
@@ -4023,7 +4529,7 @@
     const MHI_FIELD_LOCAL = {1980:'mhi_1980', 1990:'mhi_1990', 2000:'mhi_2000', 2010:'mhi_2010'};
     function valAt(yr) { return yr === 2024 ? rec.median_hh_income : (MHI_FIELD_LOCAL[yr] ? rec[MHI_FIELD_LOCAL[yr]] : null); }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
-    if (COLS.length < 2) return '';
+    if (COLS.length < 2) return emptyChartState(null, chartThinReason(rec, COLS.length));
 
     const geo = barChartGeometry(COLS.length);
     const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
@@ -4066,7 +4572,7 @@
     const AHI_FIELD_LOCAL = {2000:'avg_household_income_2000', 2010:'avg_household_income_2010'};
     function valAt(yr) { return yr === 2024 ? rec.avg_household_income : rec[AHI_FIELD_LOCAL[yr]]; }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
-    if (COLS.length < 2) return '';
+    if (COLS.length < 2) return emptyChartState('Avg. Household Income', chartThinReason(rec, COLS.length));
 
     const geo = barChartGeometry(COLS.length);
     const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
@@ -4109,7 +4615,7 @@
     const YEARS = [1980, 1990, 2000, 2010, 2024];
     function valAt(yr) { return yr === 2024 ? rec.median_age : (AGE_FIELD[yr] ? rec[AGE_FIELD[yr]] : null); }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
-    if (COLS.length < 2) return '';
+    if (COLS.length < 2) return emptyChartState('Median Age', chartThinReason(rec, COLS.length));
 
     const geo = barChartGeometry(COLS.length);
     const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
@@ -4139,7 +4645,17 @@
     const YEARS = [2010, 2020, 2024];
     function valAt(yr) { return yr === 2024 ? rec.pct_bachelors : rec[`pct_bachelors_${yr}`]; }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
-    if (COLS.length < 2) return '';
+    if (COLS.length < 2) {
+      // Structural, not a gap in this one record: pct_bachelors_2010/_2020
+      // were never backfilled at tract level (confirmed 0/1585 have either
+      // field) -- every Chicago/Suburban Tract record hits this, always at
+      // exactly 1 checkpoint (2024 only), never 0 or 2+.
+      const isTract = rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract';
+      return emptyChartState('% Bachelor\'s+', isTract
+        ? 'Not available at tract level (2010/2020 not backfilled for tracts).'
+        : COLS.length === 0 ? 'No % Bachelor\'s+ data on record.'
+        : 'Only one checkpoint available — can\'t chart a trend from a single point.');
+    }
 
     const geo = barChartGeometry(COLS.length);
     const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
@@ -4290,6 +4806,7 @@
 
     agg.population_change_pct_10_24 = pctChg(agg.population_2010, agg.population);
     agg.population_change_pct_20_24 = pctChg(agg.population_2020, agg.population);
+    agg.population_change_pct_80_24 = pctChg(agg.population_1980, agg.population);
     agg.mhi_change_pct_10_24 = pctChg(agg.mhi_2010, agg.median_hh_income);
     agg.mhi_change_pct       = pctChg(agg.mhi_2000, agg.median_hh_income);
     agg.avg_household_income_change_pct_10_24 = pctChg(agg.avg_household_income_2010, agg.avg_household_income);
@@ -4503,11 +5020,22 @@
       const idx  = rec.crime_index_per_1k != null ? rec.crime_index_per_1k.toFixed(1) : '—';
       const viol = rec.violent_crime_rate_per_1k != null ? rec.violent_crime_rate_per_1k.toFixed(1) : '—';
       const prop = rec.property_crime_rate_per_1k != null ? rec.property_crime_rate_per_1k.toFixed(1) : '—';
+      // implementation_brief.md #11 "Crime proxies": 93 small towns (no own
+      // police dept) carry a county sheriff's rate as a stand-in for a
+      // town-specific one -- 22 Lake County towns alone share one identical
+      // 0.4/2.81 figure. That's not wrong, but shown bare it reads as
+      // town-specific precision it doesn't have. Two uncoordinated flags
+      // mark this in the data (crime_data_is_county_estimate on 93 records,
+      // crime_data_estimated on 1 -- Calumet City, a different estimate
+      // reason); check both rather than picking one and silently missing
+      // the other, same as CLAUDE.md's "an honestly-labeled null beats an
+      // invented figure" but for precision, not existence.
+      const isEstimate = rec.crime_data_is_county_estimate || rec.crime_data_estimated;
       parts.push(
         `<div class="rb-narrative-stat">` +
-          `<div class="rb-narrative-stat-label">Crime Index</div>` +
+          `<div class="rb-narrative-stat-label">Crime Index${isEstimate ? ' <span class="rb-estimate-mark" title="County-level estimate — this town has no police department of its own, so its rate is a county sheriff figure shared with other towns in the same county, not measured for this town specifically.">†</span>' : ''}</div>` +
           `<div class="rb-narrative-stat-main">${idx} <span class="rb-narrative-stat-sub">per 1,000</span></div>` +
-          `<div class="rb-narrative-stat-detail">Violent ${viol} · Property ${prop}</div>` +
+          `<div class="rb-narrative-stat-detail">Violent ${viol} · Property ${prop}${isEstimate ? ' <span class="rb-estimate-note">— county estimate, not town-specific</span>' : ''}</div>` +
         `</div>`
       );
     }
@@ -4711,6 +5239,58 @@
   let playInterval = null;
   let metroFilter = 'Chicagoland';
   let regionFilter = 'all';
+  // Change 9 (F1-013): a place restored from a shared link's `pl` param,
+  // stashed by readUrlState (which runs early in the bootstrap) and acted
+  // on at the very end of the script once window._showPopBanner actually
+  // exists -- see readUrlState's own comment on this field for why. `let`
+  // declared here (not next to where it's first assigned) for the exact
+  // reason CHICAGOLAND_REGION_OPTIONS above already documents: a binding
+  // declared later in this same top-level script is in the temporal dead
+  // zone until its own declaration line runs, and readUrlState is CALLED
+  // (not just defined) during the early bootstrap, well before the script
+  // has executed line-by-line down to wherever this would otherwise sit.
+  let _pendingUrlPlace = null;
+  // Change 10 Part A: moved up from next to usPctChange() (its only
+  // reader) for the same TDZ reason as _pendingUrlPlace just above --
+  // refresh() is CALLED during the early bootstrap (well before the
+  // script has executed line-by-line down to where this constant used to
+  // sit), and Change 10's buildLedeSentence() calls usPctChange() from
+  // inside that same early refresh(). Same fixed reference series as
+  // regional-trends.html's US_MHI (U.S. Census Bureau / IPUMS CPS
+  // historical income, constant 2025 dollars) -- kept in sync manually
+  // since it's a small static constant, not derived from
+  // chicagoland_snippet.js.
+  const US_MHI = { 1980: 70828, 1990: 72987, 2000: 76358, 2010: 72537, 2024: 82383 };
+
+  // Chicagoland is the only metro with sub-regions right now -- the pilot
+  // metros (Rockford/Peoria/South Bend) are single-region datasets (every
+  // record's own `region` field is just its metro name). Rebuilding
+  // #region-filter's options per metro, rather than leaving Chicagoland's
+  // fixed North/West/etc. list showing regardless of metro, matters
+  // concretely: those values don't match any pilot-metro record's region,
+  // so picking one while on a pilot metro would silently empty the map.
+  //
+  // Declared here (not next to updateRegionFilterOptions() below, where it
+  // used to live) because readUrlState() -- called early in the bootstrap,
+  // long before this file's later sections run -- calls
+  // updateRegionFilterOptions() whenever the URL has a hash, which reads
+  // this const. A `const` declared later in the same top-level script is in
+  // the temporal dead zone until its own declaration line executes, so
+  // leaving this down by updateRegionFilterOptions() threw "Cannot access
+  // 'CHICAGOLAND_REGION_OPTIONS' before initialization" on every load of a
+  // URL with a region/metro in the hash -- silently aborting the entire
+  // bootstrap (map stuck on "Loading boundaries…", no controls wired up).
+  // Found live while verifying the shared-link case, not by inspection.
+  const CHICAGOLAND_REGION_OPTIONS =
+    '<option value="all">All</option>' +
+    '<option value="Chicago">Chicago (CCAs)</option>' +
+    '<option value="North">North</option>' +
+    '<option value="Northwest">Northwest</option>' +
+    '<option value="West">West</option>' +
+    '<option value="Southwest">Southwest</option>' +
+    '<option value="South">South</option>' +
+    '<option value="NWI">NWI (Indiana)</option>';
+
   let minPop = 500;
   let tractsView = 'off';  // 'off' (aggregate CCAs/towns) or 'on' (census tracts) — global, covers Chicago + the 11 suburbs
   let metricStats = null;    // {min,max,values,sortedVisible}
@@ -4740,6 +5320,24 @@
       return geoidToRecord[props.geoid];
     }
     return null;
+  }
+
+  // Change 2 (2026-09-17 review): plain definitional borders scale with
+  // zoom so a municipality under ~15px across isn't consumed by its own
+  // 1.5px outline at low zoom -- 0 below z9 (fill color alone reads as a
+  // band), 0.5 at z9-10, 1 at z11+. Used by styleFeature's generic branch
+  // and the two other plain-black-border branches (community_category,
+  // historical community_health_score). Deliberately NOT used by
+  // BIVARIATE_TREND_OUTLINE (its weight is semantic -- a thicker red ring
+  // means more severe decline, and that table's own comment already
+  // documents it as calibrated to hold at every zoom 7-12) or by the
+  // compare-highlight weight:3 (a deliberate emphasis that should stay
+  // bold at any zoom, not fade with everything else).
+  function zoomStrokeWeight() {
+    const z = map.getZoom();
+    if (z < 9) return 0;
+    if (z < 11) return 0.5;
+    return 1;
   }
 
   /* ===== Compute style per feature ===== */
@@ -4797,9 +5395,9 @@
       const fillOpacity = dimmed ? 0.10 : (cat ? 0.72 : 0.20);
       const baseStyle = {
         stroke:  true,
-        color:   dimmed ? '#aaa' : '#1a1814',
-        weight:  1.5,
-        opacity: dimmed ? 0.4 : 0.85,
+        color:   dimmed ? '#aaa' : 'rgba(26,24,20,0.35)',
+        weight:  zoomStrokeWeight(),
+        opacity: 1,
         fillColor,
         fillOpacity,
       };
@@ -4821,9 +5419,9 @@
       const fillOpacity = cat ? 0.72 : 0.20;
       const baseStyle = {
         stroke:  true,
-        color:   '#1a1814',
-        weight:  1.5,
-        opacity: 0.85,
+        color:   'rgba(26,24,20,0.35)',
+        weight:  zoomStrokeWeight(),
+        opacity: 1,
         fillColor,
         fillOpacity,
       };
@@ -4843,6 +5441,13 @@
       // the scrubber or how the region filter has narrowed the visible set.
       const fixedPct = _fixedScalePct(metric, v);
       if (fixedPct != null) pct = fixedPct;
+    } else if (isChangeMetric(metric) && v != null && metricStats && metricStats.sortedVisible.length > 1) {
+      // Anchor at real zero, not the visible set's median -- see
+      // isChangeMetric's comment. maxAbs is the larger of |min| and |max|
+      // across visible places, so the ramp is symmetric around 0 and a
+      // value at either extreme reaches full saturation.
+      const maxAbs = Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max)) || 1;
+      pct = 0.5 + 0.5 * Math.max(-1, Math.min(1, v / maxAbs));
     } else if (v != null && metricStats && metricStats.sortedVisible.length > 1) {
       const rank = metricStats.sortedVisible.indexOf(v);
       pct = rank / (metricStats.sortedVisible.length - 1);
@@ -4854,20 +5459,22 @@
     // Highlight pinned comparison places
     if (compareA && rec === compareA) {
       return { stroke: true, color: '#1a4fa0', weight: 3, opacity: 1,
-               fillColor: colorFromPercentile(pct), fillOpacity: v == null ? 0.15 : 0.65 };
+               fillColor: v == null ? NO_DATA_FILL : metricColorFromPercentile(metric, pct),
+               fillOpacity: v == null ? 1 : 0.65 };
     }
     if (compareB && rec === compareB) {
       return { stroke: true, color: '#8b1a1a', weight: 3, opacity: 1,
-               fillColor: colorFromPercentile(pct), fillOpacity: v == null ? 0.15 : 0.65 };
+               fillColor: v == null ? NO_DATA_FILL : metricColorFromPercentile(metric, pct),
+               fillOpacity: v == null ? 1 : 0.65 };
     }
 
     return {
       stroke:       true,
-      color:        '#1a1814',
-      weight:       1.5,
-      opacity:      0.85,
-      fillColor:    colorFromPercentile(pct),
-      fillOpacity:  v == null ? 0.15 : 0.57,
+      color:        'rgba(26,24,20,0.35)',
+      weight:       zoomStrokeWeight(),
+      opacity:      1,
+      fillColor:    v == null ? NO_DATA_FILL : metricColorFromPercentile(metric, pct),
+      fillOpacity:  v == null ? 1 : 0.57,
     };
   }
 
@@ -4933,6 +5540,29 @@
     const ctrl = document.querySelector('.map-legend');
     if (!ctrl) return;
 
+    // Change 5: the legend BAR's gradient is driven by CSS vars scoped to
+    // this element (see .map-legend .legend-bar's `background`), so a race
+    // metric can swap in its own non-valenced ramp without touching the
+    // default RdYlBu every other metric keeps. Reset unconditionally on
+    // every call so switching away from a race metric doesn't leave the
+    // override behind.
+    if (RACE_PCT_METRICS.has(metric)) {
+      if (isChangeMetric(metric)) {
+        ctrl.style.setProperty('--col-low',  rgbStr(RACE_CHANGE_COLORS.low));
+        ctrl.style.setProperty('--col-mid',  rgbStr(RACE_CHANGE_COLORS.mid));
+        ctrl.style.setProperty('--col-high', rgbStr(RACE_CHANGE_COLORS.high));
+      } else {
+        const midRace = lerpRgb(RACE_LEVEL_COLORS.low, RACE_LEVEL_COLORS.high, 0.5);
+        ctrl.style.setProperty('--col-low',  rgbStr(RACE_LEVEL_COLORS.low));
+        ctrl.style.setProperty('--col-mid',  rgbStr(midRace));
+        ctrl.style.setProperty('--col-high', rgbStr(RACE_LEVEL_COLORS.high));
+      }
+    } else {
+      ctrl.style.removeProperty('--col-low');
+      ctrl.style.removeProperty('--col-mid');
+      ctrl.style.removeProperty('--col-high');
+    }
+
     const titleEl = document.getElementById('legend-title');
     if (titleEl) {
       titleEl.textContent = (METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric) + metricTimeSuffix(metric);
@@ -4948,6 +5578,8 @@
       document.querySelector('.map-legend .legend-scale').style.display  = 'none';
       const noteEl0 = document.getElementById('legend-note');
       if (noteEl0) noteEl0.style.display = 'none';
+      const nodataEl0 = document.getElementById('legend-nodata');
+      if (nodataEl0) nodataEl0.style.display = 'none';
       const catListEl = ctrl.querySelector('.legend-cat-list-wrap');
       if (catListEl) catListEl.innerHTML = '';
 
@@ -5056,6 +5688,8 @@
       document.querySelector('.map-legend .legend-scale').style.display  = 'none';
       const noteElHist = document.getElementById('legend-note');
       if (noteElHist) noteElHist.style.display = 'none';
+      const nodataElHist = document.getElementById('legend-nodata');
+      if (nodataElHist) nodataElHist.style.display = 'none';
       const gridElHist = ctrl.querySelector('.legend-biv-grid-wrap');
       if (gridElHist) gridElHist.innerHTML = '';
 
@@ -5107,6 +5741,8 @@
       document.querySelector('.map-legend .legend-scale').style.display  = 'none';
       const noteEl = document.getElementById('legend-note');
       if (noteEl) noteEl.style.display = 'none';
+      const nodataEl = document.getElementById('legend-nodata');
+      if (nodataEl) nodataEl.style.display = 'none';
       const gridElExisting = ctrl.querySelector('.legend-biv-grid-wrap');
       if (gridElExisting) gridElExisting.innerHTML = '';
 
@@ -5178,6 +5814,8 @@
     document.querySelector('.map-legend .legend-scale').style.display  = '';
     const noteEl = document.getElementById('legend-note');
     if (noteEl) noteEl.style.display = '';
+    const nodataEl = document.getElementById('legend-nodata');
+    if (nodataEl) nodataEl.style.display = '';
     const listWrap = ctrl.querySelector('.legend-cat-list-wrap');
     if (listWrap) listWrap.innerHTML = '';
     const gridWrap = ctrl.querySelector('.legend-biv-grid-wrap');
@@ -5196,7 +5834,11 @@
         document.getElementById('legend-mid').textContent  = fmtVal(metric, _fixedScaleValueAt(metric, 0.5));
         document.getElementById('legend-high').textContent = fmtVal(metric, sorted[sorted.length - 1]);
       }
-      if (noteEl) noteEl.textContent = 'Fixed scale, ranked within the 2000 distribution — same shade for the same value in every year and filter.';
+      if (noteEl) {
+        noteEl.textContent = RACE_PCT_METRICS.has(metric)
+          ? 'Share of population. Fixed scale, ranked within the 2000 distribution — same shade for the same value in every year and filter.'
+          : 'Fixed scale, ranked within the 2000 distribution — same shade for the same value in every year and filter.';
+      }
       return;
     }
 
@@ -5206,6 +5848,20 @@
     // otherwise always format as dollars even though metricStats holds %
     // change values here, since fmtVal's dollar branch is its fallback.
     const legendField = resolvedField(metric, selectedYear);
+    // Change 3: a change/delta metric's midpoint is real zero (no change),
+    // matching styleFeature's isChangeMetric branch -- not the median of
+    // whatever's currently visible, which used to mislabel the neutral
+    // point (e.g. "+18.8" for Community Health Score change).
+    if (isChangeMetric(metric)) {
+      const maxAbs = Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max));
+      const lo = LOWER_IS_BETTER.has(metric) ? maxAbs : -maxAbs;
+      const hi = LOWER_IS_BETTER.has(metric) ? -maxAbs : maxAbs;
+      document.getElementById('legend-low').textContent  = fmtVal(legendField, lo);
+      document.getElementById('legend-mid').textContent  = fmtVal(legendField, 0);
+      document.getElementById('legend-high').textContent = fmtVal(legendField, hi);
+      if (noteEl) noteEl.textContent = 'Anchored at 0 (no change), not ranked — a value at either edge is the largest change among visible places.';
+      return;
+    }
     // For flipped metrics, the red end is HIGH and green end is LOW,
     // so swap the labels so the bar reads correctly under the gradient.
     if (LOWER_IS_BETTER.has(metric)) {
@@ -5260,11 +5916,73 @@
     if (typeof syncRecoveringLayer === 'function') syncRecoveringLayer();
     updateLegend();
     updateViewHeader(visibleCount);
+    updateLede();
     writeUrlState();
     // Rebuild the open hover card's content (not just its position) so
     // switching metrics/years while the mouse stays parked over a town
     // doesn't leave it showing a stale value under the new legend/color.
     if (_hoveredRec) hoverCardEl.innerHTML = buildHoverCard(_hoveredRec);
+    // Change 9 (2026-09-17 review, F1-015): the compare drawer used to only
+    // render once, at the moment the second pick completed the pair --
+    // changing the metric or year dropdown while it stayed open left it
+    // showing whatever was true at pick time, not the metric actually on
+    // screen. renderCompareDrawer is otherwise a plain function (not itself
+    // guarded on compareA/compareB), so the same guard pinPlace's own
+    // "both picked" branch uses is repeated here.
+    if (compareA && compareB) renderCompareDrawer();
+  }
+
+  // Change 10 Part A (2026-09-17 review): the real lede, restated live for
+  // whatever metro/region/metric/year is currently selected -- previously
+  // the only place this page asserted anything was the 16-step tutorial,
+  // which vanishes permanently on dismiss (see the review's own framing:
+  // "the product's point of view survives exactly as long as its
+  // onboarding"). median_hh_income change gets its own branch because
+  // it's the one metric this project has a real, verified, apples-to-
+  // apples U.S. comparison for (US_MHI, used by the tutorial's own step 0
+  // already) -- generalized here to whatever scope/baseline is selected
+  // instead of hardcoded to Chicagoland since 2010. Every other metric
+  // falls back to a plain "<metric> across <scope>: <value>" statement,
+  // reusing metricTimeSuffix so the wording matches the legend/view-header
+  // titles instead of inventing a third phrasing convention.
+  function buildLedeSentence() {
+    const agg = buildRegionAggregateRec(regionFilter);
+    if (!agg) return '';
+    const scope = agg.name;
+    const rf = resolvedField(metric, selectedYear);
+    const val = agg[rf];
+    const metricLabel = METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric;
+
+    if (val == null) {
+      return `<strong>${metricLabel}</strong> — no aggregate figure available for <strong>${scope}</strong> right now.`;
+    }
+
+    if (metric === 'median_hh_income' && isChangeMetric(metric)) {
+      const usChg = usPctChange(selectedYear, 2024);
+      if (usChg != null) {
+        const verb = val >= 0 ? 'grown' : 'fallen';
+        // The "vs the U.S." clause only needs to exist when it adds
+        // information beyond the two numbers just stated -- for a real
+        // decline (val <= 0) while the U.S. grew, that contrast is already
+        // obvious from "fallen X%" next to "U.S. grew Y%" without a third
+        // redundant clause restating it.
+        let cmp = '';
+        if (val > 0 && usChg > val) cmp = ` — roughly ${(usChg / val).toFixed(1)}x faster`;
+        else if (val > 0 && usChg <= val) cmp = ` — roughly ${(val / usChg).toFixed(1)}x faster than the U.S`;
+        return `Real household income across <strong>${scope}</strong> has ${verb} ` +
+               `<strong>${Math.abs(val).toFixed(1)}%</strong> since ${selectedYear}. ` +
+               `The U.S. overall grew <strong>${usChg.toFixed(1)}%</strong>${cmp}.`;
+      }
+    }
+
+    const suffix = metricTimeSuffix(metric).replace(/^ — /, '');
+    const formatted = fmtVal(rf, val);
+    return `<strong>${metricLabel}</strong> across <strong>${scope}</strong>: <strong>${formatted}</strong>` +
+           (suffix ? ` (${suffix})` : '') + '.';
+  }
+  function updateLede() {
+    const el = document.getElementById('page-lede');
+    if (el) el.innerHTML = buildLedeSentence();
   }
 
   function updateViewHeader(visibleCount) {
@@ -5317,10 +6035,18 @@
     _suppressNextMapClick = true;
     _activeSidePaneRec = rec;
     if (window._showPopBanner) window._showPopBanner(rec);
+    // Change 9 (F1-013): push, not replace -- opening a specific place is a
+    // real navigation, and the guard on typeof writeUrlState keeps this
+    // safe to call from readUrlState's own restoration path (see below),
+    // which runs before this function's own later declaration would
+    // otherwise matter (function hoisting already covers that in practice,
+    // the guard is just defensive).
+    if (typeof writeUrlState === 'function') writeUrlState(true);
   }
   function closeSidePane() {
     _activeSidePaneRec = null;
     if (window._restoreRegionBanner) window._restoreRegionBanner();
+    if (typeof writeUrlState === 'function') writeUrlState(true);
   }
   document.getElementById('rb-cmp-btn').addEventListener('click', () => {
     if (!_activeSidePaneRec) return;
@@ -5426,18 +6152,24 @@
   function buildHoverCard(rec) {
     const rf = resolvedField(metric, selectedYear);
     const val = rec[rf];
-    // Compute percentile-based color for the metric value
+    // Compute percentile-based color for the metric value -- same
+    // isChangeMetric zero-anchor as styleFeature/updateLegend (Change 3),
+    // so the hover card's number isn't colored by a different rule than
+    // the polygon it's hovering over.
     let valColor = 'var(--ink)';
     if (val != null && metricStats && metricStats.sortedVisible.length > 1) {
-      const sv = metricStats.sortedVisible;
-      let lo = 0, hi = sv.length;
-      while (lo < hi) { const mid = (lo + hi) >> 1; if (sv[mid] < val) lo = mid + 1; else hi = mid; }
-      let pct = lo / (sv.length - 1);
+      let pct;
+      if (isChangeMetric(metric)) {
+        const maxAbs = Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max)) || 1;
+        pct = 0.5 + 0.5 * Math.max(-1, Math.min(1, val / maxAbs));
+      } else {
+        const sv = metricStats.sortedVisible;
+        let lo = 0, hi = sv.length;
+        while (lo < hi) { const mid = (lo + hi) >> 1; if (sv[mid] < val) lo = mid + 1; else hi = mid; }
+        pct = lo / (sv.length - 1);
+      }
       if (LOWER_IS_BETTER.has(metric)) pct = 1 - pct;
-      const rgb = pct <= 0.5
-        ? lerpRgb(COLORS.low, COLORS.mid, pct / 0.5)
-        : lerpRgb(COLORS.mid, COLORS.high, (pct - 0.5) / 0.5);
-      valColor = `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+      valColor = metricColorFromPercentile(metric, pct);
     }
     // Race change metrics use the 0.0%;[red](0.0%) convention: negatives red, positives ink.
     if (metric.includes('_chg_')) valColor = (val != null && val < 0) ? '#c0392b' : 'var(--ink)';
@@ -5912,6 +6644,10 @@
   map.on('zoomend', applyZoomClass);
   applyZoomClass();
 
+  // Change 2: restyle every polygon on zoom so border weight (zoomStrokeWeight)
+  // actually updates live while panning/zooming, not just on the next refresh().
+  map.on('zoomend', () => { if (geoLayer) geoLayer.setStyle(styleFeature); });
+
   // Restore state from URL hash (Phase 3B) — must run before the first
   // refresh() call below, since refresh() itself writes the hash right back
   // out via writeUrlState(): calling refresh() first would overwrite a
@@ -5925,15 +6661,16 @@
   refresh();
   _mark('bootstrap-6-refresh-end');
 
-  // Fit map to all visible polygons -- skipped when a region was just
-  // restored from the URL hash above, since that already zoomed to the
-  // region's own bounds and this would immediately zoom back out to the
-  // full extent, undoing it.
+  // Fit map to the active metro -- skipped when a specific region was just
+  // restored from the URL hash above, since readUrlState already zoomed to
+  // that region's own bounds via zoomToRegion and this would immediately
+  // zoom back out, undoing it. zoomToMetro (not a raw geoLayer.getBounds()
+  // fit across every polygon) so this respects the active metro filter --
+  // fitting to literally everything spanned Chicagoland through Austin TX
+  // and Jamestown NY, which is why the map used to boot centered on
+  // Tennessee at zoom 5 instead of Chicagoland at zoom 8.
   if (regionFilter === 'all') {
-    try {
-      const b = geoLayer.getBounds();
-      if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
-    } catch (_) {}
+    zoomToMetro(metroFilter);
   }
   _mark('bootstrap-7-fitBounds-done');
 
@@ -5941,6 +6678,32 @@
   _mark('bootstrap-8-loading-hidden');
 
   /* ===== Wire up controls ===== */
+
+  // Change 8: mobile nav overflow menu + filters bottom sheet toggles.
+  // Both buttons are display:none above 700px (see their CSS), so these
+  // listeners are inert on desktop -- harmless to wire up unconditionally.
+  const navMoreBtn = document.getElementById('nav-more-btn');
+  if (navMoreBtn) {
+    navMoreBtn.addEventListener('click', () => {
+      document.querySelector('.topbar').classList.toggle('nav-open');
+    });
+    // Close the dropdown on an outside tap/click, same pattern the
+    // tutorial overlay and other dismissible UI in this file already use.
+    document.addEventListener('click', e => {
+      const topbarEl = document.querySelector('.topbar');
+      if (topbarEl.classList.contains('nav-open') && !topbarEl.contains(e.target)) {
+        topbarEl.classList.remove('nav-open');
+      }
+    });
+  }
+  const mobileFiltersBtn = document.getElementById('mobile-filters-btn');
+  if (mobileFiltersBtn) {
+    const tlBar = document.querySelector('.timeline-bar');
+    mobileFiltersBtn.addEventListener('click', () => {
+      const open = tlBar.classList.toggle('mobile-open');
+      mobileFiltersBtn.textContent = open ? 'Filters & Map Selector ▼' : 'Filters & Map Selector ▲';
+    });
+  }
 
   // Sync the single metric dropdown to the current metric value.
   function syncDropdowns() {
@@ -6117,16 +6880,22 @@
   // Initialize scrubber state for the default metric
   updateScrubberAvailability();
 
-  // Zooms the live map to the given region's towns (or the full extent when
-  // regionKey is null/falsy/'all'). Excludes Chicago/Suburban Tract detail
-  // records (same exclusion buildRegionAggregateRec's regionMemberRecs uses)
-  // so granular tract polygons don't distort the bounds.
+  // Zooms the live map to the given region's towns (or the active metro's
+  // full extent when regionKey is null/falsy/'all'). Excludes Chicago/
+  // Suburban Tract detail records (same exclusion buildRegionAggregateRec's
+  // regionMemberRecs uses) so granular tract polygons don't distort the
+  // bounds. Always constrained to the active metro (metroFilter) in
+  // addition to regionKey -- without this, a falsy regionKey (tutorial
+  // dismiss, or any step with no specific region) fit to every polygon
+  // across every metro, the same Tennessee-centered-view bug fixed for the
+  // bootstrap above, just triggered from a different call site.
   function zoomToRegion(regionKey) {
     if (!geoLayer) return;
     const bounds = L.latLngBounds([]);
     geoLayer.eachLayer(layer => {
       const rec = recordForFeature(layer.feature);
       if (!rec || rec.region === 'Chicago Tract' || rec.region === 'Suburban Tract') return;
+      if (metroFilter && metroFilter !== 'all' && rec.metro !== metroFilter) return;
       if (regionKey && regionKey !== 'all' && rec.region !== regionKey) return;
       bounds.extend(layer.getBounds());
     });
@@ -6148,23 +6917,8 @@
     if (bounds.isValid()) map.fitBounds(bounds, { padding: [20, 20] });
   }
 
-  // Chicagoland is the only metro with sub-regions right now -- the pilot
-  // metros (Rockford/Peoria/South Bend) are single-region datasets (every
-  // record's own `region` field is just its metro name). Rebuilding
-  // #region-filter's options per metro, rather than leaving Chicagoland's
-  // fixed North/West/etc. list showing regardless of metro, matters
-  // concretely: those values don't match any pilot-metro record's region,
-  // so picking one while on a pilot metro would silently empty the map.
-  const CHICAGOLAND_REGION_OPTIONS =
-    '<option value="all">All</option>' +
-    '<option value="Chicago">Chicago (CCAs)</option>' +
-    '<option value="North">North</option>' +
-    '<option value="Northwest">Northwest</option>' +
-    '<option value="West">West</option>' +
-    '<option value="Southwest">Southwest</option>' +
-    '<option value="South">South</option>' +
-    '<option value="NWI">NWI (Indiana)</option>';
-
+  // CHICAGOLAND_REGION_OPTIONS is declared earlier (near metroFilter/
+  // regionFilter) -- see the comment there for why.
   function updateRegionFilterOptions(metroKey) {
     const sel = document.getElementById('region-filter');
     if (metroKey === 'Chicagoland') {
@@ -6219,12 +6973,31 @@
   });
 
   /* ===== URL State (Phase 3B) ===== */
-  function writeUrlState() {
+  // Change 9 (2026-09-17 review, F1-013): two gaps in one function. (1) The
+  // hash schema had no field for which specific place's side pane is open
+  // -- refresh() calls this on every metric/region/year tweak, so THOSE
+  // always were reflected, but clicking a town or picking one from search
+  // never updated the URL at all, so a copied link could restore the right
+  // filters and still land on nothing selected. Added `pl` (the record's
+  // own geoid, already the stable unique ID used throughout this file).
+  // (2) Every call used replaceState, so there was never a browser-history
+  // checkpoint to come back to -- Back from any state change went straight
+  // past the whole session to wherever the user was before loading the
+  // page at all. Fixed narrowly, not by switching every call to pushState
+  // (that would spam one history entry per slider tick/dropdown change,
+  // trading one bug for a worse one) -- callers now choose: a real
+  // navigation (opening or closing a specific place) pushes one entry;
+  // continuous filter/metric/year churn keeps replacing the current one,
+  // same as before.
+  function writeUrlState(push) {
     const p = new URLSearchParams({
       m: metric, y: selectedYear, tm: timelineMode,
       mt: metroFilter, r: regionFilter, p: minPop, c: tractsView,
     });
-    history.replaceState(null, '', '#' + p.toString());
+    if (_activeSidePaneRec && _activeSidePaneRec.geoid) p.set('pl', _activeSidePaneRec.geoid);
+    const url = '#' + p.toString();
+    if (push) history.pushState(null, '', url);
+    else history.replaceState(null, '', url);
   }
 
   function readUrlState() {
@@ -6263,6 +7036,26 @@
     if (p.get('mt')) zoomToMetro(metroFilter);
     else if (p.get('r')) zoomToRegion(regionFilter);
     refresh();
+    // Change 9 (F1-013): restore the specific place whose side pane was
+    // open when this link was copied, if any -- see writeUrlState's own
+    // comment for why this field didn't used to exist at all. Looked up by
+    // geoid (geoidToRecord is the same lookup recordForFeature itself
+    // uses), not by name, since name collides across metros (Elgin IL vs
+    // Elgin TX, etc.) in exactly the way this project has repeatedly found
+    // to be a real bug elsewhere, not a hypothetical one.
+    //
+    // NOT calling openSidePane() here directly -- readUrlState runs early
+    // in the bootstrap (bootstrap-5), before the later IIFE that defines
+    // window._showPopBanner exists yet, so openSidePane's own `if
+    // (window._showPopBanner)` guard would silently no-op, setting
+    // _activeSidePaneRec with nothing ever rendered to match it. Same
+    // ordering constraint the file's OWN final bootstrap line already
+    // documents for window._showRegionAggregate. Stashed instead and acted
+    // on at the very end of the script, right next to that line. Found
+    // live (region-banner ended up with neither the aggregate nor
+    // Naperville showing) verifying this feature, not by inspection.
+    const plVal = p.get('pl');
+    if (plVal && geoidToRecord[plVal]) _pendingUrlPlace = geoidToRecord[plVal];
   }
 
   /* ===== Comparison Mode (Phase 1D) ===== */
@@ -6295,10 +7088,17 @@
       btn.textContent = 'Comparing';
       renderCompareDrawer();
     } else {
+      // Change 9 (2026-09-17 review, F1-009): a third pick used to silently
+      // drop the first baseline (compareA) with no notice at all -- the
+      // drawer just quietly relabeled around the new pair. showToast is the
+      // same mechanism this file already uses for the analogous
+      // search-cancels-pending-comparison case a few functions up.
+      const droppedName = compareA.name;
       compareA = compareB;
       compareB = rec;
       btn.textContent = 'Comparing';
       renderCompareDrawer();
+      showToast(`Comparing ${compareA.name} and ${compareB.name} — ${droppedName} was dropped (compare only holds two at a time).`);
     }
     if (geoLayer) geoLayer.setStyle(styleFeature);
   }
@@ -6360,11 +7160,8 @@
   // when the region is actually falling behind by ~10pp. Aggregates are
   // graded against the U.S. national benchmark instead.
   //
-  // US_MHI: same fixed reference series as regional-trends.html's US_MHI
-  // (U.S. Census Bureau / IPUMS CPS historical income, constant 2025
-  // dollars) -- kept in sync manually since it's a small static constant,
-  // not derived from chicagoland_snippet.js.
-  const US_MHI = { 1980: 70828, 1990: 72987, 2000: 76358, 2010: 72537, 2024: 82383 };
+  // US_MHI is declared earlier in the script (near metroFilter/
+  // _pendingUrlPlace) -- see that declaration's own comment for why.
   function usPctChange(y1, y2) {
     const a = US_MHI[y1], b = US_MHI[y2];
     return (a == null || b == null || a === 0) ? null : (b - a) / a * 100;
@@ -6922,8 +7719,46 @@
     _toastTimer = setTimeout(() => el.classList.remove('visible'), 3200);
   }
 
+  // Change 9 (2026-09-17 review, F1-012): result selection used to be
+  // mousedown-only -- no keyboard path at all (Enter did nothing, results
+  // weren't tabIndex-reachable), so a keyboard-only user could see the
+  // dropdown but never act on it. Pulled the actual "go to this result"
+  // logic out of the mousedown handler into its own function so a new
+  // keydown handler (ArrowDown/ArrowUp to move a highlighted result, Enter
+  // to pick it) can call the exact same code path, not a second copy of it.
+  let _searchHits = [];       // current {rec, layer} results, in display order
+  let _searchActiveIdx = -1;  // keyboard-highlighted result, -1 = none
+
+  function selectSearchResult({ rec, layer }) {
+    searchInput.value = '';
+    searchResults.style.display = 'none';
+    _searchHits = [];
+    _searchActiveIdx = -1;
+    try {
+      const bounds = layer.getBounds();
+      map.flyToBounds(bounds, { maxZoom: 13, padding: [60, 60], duration: 0.8 });
+    } catch (_) {}
+    // Search always opens a solo profile, even mid-comparison (pinPlace's
+    // baseline-A/B logic only runs from a map-polygon click) -- actually
+    // cancel the pending baseline (not just leave it silently stranded)
+    // and say so, rather than letting "Pick B" keep showing in the toggle
+    // button while nothing is actually pending anymore.
+    if (compareMode && compareA && !compareB) {
+      const cancelledName = compareA.name;
+      clearCompare();
+      showToast(`Picking ${rec.name} from search — comparison with ${cancelledName} was cancelled. Click a town on the map to compare instead.`);
+    }
+    setTimeout(() => openSidePane(rec), 400);
+  }
+
+  function _updateSearchActiveClass() {
+    [...searchResults.children].forEach((el, i) => el.classList.toggle('active', i === _searchActiveIdx));
+  }
+
   function doSearch(q) {
     searchResults.innerHTML = '';
+    _searchHits = [];
+    _searchActiveIdx = -1;
     if (!q || q.length < 2) { searchResults.style.display = 'none'; return; }
     const lower = q.toLowerCase();
     // Start-of-word matches first, then substring. Flattens nameToLayerAll
@@ -6937,39 +7772,57 @@
                                        && x.rec.name.toLowerCase().includes(lower));
     const hits = [...startsWith, ...contains].slice(0, 9);
     if (!hits.length) { searchResults.style.display = 'none'; return; }
-    hits.forEach(({ rec, layer }) => {
+    _searchHits = hits;
+    hits.forEach((hit, i) => {
+      const { rec } = hit;
       const div = document.createElement('div');
       div.className = 'sri';
+      div.setAttribute('role', 'option');
+      div.tabIndex = -1; // reachable via Arrow keys below, not Tab -- a text
+                          // input with an associated listbox is the standard
+                          // combobox pattern; Tab still moves to the NEXT
+                          // control, same as before.
       div.innerHTML = `<div class="sri-name">${rec.name}</div><div class="sri-meta">${[rec.region, rec.county, rec.state].filter(Boolean).join(' · ')}</div>`;
       div.addEventListener('mousedown', e => {
         e.preventDefault(); // prevent blur before click
-        searchInput.value = '';
-        searchResults.style.display = 'none';
-        // Fly to place
-        try {
-          const bounds = layer.getBounds();
-          map.flyToBounds(bounds, { maxZoom: 13, padding: [60, 60], duration: 0.8 });
-        } catch (_) {}
-        // Open side pane. Search always opens a solo profile, even mid-comparison
-        // (pinPlace's baseline-A/B logic only runs from a map-polygon click) --
-        // actually cancel the pending baseline (not just leave it silently
-        // stranded) and say so, rather than letting "Pick B" keep showing in
-        // the toggle button while nothing is actually pending anymore.
-        if (compareMode && compareA && !compareB) {
-          const cancelledName = compareA.name;
-          clearCompare();
-          showToast(`Picking ${rec.name} from search — comparison with ${cancelledName} was cancelled. Click a town on the map to compare instead.`);
-        }
-        setTimeout(() => openSidePane(rec), 400);
+        selectSearchResult(hit);
       });
+      div.addEventListener('mouseenter', () => { _searchActiveIdx = i; _updateSearchActiveClass(); });
       searchResults.appendChild(div);
     });
+    searchResults.setAttribute('role', 'listbox');
     searchResults.style.display = 'block';
   }
 
   searchInput.addEventListener('input', e => doSearch(e.target.value.trim()));
   searchInput.addEventListener('focus', e => { if (e.target.value.trim().length >= 2) doSearch(e.target.value.trim()); });
   searchInput.addEventListener('blur',  () => setTimeout(() => { searchResults.style.display = 'none'; }, 150));
+  searchInput.setAttribute('role', 'combobox');
+  searchInput.setAttribute('aria-expanded', 'false');
+  searchInput.addEventListener('keydown', e => {
+    if (!_searchHits.length || searchResults.style.display === 'none') return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      _searchActiveIdx = (_searchActiveIdx + 1) % _searchHits.length;
+      _updateSearchActiveClass();
+      searchResults.children[_searchActiveIdx].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      _searchActiveIdx = (_searchActiveIdx - 1 + _searchHits.length) % _searchHits.length;
+      _updateSearchActiveClass();
+      searchResults.children[_searchActiveIdx].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      // No result explicitly arrowed-to yet -- Enter picks the top (best-
+      // ranked) match, the same one a sighted mouse user would reach for.
+      const idx = _searchActiveIdx >= 0 ? _searchActiveIdx : 0;
+      selectSearchResult(_searchHits[idx]);
+    } else if (e.key === 'Escape') {
+      searchResults.style.display = 'none';
+      _searchHits = [];
+      _searchActiveIdx = -1;
+    }
+  });
   document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
       e.preventDefault();
@@ -6997,6 +7850,7 @@
         <span id="legend-high">—</span>
       </div>
       <div class="legend-note" id="legend-note">Rank vs. visible places — recolors when you filter.</div>
+      <div class="legend-nodata" id="legend-nodata"><span class="legend-nodata-swatch"></span>no data</div>
     `;
     return div;
   };
@@ -7586,12 +8440,202 @@
 
   // Default the top pane to a Chicagoland (or restored-region) aggregate
   // view instead of leaving it empty until a town is clicked -- per
-  // explicit request. No town selection is ever encoded in the URL state
-  // (see readUrlState above), so on every load this is the correct default.
-  // Placed at the very end of the script, after every IIFE that defines
-  // window._showRegionAggregate/buildRegionAggregateRec, since those are
-  // defined later in file order than the rest of the bootstrap sequence.
-  if (window._showRegionAggregate) window._showRegionAggregate(regionFilter);
+  // explicit request. Placed at the very end of the script, after every
+  // IIFE that defines window._showRegionAggregate/buildRegionAggregateRec,
+  // since those are defined later in file order than the rest of the
+  // bootstrap sequence.
+  // Change 9 (2026-09-17 review, F1-013): guarded on !_activeSidePaneRec,
+  // which this never needed before -- until the `pl` URL field added above
+  // (see writeUrlState/readUrlState), no town selection was ever encoded
+  // in the URL state, so this unconditional call was always correct. A
+  // shared link now restoring a specific place (readUrlState calls
+  // openSidePane() before this line runs) was getting silently clobbered
+  // back to the generic aggregate by this exact line -- found live
+  // verifying the `pl` restoration, not by inspection. Same guard already
+  // used a few lines up in window._showPopBanner itself.
+  // Change 9 (F1-013): a place restored from a shared link's `pl` param
+  // (stashed by readUrlState -- see _pendingUrlPlace's own declaration for
+  // why it couldn't just call openSidePane() directly at restore time)
+  // takes priority over the generic aggregate, same as a place opened by
+  // any other means already does via the !_activeSidePaneRec guard below.
+  if (_pendingUrlPlace) { openSidePane(_pendingUrlPlace); _pendingUrlPlace = null; }
+  else if (window._showRegionAggregate && !_activeSidePaneRec) window._showRegionAggregate(regionFilter);
+
+  // ===== Change 10 Part B (2026-09-17 review): chapter chips =====
+  // Placed at the very end of the script, same reason as the block just
+  // above -- needs geoLayer/nameToLayerAll/refresh/buildRegionAggregateRec
+  // all fully live, which they aren't yet during the early bootstrap.
+  //
+  // Each of the review's 4 proposed headlines was checked against real
+  // data before any of this was built, not taken on faith:
+  //   - "South Side lost a third of its people": true, but ONLY from a
+  //     1980 baseline (-33.0% for the 32 standard South Side CCAs) --
+  //     from 2010 it's -4.4%. Baseline set to 1980 below.
+  //   - "Cicero became a different city": true, dramatically -- 90% White
+  //     NH / 8.6% Hispanic in 1980 to 7.4% / 88.8% in 2024.
+  //   - "NWI is growing south of Route 30": true, dramatically -- the
+  //     lakefront cities north of the highway (Gary/Hammond/East Chicago/
+  //     Whiting/Highland/Munster/Griffith/Lake Station) lost 31.6% of
+  //     population since 1980 while the corridor south of it (Merrillville/
+  //     Crown Point/Schererville/Dyer/St. John/Cedar Lake/Winfield/
+  //     Valparaiso/Chesterton/Lowell) gained 91.8%.
+  //   - "The North Shore pulled away": FALSE as worded -- real MHI growth
+  //     2010-2024 is -1.2% for the North Shore towns vs -1.3% for the rest
+  //     of the North region, statistically identical, and the real-dollar
+  //     gap vs the Chicagoland median actually NARROWED since 2010 ($68K
+  //     to $62K). It only widened over the full 1980-2024 span, and only
+  //     modestly (~8%). Rewritten to the claim the data actually supports:
+  //     a persistent, 44-year-old income gap that hasn't closed, not an
+  //     accelerating one.
+  const CHAPTERS = [
+    {
+      id: 'north-shore',
+      chip: 'The North Shore never closed the gap',
+      setRegion: 'North',
+      metric: 'median_hh_income',
+      timelineMode: 'point',
+      year: 2024,
+      boundsNames: ['Evanston', 'Wilmette', 'Kenilworth', 'Winnetka', 'Glencoe',
+        'Highland Park', 'Lake Forest', 'Lake Bluff', 'Glenview', 'Northbrook',
+        'Northfield', 'Waukegan', 'North Chicago'],
+      boundsRegion: 'North',
+      annotate: ['Winnetka', 'Waukegan'],
+      annotateRegion: 'North',
+    },
+    {
+      id: 'south-side',
+      chip: 'The South Side lost a third of its people',
+      setRegion: 'Chicago',
+      metric: 'population',
+      timelineMode: 'change',
+      year: 1980,
+      boundsNames: ['Armour Square', 'Douglas', 'Oakland', 'Fuller Park', 'Grand Boulevard',
+        'Kenwood', 'Washington Park', 'Hyde Park', 'Woodlawn', 'South Shore', 'Bridgeport',
+        'Greater Grand Crossing', 'Chatham', 'Avalon Park', 'South Chicago', 'Burnside',
+        'Calumet Heights', 'East Side', 'West Pullman', 'Riverdale', 'Hegewisch', 'Pullman',
+        'South Deering', 'Roseland', 'Washington Heights', 'Beverly', 'Mount Greenwood',
+        'Morgan Park', 'Auburn Gresham', 'Englewood', 'West Englewood', 'New City'],
+      boundsRegion: 'Chicago',
+      annotate: ['Englewood', 'Washington Park'],
+      annotateRegion: 'Chicago',
+    },
+    {
+      id: 'cicero',
+      chip: 'Cicero became a different city',
+      setRegion: 'West',
+      metric: 'pct_white_nh',
+      timelineMode: 'change',
+      year: 1980,
+      boundsNames: ['Cicero'],
+      boundsRegion: 'West',
+      annotate: ['Cicero'],
+      annotateRegion: 'West',
+      tight: true,
+    },
+    {
+      id: 'nwi-route30',
+      chip: 'Northwest Indiana is growing south of Route 30',
+      setRegion: 'NWI',
+      metric: 'population',
+      timelineMode: 'change',
+      year: 1980,
+      boundsNames: ['Gary', 'Hammond', 'East Chicago', 'Whiting', 'Highland', 'Munster',
+        'Griffith', 'Lake Station', 'Merrillville', 'Crown Point', 'Schererville', 'Dyer',
+        'St. John', 'Cedar Lake', 'Winfield', 'Valparaiso', 'Chesterton', 'Lowell'],
+      boundsRegion: 'NWI',
+      annotate: ['Gary', 'Valparaiso'],
+      annotateRegion: 'NWI',
+    },
+  ];
+
+  let _activeChapterId = null;
+  let _chapterAnnotationLayer = L.layerGroup().addTo(map);
+
+  function clearChapterAnnotations() {
+    _chapterAnnotationLayer.clearLayers();
+  }
+
+  function findLayerFor(name, region) {
+    const entries = nameToLayerAll[name.toLowerCase()] || [];
+    return (region ? entries.find(e => e.rec.region === region) : entries[0]) || null;
+  }
+
+  function applyChapter(ch) {
+    const isReactivating = _activeChapterId === ch.id;
+    clearChapterAnnotations();
+    document.querySelectorAll('.chapter-chip').forEach(b => b.classList.toggle('active', b.dataset.chId === ch.id && !isReactivating));
+    document.querySelector('.chapter-chip-clear').classList.toggle('visible', !isReactivating);
+
+    if (isReactivating) {
+      // Second click on the active chip: clear it, same toggle-off pattern
+      // used elsewhere in this file (e.g. activeCategoryFilter).
+      _activeChapterId = null;
+      return;
+    }
+    _activeChapterId = ch.id;
+
+    metroFilter = 'Chicagoland';
+    document.getElementById('metro-filter').value = 'Chicagoland';
+    updateRegionFilterOptions('Chicagoland');
+    regionFilter = ch.setRegion;
+    document.getElementById('region-filter').value = ch.setRegion;
+    metric = ch.metric;
+    timelineMode = ch.timelineMode;
+    selectedYear = ch.year;
+    syncDropdowns();
+    updateScrubberAvailability();
+    closeSidePane();
+    refresh();
+
+    // Fit bounds to this chapter's real geography -- not necessarily the
+    // whole region filter's extent (see the file-level comment above on
+    // why North Shore/South Side/Cicero/NWI's Route-30 split all needed
+    // custom bounds rather than the existing region filter alone).
+    const bounds = L.latLngBounds([]);
+    ch.boundsNames.forEach(n => {
+      const entry = findLayerFor(n, ch.boundsRegion);
+      if (entry) bounds.extend(entry.layer.getBounds());
+    });
+    if (bounds.isValid()) {
+      map.flyToBounds(bounds, { padding: [50, 50], duration: 0.9, maxZoom: ch.tight ? 14 : 12 });
+    }
+
+    // Annotations: small live-computed callouts (current metric's own
+    // formatted value, via the same fmtLabel every polygon label already
+    // uses) on 1-2 towns central to the chapter's story -- not hardcoded
+    // numbers that would go stale on a future data refresh.
+    setTimeout(() => {
+      ch.annotate.forEach(n => {
+        const entry = findLayerFor(n, ch.annotateRegion);
+        if (!entry) return;
+        const rec = entry.rec;
+        const field = resolvedField(metric, selectedYear);
+        const val = rec[field];
+        const label = `${rec.name}: ${fmtLabel(field, val)}`;
+        const center = entry.layer.getBounds().getCenter();
+        L.marker(center, {
+          icon: L.divIcon({ className: 'chapter-annotation', html: label, iconSize: null }),
+          interactive: false,
+        }).addTo(_chapterAnnotationLayer);
+      });
+    }, 950); // after flyToBounds' own 0.9s animation settles
+  }
+
+  function renderChapterChips() {
+    const wrap = document.getElementById('chapter-chips');
+    if (!wrap) return;
+    wrap.innerHTML = CHAPTERS.map(ch =>
+      `<button class="chapter-chip" data-ch-id="${ch.id}">${ch.chip}</button>`
+    ).join('') + `<button class="chapter-chip-clear">✕ back to the live map</button>`;
+    CHAPTERS.forEach(ch => {
+      wrap.querySelector(`[data-ch-id="${ch.id}"]`).addEventListener('click', () => applyChapter(ch));
+    });
+    wrap.querySelector('.chapter-chip-clear').addEventListener('click', () => {
+      const active = CHAPTERS.find(c => c.id === _activeChapterId);
+      if (active) applyChapter(active); // re-applying the active chapter toggles it off
+    });
+  }
+  renderChapterChips();
 </script>
 
 </body>
