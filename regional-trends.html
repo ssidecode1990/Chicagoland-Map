@@ -125,6 +125,17 @@
     margin-bottom: 3px;
   }
   .rn-para { margin: 0; }
+  .rn-story-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+  }
+  .rn-story-link:hover { opacity: 0.75; }
 
   /* "Where to Look" per-region pick callout -- sits right under the region
      narrative, only populated in a drill-down view (hidden in 'ALL', where
@@ -593,6 +604,12 @@
         "community-area lines the way a suburban high school district does, so that particular " +
         "metric only shows up once you cross into the suburbs. Not a cover-up — just apples that " +
         "don't slice like oranges." },
+      { h: 'The South Side Lost a Third of Its People', p:
+        "Since 1980, the 32 standard South Side community areas have lost roughly a third of their " +
+        "combined population — most of it decades ago, not recently. Englewood and Washington Park " +
+        "carry the steepest declines of the batch. See the neighborhood-by-neighborhood breakdown, " +
+        "drawn out on the map.",
+        link: { text: '→ View this story on the map', href: 'index.html#st=south-side' } },
     ],
 
     'North': [
@@ -652,6 +669,11 @@
       { h: 'School Anchors', p:
         "Two schools do most of the dividing here: Stevenson in Lake County, New Trier in Cook. " +
         "Wherever their reach ends, so does the premium tier." },
+      { h: 'The North Shore Never Closed the Gap', p:
+        "The North Shore's income premium over the rest of the North region hasn't closed in 44 " +
+        "years — it hasn't accelerated either, just persisted. See it drawn out, town by town, on " +
+        "the map.",
+        link: { text: '→ View this story on the map', href: 'index.html#st=north-shore' } },
     ],
 
     'Northwest': [
@@ -743,6 +765,11 @@
         "trick is Oakbrook Center: the mall's commercial tax base is quietly subsidizing every " +
         "homeowner in town, which is how Oak Brook stays competitive at the high end even while its " +
         "own income numbers are working against it." },
+      { h: 'Cicero Became a Different City', p:
+        "Cicero's non-Hispanic white share has fallen more than 80 percentage points since 1980 — " +
+        "one of the most complete demographic turnovers of any town in this dataset. See it " +
+        "visualized on the map.",
+        link: { text: '→ View this story on the map', href: 'index.html#st=cicero' } },
     ],
 
     'Southwest': [
@@ -917,6 +944,10 @@
         "second-home demand, and Indiana's tax rates mean a comparable North Shore, Illinois " +
         "lakefront address would cost you $15,000 to $25,000 more a year just to keep the lights on. " +
         "Same lake. Very different bill." },
+      { h: 'Growing South of Route 30', p:
+        "While Gary keeps shrinking, the towns along and south of US Route 30 — Valparaiso, Crown " +
+        "Point, St. John — are growing fast. See the split on the map.",
+        link: { text: '→ View this story on the map', href: 'index.html#st=nwi-route30' } },
     ],
   };
 
@@ -1611,9 +1642,15 @@
   // reader can scan the topics before committing to reading all of it --
   // added 2026-08-31 per explicit request ("one huge block wall of text").
   function narrativeSectionsHTML(sections) {
-    return sections.map(s =>
-      `<div class="rn-section"><div class="rn-kicker">${escapeHTML(s.h)}</div><p class="rn-para">${escapeHTML(s.p)}</p></div>`
-    ).join('');
+    return sections.map(s => {
+      // Optional deep link into index.html's storyline mode (see CHAPTERS/
+      // applyChapter there) -- href is always a literal string this file
+      // itself defines above, never user input, so no escaping needed on it.
+      const link = s.link
+        ? `<a class="rn-story-link" href="${s.link.href}">${escapeHTML(s.link.text)}</a>`
+        : '';
+      return `<div class="rn-section"><div class="rn-kicker">${escapeHTML(s.h)}</div><p class="rn-para">${escapeHTML(s.p)}</p>${link}</div>`;
+    }).join('');
   }
 
   function renderNarrative(viewKey) {

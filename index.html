@@ -112,35 +112,32 @@
     .page-lede { font-size: 12px; max-width: none; }
   }
 
-  /* Change 10 Part B: chapter chips row. */
-  .chapter-chips {
-    display: flex;
+  /* Storyline banner -- see the HTML comment above #story-banner. Empty
+     and display:none by default (zero footprint); applyChapter() fills it
+     and adds .visible only while a storyline is active. */
+  .story-banner {
+    display: none;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     padding: 10px 24px;
     background: var(--paper-warm);
     border-bottom: 1px solid var(--rule);
   }
-  .chapter-chip {
+  .story-banner.visible { display: flex; }
+  .story-banner .sb-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10.5px;
     font-weight: 600;
     letter-spacing: 0.02em;
-    background: var(--paper);
     color: var(--ink);
-    border: 1px solid var(--rule);
-    border-radius: 20px;
-    padding: 7px 14px;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
-  .chapter-chip:hover { border-color: var(--accent); }
-  .chapter-chip.active {
-    background: var(--accent);
-    color: var(--paper);
-    border-color: var(--accent);
+  .story-banner .sb-label::before {
+    content: '📍 STORY: ';
+    color: var(--ink-faint);
+    font-weight: 700;
   }
-  .chapter-chip-clear {
+  .story-banner .sb-clear {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10.5px;
     background: none;
@@ -148,13 +145,12 @@
     color: var(--ink-faint);
     cursor: pointer;
     text-decoration: underline;
-    padding: 7px 4px;
-    display: none;
+    padding: 0;
+    margin-left: auto;
   }
-  .chapter-chip-clear.visible { display: inline-block; }
   @media (max-width: 700px) {
-    .chapter-chips { padding: 8px 14px; }
-    .chapter-chip { font-size: 9.5px; padding: 6px 11px; }
+    .story-banner { padding: 8px 14px; }
+    .story-banner .sb-label { font-size: 9.5px; }
   }
   /* Map annotation callouts (Change 10 Part B) -- small permanent labels
      Leaflet drops on specific towns while a chapter is active. */
@@ -1926,7 +1922,7 @@
   @media (max-width: 700px) {
     body { position: relative; }
     header.topbar { order: 1; }
-    .chapter-chips { order: 1; }
+    .story-banner { order: 1; }
     #region-banner { order: 3; }
     .map-wrap {
       order: 2;
@@ -2068,14 +2064,15 @@
   </div>
 </header>
 
-<!-- Change 10 Part B (2026-09-17 review): fixed row of chapter chips. Each
-     sets metro/region/metric/year and fits the map to that chapter's real
-     bounds (see CHAPTERS + applyChapter() below) -- not literal region-
-     filter values for chapters whose geography doesn't match one (North
-     Shore, South Side, Cicero, NWI's Route-30 split all needed real
-     custom bounds, found while verifying each of the review's 4 proposed
-     headlines against actual data before building any of this). -->
-<div class="chapter-chips" id="chapter-chips"></div>
+<!-- Change 10 Part B (2026-09-17), revised 2026-09-18: the fixed chip row
+     took up too much permanent header real estate, so the 4 storylines
+     moved to short callouts on regional-trends.html instead (each links
+     to index.html#st=<id>). This banner is empty/hidden by default and
+     only appears when a storyline is actually active -- reached via that
+     link, or a bookmarked/shared #st= URL -- so "story mode" still has a
+     legible in-page indicator and an exit, without costing any space the
+     rest of the time. See CHAPTERS + applyChapter() below. -->
+<div class="story-banner" id="story-banner"></div>
 
 <div class="timeline-bar">
   <div class="tl-toprow">
@@ -5262,6 +5259,17 @@
   // chicagoland_snippet.js.
   const US_MHI = { 1980: 70828, 1990: 72987, 2000: 76358, 2010: 72537, 2024: 82383 };
 
+  // Storyline deep-link state, moved up here for the same TDZ reason as
+  // _pendingUrlPlace/US_MHI just above: writeUrlState() reads
+  // _activeChapterId and is CALLED from inside the early refresh() (during
+  // readUrlState's own early bootstrap call), well before the script would
+  // otherwise reach CHAPTERS/applyChapter() at the bottom of the file.
+  // _pendingStoryId mirrors _pendingUrlPlace's own pattern -- readUrlState
+  // stashes a #st= value here rather than calling applyChapter() directly,
+  // since applyChapter isn't defined yet either at that point in bootstrap.
+  let _activeChapterId = null;
+  let _pendingStoryId = null;
+
   // Chicagoland is the only metro with sub-regions right now -- the pilot
   // metros (Rockford/Peoria/South Bend) are single-region datasets (every
   // record's own `region` field is just its metro name). Rebuilding
@@ -5443,10 +5451,18 @@
       if (fixedPct != null) pct = fixedPct;
     } else if (isChangeMetric(metric) && v != null && metricStats && metricStats.sortedVisible.length > 1) {
       // Anchor at real zero, not the visible set's median -- see
-      // isChangeMetric's comment. maxAbs is the larger of |min| and |max|
-      // across visible places, so the ramp is symmetric around 0 and a
-      // value at either extreme reaches full saturation.
-      const maxAbs = Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max)) || 1;
+      // isChangeMetric's comment. The saturation edge is the 95th
+      // percentile of |v| among visible places, not the true max -- a
+      // single outlier town (a new-construction boomtown at +700% pop
+      // change, a tiny tract at +290% income change) used to stretch the
+      // true max so far out that ~95-98% of the map compressed into a
+      // narrow yellow band near the middle, found live while reviewing
+      // exactly that complaint ("most of the map ends up being yellow").
+      // The clamp just below already saturates anything past the p95 edge
+      // to full color, so this only changes WHERE full saturation starts,
+      // not whether an outlier is still visibly distinct (it stays the
+      // deepest shade available, same as before).
+      const maxAbs = metricStats.maxAbsP95 || Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max)) || 1;
       pct = 0.5 + 0.5 * Math.max(-1, Math.min(1, v / maxAbs));
     } else if (v != null && metricStats && metricStats.sortedVisible.length > 1) {
       const rank = metricStats.sortedVisible.indexOf(v);
@@ -5528,11 +5544,19 @@
       return;
     }
     const sorted = [...values].sort((a, b) => a - b);
+    // 95th percentile of |v| -- see maxAbsP95's own comment at its use
+    // sites (styleFeature, updateLegend) for why this replaced the true
+    // max as the change-metric color scale's saturation edge.
+    const absSorted = values.map(Math.abs).sort((a, b) => a - b);
+    const maxAbsP95 = absSorted.length
+      ? absSorted[Math.min(absSorted.length - 1, Math.floor(absSorted.length * 0.95))]
+      : 0;
     metricStats = {
       min:           sorted[0],
       max:           sorted[sorted.length - 1],
       median:        sorted[Math.floor(sorted.length / 2)],
       sortedVisible: sorted,
+      maxAbsP95:     maxAbsP95,
     };
   }
 
@@ -5853,13 +5877,17 @@
     // whatever's currently visible, which used to mislabel the neutral
     // point (e.g. "+18.8" for Community Health Score change).
     if (isChangeMetric(metric)) {
-      const maxAbs = Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max));
+      // Same p95-clipped edge as styleFeature/buildHoverCard -- see
+      // styleFeature's comment. Legend labels have to track it too, or
+      // they'd claim "+714%" is the shaded edge while the polygon actually
+      // saturating at that value renders identically to one at +75%.
+      const maxAbs = metricStats.maxAbsP95 || Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max));
       const lo = LOWER_IS_BETTER.has(metric) ? maxAbs : -maxAbs;
       const hi = LOWER_IS_BETTER.has(metric) ? -maxAbs : maxAbs;
       document.getElementById('legend-low').textContent  = fmtVal(legendField, lo);
       document.getElementById('legend-mid').textContent  = fmtVal(legendField, 0);
       document.getElementById('legend-high').textContent = fmtVal(legendField, hi);
-      if (noteEl) noteEl.textContent = 'Anchored at 0 (no change), not ranked — a value at either edge is the largest change among visible places.';
+      if (noteEl) noteEl.textContent = 'Anchored at 0 (no change), not ranked — the shaded edge is the 95th percentile of change among visible places; a few extreme outliers clip to full color beyond it.';
       return;
     }
     // For flipped metrics, the red end is HIGH and green end is LOW,
@@ -6160,7 +6188,8 @@
     if (val != null && metricStats && metricStats.sortedVisible.length > 1) {
       let pct;
       if (isChangeMetric(metric)) {
-        const maxAbs = Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max)) || 1;
+        // Same p95-clipped edge as styleFeature -- see that site's comment.
+        const maxAbs = metricStats.maxAbsP95 || Math.max(Math.abs(metricStats.min), Math.abs(metricStats.max)) || 1;
         pct = 0.5 + 0.5 * Math.max(-1, Math.min(1, val / maxAbs));
       } else {
         const sv = metricStats.sortedVisible;
@@ -6995,6 +7024,7 @@
       mt: metroFilter, r: regionFilter, p: minPop, c: tractsView,
     });
     if (_activeSidePaneRec && _activeSidePaneRec.geoid) p.set('pl', _activeSidePaneRec.geoid);
+    if (_activeChapterId) p.set('st', _activeChapterId);
     const url = '#' + p.toString();
     if (push) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
@@ -7056,6 +7086,16 @@
     // Naperville showing) verifying this feature, not by inspection.
     const plVal = p.get('pl');
     if (plVal && geoidToRecord[plVal]) _pendingUrlPlace = geoidToRecord[plVal];
+
+    // #st= is how regional-trends.html's storyline callouts link back into
+    // a specific chapter now that the always-visible chip row is gone (see
+    // the #story-banner HTML comment). Same stash-and-defer pattern as
+    // _pendingUrlPlace just above -- CHAPTERS/applyChapter() aren't defined
+    // yet this early in bootstrap either. Validated against CHAPTERS (not
+    // just any truthy string) at the consuming end, since this value can
+    // arrive from an external link, not just this app's own writeUrlState().
+    const stVal = p.get('st');
+    if (stVal) _pendingStoryId = stVal;
   }
 
   /* ===== Comparison Mode (Phase 1D) ===== */
@@ -8461,7 +8501,9 @@
   if (_pendingUrlPlace) { openSidePane(_pendingUrlPlace); _pendingUrlPlace = null; }
   else if (window._showRegionAggregate && !_activeSidePaneRec) window._showRegionAggregate(regionFilter);
 
-  // ===== Change 10 Part B (2026-09-17 review): chapter chips =====
+  // ===== Change 10 Part B (2026-09-17 review), storylines =====
+  // Originally a permanent chip row (revised 2026-09-18 to a #st=-triggered
+  // deep link + #story-banner instead -- see that div's own HTML comment).
   // Placed at the very end of the script, same reason as the block just
   // above -- needs geoLayer/nameToLayerAll/refresh/buildRegionAggregateRec
   // all fully live, which they aren't yet during the early bootstrap.
@@ -8548,7 +8590,6 @@
     },
   ];
 
-  let _activeChapterId = null;
   let _chapterAnnotationLayer = L.layerGroup().addTo(map);
 
   function clearChapterAnnotations() {
@@ -8560,19 +8601,33 @@
     return (region ? entries.find(e => e.rec.region === region) : entries[0]) || null;
   }
 
+  // Renders (or clears) the #story-banner -- the only remaining UI for
+  // storyline mode now that the always-visible chip row is gone. Called
+  // from applyChapter() on both activation and deactivation.
+  function renderStoryBanner() {
+    const el = document.getElementById('story-banner');
+    if (!el) return;
+    const ch = CHAPTERS.find(c => c.id === _activeChapterId);
+    if (!ch) { el.classList.remove('visible'); el.innerHTML = ''; return; }
+    el.innerHTML = `<span class="sb-label">${ch.chip}</span><button class="sb-clear">✕ exit story, back to the live map</button>`;
+    el.classList.add('visible');
+    el.querySelector('.sb-clear').addEventListener('click', () => applyChapter(ch)); // re-applying the active chapter toggles it off
+  }
+
   function applyChapter(ch) {
     const isReactivating = _activeChapterId === ch.id;
     clearChapterAnnotations();
-    document.querySelectorAll('.chapter-chip').forEach(b => b.classList.toggle('active', b.dataset.chId === ch.id && !isReactivating));
-    document.querySelector('.chapter-chip-clear').classList.toggle('visible', !isReactivating);
 
     if (isReactivating) {
-      // Second click on the active chip: clear it, same toggle-off pattern
-      // used elsewhere in this file (e.g. activeCategoryFilter).
+      // Second click (or re-clicking the banner's own clear button): clear
+      // it, same toggle-off pattern used elsewhere in this file (e.g.
+      // activeCategoryFilter).
       _activeChapterId = null;
+      renderStoryBanner();
       return;
     }
     _activeChapterId = ch.id;
+    renderStoryBanner();
 
     metroFilter = 'Chicagoland';
     document.getElementById('metro-filter').value = 'Chicagoland';
@@ -8621,21 +8676,16 @@
     }, 950); // after flyToBounds' own 0.9s animation settles
   }
 
-  function renderChapterChips() {
-    const wrap = document.getElementById('chapter-chips');
-    if (!wrap) return;
-    wrap.innerHTML = CHAPTERS.map(ch =>
-      `<button class="chapter-chip" data-ch-id="${ch.id}">${ch.chip}</button>`
-    ).join('') + `<button class="chapter-chip-clear">✕ back to the live map</button>`;
-    CHAPTERS.forEach(ch => {
-      wrap.querySelector(`[data-ch-id="${ch.id}"]`).addEventListener('click', () => applyChapter(ch));
-    });
-    wrap.querySelector('.chapter-chip-clear').addEventListener('click', () => {
-      const active = CHAPTERS.find(c => c.id === _activeChapterId);
-      if (active) applyChapter(active); // re-applying the active chapter toggles it off
-    });
+  // Consumes a #st= value stashed by readUrlState (see _pendingStoryId's
+  // own declaration for why this has to happen here, after CHAPTERS/
+  // applyChapter both exist, rather than at read time). An unrecognized id
+  // (stale bookmark, hand-edited URL) is just ignored, same as an
+  // unrecognized `mt`/`r` value elsewhere in readUrlState already is.
+  if (_pendingStoryId) {
+    const ch = CHAPTERS.find(c => c.id === _pendingStoryId);
+    if (ch) applyChapter(ch);
+    _pendingStoryId = null;
   }
-  renderChapterChips();
 </script>
 
 </body>
