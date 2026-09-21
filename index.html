@@ -7274,7 +7274,10 @@
     window._showPopBanner = function (rec) {
       const html = buildPopBannerHTML(rec);
       if (!html) { banner.classList.remove('visible'); return; }
-      const nameStr = [rec.name, rec.state].filter(Boolean).join(', ');
+      // Chicago community areas are neighborhoods of Chicago, not towns in
+      // Illinois -- "Englewood, Chicago" reads right, "Englewood, IL" doesn't.
+      const nameSuffix = rec.region === 'Chicago' ? 'Chicago' : rec.state;
+      const nameStr = [rec.name, nameSuffix].filter(Boolean).join(', ');
       // Aggregates (Chicagoland / a region) are graded against the U.S.
       // national benchmark (computeAggregateTrajectory), not the per-town
       // growth bands (computeTrajectory) -- see computeAggregateTrajectory's
