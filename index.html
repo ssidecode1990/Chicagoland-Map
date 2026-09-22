@@ -689,6 +689,7 @@
     border-bottom: 1px dotted var(--ink-faint);
   }
   .rb-estimate-note { font-style: italic; }
+  .rb-data-note { margin-top: 8px; font-size: 11.5px; font-style: italic; color: var(--ink-faint); line-height: 1.4; }
   .rb-chart-title {
     font-family: 'Inter Tight', sans-serif;
     font-size: 10.5px;
@@ -2159,6 +2160,9 @@
           <option value="South Bend">South Bend</option>
           <option value="Jamestown">Jamestown</option>
           <option value="Austin">Austin</option>
+          <option value="Indianapolis">Indianapolis</option>
+          <option value="Detroit">Detroit</option>
+          <option value="St. Louis">St. Louis</option>
         </select>
       </div>
       <div class="filter-item">
@@ -2508,6 +2512,9 @@
     ];
     const avail = components.filter(c => c.v != null);
     if (avail.length === 0) return null;
+    // Population alone is not a trajectory: with no income/education/composition trend at all (e.g. a neighborhood whose
+    // survey figures are withheld) the decline-only penalty would score a flat, neutral 50 -- a made-up middle grade.
+    if (mhiTrendScore == null && pciTrendScore == null && eduTrendScore == null && stabilityScore == null) return null;
     const wSum = avail.reduce((s, c) => s + c.w, 0);
     return +(avail.reduce((s, c) => s + c.v * c.w, 0) / wSum).toFixed(1);
   }
@@ -3537,7 +3544,7 @@
     const schoolLines = schools.map(s => {
       const ranks = [s.natlRankText ? 'National ' + s.natlRankText : null, s.stateRankText ? 'State ' + s.stateRankText : null]
         .filter(Boolean).join(' · ');
-      const test = [s.act != null ? 'ACT ' + s.act : null, s.sat != null ? 'SAT ' + s.sat : null].filter(Boolean).join(' · ') || null;
+      const test = [s.act != null ? 'ACT ' + s.act : null, s.sat != null ? 'SAT ' + Math.round(s.sat) : null].filter(Boolean).join(' · ') || null;
       const bits = [ranks, test].filter(Boolean).join(' · ');
       return bits ? `${s.name} — ${bits}` : null;
     }).filter(Boolean);
@@ -4195,7 +4202,7 @@
     const COLS = Object.keys(YEAR_FIELDS)
       .map(yr => ({yr, f: k => YEAR_FIELDS[yr][k], pop: rec[POP_FIELDS[yr]]}))
       .filter(c => RG.some(g => rec[c.f(g.k)] != null));
-    if (COLS.length < 2) return emptyChartState(null, chartThinReason(rec, COLS.length));
+    if (COLS.length < 2) return emptyChartState('Population by Race', chartThinReason(rec, COLS.length));
     // Same compact-pane geometry reduction as barChartGeometry() (2026-09-03,
     // UX audit item 3) -- this chart doesn't call that shared function (its
     // bar height encodes total population, not a per-group count/share, a
@@ -4278,7 +4285,7 @@
            `<text x="${midX.toFixed(1)}" y="${(bracketY - 3).toFixed(1)}" text-anchor="middle" fill="${color}" font-size="9" font-weight="600">${sign}${chg.toFixed(1)}%</text>`;
     }
     const leg=RG.map(g=>`<span class="rl-item"><span class="rl-swatch" style="background:${g.c}"></span>${g.l}</span>`).join('');
-    return `<div class="sp-race-spark"><svg width="${W}" height="${SVG_H}" viewBox="0 0 ${W} ${SVG_H}">${r}</svg></div><div class="sp-race-legend">${leg}</div>`;
+    return `<div class="rb-chart-title">Population by Race</div><div class="sp-race-spark"><svg width="${W}" height="${SVG_H}" viewBox="0 0 ${W} ${SVG_H}">${r}</svg></div><div class="sp-race-legend">${leg}</div>`;
   }
 
   // Same swatch colors as the stacked composition chart's RG array above,
@@ -4526,7 +4533,7 @@
     const MHI_FIELD_LOCAL = {1980:'mhi_1980', 1990:'mhi_1990', 2000:'mhi_2000', 2010:'mhi_2010'};
     function valAt(yr) { return yr === 2024 ? rec.median_hh_income : (MHI_FIELD_LOCAL[yr] ? rec[MHI_FIELD_LOCAL[yr]] : null); }
     const COLS = YEARS.map(yr => ({yr, val: valAt(yr)})).filter(c => c.val != null && c.val > 0);
-    if (COLS.length < 2) return emptyChartState(null, chartThinReason(rec, COLS.length));
+    if (COLS.length < 2) return emptyChartState('Median HH Income', chartThinReason(rec, COLS.length));
 
     const geo = barChartGeometry(COLS.length);
     const { svg: barsSvg, barCenterX } = renderBarColumns(COLS, geo, {
@@ -4548,7 +4555,7 @@
       colorFor: chg => chg >= 0 ? '#2a7a4a' : '#c0392b',
       label: chg => `${chg >= 0 ? '+' : ''}${chg.toFixed(1)}%`,
     });
-    return `<div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
+    return `<div class="rb-chart-title">Median HH Income</div><div class="sp-race-spark"><svg width="${geo.W}" height="${geo.SVG_H}" viewBox="0 0 ${geo.W} ${geo.SVG_H}">${barsSvg}${bracketsSvg}</svg></div>`;
   }
 
   // Average Household Income bar chart -- the mean (avg_household_income),
@@ -4714,7 +4721,29 @@
     const recs = regionMemberRecs(rf);
     if (!recs.length) return null;
 
+    // Historical-year aggregates are only honest when most of the region actually HAS that year's
+    // data. A sum (or weighted average) over just the records that have it silently drops the rest,
+    // which shows up as a fake trend: Indianapolis's neighborhood records (which replaced the single
+    // city record) carry no 1980/1990 figures, so the metro's 1980 "population" was just the 80
+    // surrounding towns (345K) and read as +245% growth into 2000; Austin's 2000/2010 bars had the same
+    // problem. A year is reported only if records holding at least MIN_YEAR_COVERAGE of the region's
+    // CURRENT population have it; otherwise null (chart shows no bar / "no aggregate" rather than a
+    // number that looks precise and is really a fraction of the region). Current-year fields are
+    // unaffected.
+    const MIN_YEAR_COVERAGE = 0.5;
+    const curPopTotal = recs.reduce((a, r) => a + (r.population > 0 ? r.population : 0), 0);
+    // A weighted AVERAGE over half the region is still a fair sample of it; a SUM over half the region is not
+    // (Austin's 2010 total, 680K, came from records holding 54% of today's population and read as +184% growth), so
+    // sums need near-full coverage.
+    const MIN_SUM_COVERAGE = 0.85;
+    function coverageOK(hasFn, min) {
+      if (curPopTotal <= 0) return true;
+      let have = 0;
+      recs.forEach(r => { if (r.population > 0 && hasFn(r)) have += r.population; });
+      return have / curPopTotal >= (min || MIN_YEAR_COVERAGE);
+    }
     function wavg(valueField, popField) {
+      if (popField !== 'population' && !coverageOK(r => r[valueField] != null && r[popField] != null && r[popField] > 0)) return null;
       let sumV = 0, sumW = 0;
       recs.forEach(r => {
         const v = r[valueField], w = r[popField];
@@ -4723,6 +4752,7 @@
       return sumW > 0 ? sumV / sumW : null;
     }
     function sumField(field) {
+      if (field !== 'population' && !coverageOK(r => r[field] != null, MIN_SUM_COVERAGE)) return null;
       let s = 0, any = false;
       recs.forEach(r => { if (r[field] != null) { s += r[field]; any = true; } });
       return any ? s : null;
@@ -4840,8 +4870,16 @@
   // in the narrow side pane. Confirmed keeper (was a one-town prototype;
   // now the primary surface this data lives on).
   function buildNarrativeColHTML(rec) {
-    if (!rec.narrative) return '';
-    return `<div class="rb-narrative-col"><div class="rb-narrative">${rec.narrative}</div></div>`;
+    // Records that deliberately withhold figures (tiny neighborhoods) or whose history was cut off by a boundary
+    // change carry a plain-language note -- shown so the blanks read as intentional, not as missing data.
+    // Also: place_note (townships include their villages' figures; places straddling counties), the tax-rate provenance
+    // note, the crime coverage note, and -- when a record has NO crime rate -- the crime note explaining why.
+    const crimeMissingNote = (rec.violent_crime_rate_per_1k == null && rec.crime_data_note) ? rec.crime_data_note : null;
+    const dataNotes = [rec.small_area_note, rec.history_note, rec.place_note, rec.crime_data_coverage_note, crimeMissingNote,
+                       rec.tax_rate_note].filter(Boolean)
+      .map(n => `<div class="rb-data-note">${String(n).replace(/</g, '&lt;')}</div>`).join('');
+    if (!rec.narrative && !dataNotes) return '';
+    return `<div class="rb-narrative-col">${rec.narrative ? `<div class="rb-narrative">${rec.narrative}</div>` : ''}${dataNotes}</div>`;
   }
 
   // Core stats column -- population, health, school, crime, tax, and
@@ -4995,7 +5033,7 @@
     const schoolLines = schools.map(s => {
       const ranks = [s.natlRankText ? 'National ' + s.natlRankText : null, s.stateRankText ? 'State ' + s.stateRankText : null]
         .filter(Boolean).join(' · ');
-      const test = [s.act != null ? 'ACT ' + s.act : null, s.sat != null ? 'SAT ' + s.sat : null].filter(Boolean).join(' · ') || null;
+      const test = [s.act != null ? 'ACT ' + s.act : null, s.sat != null ? 'SAT ' + Math.round(s.sat) : null].filter(Boolean).join(' · ') || null;
       const bits = [ranks, test].filter(Boolean).join(' · ');
       return bits ? `${s.name}${s.district ? ' (' + s.district + ')' : ''} — ${bits}` : null;
     }).filter(Boolean);
@@ -5028,11 +5066,18 @@
       // the other, same as CLAUDE.md's "an honestly-labeled null beats an
       // invented figure" but for precision, not existence.
       const isEstimate = rec.crime_data_is_county_estimate || rec.crime_data_estimated;
+      // A record can also carry its own crime_data_note (Indianapolis neighborhoods: IMPD incident points
+      // that omit sexual offenses and ~3% of cases, so rates run somewhat low next to Chicago's) --
+      // shown through the same dagger so a caveat is never a separate, easy-to-miss element.
+      const crimeNote = rec.crime_data_note ? String(rec.crime_data_note).replace(/"/g, '&quot;') : '';
+      const showMark = isEstimate || crimeNote;
+      const markTitle = crimeNote || "County-level estimate — this town has no police department of its own, so its rate is a county sheriff figure shared with other towns in the same county, not measured for this town specifically.";
+      const markText = crimeNote ? (rec.crime_data_annualized_months ? 'partial-year reporting, scaled to 12 months — see †' : rec.is_neighborhood_rollup ? (rec.metro === 'Detroit' ? 'Detroit Police incident data — see † for how it is counted' : rec.metro === 'St. Louis' ? 'SLMPD incident data — see † for how it is counted' : 'IMPD point data — see † for what it leaves out') : (isEstimate ? 'county estimate — see †' : 'see † for a caution on this figure')) : 'county estimate, not town-specific';
       parts.push(
         `<div class="rb-narrative-stat">` +
-          `<div class="rb-narrative-stat-label">Crime Index${isEstimate ? ' <span class="rb-estimate-mark" title="County-level estimate — this town has no police department of its own, so its rate is a county sheriff figure shared with other towns in the same county, not measured for this town specifically.">†</span>' : ''}</div>` +
+          `<div class="rb-narrative-stat-label">Crime Index${showMark ? ' <span class="rb-estimate-mark" title="' + markTitle + '">†</span>' : ''}</div>` +
           `<div class="rb-narrative-stat-main">${idx} <span class="rb-narrative-stat-sub">per 1,000</span></div>` +
-          `<div class="rb-narrative-stat-detail">Violent ${viol} · Property ${prop}${isEstimate ? ' <span class="rb-estimate-note">— county estimate, not town-specific</span>' : ''}</div>` +
+          `<div class="rb-narrative-stat-detail">Violent ${viol} · Property ${prop}${showMark ? ' <span class="rb-estimate-note">— ' + markText + '</span>' : ''}</div>` +
         `</div>`
       );
     }
@@ -5235,6 +5280,7 @@
   let selectedYear = 2010;   // controlled by the timeline scrubber
   let playInterval = null;
   let metroFilter = 'Chicagoland';
+  const _metroFieldCache = {};
   let regionFilter = 'all';
   // Change 9 (F1-013): a place restored from a shared link's `pl` param,
   // stashed by readUrlState (which runs early in the bootstrap) and acted
@@ -5498,7 +5544,7 @@
     if (!rec) return false;
     // Metro filter — 'all' shows every metro combined, same "falsy/sentinel
     // means no filtering" convention regionFilter's own 'all' already uses.
-    if (metroFilter && metroFilter !== 'all' && rec.metro && rec.metro !== metroFilter) return false;
+    if (metroFilter && metroFilter !== 'all' && (rec.metro || 'Chicagoland') !== metroFilter) return false;
     // Population threshold is designed for municipalities/CCAs. Census tracts
     // are deliberately sized at ~4K people but many fall below — applying the
     // 4,000 filter to them would hide ~2/3. Skip the filter for tracts.
@@ -5560,6 +5606,21 @@
     };
   }
 
+  // Crime metric titles name the data vintage. The default wording describes Chicago + its suburbs; the
+  // Indianapolis metro is built from different sources, so say so instead of mislabeling its numbers.
+  function metroAwareLabel(s) {
+    if (metroFilter === 'Indianapolis' && typeof s === 'string') {
+      return s.replace('Chicago 2021–23, suburbs 2018–19', 'IMPD 2022–24 for neighborhoods, FBI 2024 for towns');
+    }
+    if (metroFilter === 'St. Louis' && typeof s === 'string') {
+      return s.replace('Chicago 2021–23, suburbs 2018–19', 'SLMPD 2022–24 for city neighborhoods, FBI 2024 for suburbs');
+    }
+    if (metroFilter === 'Detroit' && typeof s === 'string') {
+      return s.replace('Chicago 2021–23, suburbs 2018–19', 'Detroit Police 2022–24 for neighborhoods, FBI 2024 for suburbs');
+    }
+    return s;
+  }
+
   function updateLegend() {
     const ctrl = document.querySelector('.map-legend');
     if (!ctrl) return;
@@ -5589,7 +5650,7 @@
 
     const titleEl = document.getElementById('legend-title');
     if (titleEl) {
-      titleEl.textContent = (METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric) + metricTimeSuffix(metric);
+      titleEl.textContent = metroAwareLabel(METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric) + metricTimeSuffix(metric);
       titleEl.title = metric === 'map_home_value'
         ? 'Real median sale price (Redfin, trailing 12-mo avg; includes SFH, townhomes, condos) where available; ACS self-reported estimate for Chicago community areas, which Redfin doesn’t break out neighborhood-by-neighborhood.'
         : '';
@@ -5904,8 +5965,67 @@
     if (noteEl) noteEl.textContent = 'Rank vs. visible places — recolors when you filter.';
   }
 
+  // The masthead names whichever metro is on screen ("Chicagoland, by the numbers" -> "Indianapolis, by the
+  // numbers"); the browser tab title follows.
+  function updateBrand() {
+    const name = (!metroFilter || metroFilter === 'all') ? 'All metros' : metroFilter;
+    const el = document.querySelector('.brand');
+    if (el) el.innerHTML = name.replace(/</g, '&lt;') + ', <em>by the numbers</em>';
+    document.title = name + ' — A Statistical Map';
+  }
+
+  // Lazy permanent in-polygon labels. A label (Leaflet permanent tooltip) is
+  // only created for a layer that is (a) currently visible per shouldShow()
+  // (refresh() records that as layer._lblVis), (b) inside the padded viewport,
+  // and (c) only while labels can actually be seen -- the #map element carries
+  // `low-zoom` below z10 and `no-labels` when the Labels toggle is off, and CSS
+  // hides every .metric-label in both cases, so nothing is lost by not
+  // building them. Runs from refresh(), map moveend, and the Labels toggle.
+  // Once bound, a tooltip is kept (refresh() keeps its content/visibility
+  // current), so panning back costs nothing.
+  function syncLabels() {
+    if (!geoLayer || !map) return;
+    const mapEl = document.getElementById('map');
+    if (!mapEl || mapEl.classList.contains('low-zoom') || mapEl.classList.contains('no-labels')) return;
+    const view = map.getBounds().pad(0.5);
+    const fresh = [];
+    geoLayer.eachLayer(layer => {
+      if (!layer._lblVis || layer.getTooltip()) return;
+      const rec = layer._rec;
+      if (!rec || !view.intersects(layer.getBounds())) return;
+      fresh.push(layer);
+    });
+    if (!fresh.length) return;
+    // Two-phase creation: opening a permanent tooltip measures its own width
+    // (to center it), which forces a synchronous layout -- and doing that once
+    // per tooltip against a growing pane is quadratic (1,300 tract labels took
+    // ~6 s). So build them all with the pane display:none (no layout work),
+    // then show the pane and position each one; the first position pass lays
+    // out the whole batch once, the rest are cheap (~0.1 ms each).
+    const pane = map.getPane('tooltipPane');
+    if (pane) pane.style.display = 'none';
+    try {
+      fresh.forEach(layer => {
+        layer.bindTooltip(buildLabelText(metric, layer._rec), {
+          permanent: true,
+          direction: 'center',
+          className: 'metric-label',
+          opacity: 1,
+        });
+      });
+    } finally {
+      if (pane) pane.style.display = '';
+    }
+    fresh.forEach(layer => {
+      const tt = layer.getTooltip();
+      if (!tt) return;
+      if (tt._updatePosition) tt._updatePosition(); else tt.update();
+    });
+  }
+
   function refresh() {
     if (!polygonsFC) return;
+    updateBrand();
     // Clear category filter if we've switched away from the classification metric
     if (metric !== 'community_category' && activeCategoryFilter !== null) {
       activeCategoryFilter = null;
@@ -5933,14 +6053,22 @@
         layer.options.interactive = !!visible;
         const el = layer.getElement && layer.getElement();
         if (el) el.style.display = visible ? '' : 'none';
+        // Labels are created lazily (see syncLabels) -- only layers that
+        // already have a tooltip bound get their content/visibility updated
+        // here; everything else is handled the first time it scrolls into
+        // view with labels on. Perf: eagerly binding + opening a permanent
+        // tooltip for all ~3,250 polygons cost ~9 s of startup (each open
+        // forces a synchronous layout against an ever-growing tooltip pane).
+        layer._lblVis = !!visible;
         const tt = layer.getTooltip && layer.getTooltip();
-        if (tt && rec) {
-          layer.setTooltipContent(buildLabelText(metric, rec));
+        if (tt) {
+          if (rec) layer.setTooltipContent(buildLabelText(metric, rec));
+          const ttEl = tt.getElement && tt.getElement();
+          if (ttEl) ttEl.style.display = visible ? '' : 'none';
         }
-        const ttEl = tt && tt.getElement && tt.getElement();
-        if (ttEl) ttEl.style.display = visible ? '' : 'none';
       });
     }
+    syncLabels();
     if (typeof syncRecoveringLayer === 'function') syncRecoveringLayer();
     updateLegend();
     updateViewHeader(visibleCount);
@@ -5979,7 +6107,7 @@
     const scope = agg.name;
     const rf = resolvedField(metric, selectedYear);
     const val = agg[rf];
-    const metricLabel = METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric;
+    const metricLabel = metroAwareLabel(METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric);
 
     if (val == null) {
       return `<strong>${metricLabel}</strong> — no aggregate figure available for <strong>${scope}</strong> right now.`;
@@ -6026,7 +6154,7 @@
     // else (resolved to a different key entirely — change-window aliases,
     // disposable income, etc.) falls back to that resolved key's own label.
     if (YEAR_FIELD[metric] || metricSupportsChange(metric)) {
-      const base = METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric;
+      const base = metroAwareLabel(METRIC_LABELS[metric] || SIMPLE_METRIC_LABELS[metric] || metric);
       const suffix = metricTimeSuffix(metric); // "" or " — <wording>"
       displayHTML = base + (suffix ? ' — <em>' + suffix.replace(/^ — /, '') + '</em>' : '');
     } else {
@@ -6286,11 +6414,25 @@
   // composite_score = 0.6×rankScore + 0.4×testScore when both are available; falls back to
   // whichever one exists alone when the other is missing (common — many IL schools only report
   // SAT under the state's SAT-only mandate, and many schools simply aren't US News–ranked).
+  // SCHOOL_DATA is keyed by town NAME, and names collide across metros (Cicero, Elwood,
+  // Greenwood, Plainfield, Westfield and Jamestown each exist both in Indiana's Indianapolis metro and
+  // elsewhere in this dataset), so a plain-name lookup would silently hand an Indianapolis-metro town
+  // some OTHER town's school data. Indianapolis-metro entries are therefore keyed "<Name> (IN)" and
+  // looked up ONLY by that key -- never falling back to a bare name. Used by both SCHOOL_DATA lookups
+  // (the composite_score block and the schools-table buildRows()); keep them on this one helper.
+  function schoolKeyFor(d) {
+    if (d.school_key) return d.school_key;   // St. Louis: Missouri towns are '<Name> (MO)', Illinois-side towns keep bare names except collisions
+    if (d.metro === 'Indianapolis' || d.metro === 'Detroit') return d.name + ' (' + d.state + ')';
+    return (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
+         : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
+         : d.name;
+  }
+
   if (typeof SCHOOL_DATA !== 'undefined') {
-    // IL_HS_TOTAL confirmed at 675 for the 2026-2027 edition; IN_HS_TOTAL's current-edition
-    // figure wasn't confirmed during that research pass, so it's carried over from the prior
-    // (2025-26) edition -- only affects the rare in-state-percentile fallback (a school with a
-    // state rank but no national rank), so low-impact if slightly stale.
+    // IL_HS_TOTAL confirmed at 675 and IN at 404 for the 2026-2027 edition (IN counted from US News's
+    // own Indiana search JSON during the Indianapolis build; it had been carried over as 340 from
+    // the prior edition). Only affects the rare in-state-percentile fallback (a school with a
+    // state rank but no national rank).
     const NATIONAL_HS_TOTAL = 17945;
     // Per-state ranked-school totals, only for states where this fallback has
     // actually been confirmed -- a state missing here (e.g. MI, added for
@@ -6300,7 +6442,7 @@
     // this whole branch only fires for a school with a state rank but no
     // national rank, which is rare (nearly every school in this dataset has
     // both).
-    const STATE_HS_TOTAL = { IL: 675, IN: 340 };
+    const STATE_HS_TOTAL = { IL: 675, IN: 404, MI: 678, MO: 356 }; // IN 404 / MI 678: US News 2026-2027 state search JSON, counted 2026-09-21
     const NICHE_SCORE = {'A+':97,'A':92,'A-':87,'B+':82,'B':77,'B-':68,'C+':57,'C':50,'C-':42,'D+':35,'D':25,'D-':18,'F':10};
     const MSR = (typeof MULTI_SCHOOL_RANKS !== 'undefined') ? MULTI_SCHOOL_RANKS : {};
 
@@ -6324,10 +6466,7 @@
       // neighborhood would silently display that OTHER town's real school
       // ranking. Found live, not by inspection.
       if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract' || d.is_neighborhood_rollup) return;
-      const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
-                : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
-                : d.name;
-      const sd = SCHOOL_DATA[key];
+      const sd = SCHOOL_DATA[schoolKeyFor(d)];
       if (!sd) return;
       const stateAbbr = d.state;
 
@@ -6538,13 +6677,10 @@
       });
 
       // Permanent in-polygon label — shows the currently-selected metric.
-      // Content is set/updated in refresh() so it follows the dropdown live.
-      layer.bindTooltip('', {
-        permanent: true,
-        direction: 'center',
-        className: 'metric-label',
-        opacity: 1,
-      });
+      // Deliberately NOT bound here any more: see syncLabels() (lazy, only
+      // for visible layers near the viewport at label zoom). Content is
+      // still kept current by refresh() so it follows the dropdown live.
+      layer._rec = rec;
     },
   }).addTo(map);
   _mark('bootstrap-4-geoJSON-construct-end');
@@ -6672,6 +6808,8 @@
   }
   map.on('zoomend', applyZoomClass);
   applyZoomClass();
+  // moveend fires after zoomend, so the low-zoom class is already current.
+  map.on('moveend', syncLabels);
 
   // Change 2: restyle every polygon on zoom so border weight (zoomStrokeWeight)
   // actually updates live while panning/zooming, not just on the next refresh().
@@ -6784,13 +6922,29 @@
     if (prog) prog.style.width = Math.max(0, frac * usable) + 'px';
   }
 
+  // Whether the metro on screen has ANY record with a value in this field (Detroit has no 1980/1990 income data, so those
+  // year stops used to stay clickable and paint an empty map).
+  // (_metroFieldCache is declared up by metroFilter: the bootstrap calls this before this point runs)
+  function metroHasField(field) {
+    if (typeof field !== 'string') return true;
+    const key = metroFilter + '|' + field;
+    if (_metroFieldCache[key]) return true;
+    let ok = false;
+    for (const d of DATA) {
+      if (metroFilter !== 'all' && (d.metro || 'Chicagoland') !== metroFilter) continue;
+      if (d[field] != null) { ok = true; break; }
+    }
+    if (ok) _metroFieldCache[key] = true;   // never cache a miss: the runtime-synthesized history fields may not exist yet at bootstrap
+    return ok;
+  }
+
   function updateScrubberAvailability() {
     // Timeline A (point-in-time)
     const yearMap = YEAR_FIELD[metric] || null;
     const pointDisabled = POINT_ONLY_CHANGE_METRICS.has(metric);
     document.querySelectorAll('#tl-row-point .tl-stop[data-year]').forEach(btn => {
       const yr = +btn.dataset.year;
-      const avail = !pointDisabled && (yearMap ? !!yearMap[yr] : (yr === 2024));
+      const avail = !pointDisabled && (yearMap ? (!!yearMap[yr] && metroHasField(yearMap[yr])) : (yr === 2024));
       btn.disabled = !avail;
       btn.title = !avail ? (pointDisabled
         ? 'This metric is inherently a measure of change — use % Change Since below.'
@@ -6817,7 +6971,7 @@
     document.querySelectorAll('#tl-row-change .tl-stop[data-baseline]').forEach(btn => {
       const yr = +btn.dataset.baseline;
       if (yr === 2024) return;
-      const avail = !!(cf && cf[yr] != null);
+      const avail = !!(cf && cf[yr] != null && metroHasField(cf[yr]));
       btn.disabled = !avail;
       btn.title = !avail ? 'No baseline data available for this metric at ' + yr + '.' : '';
     });
@@ -6969,6 +7123,7 @@
     updateRegionFilterOptions(metroFilter);
     if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
     zoomToMetro(metroFilter);
+    updateScrubberAvailability();
     refresh();
   });
 
@@ -6994,6 +7149,7 @@
     labelsVisible = !labelsVisible;
     document.getElementById('map').classList.toggle('no-labels', !labelsVisible);
     document.getElementById('labels-toggle').classList.toggle('active', labelsVisible);
+    if (labelsVisible) syncLabels();
   });
 
   /* ===== Compare toggle ===== */
@@ -7153,7 +7309,7 @@
   }
 
   /* ===== Comparison narrative helpers ===== */
-  const STATE_INCOME_TAX = { IL: 0.0495, IN: 0.0305 };
+  const STATE_INCOME_TAX = { IL: 0.0495, IN: 0.0305, MI: 0.0425, MO: 0.048 };
 
   function computeAfterTax(rec) {
     const mhi = rec.median_hh_income;
@@ -7276,7 +7432,10 @@
       if (!html) { banner.classList.remove('visible'); return; }
       // Chicago community areas are neighborhoods of Chicago, not towns in
       // Illinois -- "Englewood, Chicago" reads right, "Englewood, IL" doesn't.
-      const nameSuffix = rec.region === 'Chicago' ? 'Chicago' : rec.state;
+      // Neighborhood roll-up records (Austin, Indianapolis) read "<Neighborhood>, <City>" for the same reason.
+      const nameSuffix = rec.region === 'Chicago' ? 'Chicago'
+                       : rec.is_neighborhood_rollup ? rec.metro
+                       : rec.state;
       const nameStr = [rec.name, nameSuffix].filter(Boolean).join(', ');
       // Aggregates (Chicagoland / a region) are graded against the U.S.
       // national benchmark (computeAggregateTrajectory), not the per-town
@@ -7401,7 +7560,7 @@
     const pctBach   = rec.pct_bachelors;
     const isIN      = rec.state === 'IN';
     const isIL      = rec.state === 'IL';
-    const stateLabel = isIN ? 'Indiana' : isIL ? 'Illinois' : (rec.state || 'the region');
+    const stateLabel = isIN ? 'Indiana' : isIL ? 'Illinois' : rec.state === 'MI' ? 'Michigan' : rec.state === 'MO' ? 'Missouri' : (rec.state || 'the region');
     const flags     = SPECIAL_FLAGS[rec.name] || [];
 
     const fmt$ = v => v != null ? '$' + Math.round(v).toLocaleString() : null;
@@ -7450,7 +7609,7 @@
         ? `Indiana's light income tax and a property tax bill near ${fmt$(taxAnnual)}/year leave a ${fmt$(mhi)} household here with about ${fmt$(afterTax)}`
         : isIL
         ? `Illinois' income and property tax load — roughly ${fmt$(taxAnnual)}/year in property tax alone — leaves a ${fmt$(mhi)} household here with about ${fmt$(afterTax)}`
-        : `taxes leave a ${fmt$(mhi)} household here with about ${fmt$(afterTax)}`;
+        : `Taxes leave a ${fmt$(mhi)} household here with about ${fmt$(afterTax)}`;
       let assetClause = '';
       if (hsName && schoolGood) assetClause = `, helped by ${hsName} ranking in the top ${stRank} schools in ${stateLabel}`;
       else if (hsName && schoolWeak) assetClause = `, despite ${hsName} ranking near the bottom of ${stateLabel} schools`;
@@ -7539,6 +7698,12 @@
       }
     }
 
+    // Cross-state pairs other than Illinois-Indiana (e.g. Michigan): the IL/IN-specific paragraphs above do not apply,
+    // so state only what is true of any two states: their flat income-tax rates differ.
+    if (crossState && !(ilRec && inRec) && STATE_INCOME_TAX[a.state] != null && STATE_INCOME_TAX[b.state] != null) {
+      parts.push(`The two sit in different states with different flat income taxes (${a.state} ${(STATE_INCOME_TAX[a.state] * 100).toFixed(2)}% vs. ${b.state} ${(STATE_INCOME_TAX[b.state] * 100).toFixed(2)}%), which is already counted in the after-tax figures above.`);
+    }
+
     // Home value / entry cost gap
     if (hvA != null && hvB != null && Math.abs(hvB - hvA) > 25000) {
       const cheaper  = hvB < hvA ? b : a;
@@ -7552,11 +7717,11 @@
       const loseTraj = computeTrajectory(loser);
       const trajEdge = TRAJ_RANK[winTraj] > TRAJ_RANK[loseTraj];
 
-      if (crossState && inRec && winner === inRec) {
+      if (crossState && ilRec && inRec && winner === inRec) {
         let s = `For a household making a 10–20 year decision, ${winner.name} is the stronger financial choice: lower entry cost, lower annual carrying cost, and a structural tax floor that ${ilRec ? ilRec.name + "'s state" : 'Illinois'} cannot match under current law.`;
         if (trajEdge) s += ` The trajectory advantage is additive — ${winner.name} is not just cheaper, it is moving in a better direction.`;
         parts.push(s);
-      } else if (crossState && ilRec && winner === ilRec) {
+      } else if (crossState && ilRec && inRec && winner === ilRec) {
         parts.push(`${winner.name} makes the financial case despite Illinois' structural tax disadvantage — the income premium and lifestyle depth are large enough to justify the gap for households earning $130K+ who commute to Chicago regularly and value maximum amenity completeness today.`);
       } else {
         if (atGap != null && Math.abs(atGap) > 3000 && trajEdge) {
@@ -7772,11 +7937,38 @@
   let _searchHits = [];       // current {rec, layer} results, in display order
   let _searchActiveIdx = -1;  // keyboard-highlighted result, -1 = none
 
-  function selectSearchResult({ rec, layer }) {
+  function selectSearchResult(hit) {
+    if (hit.isMetro) {
+      // A metro-name result ("Detroit"): behave exactly like choosing it in the metro dropdown.
+      searchInput.value = '';
+      searchResults.style.display = 'none';
+      _searchHits = [];
+      _searchActiveIdx = -1;
+      metroFilter = hit.metro;
+      document.getElementById('metro-filter').value = hit.metro;
+      regionFilter = 'all';
+      updateRegionFilterOptions(metroFilter);
+      if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
+      zoomToMetro(metroFilter);
+      refresh();
+      return;
+    }
+    const { rec, layer } = hit;
     searchInput.value = '';
     searchResults.style.display = 'none';
     _searchHits = [];
     _searchActiveIdx = -1;
+    // A result from another metro (e.g. Plainfield, IL while viewing Indianapolis) would open a side pane over a
+    // map that hides its polygon -- switch the metro first, exactly as the metro dropdown does.
+    const recMetro = rec.metro || 'Chicagoland';
+    if (metroFilter !== 'all' && recMetro !== metroFilter) {
+      metroFilter = recMetro;
+      document.getElementById('metro-filter').value = recMetro;
+      regionFilter = 'all';
+      updateRegionFilterOptions(metroFilter);
+      if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
+      refresh();
+    }
     try {
       const bounds = layer.getBounds();
       map.flyToBounds(bounds, { maxZoom: 13, padding: [60, 60], duration: 0.8 });
@@ -7798,6 +7990,17 @@
     [...searchResults.children].forEach((el, i) => el.classList.toggle('active', i === _searchActiveIdx));
   }
 
+  // Region alone cannot tell apart a town from a same-named city neighborhood (Indianapolis has both a Clermont
+  // town and a Clermont neighborhood, same county), so say which kind of record a search result is.
+  function searchKindLabel(rec) {
+    if (rec.is_neighborhood_rollup) return 'Neighborhood';
+    if (rec.region === 'Suburban Tract' || rec.region === 'Chicago Tract') return 'Census tract';
+    if (rec.place_type === 'township') return 'Township';
+    if (rec.place_type === 'CDP') return 'Census-designated place';
+    if ((rec.metro === 'Indianapolis' || rec.metro === 'Detroit' || rec.metro === 'St. Louis') && rec.region === rec.metro) return rec.metro === 'Indianapolis' ? 'Town' : 'City / village';
+    return rec.region;
+  }
+
   function doSearch(q) {
     searchResults.innerHTML = '';
     _searchHits = [];
@@ -7813,19 +8016,32 @@
     const startsWith = all.filter(x => x.rec.name.toLowerCase().startsWith(lower));
     const contains   = all.filter(x => !x.rec.name.toLowerCase().startsWith(lower)
                                        && x.rec.name.toLowerCase().includes(lower));
-    const hits = [...startsWith, ...contains].slice(0, 9);
+    // Metro names are searchable too: 'Detroit' has no single place record (the city is 201 neighborhoods).
+    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis'];
+    const metroHits = METRO_NAMES.filter(m => m.toLowerCase().startsWith(lower)).map(m => ({ isMetro: true, metro: m }));
+    const hits = [...metroHits, ...startsWith, ...contains].slice(0, 9);
     if (!hits.length) { searchResults.style.display = 'none'; return; }
     _searchHits = hits;
     hits.forEach((hit, i) => {
-      const { rec } = hit;
       const div = document.createElement('div');
+      if (hit.isMetro) {
+        div.className = 'sri';
+        div.setAttribute('role', 'option');
+        div.tabIndex = -1;
+        div.innerHTML = `<div class="sri-name">${hit.metro} (whole metro)</div><div class="sri-meta">Switch the map to this metro</div>`;
+        div.addEventListener('mousedown', e => { e.preventDefault(); selectSearchResult(hit); });
+        div.addEventListener('mouseenter', () => { _searchActiveIdx = i; _updateSearchActiveClass(); });
+        searchResults.appendChild(div);
+        return;
+      }
+      const { rec } = hit;
       div.className = 'sri';
       div.setAttribute('role', 'option');
       div.tabIndex = -1; // reachable via Arrow keys below, not Tab -- a text
                           // input with an associated listbox is the standard
                           // combobox pattern; Tab still moves to the NEXT
                           // control, same as before.
-      div.innerHTML = `<div class="sri-name">${rec.name}</div><div class="sri-meta">${[rec.region, rec.county, rec.state].filter(Boolean).join(' · ')}</div>`;
+      div.innerHTML = `<div class="sri-name">${rec.name}</div><div class="sri-meta">${[searchKindLabel(rec), rec.county, rec.state, (rec.metro && rec.metro !== metroFilter && metroFilter !== 'all') ? rec.metro + ' metro' : null].filter(Boolean).join(' · ')}</div>`;
       div.addEventListener('mousedown', e => {
         e.preventDefault(); // prevent blur before click
         selectSearchResult(hit);
@@ -7934,10 +8150,7 @@
         // above (search that comment for the Franklin Park/Highland/
         // Riverside/St. John name-collision this prevents).
         if (d.region === 'Chicago' || d.region === 'Chicago Tract' || d.region === 'Suburban Tract' || d.is_neighborhood_rollup) return;
-        const key = (d.name === 'Winfield' && d.state === 'IN') ? 'Winfield (IN)'
-                  : (d.name === 'Niles' && d.state === 'MI') ? 'Niles (MI)'
-                  : d.name;
-        const sd = SCHOOL_DATA[key];
+        const sd = SCHOOL_DATA[schoolKeyFor(d)];
         if (!sd) return;
         // d.schools (built above from MULTI_SCHOOL_RANKS, the single source of
         // truth for rank) rather than sd.usNewsNational/usNewsState directly --
@@ -7980,6 +8193,7 @@
     function fmtCell(col, val) {
       if (val == null) return '—';
       if (col.key === 'composite') return val.toFixed(1);
+      if (col.key === 'sat' || col.key === 'act') return Math.round(val);
       return val;
     }
 

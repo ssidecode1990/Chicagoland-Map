@@ -1242,7 +1242,1581 @@ const MULTI_SCHOOL_RANKS = {
   },
   "Momence High School": {
     "natl": 10491, "state": 367
+  },
+  // === INDIANAPOLIS METRO MSR START ===
+  "Alexandria-Monroe High School": {
+    "natl": 6694, "state": 181
+  },
+  "Anderson High School": {
+    "natl": 15702, "state": 362,
+    "natlBand": "13,460–17,945", "stateBand": "321–404"
+  },
+  "Avon High School": {
+    "natl": 1052, "state": 18
+  },
+  "Beech Grove Senior High School": {
+    "natl": 12271, "state": 295
+  },
+  "Ben Davis High School": {
+    "natl": 15702, "state": 362,
+    "natlBand": "13,460–17,945", "stateBand": "321–404"
+  },
+  "Brown County High School": {
+    "natl": 5845, "state": 155
+  },
+  "Brownsburg High School": {
+    "natl": 722, "state": 11
+  },
+  "Carmel High School": {
+    "natl": 316, "state": 7
+  },
+  "Cascade Senior High School": {
+    "natl": 3040, "state": 68
+  },
+  "Center Grove High School": {
+    "natl": 1876, "state": 38
+  },
+  "Danville Community High School": {
+    "natl": 2368, "state": 49
+  },
+  "Eastern Hancock High School": {
+    "natl": 12366, "state": 297
+  },
+  "Edinburgh Community High School": {
+    "natl": 6553, "state": 178
+  },
+  "Elwood Community High School": {
+    "natl": 11285, "state": 276
+  },
+  "Fishers High School": {
+    "natl": 428, "state": 8
+  },
+  "Franklin Community High School": {
+    "natl": 4702, "state": 115
+  },
+  "Frankton Jr-Sr High School": {
+    "natl": 5281, "state": 139
+  },
+  "Greenfield-Central High School": {
+    "natl": 6338, "state": 171
+  },
+  "Greenwood Community High School": {
+    "natl": 3919, "state": 94
+  },
+  "Hamilton Heights High School": {
+    "natl": 3281, "state": 76
+  },
+  "Hamilton Southeastern High School": {
+    "natl": 736, "state": 12
+  },
+  "Indian Creek Senior High School": {
+    "natl": 5488, "state": 149
+  },
+  "Knightstown High School": {
+    "natl": 10290, "state": 254
+  },
+  "Lapel Senior High School": {
+    "natl": 9711, "state": 245
+  },
+  "Lawrence Central High School": {
+    "natl": 8728, "state": 229
+  },
+  "Lawrence North High School": {
+    "natl": 7237, "state": 194
+  },
+  "Lebanon Senior High School": {
+    "natl": 3656, "state": 89
+  },
+  "Madison-Grant High School": {
+    "natl": 4906, "state": 121
+  },
+  "Martinsville High School": {
+    "natl": 11198, "state": 273
+  },
+  "Monrovia High School": {
+    "natl": 9038, "state": 234
+  },
+  "Mooresville High School": {
+    "natl": 7242, "state": 195
+  },
+  "Morristown Jr-Sr High School": {
+    "natl": 10686, "state": 262
+  },
+  "Mt Vernon High School": {
+    "natl": 2277, "state": 47
+  },
+  "New Palestine High School": {
+    "natl": 1837, "state": 35
+  },
+  "Noblesville High School": {
+    "natl": 825, "state": 15
+  },
+  "North Central High School": {
+    "natl": 3577, "state": 85
+  },
+  "Pendleton Heights High School": {
+    "natl": 3326, "state": 77
+  },
+  "Pike High School": {
+    "natl": 4170, "state": 102
+  },
+  "Plainfield High School (IN)": {
+    "natl": 1531, "state": 30
+  },
+  "Shelbyville Senior High School": {
+    "natl": 5849, "state": 156
+  },
+  "Sheridan High School": {
+    "natl": 2666, "state": 55
+  },
+  "Southport High School": {
+    "natl": 7132, "state": 190
+  },
+  "Speedway Senior High School": {
+    "natl": 280, "state": 6
+  },
+  "Tipton High School": {
+    "natl": 5171, "state": 135
+  },
+  "Tri Central Middle-High School": {
+    "natl": 1966, "state": 39
+  },
+  "Tri-West Senior High School": {
+    "natl": 1035, "state": 17
+  },
+  "Triton Central High School": {
+    "natl": 10866, "state": 265
+  },
+  "Waldron Jr-Sr High School": {
+    "natl": 10889, "state": 266
+  },
+  "Warren Central High School": {
+    "natl": 10572, "state": 258
+  },
+  "Western Boone Jr-Sr High School": {
+    "natl": 3920, "state": 95
+  },
+  "Westfield High School (IN)": {
+    "natl": 434, "state": 9
+  },
+  "Whiteland Community High School": {
+    "natl": 6492, "state": 174
+  },
+  "Zionsville Community High School": {
+    "natl": 230, "state": 3
+  },
+  // === INDIANAPOLIS METRO MSR END ===
+  // === DETROIT METRO MSR START ===
+  "Academy of the Americas High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 697.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Adlai Stevenson High School": {
+    "natl": 2486, "state": 90,
+    "sat": 990.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Algonac High School": {
+    "natl": 10431, "state": 382,
+    "sat": 925.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Allen Park High School": {
+    "natl": 5937, "state": 216,
+    "sat": 962.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Almont High School": {
+    "natl": 4226, "state": 155,
+    "sat": 956.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Anchor Bay High School": {
+    "natl": 5354, "state": 193,
+    "sat": 966.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Annapolis High School": {
+    "natl": 10668, "state": 390,
+    "sat": 819.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Armada High School": {
+    "natl": 2066, "state": 75,
+    "sat": 1006.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Athens High School": {
+    "natl": 1191, "state": 33,
+    "sat": 1094.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Avondale High School": {
+    "natl": 10082, "state": 369,
+    "sat": 908.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Belleville High School": {
+    "natl": 11545, "state": 427,
+    "sat": 882.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Berkley High School": {
+    "natl": 1360, "state": 46,
+    "sat": 1041.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Bloomfield Hills High School": {
+    "natl": 1021, "state": 31,
+    "sat": 1070.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Brandon High School": {
+    "natl": 3888, "state": 147,
+    "sat": 937.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Brighton High School": {
+    "natl": 1660, "state": 57,
+    "sat": 1057.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Brown City High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 917.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Byron Area High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 962.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Canton High School": {
+    "natl": 1220, "state": 37,
+    "sat": 1083.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Capac High School": {
+    "natl": 9592, "state": 357,
+    "sat": 870.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Cass Technical High School": {
+    "natl": 2325, "state": 84,
+    "sat": 1028.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Center Line High School": {
+    "natl": 10680, "state": 392,
+    "sat": 860.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Central High School (MI)": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 786.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Chippewa Valley High School": {
+    "natl": 7996, "state": 297,
+    "sat": 933.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Churchill High School": {
+    "natl": 4716, "state": 172,
+    "sat": 1041.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Clarkston High School": {
+    "natl": 2157, "state": 79,
+    "sat": 1026.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Clawson High School": {
+    "natl": 10741, "state": 396,
+    "sat": 1002.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Clintondale High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 821.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Cody High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 720.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Communication and Media Arts High School": {
+    "natl": 9506, "state": 351,
+    "sat": 853.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Cousino Senior High School": {
+    "natl": 10564, "state": 387,
+    "sat": 895.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Crestwood High School": {
+    "natl": 3777, "state": 142,
+    "sat": 919.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Crockett Midtown High School Of Science And Medicine": {
+    "natl": 10396, "state": 379,
+    "sat": 900.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Croswell-Lexington High School": {
+    "natl": 5913, "state": 215,
+    "sat": 953.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Dakota High School": {
+    "natl": 4603, "state": 167,
+    "sat": 985.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Davis Aerospace Technical High School at Golightly": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 846.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Dearborn High School": {
+    "natl": 3664, "state": 135,
+    "sat": 964.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Denby High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 734.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Detroit International Academy for Young Women": {
+    "natl": 7174, "state": 263,
+    "sat": 958.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Detroit School of Arts": {
+    "natl": 11128, "state": 412,
+    "sat": 876.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Dryden High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 882.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "East English Village Preparatory Academy": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 774.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Eastpointe High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 777.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Ecorse Community High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 761.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Edsel Ford High School": {
+    "natl": 8660, "state": 318,
+    "sat": 880.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Eisenhower High School": {
+    "natl": 2297, "state": 81,
+    "sat": 1044.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Ernest W. Seaholm High School": {
+    "natl": 829, "state": 28,
+    "sat": 1127.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Farmington High School": {
+    "natl": 3482, "state": 128,
+    "sat": 1038.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Fenton Senior High School": {
+    "natl": 3000, "state": 114,
+    "sat": 1002.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Ferndale High School": {
+    "natl": 10990, "state": 404,
+    "sat": 912.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Flat Rock Community High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 985.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Fordson High School": {
+    "natl": 5544, "state": 199,
+    "sat": 891.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Fowlerville High School": {
+    "natl": 12087, "state": 449,
+    "sat": 944.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Franklin High School": {
+    "natl": 5719, "state": 207,
+    "sat": 944.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Fraser High School": {
+    "natl": 6599, "state": 234,
+    "sat": 934.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Garden City High School": {
+    "natl": 5607, "state": 203,
+    "sat": 910.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Goodrich High School": {
+    "natl": 7072, "state": 258,
+    "sat": 992.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Grosse Ile High School": {
+    "natl": 2225, "state": 80,
+    "sat": 1034.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Grosse Pointe North High School": {
+    "natl": 1479, "state": 49,
+    "sat": 1011.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Grosse Pointe South High School": {
+    "natl": 414, "state": 10,
+    "sat": 1121.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Hamtramck High School": {
+    "natl": 10919, "state": 403,
+    "sat": 801.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Harper Woods High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 798.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Hartland High School": {
+    "natl": 3081, "state": 117,
+    "sat": 1031.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Hazel Park High School": {
+    "natl": 12946, "state": 478,
+    "sat": 801.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Henry Ford High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 763.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Henry Ford II High School": {
+    "natl": 1589, "state": 50,
+    "sat": 989.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Holly High School": {
+    "natl": 7896, "state": 290,
+    "sat": 921.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Howell High School": {
+    "natl": 4166, "state": 153,
+    "sat": 986.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Huron High School": {
+    "natl": 8093, "state": 302,
+    "sat": 993.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Imlay City High School": {
+    "natl": 6586, "state": 233,
+    "sat": 937.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "John Glenn High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 849.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "L'Anse Creuse High School": {
+    "natl": 5722, "state": 208,
+    "sat": 929.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "L'Anse Creuse High School - North": {
+    "natl": 4678, "state": 171,
+    "sat": 998.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lake Orion Community High School": {
+    "natl": 2885, "state": 111,
+    "sat": 1021.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lake Shore High School": {
+    "natl": 8795, "state": 323,
+    "sat": 900.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lakeland High School": {
+    "natl": 2434, "state": 87,
+    "sat": 981.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lakeview High School": {
+    "natl": 7581, "state": 280,
+    "sat": 970.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lakeville High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 851.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lamphere High School": {
+    "natl": 8686, "state": 319,
+    "sat": 934.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lapeer East Senior High School": {
+    "natl": 5350, "state": 191,
+    "sat": 921.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lee M. Thurston High School": {
+    "natl": 8440, "state": 312,
+    "sat": 834.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lincoln Park High School": {
+    "natl": 11617, "state": 431,
+    "sat": 847.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Lincoln Senior High School": {
+    "natl": 11777, "state": 441,
+    "sat": 881.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Linden High School": {
+    "natl": 4977, "state": 182,
+    "sat": 970.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Madison High School": {
+    "natl": 10509, "state": 384,
+    "sat": 811.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Marine City High School": {
+    "natl": 3057, "state": 115,
+    "sat": 918.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Marlette Jr./Sr. High School": {
+    "natl": 12864, "state": 473,
+    "sat": 908.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Martin Luther King Junior Senior High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 832.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Marysville High School": {
+    "natl": 3761, "state": 141,
+    "sat": 986.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Mayville High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 844.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Melvindale High School": {
+    "natl": 12702, "state": 469,
+    "sat": 800.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Memphis Junior/Senior High School": {
+    "natl": 12962, "state": 480,
+    "sat": 925.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Milford High School": {
+    "natl": 2606, "state": 100,
+    "sat": 998.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Mount Clemens High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 755.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Mumford High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 758.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "New Haven High School": {
+    "natl": 8034, "state": 299,
+    "sat": 939.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "North Branch High School": {
+    "natl": 6147, "state": 219,
+    "sat": 919.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "North Farmington High School": {
+    "natl": 2459, "state": 89,
+    "sat": 978.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Northville High School": {
+    "natl": 507, "state": 13,
+    "sat": 1151.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Northwestern High School": {
+    "natl": 12232, "state": 454,
+    "sat": 744.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Novi High School": {
+    "natl": 472, "state": 12,
+    "sat": 1187.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Oak Park High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 784.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Oscar A. Carlson High School": {
+    "natl": 10891, "state": 402,
+    "sat": 958.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Oxford High School": {
+    "natl": 5471, "state": 195,
+    "sat": 994.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Pershing High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 736.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Pinckney Community High School": {
+    "natl": 11136, "state": 413,
+    "sat": 989.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Plymouth High School": {
+    "natl": 1265, "state": 40,
+    "sat": 1094.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Pontiac High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 747.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Port Huron High School": {
+    "natl": 12477, "state": 461,
+    "sat": 896.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Port Huron Northern High School": {
+    "natl": 7197, "state": 264,
+    "sat": 964.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Redford Union High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 820.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Renaissance High School": {
+    "natl": 1379, "state": 47,
+    "sat": 1051.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Richmond Community High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 982.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "River Rouge High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 747.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Riverview Community High School": {
+    "natl": 2518, "state": 91,
+    "sat": 989.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Robichaud Senior High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 822.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Rochester Adams High School": {
+    "natl": 400, "state": 8,
+    "sat": 1145.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Rochester High School": {
+    "natl": 1219, "state": 36,
+    "sat": 1096.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Romeo High School": {
+    "natl": 4291, "state": 156,
+    "sat": 999.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Romulus Senior High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 808.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Roosevelt High School": {
+    "natl": 10247, "state": 373,
+    "sat": 926.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Roseville High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 836.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Royal Oak High School": {
+    "natl": 2131, "state": 78,
+    "sat": 1031.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Salem High School": {
+    "natl": 1208, "state": 34,
+    "sat": 1083.1, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "South Lake High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 837.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "South Lyon East High School": {
+    "natl": 2591, "state": 99,
+    "sat": 1073.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "South Lyon High School": {
+    "natl": 2696, "state": 104,
+    "sat": 1024.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Southeastern High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 742.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Southfield High School for the Arts and Technology": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 817.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Southgate Anderson High School": {
+    "natl": 12370, "state": 459,
+    "sat": 898.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "St. Clair High School": {
+    "natl": 5774, "state": 209,
+    "sat": 966.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Sterling Heights Senior High School": {
+    "natl": 5174, "state": 187,
+    "sat": 913.5, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Stevenson High School": {
+    "natl": 2685, "state": 103,
+    "sat": 1038.8, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Stockbridge High School": {
+    "natl": 8792, "state": 322,
+    "sat": 954.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Stoney Creek High School": {
+    "natl": 688, "state": 22,
+    "sat": 1095.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Taylor High School (MI)": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 855.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "The School at Marygrove": {
+    "natl": 4866, "state": 177,
+    "sat": 918.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Trenton High School": {
+    "natl": 5052, "state": 185,
+    "sat": 973.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Troy High School": {
+    "natl": 401, "state": 9,
+    "sat": 1184.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Utica High School": {
+    "natl": 2533, "state": 94,
+    "sat": 1017.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Walled Lake Central High School": {
+    "natl": 3136, "state": 119,
+    "sat": 987.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Walled Lake Northern High School": {
+    "natl": 1981, "state": 72,
+    "sat": 1000.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Walled Lake Western High School": {
+    "natl": 2535, "state": 95,
+    "sat": 971.2, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Warren Mott High School": {
+    "natl": 9158, "state": 340,
+    "sat": 913.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Warren Woods Tower High School": {
+    "natl": 6175, "state": 220,
+    "sat": 906.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Waterford Kettering High School": {
+    "natl": 6766, "state": 248,
+    "sat": 944.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Waterford Mott High School": {
+    "natl": 12578, "state": 464,
+    "sat": 865.7, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Wayne Memorial High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 850.4, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "West Bloomfield High School": {
+    "natl": 4871, "state": 178,
+    "sat": 958.3, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Western International High School": {
+    "natl": 15702, "state": 586,
+    "natlBand": "13,460–17,945", "stateBand": "494–678",
+    "sat": 764.0, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Woodhaven High School": {
+    "natl": 3520, "state": 130,
+    "sat": 974.9, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Wylie E. Groves High School": {
+    "natl": 1027, "state": 32,
+    "sat": 1068.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  "Yale Senior High School": {
+    "natl": 4482, "state": 166,
+    "sat": 965.6, "act": null, "satYear": 2026,
+    "satSource": "Michigan School Data (mischooldata.org), College Readiness (Includes SAT Data) report, 2025-26 school year, Mean SAT Score, SAT Total Combined, all students"
+  },
+  // === DETROIT METRO MSR END ===
+  // === ST. LOUIS METRO MSR START ===
+  "Affton High School": {
+    "natl": 8355, "state": 128,
+    "act": 19.3, "actYear": 2025, "actN": 128, "actGrads": 164,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Alton High School": {
+    "natl": 10295, "state": 362,
+    "sat": 904, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Bayless Sr. High School": {
+    "natl": 3634, "state": 47,
+    "act": 17.9, "actYear": 2025, "actN": 118, "actGrads": 143,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Belleville High School-East": {
+    "natl": 6263, "state": 238,
+    "sat": 923, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Belleville High School-West": {
+    "natl": 7909, "state": 284,
+    "sat": 875, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Bond Cty Comm Unit 2 High School": {
+    "natl": 5319, "state": 209,
+    "sat": 990, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Brentwood High School": {
+    "natl": 7218, "state": 109,
+    "act": 22.4, "actYear": 2025, "actN": 45, "actGrads": 53,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Bunker Hill High School": {
+    "natl": 9998, "state": 343,
+    "sat": 948, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Cahokia High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 777, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Calhoun High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 917, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Carlinville High School": {
+    "natl": 8867, "state": 308,
+    "sat": 940, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Carlyle High School": {
+    "natl": 7287, "state": 265,
+    "sat": 942, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Central Comm High School": {
+    "natl": 10129, "state": 350,
+    "sat": 1030, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Central High School (MO)": {
+    "natl": 1475, "state": 20,
+    "act": 23.6, "actYear": 2025, "actN": 284, "actGrads": 322,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Civic Memorial High School": {
+    "natl": 8120, "state": 289,
+    "sat": 968, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Clayton High School": {
+    "natl": 308, "state": 3,
+    "act": 28.6, "actYear": 2025, "actN": 79, "actGrads": 213,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Collegiate School Of Medicine and Bioscience": {
+    "natl": 90, "state": 2,
+    "act": 23.2, "actYear": 2025, "actN": 71, "actGrads": 71,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Collinsville High School": {
+    "natl": 7873, "state": 281,
+    "sat": 885, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Columbia High School": {
+    "natl": 3436, "state": 137,
+    "sat": 1032, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Crystal City High School": {
+    "natl": 10398, "state": 175,
+    "act": 20.5, "actYear": 2025, "actN": 22, "actGrads": 31,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Desoto Sr. High School": {
+    "natl": 5509, "state": 71,
+    "act": 18.8, "actYear": 2025, "actN": 151, "actGrads": 214,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Dupo High School": {
+    "natl": 13136, "state": 451,
+    "sat": 884, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "East Alton-Wood River High School": {
+    "natl": 10335, "state": 363,
+    "sat": 877, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "East St Louis Senior High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 751, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Edwardsville High School": {
+    "natl": 2817, "state": 115,
+    "sat": 1026, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Elsberry High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 19.3, "actYear": 2025, "actN": 29, "actGrads": 59,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Emil E. Holt Sr. High School": {
+    "natl": 4830, "state": 60,
+    "act": 21.5, "actYear": 2025, "actN": 135, "actGrads": 262,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Eureka Sr. High School": {
+    "natl": 1819, "state": 25,
+    "act": 22.5, "actYear": 2025, "actN": 370, "actGrads": 412,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Festus Sr. High School": {
+    "natl": 2190, "state": 28,
+    "act": 20.5, "actYear": 2025, "actN": 200, "actGrads": 231,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Fox Sr. High School": {
+    "natl": 8940, "state": 138,
+    "act": 19.5, "actYear": 2025, "actN": 311, "actGrads": 429,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Francis Howell Central High School": {
+    "natl": 1140, "state": 13,
+    "act": 20.9, "actYear": 2025, "actN": 362, "actGrads": 431,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Francis Howell High School": {
+    "natl": 1117, "state": 10,
+    "act": 22.4, "actYear": 2025, "actN": 409, "actGrads": 455,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Francis Howell North High School": {
+    "natl": 2865, "state": 35,
+    "act": 20.0, "actYear": 2025, "actN": 342, "actGrads": 403,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Freeburg Community High School": {
+    "natl": 4365, "state": 171,
+    "sat": 1022, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Ft. Zumwalt East High School": {
+    "natl": 3495, "state": 44,
+    "act": 21.5, "actYear": 2025, "actN": 189, "actGrads": 285,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Ft. Zumwalt North High School": {
+    "natl": 2652, "state": 34,
+    "act": 22.0, "actYear": 2025, "actN": 230, "actGrads": 363,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Ft. Zumwalt South High School": {
+    "natl": 1135, "state": 12,
+    "act": 24.0, "actYear": 2025, "actN": 182, "actGrads": 279,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Ft. Zumwalt West High School": {
+    "natl": 1154, "state": 15,
+    "act": 23.4, "actYear": 2025, "actN": 250, "actGrads": 372,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Gateway Science Academy High School": {
+    "natl": 2620, "state": 33,
+    "act": 21.0, "actYear": 2025, "actN": 105, "actGrads": 106,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Gillespie High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 913, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Grand Center Arts Academy High School": {
+    "natl": 9168, "state": 142,
+    "act": 18.2, "actYear": 2025, "actN": 60, "actGrads": 94,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Granite City High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 838, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Hancock Sr. High School": {
+    "natl": 6940, "state": 105,
+    "act": 19.2, "actYear": 2025, "actN": 19, "actGrads": 84,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Hazelwood Central High School": {
+    "natl": 11988, "state": 220,
+    "act": 16.0, "actYear": 2025, "actN": 191, "actGrads": 437,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Hazelwood East High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 16.5, "actYear": 2025, "actN": 115, "actGrads": 328,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Hazelwood West High School": {
+    "natl": 8775, "state": 136,
+    "act": 17.5, "actYear": 2025, "actN": 233, "actGrads": 465,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Herculaneum High School": {
+    "natl": 10157, "state": 168,
+    "act": 19.1, "actYear": 2025, "actN": 69, "actGrads": 105,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Highland High School (IL)": {
+    "natl": 3804, "state": 147,
+    "sat": 993, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Hillsboro High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 20.0, "actYear": 2025, "actN": 149, "actGrads": 272,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Jennings High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 15.0, "actYear": 2025, "actN": 58, "actGrads": 164,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Jersey Comm High School": {
+    "natl": 7648, "state": 276,
+    "sat": 947, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "KIPP St. Louis High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 15.5, "actYear": 2025, "actN": 81, "actGrads": 82,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Kirkwood Sr. High School": {
+    "natl": 1774, "state": 24,
+    "act": 23.4, "actYear": 2025, "actN": 353, "actGrads": 391,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Ladue Horton Watkins High School": {
+    "natl": 1156, "state": 16,
+    "act": 26.0, "actYear": 2025, "actN": 246, "actGrads": 340,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Lafayette Sr. High School": {
+    "natl": 677, "state": 7,
+    "act": 24.6, "actYear": 2025, "actN": 385, "actGrads": 416,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Lebanon High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 910, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Liberty High School": {
+    "natl": 1537, "state": 21,
+    "act": 22.2, "actYear": 2025, "actN": 208, "actGrads": 371,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Lindbergh Sr. High School": {
+    "natl": 1385, "state": 18,
+    "act": 23.5, "actYear": 2025, "actN": 346, "actGrads": 594,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Lovejoy Technology Academy": {
+    "natl": null, "state": null
+  },
+  "Madison Senior High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 765, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Maplewood-Richmond Hgts. High School": {
+    "natl": 2467, "state": 31,
+    "act": 20.6, "actYear": 2025, "actN": 90, "actGrads": 98,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Marissa Junior and Senior High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 910, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Marquette Sr. High School": {
+    "natl": 1634, "state": 23,
+    "act": 24.4, "actYear": 2025, "actN": 453, "actGrads": 505,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Mascoutah High School": {
+    "natl": 3376, "state": 134,
+    "sat": 1030, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "McCluer High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 14.4, "actYear": 2025, "actN": 153, "actGrads": 310,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "McCluer North High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 15.6, "actYear": 2025, "actN": 150, "actGrads": 289,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "McKinley Classical Leadership Academy": {
+    "natl": 1462, "state": 19,
+    "act": 19.9, "actYear": 2025, "actN": 55, "actGrads": 56,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Mehlville High School": {
+    "natl": 12033, "state": 223,
+    "act": 19.5, "actYear": 2025, "actN": 250, "actGrads": 391,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Metro Academic and Classical High School": {
+    "natl": 22, "state": 1,
+    "act": 27.0, "actYear": 2025, "actN": 72, "actGrads": 72,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Miller Career Academy": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 13.7, "actYear": 2025, "actN": 128, "actGrads": 130,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Mt Olive High School": {
+    "natl": 8968, "state": 310,
+    "sat": 994, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Mulberry Grove Senior High School": {
+    "natl": 13146, "state": 453,
+    "sat": 901, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "New Athens High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 918, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "New Haven High School (MO)": {
+    "natl": 7220, "state": 110,
+    "act": 22.4, "actYear": 2025, "actN": 28, "actGrads": 39,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Normandy High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 14.8, "actYear": 2025, "actN": 90, "actGrads": 160,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "North High School": {
+    "natl": 4949, "state": 62,
+    "act": 20.5, "actYear": 2025, "actN": 219, "actGrads": 266,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "North Mac High School": {
+    "natl": 9851, "state": 340,
+    "sat": 929, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "North Point High School": {
+    "natl": 3558, "state": 45,
+    "act": 21.5, "actYear": 2025, "actN": 205, "actGrads": 370,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Northwest High School": {
+    "natl": 10100, "state": 167,
+    "act": 20.5, "actYear": 2025, "actN": 262, "actGrads": 415,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Northwestern High School (IL)": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 891, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "O'Fallon Township High School": {
+    "natl": 4232, "state": 165,
+    "sat": 1008, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Oakville Sr. High School": {
+    "natl": 5902, "state": 79,
+    "act": 20.2, "actYear": 2025, "actN": 349, "actGrads": 451,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Orchard Farm Sr. High School": {
+    "natl": 7637, "state": 116,
+    "act": 18.5, "actYear": 2025, "actN": 123, "actGrads": 147,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Owensville High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 21.6, "actYear": 2025, "actN": 66, "actGrads": 124,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Pacific High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 20.1, "actYear": 2025, "actN": 84, "actGrads": 238,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Parkway South High School": {
+    "natl": 2294, "state": 30,
+    "act": 22.4, "actYear": 2025, "actN": 332, "actGrads": 378,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Parkway West High School": {
+    "natl": 438, "state": 4,
+    "act": 23.7, "actYear": 2025, "actN": 298, "actGrads": 342,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Pattonville Sr. High School": {
+    "natl": 4585, "state": 56,
+    "act": 19.5, "actYear": 2025, "actN": 326, "actGrads": 441,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Ritenour Sr. High School": {
+    "natl": 12997, "state": 248,
+    "act": 18.4, "actYear": 2025, "actN": 102, "actGrads": 453,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Riverview Gardens Sr. High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 14.6, "actYear": 2025, "actN": 109, "actGrads": 256,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Rockwood Summit Sr. High School": {
+    "natl": 2989, "state": 38,
+    "act": 22.0, "actYear": 2025, "actN": 282, "actGrads": 308,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Roosevelt High School (MO)": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 13.2, "actYear": 2025, "actN": 103, "actGrads": 122,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Roxana Senior High School": {
+    "natl": 10101, "state": 348,
+    "sat": 932, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Seckman Sr. High School": {
+    "natl": 6840, "state": 101,
+    "act": 20.5, "actYear": 2025, "actN": 300, "actGrads": 407,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Southwestern High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460–17,945", "stateBand": "469–675",
+    "sat": 927, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "St. Charles High School": {
+    "natl": 7487, "state": 113,
+    "act": 22.6, "actYear": 2025, "actN": 67, "actGrads": 184,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "St. Charles West High School": {
+    "natl": 4957, "state": 63,
+    "act": 22.5, "actYear": 2025, "actN": 62, "actGrads": 161,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "St. Clair High School (MO)": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 18.0, "actYear": 2025, "actN": 105, "actGrads": 166,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Staunton High School": {
+    "natl": 12438, "state": 426,
+    "sat": 922, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Sullivan Sr. High School": {
+    "natl": 11528, "state": 206,
+    "act": 18.8, "actYear": 2025, "actN": 151, "actGrads": 167,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Sumner High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 13.3, "actYear": 2025, "actN": 53, "actGrads": 59,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Timberland High School": {
+    "natl": 2895, "state": 36,
+    "act": 22.8, "actYear": 2025, "actN": 216, "actGrads": 387,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Triad High School": {
+    "natl": 3187, "state": 129,
+    "sat": 1019, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Troy Buchanan High School": {
+    "natl": 8043, "state": 122,
+    "act": 20.9, "actYear": 2025, "actN": 202, "actGrads": 496,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Union High School": {
+    "natl": 10938, "state": 196,
+    "act": 19.0, "actYear": 2025, "actN": 143, "actGrads": 236,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "University City Sr. High School": {
+    "natl": 8521, "state": 132,
+    "act": 15.9, "actYear": 2025, "actN": 119, "actGrads": 223,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Valley Park Sr. High School": {
+    "natl": 3677, "state": 48,
+    "act": 19.7, "actYear": 2025, "actN": 49, "actGrads": 57,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Valmeyer High School": {
+    "natl": 11389, "state": 389,
+    "sat": 986, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Vashon High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 12.7, "actYear": 2025, "actN": 118, "actGrads": 131,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Warrenton High School": {
+    "natl": 11978, "state": 218,
+    "act": 21.3, "actYear": 2025, "actN": 75, "actGrads": 260,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Washington High School (MO)": {
+    "natl": 6887, "state": 102,
+    "act": 22.0, "actYear": 2025, "actN": 137, "actGrads": 300,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Waterloo High School": {
+    "natl": 5682, "state": 223,
+    "sat": 1001, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Webster Groves High School": {
+    "natl": 2222, "state": 29,
+    "act": 23.6, "actYear": 2025, "actN": 301, "actGrads": 323,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Wesclin Senior High School": {
+    "natl": 9582, "state": 330,
+    "sat": 946, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Windsor High School": {
+    "natl": 12306, "state": 232,
+    "act": 18.4, "actYear": 2025, "actN": 180, "actGrads": 204,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Winfield High School": {
+    "natl": 15702, "state": 306,
+    "natlBand": "13,460–17,945", "stateBand": "256–356",
+    "act": 19.3, "actYear": 2025, "actN": 47, "actGrads": 119,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
+  },
+  "Wright City High School": {
+    "natl": 8620, "state": 134,
+    "act": 18.5, "actYear": 2025, "actN": 66, "actGrads": 162,
+    "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
   }
+  // === ST. LOUIS METRO MSR END ===
 };
 
 const SCHOOL_DATA = {
@@ -5129,6 +6703,3918 @@ const SCHOOL_DATA = {
     note: 'Momence High School ranks 367th in Illinois.'
   },
 
+  // === INDIANAPOLIS METRO SCHOOL_DATA START ===
+  "Alexandria (IN)": {
+    hs: "Alexandria-Monroe High School",
+    district: "Alexandria Community School Corporation",
+    usNewsNational: 6694, usNewsState: 181,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Alexandria Community School Corporation operates the town's high school. Alexandria-Monroe High School (#181 in Indiana) enrolls 433 students in grades 9-12 with a 88% graduation rate and a 32% AP-exam participation rate."
+  },
+  "Anderson (IN)": {
+    hs: "Anderson High School",
+    district: "Anderson Community School Corporation",
+    usNewsNational: 15702, usNewsState: 362,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Anderson Community School Corporation covers about 99.9% of residents. Anderson High School (in the unranked-bottom band, 321–404 in Indiana) enrolls 1,768 students in grades 9-12 with a 80% graduation rate and a 5% AP-exam participation rate."
+  },
+  "Arcadia (IN)": {
+    hs: "Hamilton Heights High School",
+    district: "Hamilton Heights School Corporation",
+    usNewsNational: 3281, usNewsState: 76,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hamilton Heights School Corporation covers the whole town. Hamilton Heights High School (#76 in Indiana) enrolls 709 students in grades 9-12 with a 95% graduation rate and a 32% AP-exam participation rate."
+  },
+  "Atlanta (IN)": {
+    hs: "Hamilton Heights High School",
+    district: "Hamilton Heights School Corporation",
+    feedsTo: "Hamilton Heights High School",
+    usNewsNational: 3281, usNewsState: 76,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Atlanta is served by the Hamilton Heights School Corporation; its high school is in neighboring Arcadia. Hamilton Heights High School (#76 in Indiana) enrolls 709 students in grades 9-12 with a 95% graduation rate and a 32% AP-exam participation rate."
+  },
+  "Avon (IN)": {
+    hs: "Avon High School",
+    district: "Avon Community School Corporation",
+    usNewsNational: 1052, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Avon Community School Corporation covers virtually all of the town. Avon High School (#18 in Indiana) enrolls 3,518 students in grades 9-12 with a 97% graduation rate and a 51% AP-exam participation rate."
+  },
+  "Bargersville (IN)": {
+    hs: "Center Grove High School",
+    district: "Center Grove Community School Corporation",
+    feedsTo: "Center Grove High School",
+    usNewsNational: 1876, usNewsState: 38,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "About 92% of residents are in Center Grove Community School Corporation; the remainder are in Franklin Community Schools. Center Grove High School (#38 in Indiana) enrolls 2,956 students in grades 9-12 with a 94% graduation rate and a 45% AP-exam participation rate."
+  },
+  "Beech Grove (IN)": {
+    hs: "Beech Grove Senior High School",
+    district: "Beech Grove City Schools",
+    usNewsNational: 12271, usNewsState: 295,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Beech Grove City Schools is a stand-alone city district that covers about 97% of residents. Beech Grove Senior High School (#295 in Indiana) enrolls 914 students in grades 9-12 with a 86% graduation rate and a 33% AP-exam participation rate."
+  },
+  "Belleville (IN)": {
+    hs: "Cascade Senior High School",
+    district: "Mill Creek Community School Corporation",
+    feedsTo: "Cascade Senior High School",
+    usNewsNational: 3040, usNewsState: 68,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Belleville lies inside Mill Creek Community School Corporation per Census school-district boundaries; its only high school is in Clayton. Cascade Senior High School (#68 in Indiana) enrolls 537 students in grades 9-12 with a 95% graduation rate and a 27% AP-exam participation rate."
+  },
+  "Boggstown (IN)": {
+    hs: "Triton Central High School",
+    district: "Northwestern Consolidated School Corporation (Triton Central Schools)",
+    feedsTo: "Triton Central High School",
+    usNewsNational: 10866, usNewsState: 265,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Boggstown is in Northwestern Consolidated School Corporation per Census boundaries; its high school is Triton Central. Triton Central High School (#265 in Indiana) enrolls 471 students in grades 9-12 with a 87% graduation rate."
+  },
+  "Brooklyn (IN)": {
+    hs: ["Martinsville High School", "Mooresville High School"],
+    district: ["MSD of Martinsville Schools", "Mooresville Consolidated School Corp"],
+    feedsTo: "Martinsville High School / Mooresville High School",
+    usNewsNational: 7242, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Brooklyn is split between the MSD of Martinsville (which runs Brooklyn Elementary) and Mooresville Consolidated schools. Martinsville High School (#273 in Indiana) enrolls 1,281 students in grades 9-12 with a 84% graduation rate and a 28% AP-exam participation rate. Also: Mooresville High School (#195 in Indiana) enrolls 1,372 students in grades 9-12 with a 99% graduation rate and a 39% AP-exam participation rate."
+  },
+  "Browns Crossing (IN)": {
+    hs: "Martinsville High School",
+    district: "MSD of Martinsville Schools",
+    feedsTo: "Martinsville High School",
+    usNewsNational: 11198, usNewsState: 273,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Browns Crossing is inside the MSD of Martinsville Schools per Census boundaries; the high school is in Martinsville. Martinsville High School (#273 in Indiana) enrolls 1,281 students in grades 9-12 with a 84% graduation rate and a 28% AP-exam participation rate."
+  },
+  "Brownsburg (IN)": {
+    hs: "Brownsburg High School",
+    district: "Brownsburg Community School Corporation",
+    usNewsNational: 722, usNewsState: 11,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brownsburg Community School Corporation covers about 98% of residents. Brownsburg High School (#11 in Indiana) enrolls 3,331 students in grades 9-12 with a 99% graduation rate and a 53% AP-exam participation rate."
+  },
+  "Carmel (IN)": {
+    hs: "Carmel High School",
+    district: "Carmel Clay Schools",
+    usNewsNational: 316, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Carmel Clay Schools has a single comprehensive high school. Carmel High School (#7 in Indiana) enrolls 5,239 students in grades 9-12 with a 97% graduation rate and a 64% AP-exam participation rate."
+  },
+  "Chesterfield (IN)": {
+    hs: "Anderson High School",
+    district: "Anderson Community School Corporation",
+    feedsTo: "Anderson High School",
+    usNewsNational: 15702, usNewsState: 362,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "About 99.7% of Chesterfield residents are in Anderson Community School Corporation (a sliver in Delaware County is Daleville). Anderson High School (in the unranked-bottom band, 321–404 in Indiana) enrolls 1,768 students in grades 9-12 with a 80% graduation rate and a 5% AP-exam participation rate."
+  },
+  "Cicero (IN)": {
+    hs: "Hamilton Heights High School",
+    district: "Hamilton Heights School Corporation",
+    feedsTo: "Hamilton Heights High School",
+    usNewsNational: 3281, usNewsState: 76,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Cicero is served by the Hamilton Heights School Corporation, whose high school is in neighboring Arcadia. Hamilton Heights High School (#76 in Indiana) enrolls 709 students in grades 9-12 with a 95% graduation rate and a 32% AP-exam participation rate."
+  },
+  "Clayton (IN)": {
+    hs: "Cascade Senior High School",
+    district: "Mill Creek Community School Corporation",
+    usNewsNational: 3040, usNewsState: 68,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mill Creek Community School Corporation has one high school, in Clayton. Cascade Senior High School (#68 in Indiana) enrolls 537 students in grades 9-12 with a 95% graduation rate and a 27% AP-exam participation rate."
+  },
+  "Clermont (IN)": {
+    hs: ["Ben Davis High School", "Pike High School"],
+    district: ["M S D Wayne Township", "M S D Pike Township"],
+    feedsTo: "Ben Davis High School / Pike High School",
+    usNewsNational: 4170, usNewsState: 102,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Clermont is split between MSD of Wayne Township (Ben Davis High School) and MSD of Pike Township (Pike High School). Ben Davis High School (in the unranked-bottom band, 321–404 in Indiana) enrolls 3,315 students in grades 9-12 with a 78% graduation rate and a 25% AP-exam participation rate. Also: Pike High School (#102 in Indiana) enrolls 3,188 students in grades 9-12 with a 95% graduation rate and a 30% AP-exam participation rate."
+  },
+  "Coatesville (IN)": {
+    hs: "Cascade Senior High School",
+    district: "Mill Creek Community School Corporation",
+    feedsTo: "Cascade Senior High School",
+    usNewsNational: 3040, usNewsState: 68,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Coatesville is in Mill Creek Community School Corporation, whose only high school is in Clayton. Cascade Senior High School (#68 in Indiana) enrolls 537 students in grades 9-12 with a 95% graduation rate and a 27% AP-exam participation rate."
+  },
+  "Cordry Sweetwater Lakes (IN)": {
+    hs: "Brown County High School",
+    district: "Brown County School Corporation",
+    feedsTo: "Brown County High School",
+    usNewsNational: 5845, usNewsState: 155,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brown County School Corporation is the only school corporation in the county. Brown County High School (#155 in Indiana) enrolls 454 students in grades 9-12 with a 89% graduation rate and a 47% AP-exam participation rate."
+  },
+  "Cumberland (IN)": {
+    hs: ["Mt Vernon High School", "Warren Central High School", "New Palestine High School"],
+    district: ["Mt Vernon Community School Corp", "MSD of Warren Township", "Southern Hancock County Community School Corp"],
+    feedsTo: "Mt Vernon High School / Warren Central High School / New Palestine High School",
+    usNewsNational: 1837, usNewsState: 35,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Cumberland straddles the Marion/Hancock county line and three school corporations (2020 census-block population shares), so students attend Mt. Vernon, Warren Central or New Palestine depending on address. Mt Vernon High School (#47 in Indiana) enrolls 1,470 students in grades 9-12 with a 94% graduation rate and a 44% AP-exam participation rate. Also: Warren Central High School (#258 in Indiana) enrolls 3,364 students in grades 9-12 with a 88% graduation rate and a 16% AP-exam participation rate."
+  },
+  "Danville (IN)": {
+    hs: "Danville Community High School",
+    district: "Danville Community School Corporation",
+    usNewsNational: 2368, usNewsState: 49,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Danville Community School Corporation covers about 94% of residents; the rest are in Avon Community Schools. Danville Community High School (#49 in Indiana) enrolls 848 students in grades 9-12 with a 93% graduation rate and a 46% AP-exam participation rate."
+  },
+  "Edgewood (IN)": {
+    hs: "Anderson High School",
+    district: "Anderson Community School Corporation",
+    feedsTo: "Anderson High School",
+    usNewsNational: 15702, usNewsState: 362,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Edgewood is in Anderson Community School Corporation, whose comprehensive high school is Anderson High School. Anderson High School (in the unranked-bottom band, 321–404 in Indiana) enrolls 1,768 students in grades 9-12 with a 80% graduation rate and a 5% AP-exam participation rate."
+  },
+  "Edinburgh (IN)": {
+    hs: "Edinburgh Community High School",
+    district: "Edinburgh Community School Corporation",
+    usNewsNational: 6553, usNewsState: 178,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "About 87% of residents are in Edinburgh Community School Corporation; small annexed fringes lie in Bartholomew County and Southwestern Shelby County school corporations. Edinburgh Community High School (#178 in Indiana) enrolls 230 students in grades 9-12 with a 82% graduation rate and a 40% AP-exam participation rate."
+  },
+  "Elwood (IN)": {
+    hs: "Elwood Community High School",
+    district: "Elwood Community School Corporation",
+    usNewsNational: 11285, usNewsState: 276,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Elwood Community School Corporation operates the town's high school. Elwood Community High School (#276 in Indiana) enrolls 441 students in grades 9-12 with a 92% graduation rate and a 17% AP-exam participation rate."
+  },
+  "Fairland (IN)": {
+    hs: "Triton Central High School",
+    district: "Northwestern Consolidated School Corporation (Triton Central Schools)",
+    feedsTo: "Triton Central High School",
+    usNewsNational: 10866, usNewsState: 265,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Triton Central High School is about two miles north of Fairland, in the Northwestern Consolidated district that serves the town. Triton Central High School (#265 in Indiana) enrolls 471 students in grades 9-12 with a 87% graduation rate."
+  },
+  "Fishers (IN)": {
+    hs: ["Fishers High School", "Hamilton Southeastern High School"],
+    district: ["Hamilton Southeastern Schools", "Hamilton Southeastern Schools"],
+    usNewsNational: 428, usNewsState: 8,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Fishers spans Delaware and Fall Creek townships; Hamilton Southeastern Schools splits high-school attendance between Fishers High (most of Delaware Twp.) and Hamilton Southeastern High (most of Fall Creek Twp.). Fishers High School (#8 in Indiana) enrolls 3,590 students in grades 9-12 with a 99% graduation rate and a 63% AP-exam participation rate. Also: Hamilton Southeastern High School (#12 in Indiana) enrolls 3,504 students in grades 9-12 with a 96% graduation rate and a 56% AP-exam participation rate."
+  },
+  "Fortville (IN)": {
+    hs: "Mt Vernon High School",
+    district: "Mt Vernon Community School Corp",
+    usNewsNational: 2277, usNewsState: 47,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mt. Vernon Community School Corp is headquartered in Fortville and its high school is in the town. Mt Vernon High School (#47 in Indiana) enrolls 1,470 students in grades 9-12 with a 94% graduation rate and a 44% AP-exam participation rate."
+  },
+  "Foxcliff Estates (IN)": {
+    hs: "Martinsville High School",
+    district: "MSD of Martinsville Schools",
+    feedsTo: "Martinsville High School",
+    usNewsNational: 11198, usNewsState: 273,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Foxcliff Estates is inside the MSD of Martinsville Schools per Census boundaries; the high school is in Martinsville. Martinsville High School (#273 in Indiana) enrolls 1,281 students in grades 9-12 with a 84% graduation rate and a 28% AP-exam participation rate."
+  },
+  "Franklin (IN)": {
+    hs: "Franklin Community High School",
+    district: "Franklin Community School Corp",
+    usNewsNational: 4702, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Franklin Community School Corp covers about 95% of residents. Franklin Community High School (#115 in Indiana) enrolls 1,531 students in grades 9-12 with a 76% graduation rate and a 36% AP-exam participation rate."
+  },
+  "Frankton (IN)": {
+    hs: "Frankton Jr-Sr High School",
+    district: "Frankton-Lapel Community Schools",
+    usNewsNational: 5281, usNewsState: 139,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Frankton-Lapel Community Schools operates Frankton Jr-Sr High School in the town. Frankton Jr-Sr High School (#139 in Indiana) enrolls 511 students in grades 9-12 with a 87% graduation rate and a 26% AP-exam participation rate."
+  },
+  "Greenfield (IN)": {
+    hs: "Greenfield-Central High School",
+    district: "Greenfield-Central Community Schools",
+    usNewsNational: 6338, usNewsState: 171,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Greenfield-Central Community Schools covers essentially all of the city. Greenfield-Central High School (#171 in Indiana) enrolls 1,413 students in grades 9-12 with a 81% graduation rate and a 34% AP-exam participation rate."
+  },
+  "Greenwood (IN)": {
+    hs: ["Whiteland Community High School", "Greenwood Community High School", "Center Grove High School"],
+    district: ["Clark-Pleasant Community School Corporation", "Greenwood Community Sch Corp", "Center Grove Community School Corporation"],
+    usNewsNational: 1876, usNewsState: 38,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Greenwood is split three ways by school corporation (2020 census-block population shares), so residents attend Whiteland, Greenwood or Center Grove high schools depending on address. Whiteland Community High School (#174 in Indiana) enrolls 2,135 students in grades 9-12 with a 87% graduation rate and a 43% AP-exam participation rate. Also: Greenwood Community High School (#94 in Indiana) enrolls 1,223 students in grades 9-12 with a 96% graduation rate and a 20% AP-exam participation rate."
+  },
+  "Homecroft (IN)": {
+    hs: "Southport High School",
+    district: "MSD of Perry Township",
+    feedsTo: "Southport High School",
+    usNewsNational: 7132, usNewsState: 190,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Homecroft is in MSD of Perry Township and its zoned high school is Southport High School. Southport High School (#190 in Indiana) enrolls 2,419 students in grades 9-12 with a 90% graduation rate and a 29% AP-exam participation rate."
+  },
+  "Ingalls (IN)": {
+    hs: "Pendleton Heights High School",
+    district: "South Madison Community School Corporation",
+    feedsTo: "Pendleton Heights High School",
+    usNewsNational: 3326, usNewsState: 77,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "South Madison Community School Corporation's high school is Pendleton Heights, in Pendleton. Pendleton Heights High School (#77 in Indiana) enrolls 1,502 students in grades 9-12 with a 91% graduation rate and a 44% AP-exam participation rate."
+  },
+  "Jamestown (IN)": {
+    hs: "Western Boone Jr-Sr High School",
+    district: "Western Boone County Community School Corporation",
+    feedsTo: "Western Boone Jr-Sr High School",
+    usNewsNational: 3920, usNewsState: 95,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Nearly all residents (about 97%) are in the Western Boone County Community School Corporation, whose junior-senior high school is in neighboring Thorntown; a sliver of the town in Hendricks County is in North West Hendricks (Tri-West). Western Boone Jr-Sr High School (#95 in Indiana) enrolls 519 students in grades 9-12 with a 99% graduation rate and a 30% AP-exam participation rate."
+  },
+  "Lapel (IN)": {
+    hs: "Lapel Senior High School",
+    district: "Frankton-Lapel Community Schools (about 93%) and South Madison Community School Corporation (about 7%)",
+    usNewsNational: 9711, usNewsState: 245,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "About 93% of residents are in Frankton-Lapel (Lapel Senior High); a small southern portion (about 7%) is in South Madison Community Schools. Lapel Senior High School (#245 in Indiana) enrolls 462 students in grades 9-12 with a 93% graduation rate."
+  },
+  "Lawrence (IN)": {
+    hs: ["Lawrence Central High School", "Lawrence North High School"],
+    district: ["M S D Lawrence Township", "M S D Lawrence Township"],
+    feedsTo: "Lawrence Central High School / Lawrence North High School",
+    usNewsNational: 7237, usNewsState: 194,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "MSD of Lawrence Township operates two comprehensive high schools (Lawrence Central and Lawrence North); which one a student attends depends on address. Lawrence Central High School (#229 in Indiana) enrolls 2,512 students in grades 9-12 with a 93% graduation rate and a 34% AP-exam participation rate. Also: Lawrence North High School (#194 in Indiana) enrolls 2,791 students in grades 9-12 with a 92% graduation rate and a 37% AP-exam participation rate."
+  },
+  "Lebanon (IN)": {
+    hs: "Lebanon Senior High School",
+    district: "Lebanon Community School Corp",
+    usNewsNational: 3656, usNewsState: 89,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lebanon Community School Corp covers 99.7% of residents. Lebanon Senior High School (#89 in Indiana) enrolls 1,067 students in grades 9-12 with a 94% graduation rate and a 34% AP-exam participation rate."
+  },
+  "Lizton (IN)": {
+    hs: "Tri-West Senior High School",
+    district: "North West Hendricks Schools",
+    usNewsNational: 1035, usNewsState: 17,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tri-West is North West Hendricks Schools' high school and sits in Lizton. Tri-West Senior High School (#17 in Indiana) enrolls 610 students in grades 9-12 with a 91% graduation rate and a 61% AP-exam participation rate."
+  },
+  "Markleville (IN)": {
+    hs: "Pendleton Heights High School",
+    district: "South Madison Community School Corporation",
+    feedsTo: "Pendleton Heights High School",
+    usNewsNational: 3326, usNewsState: 77,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "South Madison Community School Corporation's high school is Pendleton Heights, in Pendleton. Pendleton Heights High School (#77 in Indiana) enrolls 1,502 students in grades 9-12 with a 91% graduation rate and a 44% AP-exam participation rate."
+  },
+  "Martinsville (IN)": {
+    hs: "Martinsville High School",
+    district: "MSD of Martinsville Schools",
+    usNewsNational: 11198, usNewsState: 273,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "MSD of Martinsville administers the town's public schools. Martinsville High School (#273 in Indiana) enrolls 1,281 students in grades 9-12 with a 84% graduation rate and a 28% AP-exam participation rate."
+  },
+  "McCordsville (IN)": {
+    hs: "Mt Vernon High School",
+    district: "Mt Vernon Community School Corp",
+    feedsTo: "Mt Vernon High School",
+    usNewsNational: 2277, usNewsState: 47,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "McCordsville is in Mt. Vernon Community School Corp; the high school is in neighboring Fortville. Mt Vernon High School (#47 in Indiana) enrolls 1,470 students in grades 9-12 with a 94% graduation rate and a 44% AP-exam participation rate."
+  },
+  "Meridian Hills (IN)": {
+    hs: "North Central High School",
+    district: "MSD of Washington Township",
+    feedsTo: "North Central High School",
+    usNewsNational: 3577, usNewsState: 85,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "About 99.7% of Meridian Hills is in MSD of Washington Township, whose sole comprehensive high school is North Central (one block is in Indianapolis Public Schools). North Central High School (#85 in Indiana) enrolls 3,682 students in grades 9-12 with a 89% graduation rate and a 40% AP-exam participation rate."
+  },
+  "Monrovia (IN)": {
+    hs: "Monrovia High School",
+    district: "Monroe-Gregg School District",
+    usNewsNational: 9038, usNewsState: 234,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Monroe-Gregg School District's junior-senior high school is in the town. Monrovia High School (#234 in Indiana) enrolls 489 students in grades 9-12 with a 88% graduation rate and a 35% AP-exam participation rate."
+  },
+  "Mooresville (IN)": {
+    hs: "Mooresville High School",
+    district: "Mooresville Consolidated School Corp",
+    usNewsNational: 7242, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mooresville Consolidated School Corp has one high school, in the town. Mooresville High School (#195 in Indiana) enrolls 1,372 students in grades 9-12 with a 99% graduation rate and a 39% AP-exam participation rate."
+  },
+  "Morgantown (IN)": {
+    hs: "Indian Creek Senior High School",
+    district: "Nineveh-Hensley-Jackson United School Corporation",
+    feedsTo: "Indian Creek Senior High School",
+    usNewsNational: 5488, usNewsState: 149,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Although in Morgan County, Morgantown lies within the Nineveh-Hensley-Jackson United School Corporation per Census school-district boundaries; its high school is Indian Creek in Trafalgar. Indian Creek Senior High School (#149 in Indiana) enrolls 652 students in grades 9-12 with a 99% graduation rate and a 49% AP-exam participation rate."
+  },
+  "Morristown (IN)": {
+    hs: "Morristown Jr-Sr High School",
+    district: "Shelby Eastern Schools",
+    usNewsNational: 10686, usNewsState: 262,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shelby Eastern Schools operates the town's junior-senior high school. Morristown Jr-Sr High School (#262 in Indiana) enrolls 168 students in grades 9-12 with a 100% graduation rate."
+  },
+  "Nashville (IN)": {
+    hs: "Brown County High School",
+    district: "Brown County School Corporation",
+    usNewsNational: 5845, usNewsState: 155,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brown County School Corporation is the only school corporation in the county. Brown County High School (#155 in Indiana) enrolls 454 students in grades 9-12 with a 89% graduation rate and a 47% AP-exam participation rate."
+  },
+  "New Palestine (IN)": {
+    hs: "New Palestine High School",
+    district: "Southern Hancock County Community School Corp",
+    usNewsNational: 1837, usNewsState: 35,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southern Hancock County Community School Corp's high school is in the town. New Palestine High School (#35 in Indiana) enrolls 1,246 students in grades 9-12 with a 93% graduation rate and a 49% AP-exam participation rate."
+  },
+  "New Whiteland (IN)": {
+    hs: "Whiteland Community High School",
+    district: "Clark-Pleasant Community School Corporation",
+    feedsTo: "Whiteland Community High School",
+    usNewsNational: 6492, usNewsState: 174,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "New Whiteland is served by Clark-Pleasant Community School Corporation; its high school is in neighboring Whiteland. Whiteland Community High School (#174 in Indiana) enrolls 2,135 students in grades 9-12 with a 87% graduation rate and a 43% AP-exam participation rate."
+  },
+  "Nineveh (IN)": {
+    hs: "Indian Creek Senior High School",
+    district: "Nineveh-Hensley-Jackson United School Corporation",
+    feedsTo: "Indian Creek Senior High School",
+    usNewsNational: 5488, usNewsState: 149,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Nineveh is in Nineveh-Hensley-Jackson United School Corporation; its high school is in neighboring Trafalgar. Indian Creek Senior High School (#149 in Indiana) enrolls 652 students in grades 9-12 with a 99% graduation rate and a 49% AP-exam participation rate."
+  },
+  "Noblesville (IN)": {
+    hs: ["Noblesville High School", "Hamilton Southeastern High School"],
+    district: ["Noblesville Schools", "Hamilton Southeastern Schools"],
+    usNewsNational: 736, usNewsState: 12,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Roughly 85% of Noblesville residents (2020 census blocks) are in Noblesville Schools and about 15% in Hamilton Southeastern Schools; the HSE portion is Fall Creek Township, where Hamilton Southeastern High is the majority school (the address-level zone was not published in text). Noblesville High School (#15 in Indiana) enrolls 3,264 students in grades 9-12 with a 97% graduation rate and a 60% AP-exam participation rate. Also: Hamilton Southeastern High School (#12 in Indiana) enrolls 3,504 students in grades 9-12 with a 96% graduation rate and a 56% AP-exam participation rate."
+  },
+  "North Salem (IN)": {
+    hs: "Tri-West Senior High School",
+    district: "North West Hendricks Schools",
+    feedsTo: "Tri-West Senior High School",
+    usNewsNational: 1035, usNewsState: 17,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Salem is in North West Hendricks Schools, whose high school (Tri-West) is in Lizton. Tri-West Senior High School (#17 in Indiana) enrolls 610 students in grades 9-12 with a 91% graduation rate and a 61% AP-exam participation rate."
+  },
+  "Painted Hills (IN)": {
+    hs: "Indian Creek Senior High School",
+    district: "Nineveh-Hensley-Jackson United School Corporation",
+    feedsTo: "Indian Creek Senior High School",
+    usNewsNational: 5488, usNewsState: 149,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "About 96% of Painted Hills residents are in Nineveh-Hensley-Jackson United (remainder in MSD of Martinsville), so Indian Creek in Trafalgar is the school. Indian Creek Senior High School (#149 in Indiana) enrolls 652 students in grades 9-12 with a 99% graduation rate and a 49% AP-exam participation rate."
+  },
+  "Paragon (IN)": {
+    hs: "Martinsville High School",
+    district: "MSD of Martinsville Schools",
+    feedsTo: "Martinsville High School",
+    usNewsNational: 11198, usNewsState: 273,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Paragon is inside the MSD of Martinsville Schools (Census boundary; Paragon Elementary is a district school); the high school is in Martinsville. Martinsville High School (#273 in Indiana) enrolls 1,281 students in grades 9-12 with a 84% graduation rate and a 28% AP-exam participation rate."
+  },
+  "Pendleton (IN)": {
+    hs: "Pendleton Heights High School",
+    district: "South Madison Community School Corporation",
+    usNewsNational: 3326, usNewsState: 77,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "South Madison Community School Corporation's high school is Pendleton Heights, in Pendleton. Pendleton Heights High School (#77 in Indiana) enrolls 1,502 students in grades 9-12 with a 91% graduation rate and a 44% AP-exam participation rate."
+  },
+  "Pittsboro (IN)": {
+    hs: "Tri-West Senior High School",
+    district: "North West Hendricks Schools",
+    feedsTo: "Tri-West Senior High School",
+    usNewsNational: 1035, usNewsState: 17,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pittsboro is in North West Hendricks Schools, whose high school (Tri-West) is in neighboring Lizton. Tri-West Senior High School (#17 in Indiana) enrolls 610 students in grades 9-12 with a 91% graduation rate and a 61% AP-exam participation rate."
+  },
+  "Plainfield (IN)": {
+    hs: ["Plainfield High School (IN)", "Avon High School"],
+    district: ["Plainfield Community School Corp", "Avon Community School Corporation"],
+    usNewsNational: 1052, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "The east side of Plainfield is in Avon Community Schools, so the town is split between Plainfield High and Avon High. Plainfield High School (#30 in Indiana) enrolls 1,836 students in grades 9-12 with a 93% graduation rate and a 43% AP-exam participation rate. Also: Avon High School (#18 in Indiana) enrolls 3,518 students in grades 9-12 with a 97% graduation rate and a 51% AP-exam participation rate."
+  },
+  "Pleasant View (IN)": {
+    hs: "Triton Central High School",
+    district: "Northwestern Consolidated School Corporation (Triton Central Schools)",
+    feedsTo: "Triton Central High School",
+    usNewsNational: 10866, usNewsState: 265,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pleasant View is in Northwestern Consolidated School Corporation per Census boundaries; its high school is Triton Central. Triton Central High School (#265 in Indiana) enrolls 471 students in grades 9-12 with a 87% graduation rate."
+  },
+  "Prince's Lakes (IN)": {
+    hs: "Indian Creek Senior High School",
+    district: "Nineveh-Hensley-Jackson United School Corporation",
+    feedsTo: "Indian Creek Senior High School",
+    usNewsNational: 5488, usNewsState: 149,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Prince's Lakes residents are served by Nineveh-Hensley-Jackson United, including Indian Creek Senior High in Trafalgar. Indian Creek Senior High School (#149 in Indiana) enrolls 652 students in grades 9-12 with a 99% graduation rate and a 49% AP-exam participation rate."
+  },
+  "Rocky Ripple (IN)": {
+    hs: "North Central High School",
+    district: "MSD of Washington Township",
+    feedsTo: "North Central High School",
+    usNewsNational: 3577, usNewsState: 85,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rocky Ripple is in MSD of Washington Township, whose sole comprehensive high school is North Central. North Central High School (#85 in Indiana) enrolls 3,682 students in grades 9-12 with a 89% graduation rate and a 40% AP-exam participation rate."
+  },
+  "Sharpsville (IN)": {
+    hs: "Tri Central Middle-High School",
+    district: "Tri-Central Community Schools",
+    usNewsNational: 1966, usNewsState: 39,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tri-Central Community Schools covers the whole town and its middle-high school is in Sharpsville. Tri Central Middle-High School (#39 in Indiana) enrolls 218 students in grades 9-12 with a 96% graduation rate and a 65% AP-exam participation rate."
+  },
+  "Shelbyville (IN)": {
+    hs: "Shelbyville Senior High School",
+    district: "Shelbyville Central Schools",
+    usNewsNational: 5849, usNewsState: 156,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shelbyville Central Schools covers about 99.8% of residents. Shelbyville Senior High School (#156 in Indiana) enrolls 1,068 students in grades 9-12 with a 95% graduation rate and a 37% AP-exam participation rate."
+  },
+  "Sheridan (IN)": {
+    hs: "Sheridan High School",
+    district: "Sheridan Community Schools",
+    usNewsNational: 2666, usNewsState: 55,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sheridan Community Schools operates the town's own high school. Sheridan High School (#55 in Indiana) enrolls 343 students in grades 9-12 with a 96% graduation rate and a 53% AP-exam participation rate."
+  },
+  "Shirley (IN)": {
+    hs: ["Eastern Hancock High School", "Knightstown High School"],
+    district: ["Eastern Hancock County Com Sch Corp", "C A Beard Memorial School Corp"],
+    feedsTo: "Eastern Hancock High School / Knightstown High School",
+    usNewsNational: 10290, usNewsState: 254,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shirley straddles the Hancock/Henry line; about 75% of residents are in Eastern Hancock schools and about 25% in Knightstown's C. A. Beard Memorial corporation. Eastern Hancock High School (#297 in Indiana) enrolls 370 students in grades 9-12 with a 77% graduation rate and a 16% AP-exam participation rate. Also: Knightstown High School (#254 in Indiana) enrolls 318 students in grades 9-12 with a 90% graduation rate and a 35% AP-exam participation rate."
+  },
+  "Southport (IN)": {
+    hs: "Southport High School",
+    district: "MSD of Perry Township",
+    feedsTo: "Southport High School",
+    usNewsNational: 7132, usNewsState: 190,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southport is in MSD of Perry Township; zoned schools include Southport High School. Southport High School (#190 in Indiana) enrolls 2,419 students in grades 9-12 with a 90% graduation rate and a 29% AP-exam participation rate."
+  },
+  "Speedway (IN)": {
+    hs: "Speedway Senior High School",
+    district: "School Town of Speedway",
+    usNewsNational: 280, usNewsState: 6,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "School Town of Speedway is a stand-alone district with one high school in the town. Speedway Senior High School (#6 in Indiana) enrolls 600 students in grades 9-12 with a 98% graduation rate and a 100% AP-exam participation rate."
+  },
+  "Summitville (IN)": {
+    hs: "Madison-Grant High School",
+    district: "Madison-Grant United School Corporation",
+    feedsTo: "Madison-Grant High School",
+    usNewsNational: 4906, usNewsState: 121,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Summitville students move on to Madison-Grant High School near Fairmount. Madison-Grant High School (#121 in Indiana) enrolls 288 students in grades 9-12 with a 97% graduation rate and a 19% AP-exam participation rate."
+  },
+  "Thorntown (IN)": {
+    hs: "Western Boone Jr-Sr High School",
+    district: "Western Boone County Community School Corporation",
+    usNewsNational: 3920, usNewsState: 95,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Western Boone County Community School Corporation covers the whole town and its junior-senior high school is in Thorntown. Western Boone Jr-Sr High School (#95 in Indiana) enrolls 519 students in grades 9-12 with a 99% graduation rate and a 30% AP-exam participation rate."
+  },
+  "Tipton (IN)": {
+    hs: "Tipton High School",
+    district: "Tipton Community School Corporation",
+    usNewsNational: 5171, usNewsState: 135,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tipton Community School Corporation covers the whole town. Tipton High School (#135 in Indiana) enrolls 437 students in grades 9-12 with a 96% graduation rate and a 44% AP-exam participation rate."
+  },
+  "Trafalgar (IN)": {
+    hs: "Indian Creek Senior High School",
+    district: "Nineveh-Hensley-Jackson United School Corporation",
+    usNewsNational: 5488, usNewsState: 149,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Nineveh-Hensley-Jackson United School Corporation's high school is in Trafalgar. Indian Creek Senior High School (#149 in Indiana) enrolls 652 students in grades 9-12 with a 99% graduation rate and a 49% AP-exam participation rate."
+  },
+  "Waldron (IN)": {
+    hs: "Waldron Jr-Sr High School",
+    district: "Shelby Eastern Schools",
+    usNewsNational: 10889, usNewsState: 266,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shelby Eastern Schools operates the town's junior-senior high school. Waldron Jr-Sr High School (#266 in Indiana) enrolls 176 students in grades 9-12 with a 91% graduation rate and a 23% AP-exam participation rate."
+  },
+  "Warren Park (IN)": {
+    hs: "Warren Central High School",
+    district: "MSD of Warren Township",
+    feedsTo: "Warren Central High School",
+    usNewsNational: 10572, usNewsState: 258,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Warren Park is in MSD of Warren Township, whose comprehensive high school is Warren Central. Warren Central High School (#258 in Indiana) enrolls 3,364 students in grades 9-12 with a 88% graduation rate and a 16% AP-exam participation rate."
+  },
+  "Waverly (IN)": {
+    hs: "Mooresville High School",
+    district: "Mooresville Consolidated School Corp",
+    feedsTo: "Mooresville High School",
+    usNewsNational: 7242, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Waverly lies inside Mooresville Consolidated School Corp per Census boundaries; the high school is in Mooresville. Mooresville High School (#195 in Indiana) enrolls 1,372 students in grades 9-12 with a 99% graduation rate and a 39% AP-exam participation rate."
+  },
+  "Westfield (IN)": {
+    hs: "Westfield High School (IN)",
+    district: "Westfield-Washington Schools",
+    usNewsNational: 434, usNewsState: 9,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Westfield-Washington Schools has a single comprehensive high school. Westfield High School (#9 in Indiana) enrolls 2,937 students in grades 9-12 with a 92% graduation rate and a 71% AP-exam participation rate."
+  },
+  "Whiteland (IN)": {
+    hs: "Whiteland Community High School",
+    district: "Clark-Pleasant Community School Corporation",
+    usNewsNational: 6492, usNewsState: 174,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Clark-Pleasant Community School Corporation covers the whole town and its high school is in Whiteland. Whiteland Community High School (#174 in Indiana) enrolls 2,135 students in grades 9-12 with a 87% graduation rate and a 43% AP-exam participation rate."
+  },
+  "Whitestown (IN)": {
+    hs: ["Zionsville Community High School", "Lebanon Senior High School"],
+    district: ["Zionsville Community Schools", "Lebanon Community School Corp"],
+    feedsTo: "Zionsville Community High School / Lebanon Senior High School",
+    usNewsNational: 230, usNewsState: 3,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Whitestown is split by township: Eagle Township residents (about 52% of the population) attend Zionsville schools and Worth/Perry Township residents (about 48%) attend Lebanon schools. Zionsville Community High School (#3 in Indiana) enrolls 2,329 students in grades 9-12 with a 95% graduation rate and a 78% AP-exam participation rate. Also: Lebanon Senior High School (#89 in Indiana) enrolls 1,067 students in grades 9-12 with a 94% graduation rate and a 34% AP-exam participation rate."
+  },
+  "Windfall City (IN)": {
+    hs: "Tri Central Middle-High School",
+    district: "Tri-Central Community Schools",
+    feedsTo: "Tri Central Middle-High School",
+    usNewsNational: 1966, usNewsState: 39,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Windfall City lies inside Tri-Central Community Schools per Census boundaries; the middle-high school is in Sharpsville. Tri Central Middle-High School (#39 in Indiana) enrolls 218 students in grades 9-12 with a 96% graduation rate and a 65% AP-exam participation rate."
+  },
+  "Zionsville (IN)": {
+    hs: "Zionsville Community High School",
+    district: "Zionsville Community Schools",
+    usNewsNational: 230, usNewsState: 3,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Zionsville Community Schools covers about 97% of residents; a few percent are in Lebanon Community School Corp. Zionsville Community High School (#3 in Indiana) enrolls 2,329 students in grades 9-12 with a 95% graduation rate and a 78% AP-exam participation rate."
+  },
+  // === INDIANAPOLIS METRO SCHOOL_DATA END ===
+
+  // === DETROIT METRO SCHOOL_DATA START ===
+  "Addison Township (MI)": {
+    hs: ["Oxford High School", "Romeo High School"],
+    district: ["Oxford Community Schools", "Romeo Community Schools"],
+    feedsTo: "Oxford High School / Romeo High School",
+    usNewsNational: 4291, usNewsState: 156,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Addison Township is split between school districts (2020 census-block shares): Oxford Community Schools about 63%, Romeo Community Schools about 27%; students attend Oxford High School or Romeo High School depending on address. Smaller shares are in Lake Orion Community Schools (9%). Addison Township has no high school inside its boundary; the high schools are in Oxford, Washington. Oxford High School (#195 in Michigan) enrolls 1,568 students in grades 9-12 with a 97% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 994 in 2025-26 (MI School Data). Also: Romeo High School (#156 in Michigan) enrolls 1,817 students in grades 9-12 with a 95% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data)."
+  },
+  "Algonac (MI)": {
+    hs: "Algonac High School",
+    district: "Algonac Community School District",
+    feedsTo: "Algonac High School",
+    usNewsNational: 10431, usNewsState: 382,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Algonac Community School District covers essentially all Algonac's residents (2020 census blocks). Algonac has no high school inside its boundary; the high school is in Clay. Algonac High School (#382 in Michigan) enrolls 430 students in grades 9-12 with a 96% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 925 in 2025-26 (MI School Data)."
+  },
+  "Allen Park (MI)": {
+    hs: ["Allen Park High School", "Melvindale High School"],
+    district: ["Allen Park Public Schools", "Melvindale-North Allen Park Schools"],
+    usNewsNational: 5937, usNewsState: 216,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Allen Park is split between school districts (2020 census-block shares): Allen Park Public Schools about 72%, Melvindale-North Allen Park Schools about 23%; students attend Allen Park High School or Melvindale High School depending on address. Smaller shares are in Southgate Community Schools (5%). Allen Park High School (#216 in Michigan) enrolls 1,133 students in grades 9-12 with an 89% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 963 in 2025-26 (MI School Data). Also: Melvindale High School (#469 in Michigan) enrolls 982 students in grades 9-12 with an 86% graduation rate and a 19% AP/IB-exam participation rate; its average SAT total was 801 in 2025-26 (MI School Data)."
+  },
+  "Almont (MI)": {
+    hs: "Almont High School",
+    district: "Almont Community Schools",
+    usNewsNational: 4226, usNewsState: 155,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Almont Community Schools covers essentially all Almont's residents (2020 census blocks). Almont High School (#155 in Michigan) enrolls 431 students in grades 9-12 with a 98% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 957 in 2025-26 (MI School Data)."
+  },
+  "Almont Township (MI)": {
+    hs: "Almont High School",
+    district: "Almont Community Schools",
+    usNewsNational: 4226, usNewsState: 155,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Almont. Almont Community Schools covers about 94% of Almont Township's residents (2020 census blocks). The rest are mostly in Imlay City Community Schools (5%). Almont High School (#155 in Michigan) enrolls 431 students in grades 9-12 with a 98% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 957 in 2025-26 (MI School Data)."
+  },
+  "Arcadia Township (MI)": {
+    hs: ["Imlay City High School", "North Branch High School", "Lapeer East Senior High School"],
+    district: ["Imlay City Community Schools", "North Branch Area Schools", "Lapeer Community Schools"],
+    feedsTo: "Imlay City High School / North Branch High School / Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Arcadia Township is split between school districts (2020 census-block shares): Imlay City Community Schools about 42%, North Branch Area Schools about 35%, Lapeer Community Schools about 23%; students attend Imlay City High School, North Branch High School or Lapeer East Senior High School depending on address. Arcadia Township has no high school inside its boundary; the high schools are in Imlay City, Lapeer, North Branch. Imlay City High School (#233 in Michigan) enrolls 554 students in grades 9-12 with a 96% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data). Also: North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data)."
+  },
+  "Armada (MI)": {
+    hs: "Armada High School",
+    district: "Armada Area Schools",
+    usNewsNational: 2066, usNewsState: 75,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Armada Area Schools covers essentially all Armada's residents (2020 census blocks). Armada High School (#75 in Michigan) enrolls 533 students in grades 9-12 with a 100% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1007 in 2025-26 (MI School Data)."
+  },
+  "Armada Township (MI)": {
+    hs: "Armada High School",
+    district: "Armada Area Schools",
+    usNewsNational: 2066, usNewsState: 75,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Armada. Armada Area Schools covers about 89% of Armada Township's residents (2020 census blocks). The rest are mostly in Romeo Community Schools (11%). Armada High School (#75 in Michigan) enrolls 533 students in grades 9-12 with a 100% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1007 in 2025-26 (MI School Data)."
+  },
+  "Attica (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    feedsTo: "Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers about 85% of Attica's residents (2020 census blocks). The rest are mostly in Imlay City Community Schools (15%). Attica has no high school inside its boundary; the high school is in Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Attica Township (MI)": {
+    hs: ["Imlay City High School", "Lapeer East Senior High School"],
+    district: ["Imlay City Community Schools", "Lapeer Community Schools"],
+    feedsTo: "Imlay City High School / Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Attica. Attica Township is split between school districts (2020 census-block shares): Imlay City Community Schools about 59%, Lapeer Community Schools about 37%; students attend Imlay City High School or Lapeer East Senior High School depending on address. Smaller shares are in Dryden Community Schools (3%). Attica Township has no high school inside its boundary; the high schools are in Imlay City, Lapeer. Imlay City High School (#233 in Michigan) enrolls 554 students in grades 9-12 with a 96% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data). Also: Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Auburn Hills (MI)": {
+    hs: ["Pontiac High School", "Avondale High School"],
+    district: ["Pontiac City Schools", "Avondale School District"],
+    usNewsNational: 10082, usNewsState: 369,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Auburn Hills is split between school districts (2020 census-block shares): Pontiac City Schools about 58%, Avondale School District about 40%; students attend Pontiac High School or Avondale High School depending on address. Pontiac High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 992 students in grades 9-12 with a 75% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 747 in 2025-26 (MI School Data). Also: Avondale High School (#369 in Michigan) enrolls 911 students in grades 9-12 with a 92% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 909 in 2025-26 (MI School Data)."
+  },
+  "Barnes Lake (MI)": {
+    hs: "North Branch High School",
+    district: "North Branch Area Schools",
+    feedsTo: "North Branch High School",
+    usNewsNational: 6147, usNewsState: 219,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Branch Area Schools covers about 94% of Barnes Lake's residents (2020 census blocks). The rest are mostly in Lapeer Community Schools (4%). Barnes Lake has no high school inside its boundary; the high school is in North Branch. North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data)."
+  },
+  "Belleville (MI)": {
+    hs: "Belleville High School",
+    district: "Van Buren Public Schools",
+    usNewsNational: 11545, usNewsState: 427,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Van Buren Public Schools covers essentially all Belleville's residents (2020 census blocks). Belleville High School (#427 in Michigan) enrolls 1,666 students in grades 9-12 with an 82% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 882 in 2025-26 (MI School Data)."
+  },
+  "Berkley (MI)": {
+    hs: "Berkley High School",
+    district: "Berkley School District",
+    usNewsNational: 1360, usNewsState: 46,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Berkley School District covers about 98% of Berkley's residents (2020 census blocks). Berkley High School (#46 in Michigan) enrolls 1,196 students in grades 9-12 with a 95% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1042 in 2025-26 (MI School Data)."
+  },
+  "Berlin Township (MI)": {
+    hs: ["Capac High School", "Almont High School", "Armada High School"],
+    district: ["Capac Community Schools", "Almont Community Schools", "Armada Area Schools"],
+    feedsTo: "Capac High School / Almont High School / Armada High School",
+    usNewsNational: 2066, usNewsState: 75,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Berlin Township is split between school districts (2020 census-block shares): Capac Community Schools about 37%, Almont Community Schools about 36%, Armada Area Schools about 27%; students attend Capac High School, Almont High School or Armada High School depending on address. Berlin Township has no high school inside its boundary; the high schools are in Almont, Armada, Capac. Capac High School (#357 in Michigan) enrolls 202 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 870 in 2025-26 (MI School Data). Also: Almont High School (#155 in Michigan) enrolls 431 students in grades 9-12 with a 98% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 957 in 2025-26 (MI School Data)."
+  },
+  "Beverly Hills (MI)": {
+    hs: ["Ernest W. Seaholm High School", "Wylie E. Groves High School"],
+    district: ["Birmingham Public Schools", "Birmingham Public Schools"],
+    usNewsNational: 829, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Birmingham Public Schools covers essentially all Beverly Hills's residents (2020 census blocks). Birmingham Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Ernest W. Seaholm High School (#28 in Michigan) enrolls 1,057 students in grades 9-12 with a 98% graduation rate and a 65% AP/IB-exam participation rate; its average SAT total was 1127 in 2025-26 (MI School Data). Also: Wylie E. Groves High School (#32 in Michigan) enrolls 1,107 students in grades 9-12 with a 96% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1069 in 2025-26 (MI School Data)."
+  },
+  "Bingham Farms (MI)": {
+    hs: ["Ernest W. Seaholm High School", "Wylie E. Groves High School"],
+    district: ["Birmingham Public Schools", "Birmingham Public Schools"],
+    feedsTo: "Ernest W. Seaholm High School / Wylie E. Groves High School",
+    usNewsNational: 829, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Birmingham Public Schools covers about 98% of Bingham Farms's residents (2020 census blocks). Birmingham Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Bingham Farms has no high school inside its boundary; the high schools are in Beverly Hills, Birmingham. Ernest W. Seaholm High School (#28 in Michigan) enrolls 1,057 students in grades 9-12 with a 98% graduation rate and a 65% AP/IB-exam participation rate; its average SAT total was 1127 in 2025-26 (MI School Data). Also: Wylie E. Groves High School (#32 in Michigan) enrolls 1,107 students in grades 9-12 with a 96% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1069 in 2025-26 (MI School Data)."
+  },
+  "Birmingham (MI)": {
+    hs: ["Ernest W. Seaholm High School", "Wylie E. Groves High School"],
+    district: ["Birmingham Public Schools", "Birmingham Public Schools"],
+    usNewsNational: 829, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Birmingham Public Schools covers essentially all Birmingham's residents (2020 census blocks). Birmingham Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Ernest W. Seaholm High School (#28 in Michigan) enrolls 1,057 students in grades 9-12 with a 98% graduation rate and a 65% AP/IB-exam participation rate; its average SAT total was 1127 in 2025-26 (MI School Data). Also: Wylie E. Groves High School (#32 in Michigan) enrolls 1,107 students in grades 9-12 with a 96% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1069 in 2025-26 (MI School Data)."
+  },
+  "Bloomfield Hills (MI)": {
+    hs: "Bloomfield Hills High School",
+    district: "Bloomfield Hills Schools",
+    usNewsNational: 1021, usNewsState: 31,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bloomfield Hills Schools covers about 87% of Bloomfield Hills's residents (2020 census blocks). The rest are mostly in Birmingham Public Schools (13%). US News also lists International Academy (#1 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Bloomfield Hills High School (#31 in Michigan) enrolls 1,481 students in grades 9-12 with a 96% graduation rate and a 71% AP/IB-exam participation rate; its average SAT total was 1070 in 2025-26 (MI School Data)."
+  },
+  "Bloomfield Township (MI)": {
+    hs: ["Bloomfield Hills High School", "Ernest W. Seaholm High School", "Wylie E. Groves High School"],
+    district: ["Bloomfield Hills Schools", "Birmingham Public Schools", "Birmingham Public Schools"],
+    usNewsNational: 829, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Bloomfield Township is split between school districts (2020 census-block shares): Bloomfield Hills Schools about 64%, Birmingham Public Schools about 28%; students attend Bloomfield Hills High School, Ernest W. Seaholm High School or Wylie E. Groves High School depending on address. Smaller shares are in Pontiac City Schools (5%) and Avondale School District (4%). US News also lists International Academy (#1 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Bloomfield Hills High School (#31 in Michigan) enrolls 1,481 students in grades 9-12 with a 96% graduation rate and a 71% AP/IB-exam participation rate; its average SAT total was 1070 in 2025-26 (MI School Data). Also: Ernest W. Seaholm High School (#28 in Michigan) enrolls 1,057 students in grades 9-12 with a 98% graduation rate and a 65% AP/IB-exam participation rate; its average SAT total was 1127 in 2025-26 (MI School Data)."
+  },
+  "Brandon Township (MI)": {
+    hs: ["Brandon High School", "Oxford High School"],
+    district: ["Brandon School District", "Oxford Community Schools"],
+    usNewsNational: 3888, usNewsState: 147,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Ortonville. Brandon Township is split between school districts (2020 census-block shares): Brandon School District about 83%, Oxford Community Schools about 17%; students attend Brandon High School or Oxford High School depending on address. Brandon High School (#147 in Michigan) enrolls 648 students in grades 9-12 with a 94% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data). Also: Oxford High School (#195 in Michigan) enrolls 1,568 students in grades 9-12 with a 97% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 994 in 2025-26 (MI School Data)."
+  },
+  "Brighton (MI)": {
+    hs: "Brighton High School",
+    district: "Brighton Area Schools",
+    usNewsNational: 1660, usNewsState: 57,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brighton Area Schools covers essentially all Brighton's residents (2020 census blocks). Brighton High School (#57 in Michigan) enrolls 1,887 students in grades 9-12 with a 98% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1057 in 2025-26 (MI School Data)."
+  },
+  "Brighton Township (MI)": {
+    hs: ["Brighton High School", "Hartland High School"],
+    district: ["Brighton Area Schools", "Hartland Consolidated Schools"],
+    feedsTo: "Brighton High School / Hartland High School",
+    usNewsNational: 1660, usNewsState: 57,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Brighton Township is split between school districts (2020 census-block shares): Brighton Area Schools about 61%, Hartland Consolidated Schools about 29%; students attend Brighton High School or Hartland High School depending on address. Smaller shares are in Howell Public Schools (11%). Brighton Township has no high school inside its boundary; the high schools are in Brighton, Hartland. Brighton High School (#57 in Michigan) enrolls 1,887 students in grades 9-12 with a 98% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1057 in 2025-26 (MI School Data). Also: Hartland High School (#117 in Michigan) enrolls 1,610 students in grades 9-12 with a 98% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data)."
+  },
+  "Brockway Township (MI)": {
+    hs: "Yale Senior High School",
+    district: "Yale Public Schools",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Yale Public Schools covers about 99% of Brockway Township's residents (2020 census blocks). Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Brownstown Township (MI)": {
+    hs: ["Woodhaven High School", "Oscar A. Carlson High School"],
+    district: ["Woodhaven-Brownstown School District", "Gibraltar School District"],
+    usNewsNational: 3520, usNewsState: 130,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Brownstown Township is split between school districts (2020 census-block shares): Woodhaven-Brownstown School District about 67%, Gibraltar School District about 30%; students attend Woodhaven High School or Oscar A. Carlson High School depending on address. Smaller shares are in Taylor School District (3%). Woodhaven High School (#130 in Michigan) enrolls 1,629 students in grades 9-12 with a 92% graduation rate and a 36% AP/IB-exam participation rate; its average SAT total was 975 in 2025-26 (MI School Data). Also: Oscar A. Carlson High School (#402 in Michigan) enrolls 1,104 students in grades 9-12 with a 99% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data)."
+  },
+  "Bruce Township (MI)": {
+    hs: "Romeo High School",
+    district: "Romeo Community Schools",
+    feedsTo: "Romeo High School",
+    usNewsNational: 4291, usNewsState: 156,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Romeo. Romeo Community Schools covers about 89% of Bruce Township's residents (2020 census blocks). The rest are mostly in Almont Community Schools (10%). Bruce Township has no high school inside its boundary; the high school is in Washington. Romeo High School (#156 in Michigan) enrolls 1,817 students in grades 9-12 with a 95% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data)."
+  },
+  "Burlington Township (MI)": {
+    hs: ["North Branch High School", "Marlette Jr./Sr. High School"],
+    district: ["North Branch Area Schools", "Marlette Community Schools"],
+    feedsTo: "North Branch High School / Marlette Jr./Sr. High School",
+    usNewsNational: 6147, usNewsState: 219,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Burlington Township is split between school districts (2020 census-block shares): North Branch Area Schools about 58%, Marlette Community Schools about 40%; students attend North Branch High School or Marlette Jr./Sr. High School depending on address. Burlington Township has no high school inside its boundary; the high schools are in Marlette, North Branch. North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data). Also: Marlette Jr./Sr. High School (#473 in Michigan) enrolls 219 students in grades 9-12 with a 94% graduation rate; its average SAT total was 908 in 2025-26 (MI School Data)."
+  },
+  "Burnside Township (MI)": {
+    hs: ["Brown City High School", "Marlette Jr./Sr. High School"],
+    district: ["Brown City Community Schools", "Marlette Community Schools"],
+    feedsTo: "Brown City High School / Marlette Jr./Sr. High School",
+    usNewsNational: 12864, usNewsState: 473,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Burnside Township is split between school districts (2020 census-block shares): Brown City Community Schools about 71%, Marlette Community Schools about 22%; students attend Brown City High School or Marlette Jr./Sr. High School depending on address. Smaller shares are in North Branch Area Schools (7%). Burnside Township has no high school inside its boundary; the high schools are in Brown City, Marlette. Brown City High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 237 students in grades 9-12 with a 94% graduation rate; its average SAT total was 917 in 2025-26 (MI School Data). Also: Marlette Jr./Sr. High School (#473 in Michigan) enrolls 219 students in grades 9-12 with a 94% graduation rate; its average SAT total was 908 in 2025-26 (MI School Data)."
+  },
+  "Burtchville Township (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School", "Croswell-Lexington High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District", "Croswell-Lexington Community Schools"],
+    feedsTo: "Port Huron Northern High School / Port Huron High School / Croswell-Lexington High School",
+    usNewsNational: 5913, usNewsState: 215,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Lakeport. Burtchville Township is split between school districts (2020 census-block shares): Port Huron Area School District about 77%, Croswell-Lexington Community Schools about 23%; students attend Port Huron Northern High School, Port Huron High School or Croswell-Lexington High School depending on address. Burtchville Township has no high school inside its boundary; the high schools are in Croswell, Port Huron. Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Canton Township (MI)": {
+    hs: ["Salem High School", "Canton High School", "Plymouth High School"],
+    district: ["Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools"],
+    usNewsNational: 1208, usNewsState: 34,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Plymouth-Canton Community Schools covers about 87% of Canton Township's residents (2020 census blocks). The rest are mostly in Van Buren Public Schools (7%) and Wayne-Westland Community Schools (6%). Plymouth-Canton Community Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Salem High School (#34 in Michigan) enrolls 1,862 students in grades 9-12 with a 96% graduation rate and a 52% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data). Also: Canton High School (#37 in Michigan) enrolls 1,888 students in grades 9-12 with a 97% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data)."
+  },
+  "Capac (MI)": {
+    hs: "Capac High School",
+    district: "Capac Community Schools",
+    usNewsNational: 9592, usNewsState: 357,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Capac Community Schools covers essentially all Capac's residents (2020 census blocks). Capac High School (#357 in Michigan) enrolls 202 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 870 in 2025-26 (MI School Data)."
+  },
+  "Casco Township (MI)": {
+    hs: ["Marine City High School", "St. Clair High School", "Richmond Community High School", "Anchor Bay High School"],
+    district: ["East China School District", "East China School District", "Richmond Community Schools", "Anchor Bay School District"],
+    feedsTo: "Marine City High School / St. Clair High School / Richmond Community High School / Anchor Bay High School",
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Casco Township is split between school districts (2020 census-block shares): East China School District about 36%, Richmond Community Schools about 34%, Anchor Bay School District about 30%; students attend Marine City High School, St. Clair High School, Richmond Community High School or Anchor Bay High School depending on address. Casco Township has no high school inside its boundary; the high schools are in Ira, Marine City, Richmond, Saint Clair. Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Center Line (MI)": {
+    hs: "Center Line High School",
+    district: "Center Line Public Schools",
+    usNewsNational: 10680, usNewsState: 392,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Center Line Public Schools covers about 86% of Center Line's residents (2020 census blocks). The rest are mostly in Van Dyke Public Schools (14%). Center Line High School (#392 in Michigan) enrolls 646 students in grades 9-12 with an 86% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 860 in 2025-26 (MI School Data)."
+  },
+  "Chesterfield Township (MI)": {
+    hs: ["L'Anse Creuse High School", "L'Anse Creuse High School - North", "Anchor Bay High School"],
+    district: ["L'Anse Creuse Public Schools", "L'Anse Creuse Public Schools", "Anchor Bay School District"],
+    usNewsNational: 4678, usNewsState: 171,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Chesterfield Township is split between school districts (2020 census-block shares): L'Anse Creuse Public Schools about 55%, Anchor Bay School District about 42%; students attend L'Anse Creuse High School, L'Anse Creuse High School - North or Anchor Bay High School depending on address. L'Anse Creuse High School (#208 in Michigan) enrolls 1,172 students in grades 9-12 with a 93% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 929 in 2025-26 (MI School Data). Also: L'Anse Creuse High School - North (#171 in Michigan) enrolls 1,545 students in grades 9-12 with a 94% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 998 in 2025-26 (MI School Data)."
+  },
+  "China Township (MI)": {
+    hs: ["Marine City High School", "St. Clair High School"],
+    district: ["East China School District", "East China School District"],
+    feedsTo: "Marine City High School / St. Clair High School",
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "East China School District covers essentially all China Township's residents (2020 census blocks). East China School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). China Township has no high school inside its boundary; the high schools are in Marine City, Saint Clair. Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Clarkston (MI)": {
+    hs: "Clarkston High School",
+    district: "Clarkston Community School District",
+    usNewsNational: 2157, usNewsState: 79,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Clarkston Community School District covers essentially all Clarkston's residents (2020 census blocks). Clarkston High School (#79 in Michigan) enrolls 1,552 students in grades 9-12 with a 97% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 1026 in 2025-26 (MI School Data)."
+  },
+  "Clawson (MI)": {
+    hs: "Clawson High School",
+    district: "Clawson Public Schools",
+    usNewsNational: 10741, usNewsState: 396,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Clawson Public Schools covers essentially all Clawson's residents (2020 census blocks). Clawson High School (#396 in Michigan) enrolls 369 students in grades 9-12 with an 81% graduation rate; its average SAT total was 1002 in 2025-26 (MI School Data)."
+  },
+  "Clay Township (MI)": {
+    hs: "Algonac High School",
+    district: "Algonac Community School District",
+    usNewsNational: 10431, usNewsState: 382,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Pearl Beach. Algonac Community School District covers essentially all Clay Township's residents (2020 census blocks). Algonac High School (#382 in Michigan) enrolls 430 students in grades 9-12 with a 96% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 925 in 2025-26 (MI School Data)."
+  },
+  "Clinton Township (MI)": {
+    hs: ["Dakota High School", "Chippewa Valley High School", "Clintondale High School"],
+    district: ["Chippewa Valley Schools", "Chippewa Valley Schools", "Clintondale Community Schools"],
+    usNewsNational: 4603, usNewsState: 167,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Clinton Township is split between school districts (2020 census-block shares): Chippewa Valley Schools about 53%, Clintondale Community Schools about 15%; students attend Dakota High School, Chippewa Valley High School or Clintondale High School depending on address. Smaller shares are in L'Anse Creuse Public Schools (14%), Fraser Public Schools (10%) and Mount Clemens Community Schools (7%). US News also lists International Academy of Macomb (#2 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Dakota High School (#167 in Michigan) enrolls 2,476 students in grades 9-12 with a 95% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 985 in 2025-26 (MI School Data). Also: Chippewa Valley High School (#297 in Michigan) enrolls 2,162 students in grades 9-12 with a 95% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 934 in 2025-26 (MI School Data)."
+  },
+  "Clyde Township (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District"],
+    feedsTo: "Port Huron Northern High School / Port Huron High School",
+    usNewsNational: 7197, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Ruby. Port Huron Area School District covers about 97% of Clyde Township's residents (2020 census blocks). The rest are mostly in Yale Public Schools (3%). Port Huron Area School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Clyde Township has no high school inside its boundary; the high schools are in Port Huron. Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Cohoctah Township (MI)": {
+    hs: ["Howell High School", "Fowlerville High School", "Byron Area High School"],
+    district: ["Howell Public Schools", "Fowlerville Community Schools", "Byron Area Schools"],
+    feedsTo: "Howell High School / Fowlerville High School / Byron Area High School",
+    usNewsNational: 4166, usNewsState: 153,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Cohoctah Township is split between school districts (2020 census-block shares): Howell Public Schools about 48%, Fowlerville Community Schools about 30%, Byron Area Schools about 22%; students attend Howell High School, Fowlerville High School or Byron Area High School depending on address. Cohoctah Township has no high school inside its boundary; the high schools are in Byron, Fowlerville, Howell. Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data). Also: Fowlerville High School (#449 in Michigan) enrolls 774 students in grades 9-12 with a 92% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 944 in 2025-26 (MI School Data)."
+  },
+  "Columbiaville (MI)": {
+    hs: "Lakeville High School",
+    district: "Lakeville Community Schools",
+    feedsTo: "Lakeville High School",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lakeville Community Schools covers essentially all Columbiaville's residents (2020 census blocks). Columbiaville has no high school inside its boundary; the high school is in Otisville. Lakeville High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 354 students in grades 9-12 with an 82% graduation rate; its average SAT total was 852 in 2025-26 (MI School Data)."
+  },
+  "Columbus Township (MI)": {
+    hs: ["Richmond Community High School", "Marine City High School", "St. Clair High School"],
+    district: ["Richmond Community Schools", "East China School District", "East China School District"],
+    feedsTo: "Richmond Community High School / Marine City High School / St. Clair High School",
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Columbus Township is split between school districts (2020 census-block shares): Richmond Community Schools about 52%, East China School District about 42%; students attend Richmond Community High School, Marine City High School or St. Clair High School depending on address. Smaller shares are in Marysville Public Schools (3%) and Memphis Community Schools (3%). Columbus Township has no high school inside its boundary; the high schools are in Marine City, Richmond, Saint Clair. Richmond Community High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 490 students in grades 9-12 with an 89% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 983 in 2025-26 (MI School Data). Also: Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data)."
+  },
+  "Commerce Township (MI)": {
+    hs: ["Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School", "Milford High School", "Lakeland High School"],
+    district: ["Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Huron Valley Schools", "Huron Valley Schools"],
+    usNewsNational: 1981, usNewsState: 72,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Wolverine Lake. Commerce Township is split between school districts (2020 census-block shares): Walled Lake Consolidated Schools about 77%, Huron Valley Schools about 23%; students attend Walled Lake Northern High School, Walled Lake Western High School, Walled Lake Central High School, Milford High School or Lakeland High School depending on address. Walled Lake Northern High School (#72 in Michigan) enrolls 1,383 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data). Also: Walled Lake Western High School (#95 in Michigan) enrolls 1,000 students in grades 9-12 with a 92% graduation rate and a 49% AP/IB-exam participation rate; its average SAT total was 971 in 2025-26 (MI School Data)."
+  },
+  "Conway Township (MI)": {
+    hs: "Fowlerville High School",
+    district: "Fowlerville Community Schools",
+    feedsTo: "Fowlerville High School",
+    usNewsNational: 12087, usNewsState: 449,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fowlerville Community Schools covers about 94% of Conway Township's residents (2020 census blocks). The rest are mostly in Webberville Community Schools (4%). Conway Township has no high school inside its boundary; the high school is in Fowlerville. Fowlerville High School (#449 in Michigan) enrolls 774 students in grades 9-12 with a 92% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 944 in 2025-26 (MI School Data)."
+  },
+  "Cottrellville Township (MI)": {
+    hs: ["Marine City High School", "St. Clair High School"],
+    district: ["East China School District", "East China School District"],
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "East China School District covers essentially all Cottrellville Township's residents (2020 census blocks). East China School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Dearborn (MI)": {
+    hs: ["Dearborn High School", "Fordson High School", "Edsel Ford High School"],
+    district: ["Dearborn Public Schools", "Dearborn Public Schools", "Dearborn Public Schools"],
+    usNewsNational: 3664, usNewsState: 135,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Dearborn Public Schools covers essentially all Dearborn's residents (2020 census blocks). Dearborn Public Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). US News also lists Henry Ford Early College (#138 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. US News also lists Henry Ford Early Collegeadvanced Manufacturing (#223 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Dearborn High School (#135 in Michigan) enrolls 1,775 students in grades 9-12 with a 98% graduation rate and a 41% AP/IB-exam participation rate; its average SAT total was 965 in 2025-26 (MI School Data). Also: Fordson High School (#199 in Michigan) enrolls 1,966 students in grades 9-12 with a 97% graduation rate and a 40% AP/IB-exam participation rate; its average SAT total was 892 in 2025-26 (MI School Data)."
+  },
+  "Dearborn Heights (MI)": {
+    hs: ["Crestwood High School", "Annapolis High School"],
+    district: ["Crestwood School District", "Dearborn Heights School District #7"],
+    usNewsNational: 3777, usNewsState: 142,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Dearborn Heights is split between school districts (2020 census-block shares): Crestwood School District about 50%, Dearborn Heights School District #7 about 21%; students attend Crestwood High School or Annapolis High School depending on address. Smaller shares are in Dearborn Public Schools (15%) and Westwood Community Schools (13%). Crestwood High School (#142 in Michigan) enrolls 1,272 students in grades 9-12 with a 97% graduation rate and a 48% AP/IB-exam participation rate; its average SAT total was 920 in 2025-26 (MI School Data). Also: Annapolis High School (#390 in Michigan) enrolls 682 students in grades 9-12 with an 88% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 820 in 2025-26 (MI School Data)."
+  },
+  "Deerfield Township (Lapeer) (MI)": {
+    hs: "North Branch High School",
+    district: "North Branch Area Schools",
+    feedsTo: "North Branch High School",
+    usNewsNational: 6147, usNewsState: 219,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Barnes Lake. North Branch Area Schools covers about 79% of Deerfield Township (Lapeer)'s residents (2020 census blocks). The rest are mostly in Lakeville Community Schools (10%) and Lapeer Community Schools (10%). Deerfield Township (Lapeer) has no high school inside its boundary; the high school is in North Branch. North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data)."
+  },
+  "Deerfield Township (Livingston) (MI)": {
+    hs: ["Hartland High School", "Linden High School", "Howell High School"],
+    district: ["Hartland Consolidated Schools", "Linden Community Schools", "Howell Public Schools"],
+    feedsTo: "Hartland High School / Linden High School / Howell High School",
+    usNewsNational: 3081, usNewsState: 117,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Deerfield Township (Livingston) is split between school districts (2020 census-block shares): Hartland Consolidated Schools about 50%, Linden Community Schools about 25%, Howell Public Schools about 24%; students attend Hartland High School, Linden High School or Howell High School depending on address. Deerfield Township (Livingston) has no high school inside its boundary; the high schools are in Hartland, Howell, Linden. Hartland High School (#117 in Michigan) enrolls 1,610 students in grades 9-12 with a 98% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data). Also: Linden High School (#182 in Michigan) enrolls 775 students in grades 9-12 with an 89% graduation rate and a 28% AP/IB-exam participation rate; its average SAT total was 971 in 2025-26 (MI School Data)."
+  },
+  "Dryden (MI)": {
+    hs: "Dryden High School",
+    district: "Dryden Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Dryden Community Schools covers essentially all Dryden's residents (2020 census blocks). Dryden High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 160 students in grades 9-12 with a 92% graduation rate; its average SAT total was 882 in 2025-26 (MI School Data)."
+  },
+  "Dryden Township (MI)": {
+    hs: "Dryden High School",
+    district: "Dryden Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Dryden. Dryden Community Schools covers about 80% of Dryden Township's residents (2020 census blocks). The rest are mostly in Oxford Community Schools (10%) and Almont Community Schools (8%). Dryden High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 160 students in grades 9-12 with a 92% graduation rate; its average SAT total was 882 in 2025-26 (MI School Data)."
+  },
+  "East China Township (MI)": {
+    hs: ["Marine City High School", "St. Clair High School"],
+    district: ["East China School District", "East China School District"],
+    feedsTo: "Marine City High School / St. Clair High School",
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "East China School District covers essentially all East China Township's residents (2020 census blocks). East China School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). East China Township has no high school inside its boundary; the high schools are in Marine City, Saint Clair. Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Eastpointe (MI)": {
+    hs: "Eastpointe High School",
+    district: "Eastpointe Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Eastpointe Community Schools covers about 92% of Eastpointe's residents (2020 census blocks). The rest are mostly in South Lake Schools (8%). Eastpointe High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 477 students in grades 9-12 with a 66% graduation rate; its average SAT total was 778 in 2025-26 (MI School Data)."
+  },
+  "Ecorse (MI)": {
+    hs: "Ecorse Community High School",
+    district: "Ecorse Public Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ecorse Public Schools covers about 93% of Ecorse's residents (2020 census blocks). The rest are mostly in River Rouge School District (7%). Ecorse Community High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 340 students in grades 9-12 with an 84% graduation rate; its average SAT total was 761 in 2025-26 (MI School Data)."
+  },
+  "Elba Township (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    feedsTo: "Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers about 93% of Elba Township's residents (2020 census blocks). The rest are mostly in Davison Community Schools (7%). Elba Township has no high school inside its boundary; the high school is in Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Emmett Township (MI)": {
+    hs: ["Capac High School", "Yale Senior High School"],
+    district: ["Capac Community Schools", "Yale Public Schools"],
+    feedsTo: "Capac High School / Yale Senior High School",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Emmett Township is split between school districts (2020 census-block shares): Capac Community Schools about 54%, Yale Public Schools about 46%; students attend Capac High School or Yale Senior High School depending on address. Emmett Township has no high school inside its boundary; the high schools are in Capac, Yale. Capac High School (#357 in Michigan) enrolls 202 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 870 in 2025-26 (MI School Data). Also: Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Farmington (MI)": {
+    hs: ["Farmington High School", "North Farmington High School"],
+    district: ["Farmington Public Schools", "Farmington Public Schools"],
+    usNewsNational: 2459, usNewsState: 89,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Farmington Public Schools covers essentially all Farmington's residents (2020 census blocks). Farmington Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Farmington High School (#128 in Michigan) enrolls 1,470 students in grades 9-12 with a 95% graduation rate and a 33% AP/IB-exam participation rate; its average SAT total was 1039 in 2025-26 (MI School Data). Also: North Farmington High School (#89 in Michigan) enrolls 1,157 students in grades 9-12 with a 95% graduation rate and a 44% AP/IB-exam participation rate; its average SAT total was 978 in 2025-26 (MI School Data)."
+  },
+  "Farmington Hills (MI)": {
+    hs: ["Farmington High School", "North Farmington High School"],
+    district: ["Farmington Public Schools", "Farmington Public Schools"],
+    usNewsNational: 2459, usNewsState: 89,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Farmington Public Schools covers about 90% of Farmington Hills's residents (2020 census blocks). The rest are mostly in Walled Lake Consolidated Schools (6%) and Clarenceville School District (4%). Farmington Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Farmington High School (#128 in Michigan) enrolls 1,470 students in grades 9-12 with a 95% graduation rate and a 33% AP/IB-exam participation rate; its average SAT total was 1039 in 2025-26 (MI School Data). Also: North Farmington High School (#89 in Michigan) enrolls 1,157 students in grades 9-12 with a 95% graduation rate and a 44% AP/IB-exam participation rate; its average SAT total was 978 in 2025-26 (MI School Data)."
+  },
+  "Ferndale (MI)": {
+    hs: ["Ferndale High School", "Hazel Park High School"],
+    district: ["Ferndale Public Schools", "Hazel Park Schools"],
+    usNewsNational: 10990, usNewsState: 404,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ferndale is split between school districts (2020 census-block shares): Ferndale Public Schools about 78%, Hazel Park Schools about 22%; students attend Ferndale High School or Hazel Park High School depending on address. US News also lists University High School (in the unranked-bottom band, 494–678 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Ferndale High School (#404 in Michigan) enrolls 732 students in grades 9-12 with a 94% graduation rate and a 21% AP/IB-exam participation rate; its average SAT total was 912 in 2025-26 (MI School Data). Also: Hazel Park High School (#478 in Michigan) enrolls 567 students in grades 9-12 with a 90% graduation rate and a 24% AP/IB-exam participation rate; its average SAT total was 802 in 2025-26 (MI School Data)."
+  },
+  "Flat Rock (MI)": {
+    hs: "Flat Rock Community High School",
+    district: "Flat Rock Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Flat Rock Community Schools covers about 84% of Flat Rock's residents (2020 census blocks). The rest are mostly in Woodhaven-Brownstown School District (13%) and Gibraltar School District (3%). Flat Rock Community High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 501 students in grades 9-12 with a 96% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data)."
+  },
+  "Fort Gratiot Township (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District"],
+    usNewsNational: 7197, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Port Huron Area School District covers essentially all Fort Gratiot Township's residents (2020 census blocks). Port Huron Area School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Fowlerville (MI)": {
+    hs: "Fowlerville High School",
+    district: "Fowlerville Community Schools",
+    usNewsNational: 12087, usNewsState: 449,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fowlerville Community Schools covers essentially all Fowlerville's residents (2020 census blocks). Fowlerville High School (#449 in Michigan) enrolls 774 students in grades 9-12 with a 92% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 944 in 2025-26 (MI School Data)."
+  },
+  "Franklin (MI)": {
+    hs: ["Ernest W. Seaholm High School", "Wylie E. Groves High School"],
+    district: ["Birmingham Public Schools", "Birmingham Public Schools"],
+    feedsTo: "Ernest W. Seaholm High School / Wylie E. Groves High School",
+    usNewsNational: 829, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Birmingham Public Schools covers essentially all Franklin's residents (2020 census blocks). Birmingham Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Franklin has no high school inside its boundary; the high schools are in Beverly Hills, Birmingham. Ernest W. Seaholm High School (#28 in Michigan) enrolls 1,057 students in grades 9-12 with a 98% graduation rate and a 65% AP/IB-exam participation rate; its average SAT total was 1127 in 2025-26 (MI School Data). Also: Wylie E. Groves High School (#32 in Michigan) enrolls 1,107 students in grades 9-12 with a 96% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1069 in 2025-26 (MI School Data)."
+  },
+  "Fraser (MI)": {
+    hs: "Fraser High School",
+    district: "Fraser Public Schools",
+    usNewsNational: 6599, usNewsState: 234,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fraser Public Schools covers essentially all Fraser's residents (2020 census blocks). Fraser High School (#234 in Michigan) enrolls 1,431 students in grades 9-12 with a 97% graduation rate and a 21% AP/IB-exam participation rate; its average SAT total was 935 in 2025-26 (MI School Data)."
+  },
+  "Garden City (MI)": {
+    hs: "Garden City High School",
+    district: "Garden City Public Schools",
+    usNewsNational: 5607, usNewsState: 203,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Garden City Public Schools covers essentially all Garden City's residents (2020 census blocks). Garden City High School (#203 in Michigan) enrolls 896 students in grades 9-12 with a 92% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 911 in 2025-26 (MI School Data)."
+  },
+  "Genoa Township (MI)": {
+    hs: ["Howell High School", "Brighton High School"],
+    district: ["Howell Public Schools", "Brighton Area Schools"],
+    usNewsNational: 1660, usNewsState: 57,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Genoa Township is split between school districts (2020 census-block shares): Howell Public Schools about 60%, Brighton Area Schools about 34%; students attend Howell High School or Brighton High School depending on address. Smaller shares are in Hartland Consolidated Schools (5%). Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data). Also: Brighton High School (#57 in Michigan) enrolls 1,887 students in grades 9-12 with a 98% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1057 in 2025-26 (MI School Data)."
+  },
+  "Gibraltar (MI)": {
+    hs: "Oscar A. Carlson High School",
+    district: "Gibraltar School District",
+    usNewsNational: 10891, usNewsState: 402,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gibraltar School District covers essentially all Gibraltar's residents (2020 census blocks). Oscar A. Carlson High School (#402 in Michigan) enrolls 1,104 students in grades 9-12 with a 99% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data)."
+  },
+  "Goodland Township (MI)": {
+    hs: "Imlay City High School",
+    district: "Imlay City Community Schools",
+    feedsTo: "Imlay City High School",
+    usNewsNational: 6586, usNewsState: 233,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Imlay City Community Schools covers about 87% of Goodland Township's residents (2020 census blocks). The rest are mostly in Brown City Community Schools (8%) and North Branch Area Schools (5%). Goodland Township has no high school inside its boundary; the high school is in Imlay City. Imlay City High School (#233 in Michigan) enrolls 554 students in grades 9-12 with a 96% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data)."
+  },
+  "Grant Township (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School", "Croswell-Lexington High School", "Yale Senior High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District", "Croswell-Lexington Community Schools", "Yale Public Schools"],
+    feedsTo: "Port Huron Northern High School / Port Huron High School / Croswell-Lexington High School / Yale Senior High School",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Grant Township is split between school districts (2020 census-block shares): Port Huron Area School District about 44%, Croswell-Lexington Community Schools about 35%, Yale Public Schools about 22%; students attend Port Huron Northern High School, Port Huron High School, Croswell-Lexington High School or Yale Senior High School depending on address. Grant Township has no high school inside its boundary; the high schools are in Croswell, Port Huron, Yale. Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Green Oak Township (MI)": {
+    hs: ["Brighton High School", "South Lyon East High School", "South Lyon High School"],
+    district: ["Brighton Area Schools", "South Lyon Community Schools", "South Lyon Community Schools"],
+    feedsTo: "Brighton High School / South Lyon East High School / South Lyon High School",
+    usNewsNational: 1660, usNewsState: 57,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Green Oak Township is split between school districts (2020 census-block shares): Brighton Area Schools about 45%, South Lyon Community Schools about 44%; students attend Brighton High School, South Lyon East High School or South Lyon High School depending on address. Smaller shares are in Whitmore Lake Public Schools (11%). Green Oak Township has no high school inside its boundary; the high schools are in Brighton, South Lyon. Brighton High School (#57 in Michigan) enrolls 1,887 students in grades 9-12 with a 98% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1057 in 2025-26 (MI School Data). Also: South Lyon East High School (#99 in Michigan) enrolls 1,174 students in grades 9-12 with a 92% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 1074 in 2025-26 (MI School Data)."
+  },
+  "Greenwood Township (MI)": {
+    hs: "Yale Senior High School",
+    district: "Yale Public Schools",
+    feedsTo: "Yale Senior High School",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Yale Public Schools covers about 95% of Greenwood Township's residents (2020 census blocks). The rest are mostly in Croswell-Lexington Community Schools (5%). Greenwood Township has no high school inside its boundary; the high school is in Yale. Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Grosse Ile Township (MI)": {
+    hs: "Grosse Ile High School",
+    district: "Grosse Ile Township Schools",
+    usNewsNational: 2225, usNewsState: 80,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Grosse Ile Township Schools covers essentially all Grosse Ile Township's residents (2020 census blocks). Grosse Ile High School (#80 in Michigan) enrolls 510 students in grades 9-12 with a 100% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1035 in 2025-26 (MI School Data)."
+  },
+  "Grosse Pointe (MI)": {
+    hs: ["Grosse Pointe South High School", "Grosse Pointe North High School"],
+    district: ["Grosse Pointe Public Schools", "Grosse Pointe Public Schools"],
+    usNewsNational: 414, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Grosse Pointe Public Schools covers essentially all Grosse Pointe's residents (2020 census blocks). Grosse Pointe Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Grosse Pointe South High School (#10 in Michigan) enrolls 1,113 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its average SAT total was 1122 in 2025-26 (MI School Data). Also: Grosse Pointe North High School (#49 in Michigan) enrolls 918 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1012 in 2025-26 (MI School Data)."
+  },
+  "Grosse Pointe Farms (MI)": {
+    hs: ["Grosse Pointe South High School", "Grosse Pointe North High School"],
+    district: ["Grosse Pointe Public Schools", "Grosse Pointe Public Schools"],
+    usNewsNational: 414, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Grosse Pointe Public Schools covers essentially all Grosse Pointe Farms's residents (2020 census blocks). Grosse Pointe Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Grosse Pointe South High School (#10 in Michigan) enrolls 1,113 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its average SAT total was 1122 in 2025-26 (MI School Data). Also: Grosse Pointe North High School (#49 in Michigan) enrolls 918 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1012 in 2025-26 (MI School Data)."
+  },
+  "Grosse Pointe Park (MI)": {
+    hs: ["Grosse Pointe South High School", "Grosse Pointe North High School"],
+    district: ["Grosse Pointe Public Schools", "Grosse Pointe Public Schools"],
+    feedsTo: "Grosse Pointe South High School / Grosse Pointe North High School",
+    usNewsNational: 414, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Grosse Pointe Public Schools covers essentially all Grosse Pointe Park's residents (2020 census blocks). Grosse Pointe Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Grosse Pointe Park has no high school inside its boundary; the high schools are in Grosse Pointe Farms, Grosse Pointe Woods. Grosse Pointe South High School (#10 in Michigan) enrolls 1,113 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its average SAT total was 1122 in 2025-26 (MI School Data). Also: Grosse Pointe North High School (#49 in Michigan) enrolls 918 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1012 in 2025-26 (MI School Data)."
+  },
+  "Grosse Pointe Shores (MI)": {
+    hs: ["Grosse Pointe South High School", "Grosse Pointe North High School"],
+    district: ["Grosse Pointe Public Schools", "Grosse Pointe Public Schools"],
+    feedsTo: "Grosse Pointe South High School / Grosse Pointe North High School",
+    usNewsNational: 414, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Grosse Pointe Public Schools covers about 97% of Grosse Pointe Shores's residents (2020 census blocks). Grosse Pointe Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Grosse Pointe Shores has no high school inside its boundary; the high schools are in Grosse Pointe Farms, Grosse Pointe Woods. Grosse Pointe South High School (#10 in Michigan) enrolls 1,113 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its average SAT total was 1122 in 2025-26 (MI School Data). Also: Grosse Pointe North High School (#49 in Michigan) enrolls 918 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1012 in 2025-26 (MI School Data)."
+  },
+  "Grosse Pointe Woods (MI)": {
+    hs: ["Grosse Pointe South High School", "Grosse Pointe North High School"],
+    district: ["Grosse Pointe Public Schools", "Grosse Pointe Public Schools"],
+    usNewsNational: 414, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Grosse Pointe Public Schools covers essentially all Grosse Pointe Woods's residents (2020 census blocks). Grosse Pointe Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Grosse Pointe South High School (#10 in Michigan) enrolls 1,113 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its average SAT total was 1122 in 2025-26 (MI School Data). Also: Grosse Pointe North High School (#49 in Michigan) enrolls 918 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1012 in 2025-26 (MI School Data)."
+  },
+  "Groveland Township (MI)": {
+    hs: ["Brandon High School", "Holly High School"],
+    district: ["Brandon School District", "Holly Area Schools"],
+    feedsTo: "Brandon High School / Holly High School",
+    usNewsNational: 3888, usNewsState: 147,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Groveland Township is split between school districts (2020 census-block shares): Brandon School District about 56%, Holly Area Schools about 42%; students attend Brandon High School or Holly High School depending on address. Groveland Township has no high school inside its boundary; the high schools are in Holly, Ortonville. Brandon High School (#147 in Michigan) enrolls 648 students in grades 9-12 with a 94% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data). Also: Holly High School (#290 in Michigan) enrolls 992 students in grades 9-12 with an 85% graduation rate and a 26% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Hadley Township (MI)": {
+    hs: ["Lapeer East Senior High School", "Goodrich High School"],
+    district: ["Lapeer Community Schools", "Goodrich Area Schools"],
+    feedsTo: "Lapeer East Senior High School / Goodrich High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Hadley Township is split between school districts (2020 census-block shares): Lapeer Community Schools about 64%, Goodrich Area Schools about 26%; students attend Lapeer East Senior High School or Goodrich High School depending on address. Smaller shares are in Brandon School District (9%). Hadley Township has no high school inside its boundary; the high schools are in Goodrich, Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data). Also: Goodrich High School (#258 in Michigan) enrolls 653 students in grades 9-12 with a 94% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 993 in 2025-26 (MI School Data)."
+  },
+  "Hamburg Township (MI)": {
+    hs: "Pinckney Community High School",
+    district: "Pinckney Community Schools",
+    feedsTo: "Pinckney Community High School",
+    usNewsNational: 11136, usNewsState: 413,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pinckney Community Schools covers about 80% of Hamburg Township's residents (2020 census blocks). The rest are mostly in Brighton Area Schools (15%) and Dexter Community Schools (5%). Hamburg Township has no high school inside its boundary; the high school is in Pinckney. Pinckney Community High School (#413 in Michigan) enrolls 619 students in grades 9-12 with a 90% graduation rate and a 37% AP/IB-exam participation rate; its average SAT total was 990 in 2025-26 (MI School Data)."
+  },
+  "Hamtramck (MI)": {
+    hs: "Hamtramck High School",
+    district: "Hamtramck Public Schools",
+    usNewsNational: 10919, usNewsState: 403,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hamtramck Public Schools covers essentially all Hamtramck's residents (2020 census blocks). Hamtramck High School (#403 in Michigan) enrolls 926 students in grades 9-12 with an 87% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 802 in 2025-26 (MI School Data)."
+  },
+  "Handy Township (MI)": {
+    hs: "Fowlerville High School",
+    district: "Fowlerville Community Schools",
+    usNewsNational: 12087, usNewsState: 449,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Fowlerville. Fowlerville Community Schools covers about 99% of Handy Township's residents (2020 census blocks). Fowlerville High School (#449 in Michigan) enrolls 774 students in grades 9-12 with a 92% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 944 in 2025-26 (MI School Data)."
+  },
+  "Harper Woods (MI)": {
+    hs: ["Harper Woods High School", "Grosse Pointe South High School", "Grosse Pointe North High School"],
+    district: ["Harper Woods Schools", "Grosse Pointe Public Schools", "Grosse Pointe Public Schools"],
+    usNewsNational: 414, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Harper Woods is split between school districts (2020 census-block shares): Harper Woods Schools about 61%, Grosse Pointe Public Schools about 39%; students attend Harper Woods High School, Grosse Pointe South High School or Grosse Pointe North High School depending on address. Harper Woods High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 877 students in grades 9-12 with a 97% graduation rate and a 17% AP/IB-exam participation rate; its average SAT total was 799 in 2025-26 (MI School Data). Also: Grosse Pointe South High School (#10 in Michigan) enrolls 1,113 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its average SAT total was 1122 in 2025-26 (MI School Data)."
+  },
+  "Harrison Township (MI)": {
+    hs: ["L'Anse Creuse High School", "L'Anse Creuse High School - North"],
+    district: ["L'Anse Creuse Public Schools", "L'Anse Creuse Public Schools"],
+    usNewsNational: 4678, usNewsState: 171,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "L'Anse Creuse Public Schools covers essentially all Harrison Township's residents (2020 census blocks). L'Anse Creuse Public Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). L'Anse Creuse High School (#208 in Michigan) enrolls 1,172 students in grades 9-12 with a 93% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 929 in 2025-26 (MI School Data). Also: L'Anse Creuse High School - North (#171 in Michigan) enrolls 1,545 students in grades 9-12 with a 94% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 998 in 2025-26 (MI School Data)."
+  },
+  "Hartland (MI)": {
+    hs: "Hartland High School",
+    district: "Hartland Consolidated Schools",
+    usNewsNational: 3081, usNewsState: 117,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hartland Consolidated Schools covers essentially all Hartland's residents (2020 census blocks). Hartland High School (#117 in Michigan) enrolls 1,610 students in grades 9-12 with a 98% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data)."
+  },
+  "Hartland Township (MI)": {
+    hs: "Hartland High School",
+    district: "Hartland Consolidated Schools",
+    usNewsNational: 3081, usNewsState: 117,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Hartland. Hartland Consolidated Schools covers essentially all Hartland Township's residents (2020 census blocks). Hartland High School (#117 in Michigan) enrolls 1,610 students in grades 9-12 with a 98% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data)."
+  },
+  "Hazel Park (MI)": {
+    hs: "Hazel Park High School",
+    district: "Hazel Park Schools",
+    usNewsNational: 12946, usNewsState: 478,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hazel Park Schools covers essentially all Hazel Park's residents (2020 census blocks). Hazel Park High School (#478 in Michigan) enrolls 567 students in grades 9-12 with a 90% graduation rate and a 24% AP/IB-exam participation rate; its average SAT total was 802 in 2025-26 (MI School Data)."
+  },
+  "Highland Park (MI)": {
+    hs: "Northwestern High School",
+    district: "Highland Park City Schools (high-school students served by DPSCD)",
+    feedsTo: "Northwestern High School",
+    usNewsNational: 12232, usNewsState: 454,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Highland Park has no district-run high school; per Wikipedia (Highland Park Schools), since 2017 the district has a cooperative agreement with Detroit Public Schools Community District under which Northwestern High School is the neighborhood high school (not verified against district records). Northwestern High School (#454 in Michigan) enrolls 305 students in grades 9-12 with a 57% graduation rate and an 82% AP/IB-exam participation rate; its average SAT total was 744 in 2025-26 (MI School Data)."
+  },
+  "Highland Township (MI)": {
+    hs: ["Milford High School", "Lakeland High School"],
+    district: ["Huron Valley Schools", "Huron Valley Schools"],
+    usNewsNational: 2434, usNewsState: 87,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Huron Valley Schools covers essentially all Highland Township's residents (2020 census blocks). Huron Valley Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Milford High School (#100 in Michigan) enrolls 1,173 students in grades 9-12 with a 91% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 998 in 2025-26 (MI School Data). Also: Lakeland High School (#87 in Michigan) enrolls 1,012 students in grades 9-12 with a 99% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 982 in 2025-26 (MI School Data)."
+  },
+  "Holly (MI)": {
+    hs: "Holly High School",
+    district: "Holly Area Schools",
+    usNewsNational: 7896, usNewsState: 290,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Holly Area Schools covers essentially all Holly's residents (2020 census blocks). Holly High School (#290 in Michigan) enrolls 992 students in grades 9-12 with an 85% graduation rate and a 26% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Holly Township (MI)": {
+    hs: "Holly High School",
+    district: "Holly Area Schools",
+    usNewsNational: 7896, usNewsState: 290,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Holly. Holly Area Schools covers about 99% of Holly Township's residents (2020 census blocks). Holly High School (#290 in Michigan) enrolls 992 students in grades 9-12 with an 85% graduation rate and a 26% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Howell (MI)": {
+    hs: "Howell High School",
+    district: "Howell Public Schools",
+    usNewsNational: 4166, usNewsState: 153,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Howell Public Schools covers essentially all Howell's residents (2020 census blocks). Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data)."
+  },
+  "Howell Township (MI)": {
+    hs: "Howell High School",
+    district: "Howell Public Schools",
+    feedsTo: "Howell High School",
+    usNewsNational: 4166, usNewsState: 153,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Howell Public Schools covers about 96% of Howell Township's residents (2020 census blocks). The rest are mostly in Fowlerville Community Schools (4%). Howell Township has no high school inside its boundary; the high school is in Howell. Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data)."
+  },
+  "Huntington Woods (MI)": {
+    hs: "Berkley High School",
+    district: "Berkley School District",
+    feedsTo: "Berkley High School",
+    usNewsNational: 1360, usNewsState: 46,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Berkley School District covers essentially all Huntington Woods's residents (2020 census blocks). Huntington Woods has no high school inside its boundary; the high school is in Berkley. Berkley High School (#46 in Michigan) enrolls 1,196 students in grades 9-12 with a 95% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1042 in 2025-26 (MI School Data)."
+  },
+  "Huron Township (MI)": {
+    hs: "Huron High School",
+    district: "Huron School District",
+    usNewsNational: 8093, usNewsState: 302,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Huron School District covers about 81% of Huron Township's residents (2020 census blocks). The rest are mostly in Flat Rock Community Schools (10%) and Woodhaven-Brownstown School District (9%). Huron High School (#302 in Michigan) enrolls 820 students in grades 9-12 with an 88% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 994 in 2025-26 (MI School Data)."
+  },
+  "Imlay City (MI)": {
+    hs: "Imlay City High School",
+    district: "Imlay City Community Schools",
+    usNewsNational: 6586, usNewsState: 233,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Imlay City Community Schools covers essentially all Imlay City's residents (2020 census blocks). Imlay City High School (#233 in Michigan) enrolls 554 students in grades 9-12 with a 96% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data)."
+  },
+  "Imlay Township (MI)": {
+    hs: "Imlay City High School",
+    district: "Imlay City Community Schools",
+    usNewsNational: 6586, usNewsState: 233,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Imlay City Community Schools covers about 96% of Imlay Township's residents (2020 census blocks). The rest are mostly in Capac Community Schools (4%). Imlay City High School (#233 in Michigan) enrolls 554 students in grades 9-12 with a 96% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data)."
+  },
+  "Independence Township (MI)": {
+    hs: "Clarkston High School",
+    district: "Clarkston Community School District",
+    usNewsNational: 2157, usNewsState: 79,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Clarkston Community School District covers about 92% of Independence Township's residents (2020 census blocks). The rest are mostly in Waterford School District (4%) and Lake Orion Community Schools (4%). Clarkston High School (#79 in Michigan) enrolls 1,552 students in grades 9-12 with a 97% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 1026 in 2025-26 (MI School Data)."
+  },
+  "Inkster (MI)": {
+    hs: ["Robichaud Senior High School", "John Glenn High School", "Wayne Memorial High School"],
+    district: ["Westwood Community Schools", "Wayne-Westland Community Schools", "Wayne-Westland Community Schools"],
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Inkster is split between school districts (2020 census-block shares): Westwood Community Schools about 43%, Wayne-Westland Community Schools about 36%; students attend Robichaud Senior High School, John Glenn High School or Wayne Memorial High School depending on address. Smaller shares are in Taylor School District (13%) and Romulus Community Schools (8%). Robichaud Senior High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 328 students in grades 9-12 with an 89% graduation rate; its average SAT total was 823 in 2025-26 (MI School Data). Also: John Glenn High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,363 students in grades 9-12 with a 92% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 849 in 2025-26 (MI School Data)."
+  },
+  "Iosco Township (MI)": {
+    hs: ["Fowlerville High School", "Howell High School"],
+    district: ["Fowlerville Community Schools", "Howell Public Schools"],
+    feedsTo: "Fowlerville High School / Howell High School",
+    usNewsNational: 4166, usNewsState: 153,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Iosco Township is split between school districts (2020 census-block shares): Fowlerville Community Schools about 76%, Howell Public Schools about 20%; students attend Fowlerville High School or Howell High School depending on address. Smaller shares are in Stockbridge Community Schools (4%). Iosco Township has no high school inside its boundary; the high schools are in Fowlerville, Howell. Fowlerville High School (#449 in Michigan) enrolls 774 students in grades 9-12 with a 92% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 944 in 2025-26 (MI School Data). Also: Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data)."
+  },
+  "Ira Township (MI)": {
+    hs: ["Anchor Bay High School", "Algonac High School"],
+    district: ["Anchor Bay School District", "Algonac Community School District"],
+    usNewsNational: 5354, usNewsState: 193,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ira Township is split between school districts (2020 census-block shares): Anchor Bay School District about 53%, Algonac Community School District about 37%; students attend Anchor Bay High School or Algonac High School depending on address. Smaller shares are in East China School District (10%). Anchor Bay High School (#193 in Michigan) enrolls 1,740 students in grades 9-12 with a 96% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data). Also: Algonac High School (#382 in Michigan) enrolls 430 students in grades 9-12 with a 96% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 925 in 2025-26 (MI School Data)."
+  },
+  "Keego Harbor (MI)": {
+    hs: "West Bloomfield High School",
+    district: "West Bloomfield School District",
+    feedsTo: "West Bloomfield High School",
+    usNewsNational: 4871, usNewsState: 178,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "West Bloomfield School District covers essentially all Keego Harbor's residents (2020 census blocks). US News also lists Oakland Early College (#127 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Keego Harbor has no high school inside its boundary; the high school is in West Bloomfield. West Bloomfield High School (#178 in Michigan) enrolls 1,434 students in grades 9-12 with a 98% graduation rate and a 37% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data)."
+  },
+  "Kenockee Township (MI)": {
+    hs: "Yale Senior High School",
+    district: "Yale Public Schools",
+    feedsTo: "Yale Senior High School",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Yale Public Schools covers about 99% of Kenockee Township's residents (2020 census blocks). Kenockee Township has no high school inside its boundary; the high school is in Yale. Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Kimball Township (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School", "Marysville High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District", "Marysville Public Schools"],
+    feedsTo: "Port Huron Northern High School / Port Huron High School / Marysville High School",
+    usNewsNational: 3761, usNewsState: 141,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Kimball Township is split between school districts (2020 census-block shares): Port Huron Area School District about 79%, Marysville Public Schools about 21%; students attend Port Huron Northern High School, Port Huron High School or Marysville High School depending on address. Kimball Township has no high school inside its boundary; the high schools are in Marysville, Port Huron. Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Lake Orion (MI)": {
+    hs: "Lake Orion Community High School",
+    district: "Lake Orion Community Schools",
+    usNewsNational: 2885, usNewsState: 111,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lake Orion Community Schools covers essentially all Lake Orion's residents (2020 census blocks). Lake Orion Community High School (#111 in Michigan) enrolls 2,035 students in grades 9-12 with a 97% graduation rate and a 41% AP/IB-exam participation rate; its average SAT total was 1022 in 2025-26 (MI School Data)."
+  },
+  "Lakeport (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District"],
+    feedsTo: "Port Huron Northern High School / Port Huron High School",
+    usNewsNational: 7197, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Port Huron Area School District covers essentially all Lakeport's residents (2020 census blocks). Port Huron Area School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Lakeport has no high school inside its boundary; the high schools are in Port Huron. Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Lapeer (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers essentially all Lapeer's residents (2020 census blocks). Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Lapeer Township (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers essentially all Lapeer Township's residents (2020 census blocks). Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Lathrup Village (MI)": {
+    hs: "Southfield High School for the Arts and Technology",
+    district: "Southfield Public Schools",
+    feedsTo: "Southfield High School for the Arts and Technology",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southfield Public Schools covers essentially all Lathrup Village's residents (2020 census blocks). US News also lists University High School Academy (#14 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Lathrup Village has no high school inside its boundary; the high school is in Southfield. Southfield High School for the Arts and Technology (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,049 students in grades 9-12 with an 85% graduation rate and a 7% AP/IB-exam participation rate; its average SAT total was 818 in 2025-26 (MI School Data)."
+  },
+  "Lenox Township (MI)": {
+    hs: ["New Haven High School", "Richmond Community High School", "Anchor Bay High School"],
+    district: ["New Haven Community Schools", "Richmond Community Schools", "Anchor Bay School District"],
+    usNewsNational: 5354, usNewsState: 193,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed New Haven. Lenox Township is split between school districts (2020 census-block shares): New Haven Community Schools about 56%, Richmond Community Schools about 24%, Anchor Bay School District about 16%; students attend New Haven High School, Richmond Community High School or Anchor Bay High School depending on address. Smaller shares are in Armada Area Schools (4%). New Haven High School (#299 in Michigan) enrolls 314 students in grades 9-12 with a 93% graduation rate and a 31% AP/IB-exam participation rate; its average SAT total was 939 in 2025-26 (MI School Data). Also: Richmond Community High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 490 students in grades 9-12 with an 89% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 983 in 2025-26 (MI School Data)."
+  },
+  "Lincoln Park (MI)": {
+    hs: "Lincoln Park High School",
+    district: "Lincoln Park Public Schools",
+    usNewsNational: 11617, usNewsState: 431,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lincoln Park Public Schools covers essentially all Lincoln Park's residents (2020 census blocks). Lincoln Park High School (#431 in Michigan) enrolls 1,384 students in grades 9-12 with an 87% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 848 in 2025-26 (MI School Data)."
+  },
+  "Livonia (MI)": {
+    hs: ["Stevenson High School", "Churchill High School", "Franklin High School"],
+    district: ["Livonia Public Schools", "Livonia Public Schools", "Livonia Public Schools"],
+    usNewsNational: 2685, usNewsState: 103,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Livonia Public Schools covers about 92% of Livonia's residents (2020 census blocks). The rest are mostly in Clarenceville School District (8%). Livonia Public Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Stevenson High School (#103 in Michigan) enrolls 1,523 students in grades 9-12 with a 94% graduation rate and a 41% AP/IB-exam participation rate; its average SAT total was 1039 in 2025-26 (MI School Data). Also: Churchill High School (#172 in Michigan) enrolls 1,227 students in grades 9-12 with an 88% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 1041 in 2025-26 (MI School Data)."
+  },
+  "Lynn Township (MI)": {
+    hs: ["Capac High School", "Yale Senior High School"],
+    district: ["Capac Community Schools", "Yale Public Schools"],
+    feedsTo: "Capac High School / Yale Senior High School",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Lynn Township is split between school districts (2020 census-block shares): Capac Community Schools about 46%, Yale Public Schools about 41%; students attend Capac High School or Yale Senior High School depending on address. Smaller shares are in Brown City Community Schools (13%). Lynn Township has no high school inside its boundary; the high schools are in Capac, Yale. Capac High School (#357 in Michigan) enrolls 202 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 870 in 2025-26 (MI School Data). Also: Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Lyon Township (MI)": {
+    hs: ["South Lyon East High School", "South Lyon High School"],
+    district: ["South Lyon Community Schools", "South Lyon Community Schools"],
+    usNewsNational: 2591, usNewsState: 99,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "South Lyon Community Schools covers about 97% of Lyon Township's residents (2020 census blocks). The rest are mostly in Northville Public Schools (3%). South Lyon Community Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). South Lyon East High School (#99 in Michigan) enrolls 1,174 students in grades 9-12 with a 92% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 1074 in 2025-26 (MI School Data). Also: South Lyon High School (#104 in Michigan) enrolls 1,224 students in grades 9-12 with an 89% graduation rate and a 48% AP/IB-exam participation rate; its average SAT total was 1025 in 2025-26 (MI School Data)."
+  },
+  "Macomb Township (MI)": {
+    hs: ["Dakota High School", "Chippewa Valley High School", "Henry Ford II High School", "Eisenhower High School", "Adlai Stevenson High School", "Utica High School"],
+    district: ["Chippewa Valley Schools", "Chippewa Valley Schools", "Utica Community Schools", "Utica Community Schools", "Utica Community Schools", "Utica Community Schools"],
+    usNewsNational: 1589, usNewsState: 50,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Macomb Township is split between school districts (2020 census-block shares): Chippewa Valley Schools about 57%, Utica Community Schools about 25%; students attend Dakota High School, Chippewa Valley High School, Henry Ford II High School, Eisenhower High School, Adlai Stevenson High School or Utica High School depending on address. Smaller shares are in New Haven Community Schools (9%) and L'Anse Creuse Public Schools (8%). US News also lists International Academy of Macomb (#2 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Dakota High School (#167 in Michigan) enrolls 2,476 students in grades 9-12 with a 95% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 985 in 2025-26 (MI School Data). Also: Chippewa Valley High School (#297 in Michigan) enrolls 2,162 students in grades 9-12 with a 95% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 934 in 2025-26 (MI School Data)."
+  },
+  "Madison Heights (MI)": {
+    hs: ["Lamphere High School", "Madison High School"],
+    district: ["Lamphere Public Schools", "Madison District Public Schools"],
+    usNewsNational: 8686, usNewsState: 319,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Madison Heights is split between school districts (2020 census-block shares): Lamphere Public Schools about 58%, Madison District Public Schools about 42%; students attend Lamphere High School or Madison High School depending on address. Lamphere High School (#319 in Michigan) enrolls 753 students in grades 9-12 with an 89% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 935 in 2025-26 (MI School Data). Also: Madison High School (#384 in Michigan) enrolls 255 students in grades 9-12 with a 78% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 811 in 2025-26 (MI School Data)."
+  },
+  "Marathon Township (MI)": {
+    hs: "Lakeville High School",
+    district: "Lakeville Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Columbiaville. Lakeville Community Schools covers about 98% of Marathon Township's residents (2020 census blocks). Lakeville High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 354 students in grades 9-12 with an 82% graduation rate; its average SAT total was 852 in 2025-26 (MI School Data)."
+  },
+  "Marine City (MI)": {
+    hs: ["Marine City High School", "St. Clair High School"],
+    district: ["East China School District", "East China School District"],
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "East China School District covers essentially all Marine City's residents (2020 census blocks). East China School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Marion Township (MI)": {
+    hs: "Howell High School",
+    district: "Howell Public Schools",
+    feedsTo: "Howell High School",
+    usNewsNational: 4166, usNewsState: 153,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Howell Public Schools covers about 99% of Marion Township's residents (2020 census blocks). Marion Township has no high school inside its boundary; the high school is in Howell. Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data)."
+  },
+  "Marysville (MI)": {
+    hs: "Marysville High School",
+    district: "Marysville Public Schools",
+    usNewsNational: 3761, usNewsState: 141,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Marysville Public Schools covers essentially all Marysville's residents (2020 census blocks). Marysville High School (#141 in Michigan) enrolls 806 students in grades 9-12 with a 94% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 987 in 2025-26 (MI School Data)."
+  },
+  "Mayfield Township (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    feedsTo: "Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers essentially all Mayfield Township's residents (2020 census blocks). Mayfield Township has no high school inside its boundary; the high school is in Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Melvindale (MI)": {
+    hs: "Melvindale High School",
+    district: "Melvindale-North Allen Park Schools",
+    usNewsNational: 12702, usNewsState: 469,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Melvindale-North Allen Park Schools covers essentially all Melvindale's residents (2020 census blocks). Melvindale High School (#469 in Michigan) enrolls 982 students in grades 9-12 with an 86% graduation rate and a 19% AP/IB-exam participation rate; its average SAT total was 801 in 2025-26 (MI School Data)."
+  },
+  "Memphis (MI)": {
+    hs: "Memphis Junior/Senior High School",
+    district: "Memphis Community Schools",
+    usNewsNational: 12962, usNewsState: 480,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Memphis Community Schools covers essentially all Memphis's residents (2020 census blocks). Memphis Junior/Senior High School (#480 in Michigan) enrolls 229 students in grades 9-12 with a 92% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 926 in 2025-26 (MI School Data)."
+  },
+  "Metamora (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    feedsTo: "Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers essentially all Metamora's residents (2020 census blocks). Metamora has no high school inside its boundary; the high school is in Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Metamora Township (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    feedsTo: "Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Metamora. Lapeer Community Schools covers about 77% of Metamora Township's residents (2020 census blocks). The rest are mostly in Oxford Community Schools (15%) and Dryden Community Schools (8%). Metamora Township has no high school inside its boundary; the high school is in Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Milford (MI)": {
+    hs: ["Milford High School", "Lakeland High School"],
+    district: ["Huron Valley Schools", "Huron Valley Schools"],
+    feedsTo: "Milford High School / Lakeland High School",
+    usNewsNational: 2434, usNewsState: 87,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Huron Valley Schools covers essentially all Milford's residents (2020 census blocks). Huron Valley Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Milford has no high school inside its boundary; the high schools are in Highland, White Lake. Milford High School (#100 in Michigan) enrolls 1,173 students in grades 9-12 with a 91% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 998 in 2025-26 (MI School Data). Also: Lakeland High School (#87 in Michigan) enrolls 1,012 students in grades 9-12 with a 99% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 982 in 2025-26 (MI School Data)."
+  },
+  "Milford Township (MI)": {
+    hs: ["Milford High School", "Lakeland High School"],
+    district: ["Huron Valley Schools", "Huron Valley Schools"],
+    feedsTo: "Milford High School / Lakeland High School",
+    usNewsNational: 2434, usNewsState: 87,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Milford. Huron Valley Schools covers about 99% of Milford Township's residents (2020 census blocks). Huron Valley Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Milford Township has no high school inside its boundary; the high schools are in Highland, White Lake. Milford High School (#100 in Michigan) enrolls 1,173 students in grades 9-12 with a 91% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 998 in 2025-26 (MI School Data). Also: Lakeland High School (#87 in Michigan) enrolls 1,012 students in grades 9-12 with a 99% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 982 in 2025-26 (MI School Data)."
+  },
+  "Mount Clemens (MI)": {
+    hs: "Mount Clemens High School",
+    district: "Mount Clemens Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mount Clemens Community Schools covers about 95% of Mount Clemens's residents (2020 census blocks). The rest are mostly in L'Anse Creuse Public Schools (5%). Mount Clemens High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 239 students in grades 9-12 with a 74% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 755 in 2025-26 (MI School Data)."
+  },
+  "Mussey Township (MI)": {
+    hs: "Capac High School",
+    district: "Capac Community Schools",
+    usNewsNational: 9592, usNewsState: 357,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Capac. Capac Community Schools covers essentially all Mussey Township's residents (2020 census blocks). Capac High School (#357 in Michigan) enrolls 202 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 870 in 2025-26 (MI School Data)."
+  },
+  "New Baltimore (MI)": {
+    hs: "Anchor Bay High School",
+    district: "Anchor Bay School District",
+    feedsTo: "Anchor Bay High School",
+    usNewsNational: 5354, usNewsState: 193,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Anchor Bay School District covers essentially all New Baltimore's residents (2020 census blocks). New Baltimore has no high school inside its boundary; the high school is in Ira. Anchor Bay High School (#193 in Michigan) enrolls 1,740 students in grades 9-12 with a 96% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "New Haven (MI)": {
+    hs: "New Haven High School",
+    district: "New Haven Community Schools",
+    usNewsNational: 8034, usNewsState: 299,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "New Haven Community Schools covers essentially all New Haven's residents (2020 census blocks). New Haven High School (#299 in Michigan) enrolls 314 students in grades 9-12 with a 93% graduation rate and a 31% AP/IB-exam participation rate; its average SAT total was 939 in 2025-26 (MI School Data)."
+  },
+  "North Branch (MI)": {
+    hs: "North Branch High School",
+    district: "North Branch Area Schools",
+    usNewsNational: 6147, usNewsState: 219,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Branch Area Schools covers essentially all North Branch's residents (2020 census blocks). North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data)."
+  },
+  "North Branch Township (MI)": {
+    hs: "North Branch High School",
+    district: "North Branch Area Schools",
+    usNewsNational: 6147, usNewsState: 219,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed North Branch. North Branch Area Schools covers essentially all North Branch Township's residents (2020 census blocks). North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data)."
+  },
+  "Northville (MI)": {
+    hs: "Northville High School",
+    district: "Northville Public Schools",
+    usNewsNational: 507, usNewsState: 13,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Northville Public Schools covers essentially all Northville's residents (2020 census blocks). Northville High School (#13 in Michigan) enrolls 2,441 students in grades 9-12 with a 98% graduation rate and a 63% AP/IB-exam participation rate; its average SAT total was 1151 in 2025-26 (MI School Data)."
+  },
+  "Northville Township (MI)": {
+    hs: ["Northville High School", "Salem High School", "Canton High School", "Plymouth High School"],
+    district: ["Northville Public Schools", "Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools"],
+    usNewsNational: 507, usNewsState: 13,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Northville Township is split between school districts (2020 census-block shares): Northville Public Schools about 83%, Plymouth-Canton Community Schools about 17%; students attend Northville High School, Salem High School, Canton High School or Plymouth High School depending on address. Northville High School (#13 in Michigan) enrolls 2,441 students in grades 9-12 with a 98% graduation rate and a 63% AP/IB-exam participation rate; its average SAT total was 1151 in 2025-26 (MI School Data). Also: Salem High School (#34 in Michigan) enrolls 1,862 students in grades 9-12 with a 96% graduation rate and a 52% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data)."
+  },
+  "Novi (MI)": {
+    hs: ["Novi High School", "Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School"],
+    district: ["Novi Community School District", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools"],
+    usNewsNational: 472, usNewsState: 12,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Novi is split between school districts (2020 census-block shares): Novi Community School District about 57%, Walled Lake Consolidated Schools about 25%; students attend Novi High School, Walled Lake Northern High School, Walled Lake Western High School or Walled Lake Central High School depending on address. Smaller shares are in Northville Public Schools (13%) and South Lyon Community Schools (5%). Novi High School (#12 in Michigan) enrolls 2,137 students in grades 9-12 with a 97% graduation rate and a 68% AP/IB-exam participation rate; its average SAT total was 1187 in 2025-26 (MI School Data). Also: Walled Lake Northern High School (#72 in Michigan) enrolls 1,383 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data)."
+  },
+  "Oak Park (MI)": {
+    hs: ["Oak Park High School", "Berkley High School", "Ferndale High School"],
+    district: ["Oak Park Schools", "Berkley School District", "Ferndale Public Schools"],
+    usNewsNational: 1360, usNewsState: 46,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Oak Park is split between school districts (2020 census-block shares): Oak Park Schools about 63%, Berkley School District about 20%, Ferndale Public Schools about 17%; students attend Oak Park High School, Berkley High School or Ferndale High School depending on address. US News also lists University High School (in the unranked-bottom band, 494–678 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Oak Park High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 798 students in grades 9-12 with an 87% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 785 in 2025-26 (MI School Data). Also: Berkley High School (#46 in Michigan) enrolls 1,196 students in grades 9-12 with a 95% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1042 in 2025-26 (MI School Data)."
+  },
+  "Oakland Township (MI)": {
+    hs: ["Rochester Adams High School", "Stoney Creek High School", "Rochester High School"],
+    district: ["Rochester Community Schools", "Rochester Community Schools", "Rochester Community Schools"],
+    feedsTo: "Rochester Adams High School / Stoney Creek High School / Rochester High School",
+    usNewsNational: 400, usNewsState: 8,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rochester Community Schools covers about 85% of Oakland Township's residents (2020 census blocks). The rest are mostly in Lake Orion Community Schools (11%) and Romeo Community Schools (4%). Rochester Community Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Oakland Township has no high school inside its boundary; the high schools are in Rochester Hills. Rochester Adams High School (#8 in Michigan) enrolls 1,521 students in grades 9-12 with a 99% graduation rate and an 81% AP/IB-exam participation rate; its average SAT total was 1146 in 2025-26 (MI School Data). Also: Stoney Creek High School (#22 in Michigan) enrolls 1,478 students in grades 9-12 with a 98% graduation rate and a 78% AP/IB-exam participation rate; its average SAT total was 1095 in 2025-26 (MI School Data)."
+  },
+  "Oceola Township (MI)": {
+    hs: ["Howell High School", "Hartland High School"],
+    district: ["Howell Public Schools", "Hartland Consolidated Schools"],
+    feedsTo: "Howell High School / Hartland High School",
+    usNewsNational: 3081, usNewsState: 117,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Oceola Township is split between school districts (2020 census-block shares): Howell Public Schools about 84%, Hartland Consolidated Schools about 16%; students attend Howell High School or Hartland High School depending on address. Oceola Township has no high school inside its boundary; the high schools are in Hartland, Howell. Howell High School (#153 in Michigan) enrolls 1,964 students in grades 9-12 with a 97% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 986 in 2025-26 (MI School Data). Also: Hartland High School (#117 in Michigan) enrolls 1,610 students in grades 9-12 with a 98% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data)."
+  },
+  "Orchard Lake Village (MI)": {
+    hs: "West Bloomfield High School",
+    district: "West Bloomfield School District",
+    feedsTo: "West Bloomfield High School",
+    usNewsNational: 4871, usNewsState: 178,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "West Bloomfield School District covers about 88% of Orchard Lake Village's residents (2020 census blocks). The rest are mostly in Walled Lake Consolidated Schools (8%) and Bloomfield Hills Schools (4%). US News also lists Oakland Early College (#127 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Orchard Lake Village has no high school inside its boundary; the high school is in West Bloomfield. West Bloomfield High School (#178 in Michigan) enrolls 1,434 students in grades 9-12 with a 98% graduation rate and a 37% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data)."
+  },
+  "Oregon Township (MI)": {
+    hs: "Lapeer East Senior High School",
+    district: "Lapeer Community Schools",
+    feedsTo: "Lapeer East Senior High School",
+    usNewsNational: 5350, usNewsState: 191,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lapeer Community Schools covers about 87% of Oregon Township's residents (2020 census blocks). The rest are mostly in Lakeville Community Schools (13%). Oregon Township has no high school inside its boundary; the high school is in Lapeer. Lapeer East Senior High School (#191 in Michigan) enrolls 1,006 students in grades 9-12 with a 94% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "Orion Township (MI)": {
+    hs: "Lake Orion Community High School",
+    district: "Lake Orion Community Schools",
+    usNewsNational: 2885, usNewsState: 111,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Lake Orion. Lake Orion Community Schools covers about 95% of Orion Township's residents (2020 census blocks). Lake Orion Community High School (#111 in Michigan) enrolls 2,035 students in grades 9-12 with a 97% graduation rate and a 41% AP/IB-exam participation rate; its average SAT total was 1022 in 2025-26 (MI School Data)."
+  },
+  "Ortonville (MI)": {
+    hs: "Brandon High School",
+    district: "Brandon School District",
+    usNewsNational: 3888, usNewsState: 147,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brandon School District covers essentially all Ortonville's residents (2020 census blocks). Brandon High School (#147 in Michigan) enrolls 648 students in grades 9-12 with a 94% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 937 in 2025-26 (MI School Data)."
+  },
+  "Oxford (MI)": {
+    hs: "Oxford High School",
+    district: "Oxford Community Schools",
+    usNewsNational: 5471, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Oxford Community Schools covers essentially all Oxford's residents (2020 census blocks). Oxford High School (#195 in Michigan) enrolls 1,568 students in grades 9-12 with a 97% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 994 in 2025-26 (MI School Data)."
+  },
+  "Oxford Township (MI)": {
+    hs: ["Oxford High School", "Lake Orion Community High School"],
+    district: ["Oxford Community Schools", "Lake Orion Community Schools"],
+    usNewsNational: 2885, usNewsState: 111,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shares are for residents outside the separately listed Oxford. Oxford Township is split between school districts (2020 census-block shares): Oxford Community Schools about 82%, Lake Orion Community Schools about 18%; students attend Oxford High School or Lake Orion Community High School depending on address. Oxford High School (#195 in Michigan) enrolls 1,568 students in grades 9-12 with a 97% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 994 in 2025-26 (MI School Data). Also: Lake Orion Community High School (#111 in Michigan) enrolls 2,035 students in grades 9-12 with a 97% graduation rate and a 41% AP/IB-exam participation rate; its average SAT total was 1022 in 2025-26 (MI School Data)."
+  },
+  "Pearl Beach (MI)": {
+    hs: "Algonac High School",
+    district: "Algonac Community School District",
+    usNewsNational: 10431, usNewsState: 382,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Algonac Community School District covers essentially all Pearl Beach's residents (2020 census blocks). Algonac High School (#382 in Michigan) enrolls 430 students in grades 9-12 with a 96% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 925 in 2025-26 (MI School Data)."
+  },
+  "Pinckney (MI)": {
+    hs: "Pinckney Community High School",
+    district: "Pinckney Community Schools",
+    usNewsNational: 11136, usNewsState: 413,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pinckney Community Schools covers essentially all Pinckney's residents (2020 census blocks). Pinckney Community High School (#413 in Michigan) enrolls 619 students in grades 9-12 with a 90% graduation rate and a 37% AP/IB-exam participation rate; its average SAT total was 990 in 2025-26 (MI School Data)."
+  },
+  "Pleasant Ridge (MI)": {
+    hs: "Ferndale High School",
+    district: "Ferndale Public Schools",
+    feedsTo: "Ferndale High School",
+    usNewsNational: 10990, usNewsState: 404,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ferndale Public Schools covers essentially all Pleasant Ridge's residents (2020 census blocks). US News also lists University High School (in the unranked-bottom band, 494–678 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Pleasant Ridge has no high school inside its boundary; the high school is in Ferndale. Ferndale High School (#404 in Michigan) enrolls 732 students in grades 9-12 with a 94% graduation rate and a 21% AP/IB-exam participation rate; its average SAT total was 912 in 2025-26 (MI School Data)."
+  },
+  "Plymouth (MI)": {
+    hs: ["Salem High School", "Canton High School", "Plymouth High School"],
+    district: ["Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools"],
+    feedsTo: "Salem High School / Canton High School / Plymouth High School",
+    usNewsNational: 1208, usNewsState: 34,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Plymouth-Canton Community Schools covers essentially all Plymouth's residents (2020 census blocks). Plymouth-Canton Community Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Plymouth has no high school inside its boundary; the high schools are in Canton. Salem High School (#34 in Michigan) enrolls 1,862 students in grades 9-12 with a 96% graduation rate and a 52% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data). Also: Canton High School (#37 in Michigan) enrolls 1,888 students in grades 9-12 with a 97% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data)."
+  },
+  "Plymouth Township (MI)": {
+    hs: ["Salem High School", "Canton High School", "Plymouth High School"],
+    district: ["Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools", "Plymouth-Canton Community Schools"],
+    usNewsNational: 1208, usNewsState: 34,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Plymouth-Canton Community Schools covers essentially all Plymouth Township's residents (2020 census blocks). Plymouth-Canton Community Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Salem High School (#34 in Michigan) enrolls 1,862 students in grades 9-12 with a 96% graduation rate and a 52% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data). Also: Canton High School (#37 in Michigan) enrolls 1,888 students in grades 9-12 with a 97% graduation rate and a 55% AP/IB-exam participation rate; its average SAT total was 1083 in 2025-26 (MI School Data)."
+  },
+  "Pontiac (MI)": {
+    hs: "Pontiac High School",
+    district: "Pontiac City Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pontiac City Schools covers essentially all Pontiac's residents (2020 census blocks). Pontiac High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 992 students in grades 9-12 with a 75% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 747 in 2025-26 (MI School Data)."
+  },
+  "Port Huron (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District"],
+    usNewsNational: 7197, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Port Huron Area School District covers essentially all Port Huron's residents (2020 census blocks). Port Huron Area School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Port Huron Township (MI)": {
+    hs: ["Port Huron Northern High School", "Port Huron High School"],
+    district: ["Port Huron Area School District", "Port Huron Area School District"],
+    usNewsNational: 7197, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Port Huron Area School District covers essentially all Port Huron Township's residents (2020 census blocks). Port Huron Area School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data). Also: Port Huron High School (#461 in Michigan) enrolls 988 students in grades 9-12 with an 83% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 897 in 2025-26 (MI School Data)."
+  },
+  "Putnam Township (MI)": {
+    hs: "Pinckney Community High School",
+    district: "Pinckney Community Schools",
+    usNewsNational: 11136, usNewsState: 413,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Shares are for residents outside the separately listed Pinckney. Pinckney Community Schools covers about 95% of Putnam Township's residents (2020 census blocks). The rest are mostly in Howell Public Schools (5%). Pinckney Community High School (#413 in Michigan) enrolls 619 students in grades 9-12 with a 90% graduation rate and a 37% AP/IB-exam participation rate; its average SAT total was 990 in 2025-26 (MI School Data)."
+  },
+  "Ray Township (MI)": {
+    hs: ["Romeo High School", "Armada High School", "New Haven High School"],
+    district: ["Romeo Community Schools", "Armada Area Schools", "New Haven Community Schools"],
+    feedsTo: "Romeo High School / Armada High School / New Haven High School",
+    usNewsNational: 2066, usNewsState: 75,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ray Township is split between school districts (2020 census-block shares): Romeo Community Schools about 39%, Armada Area Schools about 32%, New Haven Community Schools about 27%; students attend Romeo High School, Armada High School or New Haven High School depending on address. Ray Township has no high school inside its boundary; the high schools are in Armada, New Haven, Washington. Romeo High School (#156 in Michigan) enrolls 1,817 students in grades 9-12 with a 95% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data). Also: Armada High School (#75 in Michigan) enrolls 533 students in grades 9-12 with a 100% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1007 in 2025-26 (MI School Data)."
+  },
+  "Redford Township (MI)": {
+    hs: ["Redford Union High School", "Lee M. Thurston High School"],
+    district: ["Redford Union Schools", "South Redford School District"],
+    usNewsNational: 8440, usNewsState: 312,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Redford Township is split between school districts (2020 census-block shares): Redford Union Schools about 50%, South Redford School District about 48%; students attend Redford Union High School or Lee M. Thurston High School depending on address. Redford Union High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 510 students in grades 9-12 with a 70% graduation rate and a 10% AP/IB-exam participation rate; its average SAT total was 821 in 2025-26 (MI School Data). Also: Lee M. Thurston High School (#312 in Michigan) enrolls 806 students in grades 9-12 with a 93% graduation rate and a 33% AP/IB-exam participation rate; its average SAT total was 834 in 2025-26 (MI School Data)."
+  },
+  "Rich Township (MI)": {
+    hs: ["North Branch High School", "Mayville High School"],
+    district: ["North Branch Area Schools", "Mayville Community Schools"],
+    feedsTo: "North Branch High School / Mayville High School",
+    usNewsNational: 6147, usNewsState: 219,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rich Township is split between school districts (2020 census-block shares): North Branch Area Schools about 59%, Mayville Community Schools about 41%; students attend North Branch High School or Mayville High School depending on address. Rich Township has no high school inside its boundary; the high schools are in Mayville, North Branch. North Branch High School (#219 in Michigan) enrolls 695 students in grades 9-12 with a 97% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 919 in 2025-26 (MI School Data). Also: Mayville High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 175 students in grades 9-12 with an 82% graduation rate; its average SAT total was 844 in 2025-26 (MI School Data)."
+  },
+  "Richmond (MI)": {
+    hs: "Richmond Community High School",
+    district: "Richmond Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Richmond Community Schools covers essentially all Richmond's residents (2020 census blocks). Richmond Community High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 490 students in grades 9-12 with an 89% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 983 in 2025-26 (MI School Data)."
+  },
+  "Richmond Township (MI)": {
+    hs: ["Richmond Community High School", "Armada High School", "Memphis Junior/Senior High School"],
+    district: ["Richmond Community Schools", "Armada Area Schools", "Memphis Community Schools"],
+    usNewsNational: 2066, usNewsState: 75,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Richmond Township is split between school districts (2020 census-block shares): Richmond Community Schools about 45%, Armada Area Schools about 36%, Memphis Community Schools about 19%; students attend Richmond Community High School, Armada High School or Memphis Junior/Senior High School depending on address. Richmond Community High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 490 students in grades 9-12 with an 89% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 983 in 2025-26 (MI School Data). Also: Armada High School (#75 in Michigan) enrolls 533 students in grades 9-12 with a 100% graduation rate and a 61% AP/IB-exam participation rate; its average SAT total was 1007 in 2025-26 (MI School Data)."
+  },
+  "Riley Township (MI)": {
+    hs: ["Memphis Junior/Senior High School", "Capac High School", "Armada High School"],
+    district: ["Memphis Community Schools", "Capac Community Schools", "Armada Area Schools"],
+    usNewsNational: 2066, usNewsState: 75,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Riley Township is split between school districts (2020 census-block shares): Memphis Community Schools about 48%, Capac Community Schools about 36%, Armada Area Schools about 15%; students attend Memphis Junior/Senior High School, Capac High School or Armada High School depending on address. Memphis Junior/Senior High School (#480 in Michigan) enrolls 229 students in grades 9-12 with a 92% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 926 in 2025-26 (MI School Data). Also: Capac High School (#357 in Michigan) enrolls 202 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its average SAT total was 870 in 2025-26 (MI School Data)."
+  },
+  "River Rouge (MI)": {
+    hs: "River Rouge High School",
+    district: "River Rouge School District",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "River Rouge School District covers essentially all River Rouge's residents (2020 census blocks). River Rouge High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 987 students in grades 9-12 with a 92% graduation rate; its average SAT total was 747 in 2025-26 (MI School Data)."
+  },
+  "Riverview (MI)": {
+    hs: "Riverview Community High School",
+    district: "Riverview Community School District",
+    usNewsNational: 2518, usNewsState: 91,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverview Community School District covers essentially all Riverview's residents (2020 census blocks). Riverview Community High School (#91 in Michigan) enrolls 854 students in grades 9-12 with a 99% graduation rate and a 26% AP/IB-exam participation rate; its average SAT total was 989 in 2025-26 (MI School Data)."
+  },
+  "Rochester (MI)": {
+    hs: ["Rochester Adams High School", "Stoney Creek High School", "Rochester High School"],
+    district: ["Rochester Community Schools", "Rochester Community Schools", "Rochester Community Schools"],
+    usNewsNational: 400, usNewsState: 8,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rochester Community Schools covers essentially all Rochester's residents (2020 census blocks). Rochester Community Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Rochester Adams High School (#8 in Michigan) enrolls 1,521 students in grades 9-12 with a 99% graduation rate and an 81% AP/IB-exam participation rate; its average SAT total was 1146 in 2025-26 (MI School Data). Also: Stoney Creek High School (#22 in Michigan) enrolls 1,478 students in grades 9-12 with a 98% graduation rate and a 78% AP/IB-exam participation rate; its average SAT total was 1095 in 2025-26 (MI School Data)."
+  },
+  "Rochester Hills (MI)": {
+    hs: ["Rochester Adams High School", "Stoney Creek High School", "Rochester High School", "Avondale High School"],
+    district: ["Rochester Community Schools", "Rochester Community Schools", "Rochester Community Schools", "Avondale School District"],
+    usNewsNational: 400, usNewsState: 8,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rochester Hills is split between school districts (2020 census-block shares): Rochester Community Schools about 85%, Avondale School District about 15%; students attend Rochester Adams High School, Stoney Creek High School, Rochester High School or Avondale High School depending on address. Rochester Adams High School (#8 in Michigan) enrolls 1,521 students in grades 9-12 with a 99% graduation rate and an 81% AP/IB-exam participation rate; its average SAT total was 1146 in 2025-26 (MI School Data). Also: Stoney Creek High School (#22 in Michigan) enrolls 1,478 students in grades 9-12 with a 98% graduation rate and a 78% AP/IB-exam participation rate; its average SAT total was 1095 in 2025-26 (MI School Data)."
+  },
+  "Rockwood (MI)": {
+    hs: "Oscar A. Carlson High School",
+    district: "Gibraltar School District",
+    usNewsNational: 10891, usNewsState: 402,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gibraltar School District covers essentially all Rockwood's residents (2020 census blocks). Oscar A. Carlson High School (#402 in Michigan) enrolls 1,104 students in grades 9-12 with a 99% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data)."
+  },
+  "Romeo (MI)": {
+    hs: "Romeo High School",
+    district: "Romeo Community Schools",
+    feedsTo: "Romeo High School",
+    usNewsNational: 4291, usNewsState: 156,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Romeo Community Schools covers essentially all Romeo's residents (2020 census blocks). Romeo has no high school inside its boundary; the high school is in Washington. Romeo High School (#156 in Michigan) enrolls 1,817 students in grades 9-12 with a 95% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data)."
+  },
+  "Romulus (MI)": {
+    hs: "Romulus Senior High School",
+    district: "Romulus Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Romulus Community Schools covers about 89% of Romulus's residents (2020 census blocks). The rest are mostly in Wayne-Westland Community Schools (7%) and Woodhaven-Brownstown School District (3%). Romulus Senior High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 518 students in grades 9-12 with an 84% graduation rate and a 21% AP/IB-exam participation rate; its average SAT total was 809 in 2025-26 (MI School Data)."
+  },
+  "Rose Township (MI)": {
+    hs: ["Holly High School", "Fenton Senior High School"],
+    district: ["Holly Area Schools", "Fenton Area Public Schools"],
+    feedsTo: "Holly High School / Fenton Senior High School",
+    usNewsNational: 3000, usNewsState: 114,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rose Township is split between school districts (2020 census-block shares): Holly Area Schools about 73%, Fenton Area Public Schools about 27%; students attend Holly High School or Fenton Senior High School depending on address. Rose Township has no high school inside its boundary; the high schools are in Fenton, Holly. Holly High School (#290 in Michigan) enrolls 992 students in grades 9-12 with an 85% graduation rate and a 26% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data). Also: Fenton Senior High School (#114 in Michigan) enrolls 982 students in grades 9-12 with a 97% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1003 in 2025-26 (MI School Data)."
+  },
+  "Roseville (MI)": {
+    hs: "Roseville High School",
+    district: "Roseville Community Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Roseville Community Schools covers about 91% of Roseville's residents (2020 census blocks). The rest are mostly in Fraser Public Schools (9%). Roseville High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,211 students in grades 9-12 with an 84% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 837 in 2025-26 (MI School Data)."
+  },
+  "Royal Oak (MI)": {
+    hs: "Royal Oak High School",
+    district: "Royal Oak Schools",
+    usNewsNational: 2131, usNewsState: 78,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Royal Oak Schools covers about 99% of Royal Oak's residents (2020 census blocks). Royal Oak High School (#78 in Michigan) enrolls 1,293 students in grades 9-12 with a 97% graduation rate and a 49% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data)."
+  },
+  "Royal Oak Township (MI)": {
+    hs: ["Ferndale High School", "Oak Park High School"],
+    district: ["Ferndale Public Schools", "Oak Park Schools"],
+    usNewsNational: 10990, usNewsState: 404,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Royal Oak Township is split between school districts (2020 census-block shares): Ferndale Public Schools about 55%, Oak Park Schools about 45%; students attend Ferndale High School or Oak Park High School depending on address. US News also lists University High School (in the unranked-bottom band, 494–678 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Ferndale High School (#404 in Michigan) enrolls 732 students in grades 9-12 with a 94% graduation rate and a 21% AP/IB-exam participation rate; its average SAT total was 912 in 2025-26 (MI School Data). Also: Oak Park High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 798 students in grades 9-12 with an 87% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 785 in 2025-26 (MI School Data)."
+  },
+  "Ruby (MI)": {
+    hs: ["Yale Senior High School", "Port Huron Northern High School", "Port Huron High School"],
+    district: ["Yale Public Schools", "Port Huron Area School District", "Port Huron Area School District"],
+    feedsTo: "Yale Senior High School / Port Huron Northern High School / Port Huron High School",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ruby is split between school districts (2020 census-block shares): Yale Public Schools about 78%, Port Huron Area School District about 22%; students attend Yale Senior High School, Port Huron Northern High School or Port Huron High School depending on address. Ruby has no high school inside its boundary; the high schools are in Port Huron, Yale. Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data). Also: Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data)."
+  },
+  "Shelby Township (MI)": {
+    hs: ["Henry Ford II High School", "Eisenhower High School", "Adlai Stevenson High School", "Utica High School"],
+    district: ["Utica Community Schools", "Utica Community Schools", "Utica Community Schools", "Utica Community Schools"],
+    usNewsNational: 1589, usNewsState: 50,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Utica Community Schools covers about 98% of Shelby Township's residents (2020 census blocks). Utica Community Schools runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Henry Ford II High School (#50 in Michigan) enrolls 1,663 students in grades 9-12 with a 99% graduation rate and a 59% AP/IB-exam participation rate; its average SAT total was 989 in 2025-26 (MI School Data). Also: Eisenhower High School (#81 in Michigan) enrolls 1,625 students in grades 9-12 with a 97% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1044 in 2025-26 (MI School Data)."
+  },
+  "South Lyon (MI)": {
+    hs: ["South Lyon East High School", "South Lyon High School"],
+    district: ["South Lyon Community Schools", "South Lyon Community Schools"],
+    usNewsNational: 2591, usNewsState: 99,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "South Lyon Community Schools covers essentially all South Lyon's residents (2020 census blocks). South Lyon Community Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). South Lyon East High School (#99 in Michigan) enrolls 1,174 students in grades 9-12 with a 92% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 1074 in 2025-26 (MI School Data). Also: South Lyon High School (#104 in Michigan) enrolls 1,224 students in grades 9-12 with an 89% graduation rate and a 48% AP/IB-exam participation rate; its average SAT total was 1025 in 2025-26 (MI School Data)."
+  },
+  "Southfield (MI)": {
+    hs: "Southfield High School for the Arts and Technology",
+    district: "Southfield Public Schools",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southfield Public Schools covers about 91% of Southfield's residents (2020 census blocks). The rest are mostly in Birmingham Public Schools (5%) and Oak Park Schools (4%). US News also lists University High School Academy (#14 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. Southfield High School for the Arts and Technology (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,049 students in grades 9-12 with an 85% graduation rate and a 7% AP/IB-exam participation rate; its average SAT total was 818 in 2025-26 (MI School Data)."
+  },
+  "Southgate (MI)": {
+    hs: "Southgate Anderson High School",
+    district: "Southgate Community Schools",
+    usNewsNational: 12370, usNewsState: 459,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southgate Community Schools covers essentially all Southgate's residents (2020 census blocks). Southgate Anderson High School (#459 in Michigan) enrolls 1,052 students in grades 9-12 with a 92% graduation rate and an 18% AP/IB-exam participation rate; its average SAT total was 898 in 2025-26 (MI School Data)."
+  },
+  "Springfield Township (MI)": {
+    hs: ["Clarkston High School", "Holly High School"],
+    district: ["Clarkston Community School District", "Holly Area Schools"],
+    feedsTo: "Clarkston High School / Holly High School",
+    usNewsNational: 2157, usNewsState: 79,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Springfield Township is split between school districts (2020 census-block shares): Clarkston Community School District about 60%, Holly Area Schools about 39%; students attend Clarkston High School or Holly High School depending on address. Springfield Township has no high school inside its boundary; the high schools are in Clarkston, Holly. Clarkston High School (#79 in Michigan) enrolls 1,552 students in grades 9-12 with a 97% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 1026 in 2025-26 (MI School Data). Also: Holly High School (#290 in Michigan) enrolls 992 students in grades 9-12 with an 85% graduation rate and a 26% AP/IB-exam participation rate; its average SAT total was 922 in 2025-26 (MI School Data)."
+  },
+  "St. Clair (MI)": {
+    hs: ["Marine City High School", "St. Clair High School"],
+    district: ["East China School District", "East China School District"],
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "East China School District covers essentially all St. Clair's residents (2020 census blocks). East China School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "St. Clair Shores (MI)": {
+    hs: ["Lake Shore High School", "Lakeview High School", "South Lake High School"],
+    district: ["Lake Shore Public Schools", "Lakeview Public Schools", "South Lake Schools"],
+    usNewsNational: 7581, usNewsState: 280,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "St. Clair Shores is split between school districts (2020 census-block shares): Lake Shore Public Schools about 38%, Lakeview Public Schools about 33%, South Lake Schools about 29%; students attend Lake Shore High School, Lakeview High School or South Lake High School depending on address. Lake Shore High School (#323 in Michigan) enrolls 914 students in grades 9-12 with a 91% graduation rate and a 28% AP/IB-exam participation rate; its average SAT total was 901 in 2025-26 (MI School Data). Also: Lakeview High School (#280 in Michigan) enrolls 1,319 students in grades 9-12 with a 95% graduation rate and a 21% AP/IB-exam participation rate; its average SAT total was 970 in 2025-26 (MI School Data)."
+  },
+  "St. Clair Township (MI)": {
+    hs: ["Marine City High School", "St. Clair High School", "Marysville High School"],
+    district: ["East China School District", "East China School District", "Marysville Public Schools"],
+    usNewsNational: 3057, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "St. Clair Township is split between school districts (2020 census-block shares): East China School District about 76%, Marysville Public Schools about 24%; students attend Marine City High School, St. Clair High School or Marysville High School depending on address. Marine City High School (#115 in Michigan) enrolls 437 students in grades 9-12 with a 98% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 918 in 2025-26 (MI School Data). Also: St. Clair High School (#209 in Michigan) enrolls 715 students in grades 9-12 with a 95% graduation rate and a 42% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  "Sterling Heights (MI)": {
+    hs: ["Henry Ford II High School", "Eisenhower High School", "Adlai Stevenson High School", "Utica High School", "Sterling Heights Senior High School", "Warren Mott High School", "Cousino Senior High School"],
+    district: ["Utica Community Schools", "Utica Community Schools", "Utica Community Schools", "Utica Community Schools", "Warren Consolidated Schools", "Warren Consolidated Schools", "Warren Consolidated Schools"],
+    usNewsNational: 1589, usNewsState: 50,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Sterling Heights is split between school districts (2020 census-block shares): Utica Community Schools about 61%, Warren Consolidated Schools about 39%; students attend Henry Ford II High School, Eisenhower High School, Adlai Stevenson High School, Utica High School, Sterling Heights Senior High School, Warren Mott High School or Cousino Senior High School depending on address. Henry Ford II High School (#50 in Michigan) enrolls 1,663 students in grades 9-12 with a 99% graduation rate and a 59% AP/IB-exam participation rate; its average SAT total was 989 in 2025-26 (MI School Data). Also: Eisenhower High School (#81 in Michigan) enrolls 1,625 students in grades 9-12 with a 97% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1044 in 2025-26 (MI School Data)."
+  },
+  "Sumpter Township (MI)": {
+    hs: ["Belleville High School", "Lincoln Senior High School"],
+    district: ["Van Buren Public Schools", "Lincoln Consolidated Schools"],
+    feedsTo: "Belleville High School / Lincoln Senior High School",
+    usNewsNational: 11545, usNewsState: 427,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Sumpter Township is split between school districts (2020 census-block shares): Van Buren Public Schools about 50%, Lincoln Consolidated Schools about 35%; students attend Belleville High School or Lincoln Senior High School depending on address. Smaller shares are in Huron School District (9%) and Airport Community Schools (6%). Sumpter Township has no high school inside its boundary; the high schools are in Belleville, Ypsilanti. Belleville High School (#427 in Michigan) enrolls 1,666 students in grades 9-12 with an 82% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 882 in 2025-26 (MI School Data). Also: Lincoln Senior High School (#441 in Michigan) enrolls 810 students in grades 9-12 with a 74% graduation rate and a 33% AP/IB-exam participation rate; its average SAT total was 881 in 2025-26 (MI School Data)."
+  },
+  "Sylvan Lake (MI)": {
+    hs: "Pontiac High School",
+    district: "Pontiac City Schools",
+    feedsTo: "Pontiac High School",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pontiac City Schools covers about 87% of Sylvan Lake's residents (2020 census blocks). The rest are mostly in West Bloomfield School District (13%). Sylvan Lake has no high school inside its boundary; the high school is in Pontiac. Pontiac High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 992 students in grades 9-12 with a 75% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 747 in 2025-26 (MI School Data)."
+  },
+  "Taylor (MI)": {
+    hs: "Taylor High School (MI)",
+    district: "Taylor School District",
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Taylor School District covers essentially all Taylor's residents (2020 census blocks). Taylor High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,362 students in grades 9-12 with a 71% graduation rate and a 15% AP/IB-exam participation rate; its average SAT total was 855 in 2025-26 (MI School Data)."
+  },
+  "Trenton (MI)": {
+    hs: "Trenton High School",
+    district: "Trenton Public Schools",
+    usNewsNational: 5052, usNewsState: 185,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Trenton Public Schools covers about 97% of Trenton's residents (2020 census blocks). Trenton High School (#185 in Michigan) enrolls 846 students in grades 9-12 with a 97% graduation rate and a 41% AP/IB-exam participation rate; its average SAT total was 973 in 2025-26 (MI School Data)."
+  },
+  "Troy (MI)": {
+    hs: ["Troy High School", "Athens High School"],
+    district: ["Troy School District", "Troy School District"],
+    usNewsNational: 401, usNewsState: 9,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Troy School District covers about 81% of Troy's residents (2020 census blocks). The rest are mostly in Warren Consolidated Schools (8%), Avondale School District (5%) and Birmingham Public Schools (4%). Troy School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Troy High School (#9 in Michigan) enrolls 2,032 students in grades 9-12 with a 99% graduation rate and a 75% AP/IB-exam participation rate; its average SAT total was 1185 in 2025-26 (MI School Data). Also: Athens High School (#33 in Michigan) enrolls 1,468 students in grades 9-12 with a 97% graduation rate and a 64% AP/IB-exam participation rate; its average SAT total was 1094 in 2025-26 (MI School Data)."
+  },
+  "Tyrone Township (MI)": {
+    hs: ["Fenton Senior High School", "Hartland High School", "Linden High School"],
+    district: ["Fenton Area Public Schools", "Hartland Consolidated Schools", "Linden Community Schools"],
+    usNewsNational: 3000, usNewsState: 114,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Tyrone Township is split between school districts (2020 census-block shares): Fenton Area Public Schools about 47%, Hartland Consolidated Schools about 29%, Linden Community Schools about 24%; students attend Fenton Senior High School, Hartland High School or Linden High School depending on address. Fenton Senior High School (#114 in Michigan) enrolls 982 students in grades 9-12 with a 97% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1003 in 2025-26 (MI School Data). Also: Hartland High School (#117 in Michigan) enrolls 1,610 students in grades 9-12 with a 98% graduation rate and a 45% AP/IB-exam participation rate; its average SAT total was 1032 in 2025-26 (MI School Data)."
+  },
+  "Unadilla Township (MI)": {
+    hs: "Stockbridge High School",
+    district: "Stockbridge Community Schools",
+    feedsTo: "Stockbridge High School",
+    usNewsNational: 8792, usNewsState: 322,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Stockbridge Community Schools covers about 84% of Unadilla Township's residents (2020 census blocks). The rest are mostly in Pinckney Community Schools (8%) and Fowlerville Community Schools (7%). Unadilla Township has no high school inside its boundary; the high school is in Stockbridge. Stockbridge High School (#322 in Michigan) enrolls 327 students in grades 9-12 with a 95% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 954 in 2025-26 (MI School Data)."
+  },
+  "Utica (MI)": {
+    hs: ["Henry Ford II High School", "Eisenhower High School", "Adlai Stevenson High School", "Utica High School"],
+    district: ["Utica Community Schools", "Utica Community Schools", "Utica Community Schools", "Utica Community Schools"],
+    usNewsNational: 1589, usNewsState: 50,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Utica Community Schools covers essentially all Utica's residents (2020 census blocks). Utica Community Schools runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Henry Ford II High School (#50 in Michigan) enrolls 1,663 students in grades 9-12 with a 99% graduation rate and a 59% AP/IB-exam participation rate; its average SAT total was 989 in 2025-26 (MI School Data). Also: Eisenhower High School (#81 in Michigan) enrolls 1,625 students in grades 9-12 with a 97% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1044 in 2025-26 (MI School Data)."
+  },
+  "Van Buren Township (MI)": {
+    hs: "Belleville High School",
+    district: "Van Buren Public Schools",
+    usNewsNational: 11545, usNewsState: 427,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Van Buren Public Schools covers about 95% of Van Buren Township's residents (2020 census blocks). The rest are mostly in Lincoln Consolidated Schools (5%). Belleville High School (#427 in Michigan) enrolls 1,666 students in grades 9-12 with an 82% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 882 in 2025-26 (MI School Data)."
+  },
+  "Wales Township (MI)": {
+    hs: ["Memphis Junior/Senior High School", "Port Huron Northern High School", "Port Huron High School"],
+    district: ["Memphis Community Schools", "Port Huron Area School District", "Port Huron Area School District"],
+    feedsTo: "Memphis Junior/Senior High School / Port Huron Northern High School / Port Huron High School",
+    usNewsNational: 7197, usNewsState: 264,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Wales Township is split between school districts (2020 census-block shares): Memphis Community Schools about 67%, Port Huron Area School District about 18%; students attend Memphis Junior/Senior High School, Port Huron Northern High School or Port Huron High School depending on address. Smaller shares are in Yale Public Schools (13%). Wales Township has no high school inside its boundary; the high schools are in Memphis, Port Huron. Memphis Junior/Senior High School (#480 in Michigan) enrolls 229 students in grades 9-12 with a 92% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 926 in 2025-26 (MI School Data). Also: Port Huron Northern High School (#264 in Michigan) enrolls 1,089 students in grades 9-12 with a 90% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 964 in 2025-26 (MI School Data)."
+  },
+  "Walled Lake (MI)": {
+    hs: ["Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School"],
+    district: ["Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools"],
+    feedsTo: "Walled Lake Northern High School / Walled Lake Western High School / Walled Lake Central High School",
+    usNewsNational: 1981, usNewsState: 72,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Walled Lake Consolidated Schools covers essentially all Walled Lake's residents (2020 census blocks). Walled Lake Consolidated Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Walled Lake has no high school inside its boundary; the high schools are in Commerce Township. Walled Lake Northern High School (#72 in Michigan) enrolls 1,383 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data). Also: Walled Lake Western High School (#95 in Michigan) enrolls 1,000 students in grades 9-12 with a 92% graduation rate and a 49% AP/IB-exam participation rate; its average SAT total was 971 in 2025-26 (MI School Data)."
+  },
+  "Warren (MI)": {
+    hs: ["Sterling Heights Senior High School", "Warren Mott High School", "Cousino Senior High School", "Warren Woods Tower High School"],
+    district: ["Warren Consolidated Schools", "Warren Consolidated Schools", "Warren Consolidated Schools", "Warren Woods Public Schools"],
+    usNewsNational: 5174, usNewsState: 187,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Warren is split between school districts (2020 census-block shares): Warren Consolidated Schools about 42%, Warren Woods Public Schools about 16%; students attend Sterling Heights Senior High School, Warren Mott High School, Cousino Senior High School or Warren Woods Tower High School depending on address. Smaller shares are in Van Dyke Public Schools (14%), Fitzgerald Public Schools (13%), Center Line Public Schools (9%) and Eastpointe Community Schools (6%). Sterling Heights Senior High School (#187 in Michigan) enrolls 1,262 students in grades 9-12 with an 89% graduation rate and a 36% AP/IB-exam participation rate; its average SAT total was 914 in 2025-26 (MI School Data). Also: Warren Mott High School (#340 in Michigan) enrolls 1,335 students in grades 9-12 with an 86% graduation rate and a 19% AP/IB-exam participation rate; its average SAT total was 913 in 2025-26 (MI School Data)."
+  },
+  "Washington Township (MI)": {
+    hs: "Romeo High School",
+    district: "Romeo Community Schools",
+    usNewsNational: 4291, usNewsState: 156,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Romeo Community Schools covers about 83% of Washington Township's residents (2020 census blocks). The rest are mostly in Utica Community Schools (12%) and Rochester Community Schools (5%). Romeo High School (#156 in Michigan) enrolls 1,817 students in grades 9-12 with a 95% graduation rate and a 34% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data)."
+  },
+  "Waterford Township (MI)": {
+    hs: ["Waterford Kettering High School", "Waterford Mott High School"],
+    district: ["Waterford School District", "Waterford School District"],
+    usNewsNational: 6766, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Waterford School District covers about 97% of Waterford Township's residents (2020 census blocks). Waterford School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Waterford Kettering High School (#248 in Michigan) enrolls 909 students in grades 9-12 with a 95% graduation rate and a 35% AP/IB-exam participation rate; its average SAT total was 945 in 2025-26 (MI School Data). Also: Waterford Mott High School (#464 in Michigan) enrolls 963 students in grades 9-12 with an 86% graduation rate and a 19% AP/IB-exam participation rate; its average SAT total was 866 in 2025-26 (MI School Data)."
+  },
+  "Wayne (MI)": {
+    hs: ["John Glenn High School", "Wayne Memorial High School"],
+    district: ["Wayne-Westland Community Schools", "Wayne-Westland Community Schools"],
+    usNewsNational: 15702, usNewsState: 586,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Wayne-Westland Community Schools covers essentially all Wayne's residents (2020 census blocks). Wayne-Westland Community Schools runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). John Glenn High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,363 students in grades 9-12 with a 92% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 849 in 2025-26 (MI School Data). Also: Wayne Memorial High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,250 students in grades 9-12 with an 82% graduation rate and a 13% AP/IB-exam participation rate; its average SAT total was 850 in 2025-26 (MI School Data)."
+  },
+  "West Bloomfield Township (MI)": {
+    hs: ["West Bloomfield High School", "Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School"],
+    district: ["West Bloomfield School District", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools"],
+    usNewsNational: 1981, usNewsState: 72,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "West Bloomfield Township is split between school districts (2020 census-block shares): West Bloomfield School District about 42%, Walled Lake Consolidated Schools about 34%; students attend West Bloomfield High School, Walled Lake Northern High School, Walled Lake Western High School or Walled Lake Central High School depending on address. Smaller shares are in Bloomfield Hills Schools (11%), Birmingham Public Schools (5%), Waterford School District (3%) and Farmington Public Schools (3%). US News also lists Oakland Early College (#127 in Michigan) under the district; it is a magnet/early-college choice school, not an attendance-zone high school. West Bloomfield High School (#178 in Michigan) enrolls 1,434 students in grades 9-12 with a 98% graduation rate and a 37% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data). Also: Walled Lake Northern High School (#72 in Michigan) enrolls 1,383 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data)."
+  },
+  "Westland (MI)": {
+    hs: ["John Glenn High School", "Wayne Memorial High School", "Stevenson High School", "Churchill High School", "Franklin High School"],
+    district: ["Wayne-Westland Community Schools", "Wayne-Westland Community Schools", "Livonia Public Schools", "Livonia Public Schools", "Livonia Public Schools"],
+    usNewsNational: 2685, usNewsState: 103,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Westland is split between school districts (2020 census-block shares): Wayne-Westland Community Schools about 66%, Livonia Public Schools about 31%; students attend John Glenn High School, Wayne Memorial High School, Stevenson High School, Churchill High School or Franklin High School depending on address. John Glenn High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,363 students in grades 9-12 with a 92% graduation rate and a 16% AP/IB-exam participation rate; its average SAT total was 849 in 2025-26 (MI School Data). Also: Wayne Memorial High School (in the unranked-bottom band, 494–678 in Michigan) enrolls 1,250 students in grades 9-12 with an 82% graduation rate and a 13% AP/IB-exam participation rate; its average SAT total was 850 in 2025-26 (MI School Data)."
+  },
+  "White Lake Township (MI)": {
+    hs: ["Milford High School", "Lakeland High School", "Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School"],
+    district: ["Huron Valley Schools", "Huron Valley Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools"],
+    usNewsNational: 1981, usNewsState: 72,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "White Lake Township is split between school districts (2020 census-block shares): Huron Valley Schools about 46%, Walled Lake Consolidated Schools about 27%; students attend Milford High School, Lakeland High School, Walled Lake Northern High School, Walled Lake Western High School or Walled Lake Central High School depending on address. Smaller shares are in Waterford School District (14%) and Holly Area Schools (13%). Milford High School (#100 in Michigan) enrolls 1,173 students in grades 9-12 with a 91% graduation rate and a 39% AP/IB-exam participation rate; its average SAT total was 998 in 2025-26 (MI School Data). Also: Lakeland High School (#87 in Michigan) enrolls 1,012 students in grades 9-12 with a 99% graduation rate and a 47% AP/IB-exam participation rate; its average SAT total was 982 in 2025-26 (MI School Data)."
+  },
+  "Wixom (MI)": {
+    hs: ["Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School"],
+    district: ["Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools"],
+    usNewsNational: 1981, usNewsState: 72,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Walled Lake Consolidated Schools covers about 94% of Wixom's residents (2020 census blocks). The rest are mostly in South Lyon Community Schools (6%). Walled Lake Consolidated Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Walled Lake Northern High School (#72 in Michigan) enrolls 1,383 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data). Also: Walled Lake Western High School (#95 in Michigan) enrolls 1,000 students in grades 9-12 with a 92% graduation rate and a 49% AP/IB-exam participation rate; its average SAT total was 971 in 2025-26 (MI School Data)."
+  },
+  "Wolverine Lake (MI)": {
+    hs: ["Walled Lake Northern High School", "Walled Lake Western High School", "Walled Lake Central High School"],
+    district: ["Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools", "Walled Lake Consolidated Schools"],
+    usNewsNational: 1981, usNewsState: 72,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Walled Lake Consolidated Schools covers essentially all Wolverine Lake's residents (2020 census blocks). Walled Lake Consolidated Schools runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Walled Lake Northern High School (#72 in Michigan) enrolls 1,383 students in grades 9-12 with a 95% graduation rate and a 56% AP/IB-exam participation rate; its average SAT total was 1000 in 2025-26 (MI School Data). Also: Walled Lake Western High School (#95 in Michigan) enrolls 1,000 students in grades 9-12 with a 92% graduation rate and a 49% AP/IB-exam participation rate; its average SAT total was 971 in 2025-26 (MI School Data)."
+  },
+  "Woodhaven (MI)": {
+    hs: ["Woodhaven High School", "Oscar A. Carlson High School"],
+    district: ["Woodhaven-Brownstown School District", "Gibraltar School District"],
+    feedsTo: "Woodhaven High School / Oscar A. Carlson High School",
+    usNewsNational: 3520, usNewsState: 130,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Woodhaven is split between school districts (2020 census-block shares): Woodhaven-Brownstown School District about 73%, Gibraltar School District about 27%; students attend Woodhaven High School or Oscar A. Carlson High School depending on address. Woodhaven has no high school inside its boundary; the high schools are in Flat Rock, Rockwood. Woodhaven High School (#130 in Michigan) enrolls 1,629 students in grades 9-12 with a 92% graduation rate and a 36% AP/IB-exam participation rate; its average SAT total was 975 in 2025-26 (MI School Data). Also: Oscar A. Carlson High School (#402 in Michigan) enrolls 1,104 students in grades 9-12 with a 99% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 958 in 2025-26 (MI School Data)."
+  },
+  "Wyandotte (MI)": {
+    hs: "Roosevelt High School",
+    district: "Wyandotte Public Schools",
+    usNewsNational: 10247, usNewsState: 373,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Wyandotte Public Schools covers essentially all Wyandotte's residents (2020 census blocks). Roosevelt High School (#373 in Michigan) enrolls 1,216 students in grades 9-12 with a 92% graduation rate and a 19% AP/IB-exam participation rate; its average SAT total was 927 in 2025-26 (MI School Data)."
+  },
+  "Yale (MI)": {
+    hs: "Yale Senior High School",
+    district: "Yale Public Schools",
+    usNewsNational: 4482, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Yale Public Schools covers essentially all Yale's residents (2020 census blocks). Yale Senior High School (#166 in Michigan) enrolls 509 students in grades 9-12 with a 98% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 966 in 2025-26 (MI School Data)."
+  },
+  // === DETROIT METRO SCHOOL_DATA END ===
+
+  // === ST. LOUIS METRO SCHOOL_DATA START ===
+  "Albers": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    feedsTo: "Central Comm High School",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Albers's residents (2020 census blocks). Albers has no high school inside its boundary; the high school is in Breese. Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Alhambra": {
+    hs: "Highland High School (IL)",
+    district: "Highland Community Unit School District 5",
+    feedsTo: "Highland High School",
+    usNewsNational: 3804, usNewsState: 147,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Highland Community Unit School District 5 covers essentially all Alhambra's residents (2020 census blocks). Alhambra has no high school inside its boundary; the high school is in Highland. Highland High School (#147 in Illinois) enrolls 844 students in grades 9-12 with a 96% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 993 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Alton": {
+    hs: "Alton High School",
+    district: "Alton Community Unit School District 11",
+    usNewsNational: 10295, usNewsState: 362,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Alton Community Unit School District 11 covers about 98% of Alton's residents (2020 census blocks). Alton High School (#362 in Illinois) enrolls 1,823 students in grades 9-12 with a 73% graduation rate and a 12% AP/IB-exam participation rate; its average SAT total was 904 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Aviston": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    feedsTo: "Central Comm High School",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Aviston's residents (2020 census blocks). Aviston has no high school inside its boundary; the high school is in Breese. Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Bartelso": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    feedsTo: "Central Comm High School",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Bartelso's residents (2020 census blocks). Bartelso has no high school inside its boundary; the high school is in Breese. Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Beckemeyer": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    feedsTo: "Central Comm High School",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Beckemeyer's residents (2020 census blocks). Beckemeyer has no high school inside its boundary; the high school is in Breese. Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Belleville": {
+    hs: ["Belleville High School-East", "Belleville High School-West"],
+    district: ["Belleville Township High School District 201", "Belleville Township High School District 201"],
+    usNewsNational: 6263, usNewsState: 238,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belleville Township High School District 201 covers about 93% of Belleville's residents (2020 census blocks). The rest are mostly in Mascoutah Community Unit School District 19 (5%). Belleville Township High School District 201 runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Belleville High School-East (#238 in Illinois) enrolls 2,600 students in grades 9-12 with a 92% graduation rate and a 15% AP/IB-exam participation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT). Also: Belleville High School-West (#284 in Illinois) enrolls 2,118 students in grades 9-12 with a 92% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 875 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Benld": {
+    hs: "Gillespie High School",
+    district: "Gillespie Community Unit School District 7",
+    feedsTo: "Gillespie High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gillespie Community Unit School District 7 covers essentially all Benld's residents (2020 census blocks). Benld has no high school inside its boundary; the high school is in Gillespie. Gillespie High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 328 students in grades 9-12 with an 82% graduation rate; its average SAT total was 913 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Bethalto": {
+    hs: "Civic Memorial High School",
+    district: "Bethalto Community Unit School District 8",
+    usNewsNational: 8120, usNewsState: 289,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bethalto Community Unit School District 8 covers about 98% of Bethalto's residents (2020 census blocks). Civic Memorial High School (#289 in Illinois) enrolls 760 students in grades 9-12 with a 96% graduation rate; its average SAT total was 968 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Breese": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Breese's residents (2020 census blocks). Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Brighton": {
+    hs: "Southwestern High School",
+    district: "Southwestern Community Unit School District 9",
+    feedsTo: "Southwestern High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southwestern Community Unit School District 9 covers essentially all Brighton's residents (2020 census blocks). Brighton has no high school inside its boundary; the high school is in Piasa. Southwestern High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 370 students in grades 9-12 with an 83% graduation rate; its average SAT total was 927 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Brooklyn": {
+    hs: "Lovejoy Technology Academy",
+    district: "Brooklyn Community Unit School District 188",
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brooklyn Community Unit School District 188 covers essentially all Brooklyn's residents (2020 census blocks). Lovejoy Technology Academy (unranked by U.S. News) enrolls 27 students in grades 9-12."
+  },
+  "Bunker Hill": {
+    hs: "Bunker Hill High School",
+    district: "Bunker Hill Community Unit School District 8",
+    usNewsNational: 9998, usNewsState: 343,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bunker Hill Community Unit School District 8 covers essentially all Bunker Hill's residents (2020 census blocks). Bunker Hill High School (#343 in Illinois) enrolls 166 students in grades 9-12 with an 89% graduation rate; its average SAT total was 948 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Cahokia Heights": {
+    hs: ["Cahokia High School", "East St Louis Senior High School"],
+    district: ["Cahokia Community Unit School District 187", "East St. Louis School District 189"],
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Cahokia Heights is split between school districts (2020 census-block shares): Cahokia Community Unit School District 187 about 80%, East St. Louis School District 189 about 20%; students attend Cahokia High School or East St Louis Senior High School depending on address. Cahokia High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 850 students in grades 9-12 with a 55% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 777 in 2024 (ISBE, Illinois's last state SAT). Also: East St Louis Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,287 students in grades 9-12 with a 74% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 751 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Carlinville": {
+    hs: "Carlinville High School",
+    district: "Carlinville Community Unit School District 1",
+    usNewsNational: 8867, usNewsState: 308,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Carlinville Community Unit School District 1 covers essentially all Carlinville's residents (2020 census blocks). Carlinville High School (#308 in Illinois) enrolls 353 students in grades 9-12 with an 81% graduation rate and an 18% AP/IB-exam participation rate; its average SAT total was 940 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Carlyle": {
+    hs: "Carlyle High School",
+    district: "Carlyle Community Unit School District 1",
+    usNewsNational: 7287, usNewsState: 265,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Carlyle Community Unit School District 1 covers essentially all Carlyle's residents (2020 census blocks). Carlyle High School (#265 in Illinois) enrolls 281 students in grades 9-12 with an 88% graduation rate and a 22% AP/IB-exam participation rate; its average SAT total was 942 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Caseyville": {
+    hs: ["Collinsville High School", "East St Louis Senior High School"],
+    district: ["Collinsville Community Unit School District 10", "East St. Louis School District 189"],
+    usNewsNational: 7873, usNewsState: 281,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Caseyville is split between school districts (2020 census-block shares): Collinsville Community Unit School District 10 about 77%, East St. Louis School District 189 about 18%; students attend Collinsville High School or East St Louis Senior High School depending on address. Smaller shares are in Belleville Township High School District 201 (5%). Collinsville High School (#281 in Illinois) enrolls 1,956 students in grades 9-12 with an 86% graduation rate and an 11% AP/IB-exam participation rate; its average SAT total was 885 in 2024 (ISBE, Illinois's last state SAT). Also: East St Louis Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,287 students in grades 9-12 with a 74% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 751 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Collinsville": {
+    hs: "Collinsville High School",
+    district: "Collinsville Community Unit School District 10",
+    usNewsNational: 7873, usNewsState: 281,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Collinsville Community Unit School District 10 covers essentially all Collinsville's residents (2020 census blocks). Collinsville High School (#281 in Illinois) enrolls 1,956 students in grades 9-12 with an 86% graduation rate and an 11% AP/IB-exam participation rate; its average SAT total was 885 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Columbia": {
+    hs: "Columbia High School",
+    district: "Columbia Community Unit School District 4",
+    usNewsNational: 3436, usNewsState: 137,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Columbia Community Unit School District 4 covers essentially all Columbia's residents (2020 census blocks). Columbia High School (#137 in Illinois) enrolls 606 students in grades 9-12 with a 96% graduation rate and a 33% AP/IB-exam participation rate; its average SAT total was 1032 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Damiansville": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    feedsTo: "Central Comm High School",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Damiansville's residents (2020 census blocks). Damiansville has no high school inside its boundary; the high school is in Breese. Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Dupo": {
+    hs: "Dupo High School",
+    district: "Dupo Community Unit School District 196",
+    usNewsNational: 13136, usNewsState: 451,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Dupo Community Unit School District 196 covers essentially all Dupo's residents (2020 census blocks). Dupo High School (#451 in Illinois) enrolls 259 students in grades 9-12 with an 86% graduation rate; its average SAT total was 884 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "East Alton": {
+    hs: "East Alton-Wood River High School",
+    district: "East Alton-Wood River Community High School District 14",
+    usNewsNational: 10335, usNewsState: 363,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "East Alton-Wood River Community High School District 14 covers about 91% of East Alton's residents (2020 census blocks). The rest are mostly in Roxana Community Unit School District 1 (6%) and Bethalto Community Unit School District 8 (3%). East Alton-Wood River High School (#363 in Illinois) enrolls 539 students in grades 9-12 with a 91% graduation rate; its average SAT total was 877 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "East St. Louis": {
+    hs: "East St Louis Senior High School",
+    district: "East St. Louis School District 189",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "East St. Louis School District 189 covers essentially all East St. Louis's residents (2020 census blocks). East St Louis Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,287 students in grades 9-12 with a 74% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 751 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Edwardsville": {
+    hs: "Edwardsville High School",
+    district: "Edwardsville Community Unit School District 7",
+    usNewsNational: 2817, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Edwardsville Community Unit School District 7 covers essentially all Edwardsville's residents (2020 census blocks). Edwardsville High School (#115 in Illinois) enrolls 2,342 students in grades 9-12 with a 91% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1026 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Elsah": {
+    hs: "Jersey Comm High School",
+    district: "Jersey Community Unit School District 100",
+    feedsTo: "Jersey Comm High School",
+    usNewsNational: 7648, usNewsState: 276,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Jersey Community Unit School District 100 covers essentially all Elsah's residents (2020 census blocks). Elsah has no high school inside its boundary; the high school is in Jerseyville. Jersey Comm High School (#276 in Illinois) enrolls 807 students in grades 9-12 with a 91% graduation rate and a 6% AP/IB-exam participation rate; its average SAT total was 947 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Fairmont City": {
+    hs: "Collinsville High School",
+    district: "Collinsville Community Unit School District 10",
+    feedsTo: "Collinsville High School",
+    usNewsNational: 7873, usNewsState: 281,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Collinsville Community Unit School District 10 covers essentially all Fairmont City's residents (2020 census blocks). Fairmont City has no high school inside its boundary; the high school is in Collinsville. Collinsville High School (#281 in Illinois) enrolls 1,956 students in grades 9-12 with an 86% graduation rate and an 11% AP/IB-exam participation rate; its average SAT total was 885 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Fairview Heights": {
+    hs: ["Belleville High School-East", "Belleville High School-West"],
+    district: ["Belleville Township High School District 201", "Belleville Township High School District 201"],
+    feedsTo: "Belleville High School-East / Belleville High School-West",
+    usNewsNational: 6263, usNewsState: 238,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belleville Township High School District 201 covers about 85% of Fairview Heights's residents (2020 census blocks). The rest are mostly in O'Fallon Township High School District 203 (11%) and East St. Louis School District 189 (4%). Belleville Township High School District 201 runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Fairview Heights has no high school inside its boundary; the high schools are in Belleville. Belleville High School-East (#238 in Illinois) enrolls 2,600 students in grades 9-12 with a 92% graduation rate and a 15% AP/IB-exam participation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT). Also: Belleville High School-West (#284 in Illinois) enrolls 2,118 students in grades 9-12 with a 92% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 875 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Freeburg": {
+    hs: "Freeburg Community High School",
+    district: "Freeburg Community High School District 77",
+    usNewsNational: 4365, usNewsState: 171,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Freeburg Community High School District 77 covers essentially all Freeburg's residents (2020 census blocks). Freeburg Community High School (#171 in Illinois) enrolls 689 students in grades 9-12 with a 92% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 1022 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Germantown": {
+    hs: "Central Comm High School",
+    district: "Central Community High School District 71",
+    feedsTo: "Central Comm High School",
+    usNewsNational: 10129, usNewsState: 350,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Central Community High School District 71 covers essentially all Germantown's residents (2020 census blocks). Germantown has no high school inside its boundary; the high school is in Breese. Central Comm High School (#350 in Illinois) enrolls 629 students in grades 9-12 with a 91% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Gillespie": {
+    hs: "Gillespie High School",
+    district: "Gillespie Community Unit School District 7",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gillespie Community Unit School District 7 covers essentially all Gillespie's residents (2020 census blocks). Gillespie High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 328 students in grades 9-12 with an 82% graduation rate; its average SAT total was 913 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Girard": {
+    hs: "North Mac High School",
+    district: "North Mac Community Unit School District 34",
+    feedsTo: "North Mac High School",
+    usNewsNational: 9851, usNewsState: 340,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Mac Community Unit School District 34 covers essentially all Girard's residents (2020 census blocks). Girard has no high school inside its boundary; the high school is in Virden. North Mac High School (#340 in Illinois) enrolls 361 students in grades 9-12 with an 87% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 929 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Glen Carbon": {
+    hs: "Edwardsville High School",
+    district: "Edwardsville Community Unit School District 7",
+    feedsTo: "Edwardsville High School",
+    usNewsNational: 2817, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Edwardsville Community Unit School District 7 covers about 99% of Glen Carbon's residents (2020 census blocks). Glen Carbon has no high school inside its boundary; the high school is in Edwardsville. Edwardsville High School (#115 in Illinois) enrolls 2,342 students in grades 9-12 with a 91% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1026 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Godfrey": {
+    hs: "Alton High School",
+    district: "Alton Community Unit School District 11",
+    usNewsNational: 10295, usNewsState: 362,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Alton Community Unit School District 11 covers essentially all Godfrey's residents (2020 census blocks). Alton High School (#362 in Illinois) enrolls 1,823 students in grades 9-12 with a 73% graduation rate and a 12% AP/IB-exam participation rate; its average SAT total was 904 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Grafton": {
+    hs: "Jersey Comm High School",
+    district: "Jersey Community Unit School District 100",
+    feedsTo: "Jersey Comm High School",
+    usNewsNational: 7648, usNewsState: 276,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Jersey Community Unit School District 100 covers essentially all Grafton's residents (2020 census blocks). Grafton has no high school inside its boundary; the high school is in Jerseyville. Jersey Comm High School (#276 in Illinois) enrolls 807 students in grades 9-12 with a 91% graduation rate and a 6% AP/IB-exam participation rate; its average SAT total was 947 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Granite City": {
+    hs: "Granite City High School",
+    district: "Granite City Community Unit School District 9",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Granite City Community Unit School District 9 covers essentially all Granite City's residents (2020 census blocks). Granite City High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,755 students in grades 9-12 with a 74% graduation rate; its average SAT total was 838 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Greenville": {
+    hs: "Bond Cty Comm Unit 2 High School",
+    district: "Bond County Community Unit School District 2",
+    usNewsNational: 5319, usNewsState: 209,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bond County Community Unit School District 2 covers essentially all Greenville's residents (2020 census blocks). Bond Cty Comm Unit 2 High School (#209 in Illinois) enrolls 484 students in grades 9-12 with an 88% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 990 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hamel": {
+    hs: "Edwardsville High School",
+    district: "Edwardsville Community Unit School District 7",
+    feedsTo: "Edwardsville High School",
+    usNewsNational: 2817, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Edwardsville Community Unit School District 7 covers essentially all Hamel's residents (2020 census blocks). Hamel has no high school inside its boundary; the high school is in Edwardsville. Edwardsville High School (#115 in Illinois) enrolls 2,342 students in grades 9-12 with a 91% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1026 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hardin": {
+    hs: "Calhoun High School",
+    district: "Calhoun Community Unit School District 40",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Calhoun Community Unit School District 40 covers essentially all Hardin's residents (2020 census blocks). Calhoun High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 171 students in grades 9-12 with a 74% graduation rate; its average SAT total was 917 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hartford": {
+    hs: "East Alton-Wood River High School",
+    district: "East Alton-Wood River Community High School District 14",
+    feedsTo: "East Alton-Wood River High School",
+    usNewsNational: 10335, usNewsState: 363,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "East Alton-Wood River Community High School District 14 covers essentially all Hartford's residents (2020 census blocks). Hartford has no high school inside its boundary; the high school is in Wood River. East Alton-Wood River High School (#363 in Illinois) enrolls 539 students in grades 9-12 with a 91% graduation rate; its average SAT total was 877 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Highland (IL)": {
+    hs: "Highland High School (IL)",
+    district: "Highland Community Unit School District 5",
+    usNewsNational: 3804, usNewsState: 147,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Highland Community Unit School District 5 covers essentially all Highland's residents (2020 census blocks). Highland High School (#147 in Illinois) enrolls 844 students in grades 9-12 with a 96% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 993 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Holiday Shores": {
+    hs: "Edwardsville High School",
+    district: "Edwardsville Community Unit School District 7",
+    feedsTo: "Edwardsville High School",
+    usNewsNational: 2817, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Edwardsville Community Unit School District 7 covers essentially all Holiday Shores's residents (2020 census blocks). Holiday Shores has no high school inside its boundary; the high school is in Edwardsville. Edwardsville High School (#115 in Illinois) enrolls 2,342 students in grades 9-12 with a 91% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1026 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Jerseyville": {
+    hs: "Jersey Comm High School",
+    district: "Jersey Community Unit School District 100",
+    usNewsNational: 7648, usNewsState: 276,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Jersey Community Unit School District 100 covers essentially all Jerseyville's residents (2020 census blocks). Jersey Comm High School (#276 in Illinois) enrolls 807 students in grades 9-12 with a 91% graduation rate and a 6% AP/IB-exam participation rate; its average SAT total was 947 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lebanon": {
+    hs: "Lebanon High School",
+    district: "Lebanon Community Unit School District 9",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lebanon Community Unit School District 9 covers essentially all Lebanon's residents (2020 census blocks). Lebanon High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 126 students in grades 9-12 with a 66% graduation rate; its average SAT total was 910 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Livingston": {
+    hs: "Staunton High School",
+    district: "Staunton Community Unit School District 6",
+    feedsTo: "Staunton High School",
+    usNewsNational: 12438, usNewsState: 426,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Staunton Community Unit School District 6 covers essentially all Livingston's residents (2020 census blocks). Livingston has no high school inside its boundary; the high school is in Staunton. Staunton High School (#426 in Illinois) enrolls 384 students in grades 9-12 with an 89% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Madison": {
+    hs: "Madison Senior High School",
+    district: "Madison Community Unit School District 12",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Madison Community Unit School District 12 covers about 86% of Madison's residents (2020 census blocks). The rest are mostly in Granite City Community Unit School District 9 (12%). Madison Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 152 students in grades 9-12 with a 63% graduation rate; its average SAT total was 765 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Marine": {
+    hs: "Triad High School",
+    district: "Triad Community Unit School District 2",
+    feedsTo: "Triad High School",
+    usNewsNational: 3187, usNewsState: 129,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Triad Community Unit School District 2 covers essentially all Marine's residents (2020 census blocks). Marine has no high school inside its boundary; the high school is in Troy. Triad High School (#129 in Illinois) enrolls 1,218 students in grades 9-12 with a 94% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 1019 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Marissa": {
+    hs: "Marissa Junior and Senior High School",
+    district: "Marissa Community Unit School District 40",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Marissa Community Unit School District 40 covers essentially all Marissa's residents (2020 census blocks). Marissa Junior and Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 167 students in grades 9-12 with a 96% graduation rate; its average SAT total was 910 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Maryville": {
+    hs: "Collinsville High School",
+    district: "Collinsville Community Unit School District 10",
+    feedsTo: "Collinsville High School",
+    usNewsNational: 7873, usNewsState: 281,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Collinsville Community Unit School District 10 covers about 99% of Maryville's residents (2020 census blocks). Maryville has no high school inside its boundary; the high school is in Collinsville. Collinsville High School (#281 in Illinois) enrolls 1,956 students in grades 9-12 with an 86% graduation rate and an 11% AP/IB-exam participation rate; its average SAT total was 885 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mascoutah": {
+    hs: "Mascoutah High School",
+    district: "Mascoutah Community Unit School District 19",
+    usNewsNational: 3376, usNewsState: 134,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mascoutah Community Unit School District 19 covers essentially all Mascoutah's residents (2020 census blocks). Mascoutah High School (#134 in Illinois) enrolls 1,243 students in grades 9-12 with a 96% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Millstadt": {
+    hs: ["Belleville High School-East", "Belleville High School-West"],
+    district: ["Belleville Township High School District 201", "Belleville Township High School District 201"],
+    feedsTo: "Belleville High School-East / Belleville High School-West",
+    usNewsNational: 6263, usNewsState: 238,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belleville Township High School District 201 covers essentially all Millstadt's residents (2020 census blocks). Belleville Township High School District 201 runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Millstadt has no high school inside its boundary; the high schools are in Belleville. Belleville High School-East (#238 in Illinois) enrolls 2,600 students in grades 9-12 with a 92% graduation rate and a 15% AP/IB-exam participation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT). Also: Belleville High School-West (#284 in Illinois) enrolls 2,118 students in grades 9-12 with a 92% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 875 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mitchell": {
+    hs: "Granite City High School",
+    district: "Granite City Community Unit School District 9",
+    feedsTo: "Granite City High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Granite City Community Unit School District 9 covers essentially all Mitchell's residents (2020 census blocks). Mitchell has no high school inside its boundary; the high school is in Granite City. Granite City High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,755 students in grades 9-12 with a 74% graduation rate; its average SAT total was 838 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mount Olive": {
+    hs: "Mt Olive High School",
+    district: "Mount Olive Community Unit School District 5",
+    usNewsNational: 8968, usNewsState: 310,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mount Olive Community Unit School District 5 covers essentially all Mount Olive's residents (2020 census blocks). Mt Olive High School (#310 in Illinois) enrolls 150 students in grades 9-12 with an 82% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mulberry Grove": {
+    hs: "Mulberry Grove Senior High School",
+    district: "Mulberry Grove Community Unit School District 1",
+    usNewsNational: 13146, usNewsState: 453,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mulberry Grove Community Unit School District 1 covers essentially all Mulberry Grove's residents (2020 census blocks). Mulberry Grove Senior High School (#453 in Illinois) enrolls 108 students in grades 9-12 with a 94% graduation rate; its average SAT total was 901 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "New Athens": {
+    hs: "New Athens High School",
+    district: "New Athens Community Unit School District 60",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "New Athens Community Unit School District 60 covers essentially all New Athens's residents (2020 census blocks). New Athens High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 164 students in grades 9-12 with an 84% graduation rate; its average SAT total was 918 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "New Baden": {
+    hs: "Wesclin Senior High School",
+    district: "Wesclin Community Unit School District 3",
+    feedsTo: "Wesclin Senior High School",
+    usNewsNational: 9582, usNewsState: 330,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Wesclin Community Unit School District 3 covers about 94% of New Baden's residents (2020 census blocks). The rest are mostly in Mascoutah Community Unit School District 19 (6%). New Baden has no high school inside its boundary; the high school is in Trenton. Wesclin Senior High School (#330 in Illinois) enrolls 343 students in grades 9-12 with a 95% graduation rate; its average SAT total was 946 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "O'Fallon": {
+    hs: "O'Fallon Township High School",
+    district: "O'Fallon Township High School District 203",
+    usNewsNational: 4232, usNewsState: 165,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "O'Fallon Township High School District 203 covers essentially all O'Fallon's residents (2020 census blocks). O'Fallon Township High School (#165 in Illinois) enrolls 2,540 students in grades 9-12 with a 91% graduation rate and a 20% AP/IB-exam participation rate; its average SAT total was 1008 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Palmyra": {
+    hs: "Northwestern High School (IL)",
+    district: "Northwestern Community Unit School District 2",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Northwestern Community Unit School District 2 covers essentially all Palmyra's residents (2020 census blocks). Northwestern High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 94 students in grades 9-12 with an 81% graduation rate; its average SAT total was 891 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pocahontas": {
+    hs: "Bond Cty Comm Unit 2 High School",
+    district: "Bond County Community Unit School District 2",
+    feedsTo: "Bond Cty Comm Unit 2 High School",
+    usNewsNational: 5319, usNewsState: 209,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bond County Community Unit School District 2 covers essentially all Pocahontas's residents (2020 census blocks). Pocahontas has no high school inside its boundary; the high school is in Greenville. Bond Cty Comm Unit 2 High School (#209 in Illinois) enrolls 484 students in grades 9-12 with an 88% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 990 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pontoon Beach": {
+    hs: "Granite City High School",
+    district: "Granite City Community Unit School District 9",
+    feedsTo: "Granite City High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Granite City Community Unit School District 9 covers about 97% of Pontoon Beach's residents (2020 census blocks). Pontoon Beach has no high school inside its boundary; the high school is in Granite City. Granite City High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,755 students in grades 9-12 with a 74% graduation rate; its average SAT total was 838 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rosewood Heights": {
+    hs: ["Roxana Senior High School", "Civic Memorial High School"],
+    district: ["Roxana Community Unit School District 1", "Bethalto Community Unit School District 8"],
+    feedsTo: "Roxana Senior High School / Civic Memorial High School",
+    usNewsNational: 8120, usNewsState: 289,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rosewood Heights is split between school districts (2020 census-block shares): Roxana Community Unit School District 1 about 79%, Bethalto Community Unit School District 8 about 21%; students attend Roxana Senior High School or Civic Memorial High School depending on address. Rosewood Heights has no high school inside its boundary; the high schools are in Bethalto, Roxana. Roxana Senior High School (#348 in Illinois) enrolls 500 students in grades 9-12 with an 84% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT). Also: Civic Memorial High School (#289 in Illinois) enrolls 760 students in grades 9-12 with a 96% graduation rate; its average SAT total was 968 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Roxana": {
+    hs: "Roxana Senior High School",
+    district: "Roxana Community Unit School District 1",
+    usNewsNational: 10101, usNewsState: 348,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Roxana Community Unit School District 1 covers about 99% of Roxana's residents (2020 census blocks). Roxana Senior High School (#348 in Illinois) enrolls 500 students in grades 9-12 with an 84% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Shiloh": {
+    hs: ["Belleville High School-East", "Belleville High School-West", "O'Fallon Township High School"],
+    district: ["Belleville Township High School District 201", "Belleville Township High School District 201", "O'Fallon Township High School District 203"],
+    feedsTo: "Belleville High School-East / Belleville High School-West / O'Fallon Township High School",
+    usNewsNational: 4232, usNewsState: 165,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shiloh is split between school districts (2020 census-block shares): Belleville Township High School District 201 about 50%, O'Fallon Township High School District 203 about 41%; students attend Belleville High School-East, Belleville High School-West or O'Fallon Township High School depending on address. Smaller shares are in Mascoutah Community Unit School District 19 (8%). Shiloh has no high school inside its boundary; the high schools are in Belleville, O Fallon. Belleville High School-East (#238 in Illinois) enrolls 2,600 students in grades 9-12 with a 92% graduation rate and a 15% AP/IB-exam participation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT). Also: Belleville High School-West (#284 in Illinois) enrolls 2,118 students in grades 9-12 with a 92% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 875 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Shipman": {
+    hs: "Southwestern High School",
+    district: "Southwestern Community Unit School District 9",
+    feedsTo: "Southwestern High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Southwestern Community Unit School District 9 covers essentially all Shipman's residents (2020 census blocks). Shipman has no high school inside its boundary; the high school is in Piasa. Southwestern High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 370 students in grades 9-12 with an 83% graduation rate; its average SAT total was 927 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Smithton": {
+    hs: "Freeburg Community High School",
+    district: "Freeburg Community High School District 77",
+    feedsTo: "Freeburg Community High School",
+    usNewsNational: 4365, usNewsState: 171,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Freeburg Community High School District 77 covers about 99% of Smithton's residents (2020 census blocks). Smithton has no high school inside its boundary; the high school is in Freeburg. Freeburg Community High School (#171 in Illinois) enrolls 689 students in grades 9-12 with a 92% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 1022 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "South Roxana": {
+    hs: "Roxana Senior High School",
+    district: "Roxana Community Unit School District 1",
+    feedsTo: "Roxana Senior High School",
+    usNewsNational: 10101, usNewsState: 348,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Roxana Community Unit School District 1 covers about 99% of South Roxana's residents (2020 census blocks). South Roxana has no high school inside its boundary; the high school is in Roxana. Roxana Senior High School (#348 in Illinois) enrolls 500 students in grades 9-12 with an 84% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "St. Jacob": {
+    hs: "Triad High School",
+    district: "Triad Community Unit School District 2",
+    feedsTo: "Triad High School",
+    usNewsNational: 3187, usNewsState: 129,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Triad Community Unit School District 2 covers essentially all St. Jacob's residents (2020 census blocks). St. Jacob has no high school inside its boundary; the high school is in Troy. Triad High School (#129 in Illinois) enrolls 1,218 students in grades 9-12 with a 94% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 1019 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "St. Libory": {
+    hs: "Freeburg Community High School",
+    district: "Freeburg Community High School District 77",
+    feedsTo: "Freeburg Community High School",
+    usNewsNational: 4365, usNewsState: 171,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Freeburg Community High School District 77 covers essentially all St. Libory's residents (2020 census blocks). St. Libory has no high school inside its boundary; the high school is in Freeburg. Freeburg Community High School (#171 in Illinois) enrolls 689 students in grades 9-12 with a 92% graduation rate and a 38% AP/IB-exam participation rate; its average SAT total was 1022 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Staunton": {
+    hs: "Staunton High School",
+    district: "Staunton Community Unit School District 6",
+    usNewsNational: 12438, usNewsState: 426,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Staunton Community Unit School District 6 covers essentially all Staunton's residents (2020 census blocks). Staunton High School (#426 in Illinois) enrolls 384 students in grades 9-12 with an 89% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Swansea": {
+    hs: ["Belleville High School-East", "Belleville High School-West"],
+    district: ["Belleville Township High School District 201", "Belleville Township High School District 201"],
+    feedsTo: "Belleville High School-East / Belleville High School-West",
+    usNewsNational: 6263, usNewsState: 238,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belleville Township High School District 201 covers about 95% of Swansea's residents (2020 census blocks). The rest are mostly in O'Fallon Township High School District 203 (5%). Belleville Township High School District 201 runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Swansea has no high school inside its boundary; the high schools are in Belleville. Belleville High School-East (#238 in Illinois) enrolls 2,600 students in grades 9-12 with a 92% graduation rate and a 15% AP/IB-exam participation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT). Also: Belleville High School-West (#284 in Illinois) enrolls 2,118 students in grades 9-12 with a 92% graduation rate and a 23% AP/IB-exam participation rate; its average SAT total was 875 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Trenton": {
+    hs: "Wesclin Senior High School",
+    district: "Wesclin Community Unit School District 3",
+    usNewsNational: 9582, usNewsState: 330,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Wesclin Community Unit School District 3 covers essentially all Trenton's residents (2020 census blocks). Wesclin Senior High School (#330 in Illinois) enrolls 343 students in grades 9-12 with a 95% graduation rate; its average SAT total was 946 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Troy": {
+    hs: "Triad High School",
+    district: "Triad Community Unit School District 2",
+    usNewsNational: 3187, usNewsState: 129,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Triad Community Unit School District 2 covers essentially all Troy's residents (2020 census blocks). Triad High School (#129 in Illinois) enrolls 1,218 students in grades 9-12 with a 94% graduation rate and a 25% AP/IB-exam participation rate; its average SAT total was 1019 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Valmeyer": {
+    hs: "Valmeyer High School",
+    district: "Valmeyer Community Unit School District 3",
+    usNewsNational: 11389, usNewsState: 389,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Valmeyer Community Unit School District 3 covers essentially all Valmeyer's residents (2020 census blocks). Valmeyer High School (#389 in Illinois) enrolls 106 students in grades 9-12 with a 91% graduation rate; its average SAT total was 986 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Venice": {
+    hs: "Madison Senior High School",
+    district: "Madison Community Unit School District 12 (about 68%) and Venice Community Unit School District 3 (about 32%)",
+    feedsTo: "Madison Senior High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Venice is split between school districts (2020 census-block shares): Madison Community Unit School District 12 about 68%, Venice Community Unit School District 3 about 32%; students attend Madison Senior High School depending on address. Venice Community Unit School District 3 (32% of Venice) has only an elementary/middle school (Venice Elementary, PK-8); which high school its 9-12 students attend was not established, so that share is not assigned to a high school. Venice has no high school inside its boundary; the high school is in Madison. Madison Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 152 students in grades 9-12 with a 63% graduation rate; its average SAT total was 765 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Virden": {
+    hs: "North Mac High School",
+    district: "North Mac Community Unit School District 34",
+    usNewsNational: 9851, usNewsState: 340,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Mac Community Unit School District 34 covers essentially all Virden's residents (2020 census blocks). North Mac High School (#340 in Illinois) enrolls 361 students in grades 9-12 with an 87% graduation rate and a 32% AP/IB-exam participation rate; its average SAT total was 929 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Washington Park": {
+    hs: "East St Louis Senior High School",
+    district: "East St. Louis School District 189",
+    feedsTo: "East St Louis Senior High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "East St. Louis School District 189 covers essentially all Washington Park's residents (2020 census blocks). Washington Park has no high school inside its boundary; the high school is in East Saint Louis. East St Louis Senior High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 1,287 students in grades 9-12 with a 74% graduation rate and a 30% AP/IB-exam participation rate; its average SAT total was 751 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Waterloo": {
+    hs: "Waterloo High School",
+    district: "Waterloo Community Unit School District 5",
+    usNewsNational: 5682, usNewsState: 223,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Waterloo Community Unit School District 5 covers essentially all Waterloo's residents (2020 census blocks). Waterloo High School (#223 in Illinois) enrolls 876 students in grades 9-12 with a 95% graduation rate and a 14% AP/IB-exam participation rate; its average SAT total was 1001 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Wilsonville": {
+    hs: "Gillespie High School",
+    district: "Gillespie Community Unit School District 7",
+    feedsTo: "Gillespie High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gillespie Community Unit School District 7 covers essentially all Wilsonville's residents (2020 census blocks). Wilsonville has no high school inside its boundary; the high school is in Gillespie. Gillespie High School (in the unranked-bottom band, 469–675 in Illinois) enrolls 328 students in grades 9-12 with an 82% graduation rate; its average SAT total was 913 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Wood River": {
+    hs: ["East Alton-Wood River High School", "Roxana Senior High School"],
+    district: ["East Alton-Wood River Community High School District 14", "Roxana Community Unit School District 1"],
+    usNewsNational: 10101, usNewsState: 348,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Wood River is split between school districts (2020 census-block shares): East Alton-Wood River Community High School District 14 about 63%, Roxana Community Unit School District 1 about 35%; students attend East Alton-Wood River High School or Roxana Senior High School depending on address. East Alton-Wood River High School (#363 in Illinois) enrolls 539 students in grades 9-12 with a 91% graduation rate; its average SAT total was 877 in 2024 (ISBE, Illinois's last state SAT). Also: Roxana Senior High School (#348 in Illinois) enrolls 500 students in grades 9-12 with an 84% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Worden": {
+    hs: "Edwardsville High School",
+    district: "Edwardsville Community Unit School District 7",
+    feedsTo: "Edwardsville High School",
+    usNewsNational: 2817, usNewsState: 115,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Edwardsville Community Unit School District 7 covers essentially all Worden's residents (2020 census blocks). Worden has no high school inside its boundary; the high school is in Edwardsville. Edwardsville High School (#115 in Illinois) enrolls 2,342 students in grades 9-12 with a 91% graduation rate and a 29% AP/IB-exam participation rate; its average SAT total was 1026 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Affton (MO)": {
+    hs: "Affton High School",
+    district: "Affton 101 School District",
+    usNewsNational: 8355, usNewsState: 128,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Affton 101 School District covers about 72% of Affton's residents (2020 census blocks). The rest are mostly in Mehlville R-IX School District (14%) and Bayless School District (13%). Affton High School (#128 in Missouri) enrolls 761 students in grades 9-12 with a 90% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.3 in 2025 (128 of 164 graduates tested; Missouri DESE)."
+  },
+  "Arnold (MO)": {
+    hs: ["Seckman Sr. High School", "Fox Sr. High School"],
+    district: ["Fox C-6 School District", "Fox C-6 School District"],
+    usNewsNational: 6840, usNewsState: 101,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Fox C-6 School District covers essentially all Arnold's residents (2020 census blocks). Fox C-6 School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Seckman Sr. High School (#101 in Missouri) enrolls 1,737 students in grades 9-12 with a 96% graduation rate and a 36% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (300 of 407 graduates tested; Missouri DESE). Also: Fox Sr. High School (#138 in Missouri) enrolls 1,660 students in grades 9-12 with a 90% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (311 of 429 graduates tested; Missouri DESE)."
+  },
+  "Ballwin (MO)": {
+    hs: ["Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School", "Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School"],
+    district: ["Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District"],
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ballwin is split between school districts (2020 census-block shares): Rockwood R-VI School District about 65%, Parkway C-2 School District about 35%; students attend Lafayette Sr. High School, Marquette Sr. High School, Eureka Sr. High School, Rockwood Summit Sr. High School, Parkway West High School, Central High School, Parkway South High School or North High School depending on address. Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE). Also: Marquette Sr. High School (#23 in Missouri) enrolls 2,095 students in grades 9-12 with a 95% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.4 in 2025 (453 of 505 graduates tested; Missouri DESE)."
+  },
+  "Barnhart (MO)": {
+    hs: "Windsor High School",
+    district: "Windsor C-1 School District",
+    feedsTo: "Windsor High School",
+    usNewsNational: 12306, usNewsState: 232,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Windsor C-1 School District covers about 96% of Barnhart's residents (2020 census blocks). The rest are mostly in Fox C-6 School District (4%). Barnhart has no high school inside its boundary; the high school is in Imperial. Windsor High School (#232 in Missouri) enrolls 887 students in grades 9-12 with a 95% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (180 of 204 graduates tested; Missouri DESE)."
+  },
+  "Bel-Nor (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Bel-Nor's residents (2020 census blocks). Bel-Nor has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Bel-Ridge (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Bel-Ridge's residents (2020 census blocks). Bel-Ridge has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Bella Villa (MO)": {
+    hs: "Bayless Sr. High School",
+    district: "Bayless School District",
+    feedsTo: "Bayless Sr. High School",
+    usNewsNational: 3634, usNewsState: 47,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bayless School District covers about 86% of Bella Villa's residents (2020 census blocks). The rest are mostly in Hancock Place School District (14%). Bella Villa has no high school inside its boundary; the high school is in St Louis. Bayless Sr. High School (#47 in Missouri) enrolls 562 students in grades 9-12 with a 92% graduation rate and a 36% AP/IB-exam participation rate; its graduates who took the ACT averaged 17.9 in 2025 (118 of 143 graduates tested; Missouri DESE)."
+  },
+  "Bellefontaine Neighbors (MO)": {
+    hs: "Riverview Gardens Sr. High School",
+    district: "Riverview Gardens School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverview Gardens School District covers about 96% of Bellefontaine Neighbors's residents (2020 census blocks). The rest are mostly in Hazelwood School District (4%). Riverview Gardens Sr. High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,246 students in grades 9-12 with a 69% graduation rate; its graduates who took the ACT averaged 14.6 in 2025 (109 of 256 graduates tested; Missouri DESE)."
+  },
+  "Berkeley (MO)": {
+    hs: ["McCluer North High School", "McCluer High School"],
+    district: ["Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District"],
+    feedsTo: "McCluer North High School / McCluer High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ferguson-Florissant R-II School District covers essentially all Berkeley's residents (2020 census blocks). Ferguson-Florissant R-II School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. Berkeley has no high school inside its boundary; the high schools are in Florissant. McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE). Also: McCluer High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,075 students in grades 9-12 with a 90% graduation rate and a 16% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.4 in 2025 (153 of 310 graduates tested; Missouri DESE)."
+  },
+  "Black Jack (MO)": {
+    hs: ["Hazelwood West High School", "Hazelwood Central High School", "Hazelwood East High School"],
+    district: ["Hazelwood School District", "Hazelwood School District", "Hazelwood School District"],
+    feedsTo: "Hazelwood West High School / Hazelwood Central High School / Hazelwood East High School",
+    usNewsNational: 8775, usNewsState: 136,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Hazelwood School District covers essentially all Black Jack's residents (2020 census blocks). Hazelwood School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Black Jack has no high school inside its boundary; the high schools are in Florissant, Hazelwood, St Louis. Hazelwood West High School (#136 in Missouri) enrolls 1,994 students in grades 9-12 with an 82% graduation rate and a 24% AP/IB-exam participation rate; its graduates who took the ACT averaged 17.5 in 2025 (233 of 465 graduates tested; Missouri DESE). Also: Hazelwood Central High School (#220 in Missouri) enrolls 1,718 students in grades 9-12 with an 80% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 16 in 2025 (191 of 437 graduates tested; Missouri DESE)."
+  },
+  "Breckenridge Hills (MO)": {
+    hs: "Ritenour Sr. High School",
+    district: "Ritenour School District",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ritenour School District covers essentially all Breckenridge Hills's residents (2020 census blocks). Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE)."
+  },
+  "Brentwood (MO)": {
+    hs: "Brentwood High School",
+    district: "Brentwood School District",
+    usNewsNational: 7218, usNewsState: 109,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brentwood School District covers about 99% of Brentwood's residents (2020 census blocks). Brentwood High School (#109 in Missouri) enrolls 195 students in grades 9-12 with a 100% graduation rate; its graduates who took the ACT averaged 22.4 in 2025 (45 of 53 graduates tested; Missouri DESE)."
+  },
+  "Bridgeton (MO)": {
+    hs: "Pattonville Sr. High School",
+    district: "Pattonville R-III School District",
+    feedsTo: "Pattonville Sr. High School",
+    usNewsNational: 4585, usNewsState: 56,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pattonville R-III School District covers essentially all Bridgeton's residents (2020 census blocks). Bridgeton has no high school inside its boundary; the high school is in Maryland Heights. Pattonville Sr. High School (#56 in Missouri) enrolls 1,945 students in grades 9-12 with an 89% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (326 of 441 graduates tested; Missouri DESE)."
+  },
+  "Byrnes Mill (MO)": {
+    hs: "Northwest High School",
+    district: "Northwest R-I School District",
+    feedsTo: "Northwest High School",
+    usNewsNational: 10100, usNewsState: 167,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Northwest R-I School District covers essentially all Byrnes Mill's residents (2020 census blocks). Byrnes Mill has no high school inside its boundary; the high school is in Cedar Hill. Northwest High School (#167 in Missouri) enrolls 1,788 students in grades 9-12 with a 91% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (262 of 415 graduates tested; Missouri DESE)."
+  },
+  "Calverton Park (MO)": {
+    hs: ["McCluer North High School", "McCluer High School"],
+    district: ["Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District"],
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ferguson-Florissant R-II School District covers essentially all Calverton Park's residents (2020 census blocks). Ferguson-Florissant R-II School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE). Also: McCluer High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,075 students in grades 9-12 with a 90% graduation rate and a 16% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.4 in 2025 (153 of 310 graduates tested; Missouri DESE)."
+  },
+  "Castle Point (MO)": {
+    hs: "Riverview Gardens Sr. High School",
+    district: "Riverview Gardens School District",
+    feedsTo: "Riverview Gardens Sr. High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverview Gardens School District covers essentially all Castle Point's residents (2020 census blocks). Castle Point has no high school inside its boundary; the high school is in St Louis. Riverview Gardens Sr. High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,246 students in grades 9-12 with a 69% graduation rate; its graduates who took the ACT averaged 14.6 in 2025 (109 of 256 graduates tested; Missouri DESE)."
+  },
+  "Cedar Hill (MO)": {
+    hs: "Northwest High School",
+    district: "Northwest R-I School District",
+    usNewsNational: 10100, usNewsState: 167,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Northwest R-I School District covers essentially all Cedar Hill's residents (2020 census blocks). Northwest High School (#167 in Missouri) enrolls 1,788 students in grades 9-12 with a 91% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (262 of 415 graduates tested; Missouri DESE)."
+  },
+  "Charlack (MO)": {
+    hs: ["Ritenour Sr. High School", "Normandy High School"],
+    district: ["Ritenour School District", "Normandy Schools Collaborative"],
+    feedsTo: "Ritenour Sr. High School / Normandy High School",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Charlack is split between school districts (2020 census-block shares): Ritenour School District about 83%, Normandy Schools Collaborative about 17%; students attend Ritenour Sr. High School or Normandy High School depending on address. Charlack has no high school inside its boundary; the high schools are in St Louis. Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE). Also: Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Chesterfield (MO)": {
+    hs: ["Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School", "Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Chesterfield is split between school districts (2020 census-block shares): Parkway C-2 School District about 71%, Rockwood R-VI School District about 29%; students attend Parkway West High School, Central High School, Parkway South High School, North High School, Lafayette Sr. High School, Marquette Sr. High School, Eureka Sr. High School or Rockwood Summit Sr. High School depending on address. Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE). Also: Central High School (#20 in Missouri) enrolls 1,281 students in grades 9-12 with a 97% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (284 of 322 graduates tested; Missouri DESE)."
+  },
+  "Clarkson Valley (MO)": {
+    hs: ["Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    usNewsNational: 677, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockwood R-VI School District covers essentially all Clarkson Valley's residents (2020 census blocks). Rockwood R-VI School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE). Also: Marquette Sr. High School (#23 in Missouri) enrolls 2,095 students in grades 9-12 with a 95% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.4 in 2025 (453 of 505 graduates tested; Missouri DESE)."
+  },
+  "Clayton (MO)": {
+    hs: "Clayton High School",
+    district: "Clayton School District",
+    usNewsNational: 308, usNewsState: 3,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Clayton School District covers essentially all Clayton's residents (2020 census blocks). Clayton High School (#3 in Missouri) enrolls 788 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its graduates who took the ACT averaged 28.6 in 2025 (79 of 213 graduates tested; Missouri DESE)."
+  },
+  "Concord (MO)": {
+    hs: ["Lindbergh Sr. High School", "Oakville Sr. High School", "Mehlville High School"],
+    district: ["Lindbergh School District", "Mehlville R-IX School District", "Mehlville R-IX School District"],
+    feedsTo: "Lindbergh Sr. High School / Oakville Sr. High School / Mehlville High School",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Concord is split between school districts (2020 census-block shares): Lindbergh School District about 70%, Mehlville R-IX School District about 30%; students attend Lindbergh Sr. High School, Oakville Sr. High School or Mehlville High School depending on address. Concord has no high school inside its boundary; the high schools are in St Louis, St. Louis. Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE). Also: Oakville Sr. High School (#79 in Missouri) enrolls 1,847 students in grades 9-12 with a 98% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.2 in 2025 (349 of 451 graduates tested; Missouri DESE)."
+  },
+  "Cool Valley (MO)": {
+    hs: ["McCluer North High School", "McCluer High School"],
+    district: ["Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District"],
+    feedsTo: "McCluer North High School / McCluer High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ferguson-Florissant R-II School District covers essentially all Cool Valley's residents (2020 census blocks). Ferguson-Florissant R-II School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. Cool Valley has no high school inside its boundary; the high schools are in Florissant. McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE). Also: McCluer High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,075 students in grades 9-12 with a 90% graduation rate and a 16% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.4 in 2025 (153 of 310 graduates tested; Missouri DESE)."
+  },
+  "Cottleville (MO)": {
+    hs: ["Francis Howell High School", "Francis Howell Central High School", "Francis Howell North High School"],
+    district: ["Francis Howell R-III School District", "Francis Howell R-III School District", "Francis Howell R-III School District"],
+    usNewsNational: 1117, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Francis Howell R-III School District covers about 88% of Cottleville's residents (2020 census blocks). The rest are mostly in Fort Zumwalt R-II School District (12%). Francis Howell R-III School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Francis Howell High School (#10 in Missouri) enrolls 1,843 students in grades 9-12 with a 96% graduation rate and a 41% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.4 in 2025 (409 of 455 graduates tested; Missouri DESE). Also: Francis Howell Central High School (#13 in Missouri) enrolls 1,750 students in grades 9-12 with a 96% graduation rate and a 34% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.9 in 2025 (362 of 431 graduates tested; Missouri DESE)."
+  },
+  "Country Club Hills (MO)": {
+    hs: "Jennings High School",
+    district: "Jennings School District",
+    feedsTo: "Jennings High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Jennings School District covers essentially all Country Club Hills's residents (2020 census blocks). Country Club Hills has no high school inside its boundary; the high school is in Jennings. Jennings High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 666 students in grades 9-12 with an 88% graduation rate; its graduates who took the ACT averaged 15 in 2025 (58 of 164 graduates tested; Missouri DESE)."
+  },
+  "Crestwood (MO)": {
+    hs: "Lindbergh Sr. High School",
+    district: "Lindbergh School District",
+    feedsTo: "Lindbergh Sr. High School",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lindbergh School District covers about 96% of Crestwood's residents (2020 census blocks). The rest are mostly in Affton 101 School District (4%). Crestwood has no high school inside its boundary; the high school is in St. Louis. Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE)."
+  },
+  "Creve Coeur (MO)": {
+    hs: ["Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School", "Ladue Horton Watkins High School"],
+    district: ["Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Ladue School District"],
+    feedsTo: "Parkway West High School / Central High School / Parkway South High School / North High School / Ladue Horton Watkins High School",
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Creve Coeur is split between school districts (2020 census-block shares): Parkway C-2 School District about 71%, Ladue School District about 29%; students attend Parkway West High School, Central High School, Parkway South High School, North High School or Ladue Horton Watkins High School depending on address. Creve Coeur has no high school inside its boundary; the high schools are in Ballwin, Chesterfield, Manchester, St Louis. Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE). Also: Central High School (#20 in Missouri) enrolls 1,281 students in grades 9-12 with a 97% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (284 of 322 graduates tested; Missouri DESE)."
+  },
+  "Crystal City (MO)": {
+    hs: "Crystal City High School",
+    district: "Crystal City 47 School District",
+    usNewsNational: 10398, usNewsState: 175,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Crystal City 47 School District covers about 82% of Crystal City's residents (2020 census blocks). The rest are mostly in Festus R-VI School District (13%) and Jefferson County R-VII School District (5%). Crystal City High School (#175 in Missouri) enrolls 156 students in grades 9-12 with a 94% graduation rate; its graduates who took the ACT averaged 20.5 in 2025 (22 of 31 graduates tested; Missouri DESE)."
+  },
+  "Crystal Lake Park (MO)": {
+    hs: "Ladue Horton Watkins High School",
+    district: "Ladue School District",
+    feedsTo: "Ladue Horton Watkins High School",
+    usNewsNational: 1156, usNewsState: 16,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ladue School District covers essentially all Crystal Lake Park's residents (2020 census blocks). Crystal Lake Park has no high school inside its boundary; the high school is in St Louis. Ladue Horton Watkins High School (#16 in Missouri) enrolls 1,395 students in grades 9-12 with a 98% graduation rate and a 66% AP/IB-exam participation rate; its graduates who took the ACT averaged 26 in 2025 (246 of 340 graduates tested; Missouri DESE)."
+  },
+  "Dardenne Prairie (MO)": {
+    hs: ["Ft. Zumwalt South High School", "Ft. Zumwalt West High School", "Ft. Zumwalt North High School", "Ft. Zumwalt East High School", "Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School", "Francis Howell High School", "Francis Howell Central High School", "Francis Howell North High School"],
+    district: ["Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Francis Howell R-III School District", "Francis Howell R-III School District", "Francis Howell R-III School District"],
+    feedsTo: "Ft. Zumwalt South High School / Ft. Zumwalt West High School / Ft. Zumwalt North High School / Ft. Zumwalt East High School / Liberty High School / Timberland High School / North Point High School / Emil E. Holt Sr. High School / Francis Howell High School / Francis Howell Central High School / Francis Howell North High School",
+    usNewsNational: 1117, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Dardenne Prairie is split between school districts (2020 census-block shares): Fort Zumwalt R-II School District about 51%, Wentzville R-IV School District about 33%, Francis Howell R-III School District about 16%; students attend Ft. Zumwalt South High School, Ft. Zumwalt West High School, Ft. Zumwalt North High School, Ft. Zumwalt East High School, Liberty High School, Timberland High School, North Point High School, Emil E. Holt Sr. High School, Francis Howell High School, Francis Howell Central High School or Francis Howell North High School depending on address. Dardenne Prairie has no high school inside its boundary; the high schools are in Lake St. Louis, O'fallon, St Charles, St Peters, Wentzville. Ft. Zumwalt South High School (#12 in Missouri) enrolls 1,212 students in grades 9-12 with a 92% graduation rate and a 45% AP/IB-exam participation rate; its graduates who took the ACT averaged 24 in 2025 (182 of 279 graduates tested; Missouri DESE). Also: Ft. Zumwalt West High School (#15 in Missouri) enrolls 1,643 students in grades 9-12 with a 94% graduation rate and a 38% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (250 of 372 graduates tested; Missouri DESE)."
+  },
+  "De Soto (MO)": {
+    hs: "Desoto Sr. High School",
+    district: "De Soto 73 School District",
+    usNewsNational: 5509, usNewsState: 71,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "De Soto 73 School District covers about 97% of De Soto's residents (2020 census blocks). Desoto Sr. High School (#71 in Missouri) enrolls 862 students in grades 9-12 with a 93% graduation rate; its graduates who took the ACT averaged 18.8 in 2025 (151 of 214 graduates tested; Missouri DESE)."
+  },
+  "Dellwood (MO)": {
+    hs: ["Riverview Gardens Sr. High School", "McCluer North High School", "McCluer High School"],
+    district: ["Riverview Gardens School District", "Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District"],
+    feedsTo: "Riverview Gardens Sr. High School / McCluer North High School / McCluer High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Dellwood is split between school districts (2020 census-block shares): Riverview Gardens School District about 71%, Ferguson-Florissant R-II School District about 17%; students attend Riverview Gardens Sr. High School, McCluer North High School or McCluer High School depending on address. Smaller shares are in Hazelwood School District (13%). U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. Dellwood has no high school inside its boundary; the high schools are in Florissant, St Louis. Riverview Gardens Sr. High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,246 students in grades 9-12 with a 69% graduation rate; its graduates who took the ACT averaged 14.6 in 2025 (109 of 256 graduates tested; Missouri DESE). Also: McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE)."
+  },
+  "Des Peres (MO)": {
+    hs: ["Kirkwood Sr. High School", "Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School"],
+    district: ["Kirkwood R-VII School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District"],
+    feedsTo: "Kirkwood Sr. High School / Parkway West High School / Central High School / Parkway South High School / North High School",
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Des Peres is split between school districts (2020 census-block shares): Kirkwood R-VII School District about 60%, Parkway C-2 School District about 40%; students attend Kirkwood Sr. High School, Parkway West High School, Central High School, Parkway South High School or North High School depending on address. Des Peres has no high school inside its boundary; the high schools are in Ballwin, Chesterfield, Kirkwood, Manchester, St Louis. Kirkwood Sr. High School (#24 in Missouri) enrolls 1,693 students in grades 9-12 with a 97% graduation rate and a 51% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (353 of 391 graduates tested; Missouri DESE). Also: Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE)."
+  },
+  "Edmundson (MO)": {
+    hs: "Ritenour Sr. High School",
+    district: "Ritenour School District",
+    feedsTo: "Ritenour Sr. High School",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ritenour School District covers essentially all Edmundson's residents (2020 census blocks). Edmundson has no high school inside its boundary; the high school is in St Louis. Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE)."
+  },
+  "Ellisville (MO)": {
+    hs: ["Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    feedsTo: "Lafayette Sr. High School / Marquette Sr. High School / Eureka Sr. High School / Rockwood Summit Sr. High School",
+    usNewsNational: 677, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockwood R-VI School District covers essentially all Ellisville's residents (2020 census blocks). Rockwood R-VI School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Ellisville has no high school inside its boundary; the high schools are in Chesterfield, Eureka, Fenton, Wildwood. Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE). Also: Marquette Sr. High School (#23 in Missouri) enrolls 2,095 students in grades 9-12 with a 95% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.4 in 2025 (453 of 505 graduates tested; Missouri DESE)."
+  },
+  "Elsberry (MO)": {
+    hs: "Elsberry High School",
+    district: "Elsberry R-II School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Elsberry R-II School District covers essentially all Elsberry's residents (2020 census blocks). Elsberry High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 264 students in grades 9-12 with a 98% graduation rate; its graduates who took the ACT averaged 19.3 in 2025 (29 of 59 graduates tested; Missouri DESE)."
+  },
+  "Eureka (MO)": {
+    hs: ["Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    usNewsNational: 677, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockwood R-VI School District covers essentially all Eureka's residents (2020 census blocks). Rockwood R-VI School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE). Also: Marquette Sr. High School (#23 in Missouri) enrolls 2,095 students in grades 9-12 with a 95% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.4 in 2025 (453 of 505 graduates tested; Missouri DESE)."
+  },
+  "Fenton (MO)": {
+    hs: ["Lindbergh Sr. High School", "Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Lindbergh School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    usNewsNational: 677, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Fenton is split between school districts (2020 census-block shares): Lindbergh School District about 54%, Rockwood R-VI School District about 46%; students attend Lindbergh Sr. High School, Lafayette Sr. High School, Marquette Sr. High School, Eureka Sr. High School or Rockwood Summit Sr. High School depending on address. Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE). Also: Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE)."
+  },
+  "Ferguson (MO)": {
+    hs: ["McCluer North High School", "McCluer High School"],
+    district: ["Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District"],
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Ferguson-Florissant R-II School District covers about 86% of Ferguson's residents (2020 census blocks). The rest are mostly in Riverview Gardens School District (11%) and Hazelwood School District (3%). Ferguson-Florissant R-II School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE). Also: McCluer High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,075 students in grades 9-12 with a 90% graduation rate and a 16% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.4 in 2025 (153 of 310 graduates tested; Missouri DESE)."
+  },
+  "Festus (MO)": {
+    hs: "Festus Sr. High School",
+    district: "Festus R-VI School District",
+    usNewsNational: 2190, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Festus R-VI School District covers about 99% of Festus's residents (2020 census blocks). Festus Sr. High School (#28 in Missouri) enrolls 1,019 students in grades 9-12 with a 98% graduation rate and a 41% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (200 of 231 graduates tested; Missouri DESE)."
+  },
+  "Flint Hill (MO)": {
+    hs: ["Ft. Zumwalt South High School", "Ft. Zumwalt West High School", "Ft. Zumwalt North High School", "Ft. Zumwalt East High School", "Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School"],
+    district: ["Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District"],
+    feedsTo: "Ft. Zumwalt South High School / Ft. Zumwalt West High School / Ft. Zumwalt North High School / Ft. Zumwalt East High School / Liberty High School / Timberland High School / North Point High School / Emil E. Holt Sr. High School",
+    usNewsNational: 1135, usNewsState: 12,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Flint Hill is split between school districts (2020 census-block shares): Fort Zumwalt R-II School District about 80%, Wentzville R-IV School District about 20%; students attend Ft. Zumwalt South High School, Ft. Zumwalt West High School, Ft. Zumwalt North High School, Ft. Zumwalt East High School, Liberty High School, Timberland High School, North Point High School or Emil E. Holt Sr. High School depending on address. Flint Hill has no high school inside its boundary; the high schools are in Lake St. Louis, O'fallon, St Peters, Wentzville. Ft. Zumwalt South High School (#12 in Missouri) enrolls 1,212 students in grades 9-12 with a 92% graduation rate and a 45% AP/IB-exam participation rate; its graduates who took the ACT averaged 24 in 2025 (182 of 279 graduates tested; Missouri DESE). Also: Ft. Zumwalt West High School (#15 in Missouri) enrolls 1,643 students in grades 9-12 with a 94% graduation rate and a 38% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (250 of 372 graduates tested; Missouri DESE)."
+  },
+  "Flordell Hills (MO)": {
+    hs: "Jennings High School",
+    district: "Jennings School District",
+    feedsTo: "Jennings High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Jennings School District covers essentially all Flordell Hills's residents (2020 census blocks). Flordell Hills has no high school inside its boundary; the high school is in Jennings. Jennings High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 666 students in grades 9-12 with an 88% graduation rate; its graduates who took the ACT averaged 15 in 2025 (58 of 164 graduates tested; Missouri DESE)."
+  },
+  "Florissant (MO)": {
+    hs: ["McCluer North High School", "McCluer High School", "Hazelwood West High School", "Hazelwood Central High School", "Hazelwood East High School"],
+    district: ["Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District", "Hazelwood School District", "Hazelwood School District", "Hazelwood School District"],
+    usNewsNational: 8775, usNewsState: 136,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Florissant is split between school districts (2020 census-block shares): Ferguson-Florissant R-II School District about 55%, Hazelwood School District about 45%; students attend McCluer North High School, McCluer High School, Hazelwood West High School, Hazelwood Central High School or Hazelwood East High School depending on address. U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE). Also: McCluer High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,075 students in grades 9-12 with a 90% graduation rate and a 16% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.4 in 2025 (153 of 310 graduates tested; Missouri DESE)."
+  },
+  "Foristell (MO)": {
+    hs: ["Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School", "Wright City High School"],
+    district: ["Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wright City R-II of Warren County"],
+    feedsTo: "Liberty High School / Timberland High School / North Point High School / Emil E. Holt Sr. High School / Wright City High School",
+    usNewsNational: 1537, usNewsState: 21,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Foristell is split between school districts (2020 census-block shares): Wentzville R-IV School District about 51%, Wright City R-II of Warren County about 49%; students attend Liberty High School, Timberland High School, North Point High School, Emil E. Holt Sr. High School or Wright City High School depending on address. Foristell has no high school inside its boundary; the high schools are in Lake St. Louis, Wentzville, Wright City. Liberty High School (#21 in Missouri) enrolls 1,647 students in grades 9-12 with a 98% graduation rate and a 39% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.2 in 2025 (208 of 371 graduates tested; Missouri DESE). Also: Timberland High School (#36 in Missouri) enrolls 1,525 students in grades 9-12 with a 95% graduation rate and a 25% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.8 in 2025 (216 of 387 graduates tested; Missouri DESE)."
+  },
+  "Frontenac (MO)": {
+    hs: "Ladue Horton Watkins High School",
+    district: "Ladue School District",
+    feedsTo: "Ladue Horton Watkins High School",
+    usNewsNational: 1156, usNewsState: 16,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ladue School District covers about 85% of Frontenac's residents (2020 census blocks). The rest are mostly in Kirkwood R-VII School District (15%). Frontenac has no high school inside its boundary; the high school is in St Louis. Ladue Horton Watkins High School (#16 in Missouri) enrolls 1,395 students in grades 9-12 with a 98% graduation rate and a 66% AP/IB-exam participation rate; its graduates who took the ACT averaged 26 in 2025 (246 of 340 graduates tested; Missouri DESE)."
+  },
+  "Gerald (MO)": {
+    hs: "Owensville High School",
+    district: "Gasconade County R-II School District",
+    feedsTo: "Owensville High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gasconade County R-II School District covers essentially all Gerald's residents (2020 census blocks). Gerald has no high school inside its boundary; the high school is in Owensville. Owensville High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 541 students in grades 9-12 with a 94% graduation rate; its graduates who took the ACT averaged 21.6 in 2025 (66 of 124 graduates tested; Missouri DESE)."
+  },
+  "Glasgow Village (MO)": {
+    hs: "Riverview Gardens Sr. High School",
+    district: "Riverview Gardens School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverview Gardens School District covers essentially all Glasgow Village's residents (2020 census blocks). Riverview Gardens Sr. High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,246 students in grades 9-12 with a 69% graduation rate; its graduates who took the ACT averaged 14.6 in 2025 (109 of 256 graduates tested; Missouri DESE)."
+  },
+  "Glendale (MO)": {
+    hs: "Kirkwood Sr. High School",
+    district: "Kirkwood R-VII School District",
+    feedsTo: "Kirkwood Sr. High School",
+    usNewsNational: 1774, usNewsState: 24,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Kirkwood R-VII School District covers about 87% of Glendale's residents (2020 census blocks). The rest are mostly in Webster Groves School District (13%). Glendale has no high school inside its boundary; the high school is in Kirkwood. Kirkwood Sr. High School (#24 in Missouri) enrolls 1,693 students in grades 9-12 with a 97% graduation rate and a 51% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (353 of 391 graduates tested; Missouri DESE)."
+  },
+  "Grantwood Village (MO)": {
+    hs: "Lindbergh Sr. High School",
+    district: "Lindbergh School District",
+    feedsTo: "Lindbergh Sr. High School",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lindbergh School District covers essentially all Grantwood Village's residents (2020 census blocks). Grantwood Village has no high school inside its boundary; the high school is in St. Louis. Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE)."
+  },
+  "Gray Summit (MO)": {
+    hs: "Pacific High School",
+    district: "Meramec Valley R-III School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Meramec Valley R-III School District covers essentially all Gray Summit's residents (2020 census blocks). Pacific High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 973 students in grades 9-12 with a 93% graduation rate and a 5% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.1 in 2025 (84 of 238 graduates tested; Missouri DESE)."
+  },
+  "Green Park (MO)": {
+    hs: ["Oakville Sr. High School", "Mehlville High School", "Lindbergh Sr. High School"],
+    district: ["Mehlville R-IX School District", "Mehlville R-IX School District", "Lindbergh School District"],
+    feedsTo: "Oakville Sr. High School / Mehlville High School / Lindbergh Sr. High School",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Green Park is split between school districts (2020 census-block shares): Mehlville R-IX School District about 55%, Lindbergh School District about 45%; students attend Oakville Sr. High School, Mehlville High School or Lindbergh Sr. High School depending on address. Green Park has no high school inside its boundary; the high schools are in St Louis, St. Louis. Oakville Sr. High School (#79 in Missouri) enrolls 1,847 students in grades 9-12 with a 98% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.2 in 2025 (349 of 451 graduates tested; Missouri DESE). Also: Mehlville High School (#223 in Missouri) enrolls 1,388 students in grades 9-12 with an 89% graduation rate and a 9% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (250 of 391 graduates tested; Missouri DESE)."
+  },
+  "Greendale (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Greendale's residents (2020 census blocks). Greendale has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Hanley Hills (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Hanley Hills's residents (2020 census blocks). Hanley Hills has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Hawk Point (MO)": {
+    hs: "Troy Buchanan High School",
+    district: "Troy R-III School District",
+    feedsTo: "Troy Buchanan High School",
+    usNewsNational: 8043, usNewsState: 122,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Troy R-III School District covers essentially all Hawk Point's residents (2020 census blocks). Hawk Point has no high school inside its boundary; the high school is in Troy. Troy Buchanan High School (#122 in Missouri) enrolls 2,148 students in grades 9-12 with a 96% graduation rate and a 23% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.9 in 2025 (202 of 496 graduates tested; Missouri DESE)."
+  },
+  "Hazelwood (MO)": {
+    hs: ["Hazelwood West High School", "Hazelwood Central High School", "Hazelwood East High School"],
+    district: ["Hazelwood School District", "Hazelwood School District", "Hazelwood School District"],
+    usNewsNational: 8775, usNewsState: 136,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Hazelwood School District covers about 87% of Hazelwood's residents (2020 census blocks). The rest are mostly in Ferguson-Florissant R-II School District (13%). Hazelwood School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Hazelwood West High School (#136 in Missouri) enrolls 1,994 students in grades 9-12 with an 82% graduation rate and a 24% AP/IB-exam participation rate; its graduates who took the ACT averaged 17.5 in 2025 (233 of 465 graduates tested; Missouri DESE). Also: Hazelwood Central High School (#220 in Missouri) enrolls 1,718 students in grades 9-12 with an 80% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 16 in 2025 (191 of 437 graduates tested; Missouri DESE)."
+  },
+  "Herculaneum (MO)": {
+    hs: ["Herculaneum High School", "Festus Sr. High School"],
+    district: ["Dunklin R-V School District", "Festus R-VI School District"],
+    usNewsNational: 2190, usNewsState: 28,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Herculaneum is split between school districts (2020 census-block shares): Dunklin R-V School District about 56%, Festus R-VI School District about 43%; students attend Herculaneum High School or Festus Sr. High School depending on address. Herculaneum High School (#168 in Missouri) enrolls 466 students in grades 9-12 with a 96% graduation rate; its graduates who took the ACT averaged 19.1 in 2025 (69 of 105 graduates tested; Missouri DESE). Also: Festus Sr. High School (#28 in Missouri) enrolls 1,019 students in grades 9-12 with a 98% graduation rate and a 41% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (200 of 231 graduates tested; Missouri DESE)."
+  },
+  "High Ridge (MO)": {
+    hs: "Northwest High School",
+    district: "Northwest R-I School District",
+    feedsTo: "Northwest High School",
+    usNewsNational: 10100, usNewsState: 167,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Northwest R-I School District covers essentially all High Ridge's residents (2020 census blocks). High Ridge has no high school inside its boundary; the high school is in Cedar Hill. Northwest High School (#167 in Missouri) enrolls 1,788 students in grades 9-12 with a 91% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (262 of 415 graduates tested; Missouri DESE)."
+  },
+  "Hillsboro (MO)": {
+    hs: "Hillsboro High School",
+    district: "Hillsboro R-III School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hillsboro R-III School District covers essentially all Hillsboro's residents (2020 census blocks). Hillsboro High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,050 students in grades 9-12 with a 91% graduation rate; its graduates who took the ACT averaged 20 in 2025 (149 of 272 graduates tested; Missouri DESE)."
+  },
+  "Hillsdale (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Hillsdale's residents (2020 census blocks). Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Horine (MO)": {
+    hs: "Herculaneum High School",
+    district: "Dunklin R-V School District",
+    feedsTo: "Herculaneum High School",
+    usNewsNational: 10157, usNewsState: 168,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Dunklin R-V School District covers essentially all Horine's residents (2020 census blocks). Horine has no high school inside its boundary; the high school is in Herculaneum. Herculaneum High School (#168 in Missouri) enrolls 466 students in grades 9-12 with a 96% graduation rate; its graduates who took the ACT averaged 19.1 in 2025 (69 of 105 graduates tested; Missouri DESE)."
+  },
+  "Imperial (MO)": {
+    hs: "Windsor High School",
+    district: "Windsor C-1 School District",
+    usNewsNational: 12306, usNewsState: 232,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Windsor C-1 School District covers about 99% of Imperial's residents (2020 census blocks). Windsor High School (#232 in Missouri) enrolls 887 students in grades 9-12 with a 95% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (180 of 204 graduates tested; Missouri DESE)."
+  },
+  "Innsbrook (MO)": {
+    hs: "Wright City High School",
+    district: "Wright City R-II of Warren County",
+    feedsTo: "Wright City High School",
+    usNewsNational: 8620, usNewsState: 134,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Wright City R-II of Warren County covers about 87% of Innsbrook's residents (2020 census blocks). The rest are mostly in Warren County R-III School District (13%). Innsbrook has no high school inside its boundary; the high school is in Wright City. Wright City High School (#134 in Missouri) enrolls 566 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.5 in 2025 (66 of 162 graduates tested; Missouri DESE)."
+  },
+  "Jennings (MO)": {
+    hs: "Jennings High School",
+    district: "Jennings School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Jennings School District covers about 99% of Jennings's residents (2020 census blocks). Jennings High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 666 students in grades 9-12 with an 88% graduation rate; its graduates who took the ACT averaged 15 in 2025 (58 of 164 graduates tested; Missouri DESE)."
+  },
+  "Josephville (MO)": {
+    hs: ["Ft. Zumwalt South High School", "Ft. Zumwalt West High School", "Ft. Zumwalt North High School", "Ft. Zumwalt East High School", "Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School"],
+    district: ["Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District"],
+    feedsTo: "Ft. Zumwalt South High School / Ft. Zumwalt West High School / Ft. Zumwalt North High School / Ft. Zumwalt East High School / Liberty High School / Timberland High School / North Point High School / Emil E. Holt Sr. High School",
+    usNewsNational: 1135, usNewsState: 12,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Josephville is split between school districts (2020 census-block shares): Fort Zumwalt R-II School District about 82%, Wentzville R-IV School District about 18%; students attend Ft. Zumwalt South High School, Ft. Zumwalt West High School, Ft. Zumwalt North High School, Ft. Zumwalt East High School, Liberty High School, Timberland High School, North Point High School or Emil E. Holt Sr. High School depending on address. Josephville has no high school inside its boundary; the high schools are in Lake St. Louis, O'fallon, St Peters, Wentzville. Ft. Zumwalt South High School (#12 in Missouri) enrolls 1,212 students in grades 9-12 with a 92% graduation rate and a 45% AP/IB-exam participation rate; its graduates who took the ACT averaged 24 in 2025 (182 of 279 graduates tested; Missouri DESE). Also: Ft. Zumwalt West High School (#15 in Missouri) enrolls 1,643 students in grades 9-12 with a 94% graduation rate and a 38% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (250 of 372 graduates tested; Missouri DESE)."
+  },
+  "Kirkwood (MO)": {
+    hs: "Kirkwood Sr. High School",
+    district: "Kirkwood R-VII School District",
+    usNewsNational: 1774, usNewsState: 24,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Kirkwood R-VII School District covers essentially all Kirkwood's residents (2020 census blocks). Kirkwood Sr. High School (#24 in Missouri) enrolls 1,693 students in grades 9-12 with a 97% graduation rate and a 51% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (353 of 391 graduates tested; Missouri DESE)."
+  },
+  "LaBarque Creek (MO)": {
+    hs: ["Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School", "Northwest High School"],
+    district: ["Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Northwest R-I School District"],
+    feedsTo: "Lafayette Sr. High School / Marquette Sr. High School / Eureka Sr. High School / Rockwood Summit Sr. High School / Northwest High School",
+    usNewsNational: 677, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "LaBarque Creek is split between school districts (2020 census-block shares): Rockwood R-VI School District about 71%, Northwest R-I School District about 29%; students attend Lafayette Sr. High School, Marquette Sr. High School, Eureka Sr. High School, Rockwood Summit Sr. High School or Northwest High School depending on address. LaBarque Creek has no high school inside its boundary; the high schools are in Cedar Hill, Chesterfield, Eureka, Fenton, Wildwood. Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE). Also: Marquette Sr. High School (#23 in Missouri) enrolls 2,095 students in grades 9-12 with a 95% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.4 in 2025 (453 of 505 graduates tested; Missouri DESE)."
+  },
+  "Ladue (MO)": {
+    hs: "Ladue Horton Watkins High School",
+    district: "Ladue School District",
+    usNewsNational: 1156, usNewsState: 16,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ladue School District covers essentially all Ladue's residents (2020 census blocks). Ladue Horton Watkins High School (#16 in Missouri) enrolls 1,395 students in grades 9-12 with a 98% graduation rate and a 66% AP/IB-exam participation rate; its graduates who took the ACT averaged 26 in 2025 (246 of 340 graduates tested; Missouri DESE)."
+  },
+  "Lake St. Clair (MO)": {
+    hs: "St. Clair High School (MO)",
+    district: "St. Clair R-XIII School District",
+    feedsTo: "St. Clair High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Clair R-XIII School District covers essentially all Lake St. Clair's residents (2020 census blocks). Lake St. Clair has no high school inside its boundary; the high school is in St Clair. St. Clair High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 627 students in grades 9-12 with an 84% graduation rate; its graduates who took the ACT averaged 18 in 2025 (105 of 166 graduates tested; Missouri DESE)."
+  },
+  "Lake St. Louis (MO)": {
+    hs: ["Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School"],
+    district: ["Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District"],
+    usNewsNational: 1537, usNewsState: 21,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Wentzville R-IV School District covers essentially all Lake St. Louis's residents (2020 census blocks). Wentzville R-IV School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Liberty High School (#21 in Missouri) enrolls 1,647 students in grades 9-12 with a 98% graduation rate and a 39% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.2 in 2025 (208 of 371 graduates tested; Missouri DESE). Also: Timberland High School (#36 in Missouri) enrolls 1,525 students in grades 9-12 with a 95% graduation rate and a 25% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.8 in 2025 (216 of 387 graduates tested; Missouri DESE)."
+  },
+  "Lakeshire (MO)": {
+    hs: ["Lindbergh Sr. High School", "Affton High School"],
+    district: ["Lindbergh School District", "Affton 101 School District"],
+    feedsTo: "Lindbergh Sr. High School / Affton High School",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Lakeshire is split between school districts (2020 census-block shares): Lindbergh School District about 70%, Affton 101 School District about 30%; students attend Lindbergh Sr. High School or Affton High School depending on address. Lakeshire has no high school inside its boundary; the high schools are in St Louis, St. Louis. Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE). Also: Affton High School (#128 in Missouri) enrolls 761 students in grades 9-12 with a 90% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.3 in 2025 (128 of 164 graduates tested; Missouri DESE)."
+  },
+  "Lemay (MO)": {
+    hs: ["Hancock Sr. High School", "Oakville Sr. High School", "Mehlville High School", "Bayless Sr. High School"],
+    district: ["Hancock Place School District", "Mehlville R-IX School District", "Mehlville R-IX School District", "Bayless School District"],
+    usNewsNational: 3634, usNewsState: 47,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Lemay is split between school districts (2020 census-block shares): Hancock Place School District about 50%, Mehlville R-IX School District about 34%, Bayless School District about 17%; students attend Hancock Sr. High School, Oakville Sr. High School, Mehlville High School or Bayless Sr. High School depending on address. Hancock Sr. High School (#105 in Missouri) enrolls 369 students in grades 9-12 with a 100% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.2 in 2025 (19 of 84 graduates tested; Missouri DESE). Also: Oakville Sr. High School (#79 in Missouri) enrolls 1,847 students in grades 9-12 with a 98% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.2 in 2025 (349 of 451 graduates tested; Missouri DESE)."
+  },
+  "Manchester (MO)": {
+    hs: ["Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School"],
+    district: ["Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District"],
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Parkway C-2 School District covers about 91% of Manchester's residents (2020 census blocks). The rest are mostly in Valley Park School District (9%). Parkway C-2 School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE). Also: Central High School (#20 in Missouri) enrolls 1,281 students in grades 9-12 with a 97% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (284 of 322 graduates tested; Missouri DESE)."
+  },
+  "Maplewood (MO)": {
+    hs: "Maplewood-Richmond Hgts. High School",
+    district: "Maplewood-Richmond Heights School District",
+    usNewsNational: 2467, usNewsState: 31,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Maplewood-Richmond Heights School District covers essentially all Maplewood's residents (2020 census blocks). Maplewood-Richmond Hgts. High School (#31 in Missouri) enrolls 439 students in grades 9-12 with a 97% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.6 in 2025 (90 of 98 graduates tested; Missouri DESE)."
+  },
+  "Marlborough (MO)": {
+    hs: "Affton High School",
+    district: "Affton 101 School District",
+    feedsTo: "Affton High School",
+    usNewsNational: 8355, usNewsState: 128,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Affton 101 School District covers essentially all Marlborough's residents (2020 census blocks). Marlborough has no high school inside its boundary; the high school is in St Louis. Affton High School (#128 in Missouri) enrolls 761 students in grades 9-12 with a 90% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.3 in 2025 (128 of 164 graduates tested; Missouri DESE)."
+  },
+  "Marthasville (MO)": {
+    hs: "Washington High School (MO)",
+    district: "Washington School District",
+    feedsTo: "Washington High School",
+    usNewsNational: 6887, usNewsState: 102,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Washington School District covers essentially all Marthasville's residents (2020 census blocks). Marthasville has no high school inside its boundary; the high school is in Washington. Washington High School (#102 in Missouri) enrolls 1,263 students in grades 9-12 with a 93% graduation rate and a 33% AP/IB-exam participation rate; its graduates who took the ACT averaged 22 in 2025 (137 of 300 graduates tested; Missouri DESE)."
+  },
+  "Maryland Heights (MO)": {
+    hs: ["Pattonville Sr. High School", "Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School"],
+    district: ["Pattonville R-III School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District"],
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Maryland Heights is split between school districts (2020 census-block shares): Pattonville R-III School District about 51%, Parkway C-2 School District about 49%; students attend Pattonville Sr. High School, Parkway West High School, Central High School, Parkway South High School or North High School depending on address. Pattonville Sr. High School (#56 in Missouri) enrolls 1,945 students in grades 9-12 with an 89% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (326 of 441 graduates tested; Missouri DESE). Also: Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE)."
+  },
+  "Mehlville (MO)": {
+    hs: ["Oakville Sr. High School", "Mehlville High School"],
+    district: ["Mehlville R-IX School District", "Mehlville R-IX School District"],
+    usNewsNational: 5902, usNewsState: 79,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Mehlville R-IX School District covers essentially all Mehlville's residents (2020 census blocks). Mehlville R-IX School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Oakville Sr. High School (#79 in Missouri) enrolls 1,847 students in grades 9-12 with a 98% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.2 in 2025 (349 of 451 graduates tested; Missouri DESE). Also: Mehlville High School (#223 in Missouri) enrolls 1,388 students in grades 9-12 with an 89% graduation rate and a 9% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (250 of 391 graduates tested; Missouri DESE)."
+  },
+  "Moline Acres (MO)": {
+    hs: "Riverview Gardens Sr. High School",
+    district: "Riverview Gardens School District",
+    feedsTo: "Riverview Gardens Sr. High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverview Gardens School District covers essentially all Moline Acres's residents (2020 census blocks). Moline Acres has no high school inside its boundary; the high school is in St Louis. Riverview Gardens Sr. High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,246 students in grades 9-12 with a 69% graduation rate; its graduates who took the ACT averaged 14.6 in 2025 (109 of 256 graduates tested; Missouri DESE)."
+  },
+  "Moscow Mills (MO)": {
+    hs: "Troy Buchanan High School",
+    district: "Troy R-III School District",
+    feedsTo: "Troy Buchanan High School",
+    usNewsNational: 8043, usNewsState: 122,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Troy R-III School District covers essentially all Moscow Mills's residents (2020 census blocks). Moscow Mills has no high school inside its boundary; the high school is in Troy. Troy Buchanan High School (#122 in Missouri) enrolls 2,148 students in grades 9-12 with a 96% graduation rate and a 23% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.9 in 2025 (202 of 496 graduates tested; Missouri DESE)."
+  },
+  "Murphy (MO)": {
+    hs: "Northwest High School",
+    district: "Northwest R-I School District",
+    feedsTo: "Northwest High School",
+    usNewsNational: 10100, usNewsState: 167,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Northwest R-I School District covers about 96% of Murphy's residents (2020 census blocks). The rest are mostly in Fox C-6 School District (4%). Murphy has no high school inside its boundary; the high school is in Cedar Hill. Northwest High School (#167 in Missouri) enrolls 1,788 students in grades 9-12 with a 91% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.5 in 2025 (262 of 415 graduates tested; Missouri DESE)."
+  },
+  "New Haven (MO)": {
+    hs: "New Haven High School (MO)",
+    district: "New Haven School District",
+    usNewsNational: 7220, usNewsState: 110,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "New Haven School District covers essentially all New Haven's residents (2020 census blocks). New Haven High School (#110 in Missouri) enrolls 130 students in grades 9-12 with a 97% graduation rate; its graduates who took the ACT averaged 22.4 in 2025 (28 of 39 graduates tested; Missouri DESE)."
+  },
+  "New Melle (MO)": {
+    hs: ["Francis Howell High School", "Francis Howell Central High School", "Francis Howell North High School"],
+    district: ["Francis Howell R-III School District", "Francis Howell R-III School District", "Francis Howell R-III School District"],
+    feedsTo: "Francis Howell High School / Francis Howell Central High School / Francis Howell North High School",
+    usNewsNational: 1117, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Francis Howell R-III School District covers essentially all New Melle's residents (2020 census blocks). Francis Howell R-III School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). New Melle has no high school inside its boundary; the high schools are in St Charles. Francis Howell High School (#10 in Missouri) enrolls 1,843 students in grades 9-12 with a 96% graduation rate and a 41% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.4 in 2025 (409 of 455 graduates tested; Missouri DESE). Also: Francis Howell Central High School (#13 in Missouri) enrolls 1,750 students in grades 9-12 with a 96% graduation rate and a 34% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.9 in 2025 (362 of 431 graduates tested; Missouri DESE)."
+  },
+  "Normandy (MO)": {
+    hs: ["Normandy High School", "McCluer North High School", "McCluer High School"],
+    district: ["Normandy Schools Collaborative", "Ferguson-Florissant R-II School District", "Ferguson-Florissant R-II School District"],
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Normandy is split between school districts (2020 census-block shares): Normandy Schools Collaborative about 71%, Ferguson-Florissant R-II School District about 29%; students attend Normandy High School, McCluer North High School or McCluer High School depending on address. U.S. News also lists STEAM Academy at McCluer South-Berkeley High (#8 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. U.S. News also lists The Innovation School at Cv (in the unranked-bottom band, 256–356 in Missouri) under the district; it is a selective/choice program, not an attendance-zone high school. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE). Also: McCluer North High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,059 students in grades 9-12 with a 90% graduation rate and a 4% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.6 in 2025 (150 of 289 graduates tested; Missouri DESE)."
+  },
+  "Northwoods (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Northwoods's residents (2020 census blocks). Northwoods has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Norwood Court (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Norwood Court's residents (2020 census blocks). Norwood Court has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "O'Fallon (MO)": {
+    hs: ["Ft. Zumwalt South High School", "Ft. Zumwalt West High School", "Ft. Zumwalt North High School", "Ft. Zumwalt East High School", "Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School"],
+    district: ["Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District"],
+    usNewsNational: 1135, usNewsState: 12,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "O'Fallon is split between school districts (2020 census-block shares): Fort Zumwalt R-II School District about 68%, Wentzville R-IV School District about 24%; students attend Ft. Zumwalt South High School, Ft. Zumwalt West High School, Ft. Zumwalt North High School, Ft. Zumwalt East High School, Liberty High School, Timberland High School, North Point High School or Emil E. Holt Sr. High School depending on address. Smaller shares are in Francis Howell R-III School District (8%). Ft. Zumwalt South High School (#12 in Missouri) enrolls 1,212 students in grades 9-12 with a 92% graduation rate and a 45% AP/IB-exam participation rate; its graduates who took the ACT averaged 24 in 2025 (182 of 279 graduates tested; Missouri DESE). Also: Ft. Zumwalt West High School (#15 in Missouri) enrolls 1,643 students in grades 9-12 with a 94% graduation rate and a 38% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (250 of 372 graduates tested; Missouri DESE)."
+  },
+  "Oakland (MO)": {
+    hs: "Kirkwood Sr. High School",
+    district: "Kirkwood R-VII School District",
+    feedsTo: "Kirkwood Sr. High School",
+    usNewsNational: 1774, usNewsState: 24,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Kirkwood R-VII School District covers essentially all Oakland's residents (2020 census blocks). Oakland has no high school inside its boundary; the high school is in Kirkwood. Kirkwood Sr. High School (#24 in Missouri) enrolls 1,693 students in grades 9-12 with a 97% graduation rate and a 51% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (353 of 391 graduates tested; Missouri DESE)."
+  },
+  "Oakville (MO)": {
+    hs: ["Oakville Sr. High School", "Mehlville High School"],
+    district: ["Mehlville R-IX School District", "Mehlville R-IX School District"],
+    usNewsNational: 5902, usNewsState: 79,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Mehlville R-IX School District covers essentially all Oakville's residents (2020 census blocks). Mehlville R-IX School District runs 2 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Oakville Sr. High School (#79 in Missouri) enrolls 1,847 students in grades 9-12 with a 98% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.2 in 2025 (349 of 451 graduates tested; Missouri DESE). Also: Mehlville High School (#223 in Missouri) enrolls 1,388 students in grades 9-12 with an 89% graduation rate and a 9% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (250 of 391 graduates tested; Missouri DESE)."
+  },
+  "Old Jamestown (MO)": {
+    hs: ["Hazelwood West High School", "Hazelwood Central High School", "Hazelwood East High School"],
+    district: ["Hazelwood School District", "Hazelwood School District", "Hazelwood School District"],
+    usNewsNational: 8775, usNewsState: 136,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Hazelwood School District covers about 93% of Old Jamestown's residents (2020 census blocks). The rest are mostly in Ferguson-Florissant R-II School District (7%). Hazelwood School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Hazelwood West High School (#136 in Missouri) enrolls 1,994 students in grades 9-12 with an 82% graduation rate and a 24% AP/IB-exam participation rate; its graduates who took the ACT averaged 17.5 in 2025 (233 of 465 graduates tested; Missouri DESE). Also: Hazelwood Central High School (#220 in Missouri) enrolls 1,718 students in grades 9-12 with an 80% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 16 in 2025 (191 of 437 graduates tested; Missouri DESE)."
+  },
+  "Olivette (MO)": {
+    hs: "Ladue Horton Watkins High School",
+    district: "Ladue School District",
+    feedsTo: "Ladue Horton Watkins High School",
+    usNewsNational: 1156, usNewsState: 16,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ladue School District covers essentially all Olivette's residents (2020 census blocks). Olivette has no high school inside its boundary; the high school is in St Louis. Ladue Horton Watkins High School (#16 in Missouri) enrolls 1,395 students in grades 9-12 with a 98% graduation rate and a 66% AP/IB-exam participation rate; its graduates who took the ACT averaged 26 in 2025 (246 of 340 graduates tested; Missouri DESE)."
+  },
+  "Olympian Village (MO)": {
+    hs: "Desoto Sr. High School",
+    district: "De Soto 73 School District",
+    feedsTo: "Desoto Sr. High School",
+    usNewsNational: 5509, usNewsState: 71,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "De Soto 73 School District covers essentially all Olympian Village's residents (2020 census blocks). Olympian Village has no high school inside its boundary; the high school is in Desoto. Desoto Sr. High School (#71 in Missouri) enrolls 862 students in grades 9-12 with a 93% graduation rate; its graduates who took the ACT averaged 18.8 in 2025 (151 of 214 graduates tested; Missouri DESE)."
+  },
+  "Overland (MO)": {
+    hs: "Ritenour Sr. High School",
+    district: "Ritenour School District",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ritenour School District covers essentially all Overland's residents (2020 census blocks). Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE)."
+  },
+  "Pacific (MO)": {
+    hs: "Pacific High School",
+    district: "Meramec Valley R-III School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Meramec Valley R-III School District covers essentially all Pacific's residents (2020 census blocks). Pacific High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 973 students in grades 9-12 with a 93% graduation rate and a 5% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.1 in 2025 (84 of 238 graduates tested; Missouri DESE)."
+  },
+  "Pagedale (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers about 98% of Pagedale's residents (2020 census blocks). Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Parkway (MO)": {
+    hs: "St. Clair High School (MO)",
+    district: "St. Clair R-XIII School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Clair R-XIII School District covers essentially all Parkway's residents (2020 census blocks). St. Clair High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 627 students in grades 9-12 with an 84% graduation rate; its graduates who took the ACT averaged 18 in 2025 (105 of 166 graduates tested; Missouri DESE)."
+  },
+  "Pasadena Hills (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Pasadena Hills's residents (2020 census blocks). Pasadena Hills has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Pevely (MO)": {
+    hs: "Herculaneum High School",
+    district: "Dunklin R-V School District",
+    feedsTo: "Herculaneum High School",
+    usNewsNational: 10157, usNewsState: 168,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Dunklin R-V School District covers about 98% of Pevely's residents (2020 census blocks). Pevely has no high school inside its boundary; the high school is in Herculaneum. Herculaneum High School (#168 in Missouri) enrolls 466 students in grades 9-12 with a 96% graduation rate; its graduates who took the ACT averaged 19.1 in 2025 (69 of 105 graduates tested; Missouri DESE)."
+  },
+  "Pine Lawn (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Pine Lawn's residents (2020 census blocks). Pine Lawn has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Raintree Plantation (MO)": {
+    hs: "Hillsboro High School",
+    district: "Hillsboro R-III School District",
+    feedsTo: "Hillsboro High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hillsboro R-III School District covers essentially all Raintree Plantation's residents (2020 census blocks). Raintree Plantation has no high school inside its boundary; the high school is in Hillsboro. Hillsboro High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,050 students in grades 9-12 with a 91% graduation rate; its graduates who took the ACT averaged 20 in 2025 (149 of 272 graduates tested; Missouri DESE)."
+  },
+  "Richmond Heights (MO)": {
+    hs: ["Maplewood-Richmond Hgts. High School", "Clayton High School"],
+    district: ["Maplewood-Richmond Heights School District", "Clayton School District"],
+    feedsTo: "Maplewood-Richmond Hgts. High School / Clayton High School",
+    usNewsNational: 308, usNewsState: 3,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Richmond Heights is split between school districts (2020 census-block shares): Maplewood-Richmond Heights School District about 64%, Clayton School District about 19%; students attend Maplewood-Richmond Hgts. High School or Clayton High School depending on address. Smaller shares are in Ladue School District (9%) and Brentwood School District (8%). Richmond Heights has no high school inside its boundary; the high schools are in Clayton, Maplewood. Maplewood-Richmond Hgts. High School (#31 in Missouri) enrolls 439 students in grades 9-12 with a 97% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.6 in 2025 (90 of 98 graduates tested; Missouri DESE). Also: Clayton High School (#3 in Missouri) enrolls 788 students in grades 9-12 with a 97% graduation rate and a 73% AP/IB-exam participation rate; its graduates who took the ACT averaged 28.6 in 2025 (79 of 213 graduates tested; Missouri DESE)."
+  },
+  "Riverview (MO)": {
+    hs: "Riverview Gardens Sr. High School",
+    district: "Riverview Gardens School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverview Gardens School District covers essentially all Riverview's residents (2020 census blocks). Riverview Gardens Sr. High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 1,246 students in grades 9-12 with a 69% graduation rate; its graduates who took the ACT averaged 14.6 in 2025 (109 of 256 graduates tested; Missouri DESE)."
+  },
+  "Rock Hill (MO)": {
+    hs: "Webster Groves High School",
+    district: "Webster Groves School District",
+    feedsTo: "Webster Groves High School",
+    usNewsNational: 2222, usNewsState: 29,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Webster Groves School District covers essentially all Rock Hill's residents (2020 census blocks). Rock Hill has no high school inside its boundary; the high school is in St Louis. Webster Groves High School (#29 in Missouri) enrolls 1,253 students in grades 9-12 with a 95% graduation rate and a 31% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (301 of 323 graduates tested; Missouri DESE)."
+  },
+  "Sappington (MO)": {
+    hs: "Lindbergh Sr. High School",
+    district: "Lindbergh School District",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lindbergh School District covers essentially all Sappington's residents (2020 census blocks). Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE)."
+  },
+  "Shrewsbury (MO)": {
+    hs: ["Affton High School", "Webster Groves High School"],
+    district: ["Affton 101 School District", "Webster Groves School District"],
+    feedsTo: "Affton High School / Webster Groves High School",
+    usNewsNational: 2222, usNewsState: 29,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Shrewsbury is split between school districts (2020 census-block shares): Affton 101 School District about 66%, Webster Groves School District about 34%; students attend Affton High School or Webster Groves High School depending on address. Shrewsbury has no high school inside its boundary; the high schools are in St Louis. Affton High School (#128 in Missouri) enrolls 761 students in grades 9-12 with a 90% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.3 in 2025 (128 of 164 graduates tested; Missouri DESE). Also: Webster Groves High School (#29 in Missouri) enrolls 1,253 students in grades 9-12 with a 95% graduation rate and a 31% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (301 of 323 graduates tested; Missouri DESE)."
+  },
+  "Spanish Lake (MO)": {
+    hs: ["Hazelwood West High School", "Hazelwood Central High School", "Hazelwood East High School"],
+    district: ["Hazelwood School District", "Hazelwood School District", "Hazelwood School District"],
+    usNewsNational: 8775, usNewsState: 136,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Hazelwood School District covers essentially all Spanish Lake's residents (2020 census blocks). Hazelwood School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Hazelwood West High School (#136 in Missouri) enrolls 1,994 students in grades 9-12 with an 82% graduation rate and a 24% AP/IB-exam participation rate; its graduates who took the ACT averaged 17.5 in 2025 (233 of 465 graduates tested; Missouri DESE). Also: Hazelwood Central High School (#220 in Missouri) enrolls 1,718 students in grades 9-12 with an 80% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 16 in 2025 (191 of 437 graduates tested; Missouri DESE)."
+  },
+  "St. Ann (MO)": {
+    hs: ["Ritenour Sr. High School", "Pattonville Sr. High School"],
+    district: ["Ritenour School District", "Pattonville R-III School District"],
+    feedsTo: "Ritenour Sr. High School / Pattonville Sr. High School",
+    usNewsNational: 4585, usNewsState: 56,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "St. Ann is split between school districts (2020 census-block shares): Ritenour School District about 58%, Pattonville R-III School District about 42%; students attend Ritenour Sr. High School or Pattonville Sr. High School depending on address. St. Ann has no high school inside its boundary; the high schools are in Maryland Heights, St Louis. Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE). Also: Pattonville Sr. High School (#56 in Missouri) enrolls 1,945 students in grades 9-12 with an 89% graduation rate and an 18% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.5 in 2025 (326 of 441 graduates tested; Missouri DESE)."
+  },
+  "St. Charles (MO)": {
+    hs: ["St. Charles West High School", "St. Charles High School", "Francis Howell High School", "Francis Howell Central High School", "Francis Howell North High School", "Orchard Farm Sr. High School"],
+    district: ["St. Charles R-VI School District", "St. Charles R-VI School District", "Francis Howell R-III School District", "Francis Howell R-III School District", "Francis Howell R-III School District", "Orchard Farm R-V School District"],
+    usNewsNational: 1117, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "St. Charles is split between school districts (2020 census-block shares): St. Charles R-VI School District about 63%, Francis Howell R-III School District about 21%, Orchard Farm R-V School District about 16%; students attend St. Charles West High School, St. Charles High School, Francis Howell High School, Francis Howell Central High School, Francis Howell North High School or Orchard Farm Sr. High School depending on address. St. Charles West High School (#63 in Missouri) enrolls 645 students in grades 9-12 with a 91% graduation rate and a 28% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.5 in 2025 (62 of 161 graduates tested; Missouri DESE). Also: St. Charles High School (#113 in Missouri) enrolls 782 students in grades 9-12 with an 89% graduation rate and a 32% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.6 in 2025 (67 of 184 graduates tested; Missouri DESE)."
+  },
+  "St. Clair (MO)": {
+    hs: "St. Clair High School (MO)",
+    district: "St. Clair R-XIII School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Clair R-XIII School District covers essentially all St. Clair's residents (2020 census blocks). St. Clair High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 627 students in grades 9-12 with an 84% graduation rate; its graduates who took the ACT averaged 18 in 2025 (105 of 166 graduates tested; Missouri DESE)."
+  },
+  "St. George (MO)": {
+    hs: ["Affton High School", "Oakville Sr. High School", "Mehlville High School"],
+    district: ["Affton 101 School District", "Mehlville R-IX School District", "Mehlville R-IX School District"],
+    feedsTo: "Affton High School / Oakville Sr. High School / Mehlville High School",
+    usNewsNational: 5902, usNewsState: 79,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "St. George is split between school districts (2020 census-block shares): Affton 101 School District about 46%, Mehlville R-IX School District about 40%; students attend Affton High School, Oakville Sr. High School or Mehlville High School depending on address. Smaller shares are in Bayless School District (14%). St. George has no high school inside its boundary; the high schools are in St Louis. Affton High School (#128 in Missouri) enrolls 761 students in grades 9-12 with a 90% graduation rate and a 30% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.3 in 2025 (128 of 164 graduates tested; Missouri DESE). Also: Oakville Sr. High School (#79 in Missouri) enrolls 1,847 students in grades 9-12 with a 98% graduation rate and a 19% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.2 in 2025 (349 of 451 graduates tested; Missouri DESE)."
+  },
+  "St. John (MO)": {
+    hs: "Ritenour Sr. High School",
+    district: "Ritenour School District",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ritenour School District covers about 93% of St. John's residents (2020 census blocks). The rest are mostly in Normandy Schools Collaborative (7%). Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE)."
+  },
+  "St. Paul (MO)": {
+    hs: ["Ft. Zumwalt South High School", "Ft. Zumwalt West High School", "Ft. Zumwalt North High School", "Ft. Zumwalt East High School"],
+    district: ["Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District"],
+    feedsTo: "Ft. Zumwalt South High School / Ft. Zumwalt West High School / Ft. Zumwalt North High School / Ft. Zumwalt East High School",
+    usNewsNational: 1135, usNewsState: 12,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Fort Zumwalt R-II School District covers essentially all St. Paul's residents (2020 census blocks). Fort Zumwalt R-II School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). St. Paul has no high school inside its boundary; the high schools are in O'fallon, St Peters. Ft. Zumwalt South High School (#12 in Missouri) enrolls 1,212 students in grades 9-12 with a 92% graduation rate and a 45% AP/IB-exam participation rate; its graduates who took the ACT averaged 24 in 2025 (182 of 279 graduates tested; Missouri DESE). Also: Ft. Zumwalt West High School (#15 in Missouri) enrolls 1,643 students in grades 9-12 with a 94% graduation rate and a 38% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (250 of 372 graduates tested; Missouri DESE)."
+  },
+  "St. Peters (MO)": {
+    hs: ["Ft. Zumwalt South High School", "Ft. Zumwalt West High School", "Ft. Zumwalt North High School", "Ft. Zumwalt East High School", "Francis Howell High School", "Francis Howell Central High School", "Francis Howell North High School"],
+    district: ["Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Fort Zumwalt R-II School District", "Francis Howell R-III School District", "Francis Howell R-III School District", "Francis Howell R-III School District"],
+    usNewsNational: 1117, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "St. Peters is split between school districts (2020 census-block shares): Fort Zumwalt R-II School District about 49%, Francis Howell R-III School District about 47%; students attend Ft. Zumwalt South High School, Ft. Zumwalt West High School, Ft. Zumwalt North High School, Ft. Zumwalt East High School, Francis Howell High School, Francis Howell Central High School or Francis Howell North High School depending on address. Smaller shares are in St. Charles R-VI School District (4%). Ft. Zumwalt South High School (#12 in Missouri) enrolls 1,212 students in grades 9-12 with a 92% graduation rate and a 45% AP/IB-exam participation rate; its graduates who took the ACT averaged 24 in 2025 (182 of 279 graduates tested; Missouri DESE). Also: Ft. Zumwalt West High School (#15 in Missouri) enrolls 1,643 students in grades 9-12 with a 94% graduation rate and a 38% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (250 of 372 graduates tested; Missouri DESE)."
+  },
+  "Sullivan (MO)": {
+    hs: "Sullivan Sr. High School",
+    district: "Sullivan C-2 School District",
+    usNewsNational: 11528, usNewsState: 206,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sullivan C-2 School District covers essentially all Sullivan's residents (2020 census blocks). Sullivan Sr. High School (#206 in Missouri) enrolls 668 students in grades 9-12 with a 91% graduation rate and a 17% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.8 in 2025 (151 of 167 graduates tested; Missouri DESE)."
+  },
+  "Sunset Hills (MO)": {
+    hs: "Lindbergh Sr. High School",
+    district: "Lindbergh School District",
+    feedsTo: "Lindbergh Sr. High School",
+    usNewsNational: 1385, usNewsState: 18,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lindbergh School District covers essentially all Sunset Hills's residents (2020 census blocks). Sunset Hills has no high school inside its boundary; the high school is in St. Louis. Lindbergh Sr. High School (#18 in Missouri) enrolls 2,304 students in grades 9-12 with a 96% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.5 in 2025 (346 of 594 graduates tested; Missouri DESE)."
+  },
+  "Sycamore Hills (MO)": {
+    hs: "Ritenour Sr. High School",
+    district: "Ritenour School District",
+    feedsTo: "Ritenour Sr. High School",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ritenour School District covers essentially all Sycamore Hills's residents (2020 census blocks). Sycamore Hills has no high school inside its boundary; the high school is in St Louis. Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE)."
+  },
+  "Town and Country (MO)": {
+    hs: ["Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School"],
+    district: ["Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District"],
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Parkway C-2 School District covers about 98% of Town and Country's residents (2020 census blocks). Parkway C-2 School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE). Also: Central High School (#20 in Missouri) enrolls 1,281 students in grades 9-12 with a 97% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (284 of 322 graduates tested; Missouri DESE)."
+  },
+  "Troy (MO)": {
+    hs: "Troy Buchanan High School",
+    district: "Troy R-III School District",
+    usNewsNational: 8043, usNewsState: 122,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Troy R-III School District covers essentially all Troy's residents (2020 census blocks). Troy Buchanan High School (#122 in Missouri) enrolls 2,148 students in grades 9-12 with a 96% graduation rate and a 23% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.9 in 2025 (202 of 496 graduates tested; Missouri DESE)."
+  },
+  "Truesdale (MO)": {
+    hs: "Warrenton High School",
+    district: "Warren County R-III School District",
+    feedsTo: "Warrenton High School",
+    usNewsNational: 11978, usNewsState: 218,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Warren County R-III School District covers essentially all Truesdale's residents (2020 census blocks). Truesdale has no high school inside its boundary; the high school is in Warrenton. Warrenton High School (#218 in Missouri) enrolls 974 students in grades 9-12 with a 91% graduation rate and a 13% AP/IB-exam participation rate; its graduates who took the ACT averaged 21.3 in 2025 (75 of 260 graduates tested; Missouri DESE)."
+  },
+  "Twin Oaks (MO)": {
+    hs: "Valley Park Sr. High School",
+    district: "Valley Park School District",
+    feedsTo: "Valley Park Sr. High School",
+    usNewsNational: 3677, usNewsState: 48,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Valley Park School District covers essentially all Twin Oaks's residents (2020 census blocks). Twin Oaks has no high school inside its boundary; the high school is in Valley Park. Valley Park Sr. High School (#48 in Missouri) enrolls 230 students in grades 9-12 with a 95% graduation rate and a 22% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.7 in 2025 (49 of 57 graduates tested; Missouri DESE)."
+  },
+  "Union (MO)": {
+    hs: "Union High School",
+    district: "Union R-XI School District",
+    usNewsNational: 10938, usNewsState: 196,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Union R-XI School District covers essentially all Union's residents (2020 census blocks). Union High School (#196 in Missouri) enrolls 956 students in grades 9-12 with an 85% graduation rate and a 6% AP/IB-exam participation rate; its graduates who took the ACT averaged 19 in 2025 (143 of 236 graduates tested; Missouri DESE)."
+  },
+  "University City (MO)": {
+    hs: "University City Sr. High School",
+    district: "University City School District",
+    usNewsNational: 8521, usNewsState: 132,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "University City School District covers essentially all University City's residents (2020 census blocks). University City Sr. High School (#132 in Missouri) enrolls 874 students in grades 9-12 with a 92% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.9 in 2025 (119 of 223 graduates tested; Missouri DESE)."
+  },
+  "Valley Park (MO)": {
+    hs: ["Valley Park Sr. High School", "Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School"],
+    district: ["Valley Park School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District"],
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Valley Park is split between school districts (2020 census-block shares): Valley Park School District about 81%, Parkway C-2 School District about 18%; students attend Valley Park Sr. High School, Parkway West High School, Central High School, Parkway South High School or North High School depending on address. Valley Park Sr. High School (#48 in Missouri) enrolls 230 students in grades 9-12 with a 95% graduation rate and a 22% AP/IB-exam participation rate; its graduates who took the ACT averaged 19.7 in 2025 (49 of 57 graduates tested; Missouri DESE). Also: Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE)."
+  },
+  "Velda City (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Velda City's residents (2020 census blocks). Velda City has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Velda Village Hills (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    feedsTo: "Normandy High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Velda Village Hills's residents (2020 census blocks). Velda Village Hills has no high school inside its boundary; the high school is in St Louis. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Villa Ridge (MO)": {
+    hs: "Pacific High School",
+    district: "Meramec Valley R-III School District",
+    feedsTo: "Pacific High School",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Meramec Valley R-III School District covers about 98% of Villa Ridge's residents (2020 census blocks). Villa Ridge has no high school inside its boundary; the high school is in Pacific. Pacific High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 973 students in grades 9-12 with a 93% graduation rate and a 5% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.1 in 2025 (84 of 238 graduates tested; Missouri DESE)."
+  },
+  "Vinita Park (MO)": {
+    hs: ["Normandy High School", "University City Sr. High School"],
+    district: ["Normandy Schools Collaborative", "University City School District"],
+    feedsTo: "Normandy High School / University City Sr. High School",
+    usNewsNational: 8521, usNewsState: 132,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Vinita Park is split between school districts (2020 census-block shares): Normandy Schools Collaborative about 68%, University City School District about 28%; students attend Normandy High School or University City Sr. High School depending on address. Smaller shares are in Ritenour School District (4%). Vinita Park has no high school inside its boundary; the high schools are in St Louis, University City. Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE). Also: University City Sr. High School (#132 in Missouri) enrolls 874 students in grades 9-12 with a 92% graduation rate and a 12% AP/IB-exam participation rate; its graduates who took the ACT averaged 15.9 in 2025 (119 of 223 graduates tested; Missouri DESE)."
+  },
+  "Warrenton (MO)": {
+    hs: "Warrenton High School",
+    district: "Warren County R-III School District",
+    usNewsNational: 11978, usNewsState: 218,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Warren County R-III School District covers essentially all Warrenton's residents (2020 census blocks). Warrenton High School (#218 in Missouri) enrolls 974 students in grades 9-12 with a 91% graduation rate and a 13% AP/IB-exam participation rate; its graduates who took the ACT averaged 21.3 in 2025 (75 of 260 graduates tested; Missouri DESE)."
+  },
+  "Warson Woods (MO)": {
+    hs: ["Webster Groves High School", "Kirkwood Sr. High School"],
+    district: ["Webster Groves School District", "Kirkwood R-VII School District"],
+    feedsTo: "Webster Groves High School / Kirkwood Sr. High School",
+    usNewsNational: 1774, usNewsState: 24,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Warson Woods is split between school districts (2020 census-block shares): Webster Groves School District about 76%, Kirkwood R-VII School District about 24%; students attend Webster Groves High School or Kirkwood Sr. High School depending on address. Warson Woods has no high school inside its boundary; the high schools are in Kirkwood, St Louis. Webster Groves High School (#29 in Missouri) enrolls 1,253 students in grades 9-12 with a 95% graduation rate and a 31% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (301 of 323 graduates tested; Missouri DESE). Also: Kirkwood Sr. High School (#24 in Missouri) enrolls 1,693 students in grades 9-12 with a 97% graduation rate and a 51% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.4 in 2025 (353 of 391 graduates tested; Missouri DESE)."
+  },
+  "Washington (MO)": {
+    hs: "Washington High School (MO)",
+    district: "Washington School District",
+    usNewsNational: 6887, usNewsState: 102,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Washington School District covers essentially all Washington's residents (2020 census blocks). Washington High School (#102 in Missouri) enrolls 1,263 students in grades 9-12 with a 93% graduation rate and a 33% AP/IB-exam participation rate; its graduates who took the ACT averaged 22 in 2025 (137 of 300 graduates tested; Missouri DESE)."
+  },
+  "Webster Groves (MO)": {
+    hs: "Webster Groves High School",
+    district: "Webster Groves School District",
+    usNewsNational: 2222, usNewsState: 29,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Webster Groves School District covers essentially all Webster Groves's residents (2020 census blocks). Webster Groves High School (#29 in Missouri) enrolls 1,253 students in grades 9-12 with a 95% graduation rate and a 31% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (301 of 323 graduates tested; Missouri DESE)."
+  },
+  "Weldon Spring (MO)": {
+    hs: ["Francis Howell High School", "Francis Howell Central High School", "Francis Howell North High School"],
+    district: ["Francis Howell R-III School District", "Francis Howell R-III School District", "Francis Howell R-III School District"],
+    feedsTo: "Francis Howell High School / Francis Howell Central High School / Francis Howell North High School",
+    usNewsNational: 1117, usNewsState: 10,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Francis Howell R-III School District covers essentially all Weldon Spring's residents (2020 census blocks). Francis Howell R-III School District runs 3 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Weldon Spring has no high school inside its boundary; the high schools are in St Charles. Francis Howell High School (#10 in Missouri) enrolls 1,843 students in grades 9-12 with a 96% graduation rate and a 41% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.4 in 2025 (409 of 455 graduates tested; Missouri DESE). Also: Francis Howell Central High School (#13 in Missouri) enrolls 1,750 students in grades 9-12 with a 96% graduation rate and a 34% AP/IB-exam participation rate; its graduates who took the ACT averaged 20.9 in 2025 (362 of 431 graduates tested; Missouri DESE)."
+  },
+  "Wellston (MO)": {
+    hs: "Normandy High School",
+    district: "Normandy Schools Collaborative",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Normandy Schools Collaborative covers essentially all Wellston's residents (2020 census blocks). Normandy High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 688 students in grades 9-12 with a 63% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 14.8 in 2025 (90 of 160 graduates tested; Missouri DESE)."
+  },
+  "Wentzville (MO)": {
+    hs: ["Liberty High School", "Timberland High School", "North Point High School", "Emil E. Holt Sr. High School"],
+    district: ["Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District", "Wentzville R-IV School District"],
+    usNewsNational: 1537, usNewsState: 21,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Wentzville R-IV School District covers about 96% of Wentzville's residents (2020 census blocks). The rest are mostly in Fort Zumwalt R-II School District (4%). Wentzville R-IV School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Liberty High School (#21 in Missouri) enrolls 1,647 students in grades 9-12 with a 98% graduation rate and a 39% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.2 in 2025 (208 of 371 graduates tested; Missouri DESE). Also: Timberland High School (#36 in Missouri) enrolls 1,525 students in grades 9-12 with a 95% graduation rate and a 25% AP/IB-exam participation rate; its graduates who took the ACT averaged 22.8 in 2025 (216 of 387 graduates tested; Missouri DESE)."
+  },
+  "Wildwood (MO)": {
+    hs: ["Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    usNewsNational: 677, usNewsState: 7,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockwood R-VI School District covers essentially all Wildwood's residents (2020 census blocks). Rockwood R-VI School District runs 4 comprehensive high schools and which one a student attends depends on address (attendance zones not obtained). Lafayette Sr. High School (#7 in Missouri) enrolls 1,669 students in grades 9-12 with a 97% graduation rate and a 60% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.6 in 2025 (385 of 416 graduates tested; Missouri DESE). Also: Marquette Sr. High School (#23 in Missouri) enrolls 2,095 students in grades 9-12 with a 95% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 24.4 in 2025 (453 of 505 graduates tested; Missouri DESE)."
+  },
+  "Winchester (MO)": {
+    hs: ["Parkway West High School", "Central High School (MO)", "Parkway South High School", "North High School", "Lafayette Sr. High School", "Marquette Sr. High School", "Eureka Sr. High School", "Rockwood Summit Sr. High School"],
+    district: ["Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Parkway C-2 School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District", "Rockwood R-VI School District"],
+    feedsTo: "Parkway West High School / Central High School / Parkway South High School / North High School / Lafayette Sr. High School / Marquette Sr. High School / Eureka Sr. High School / Rockwood Summit Sr. High School",
+    usNewsNational: 438, usNewsState: 4,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Winchester is split between school districts (2020 census-block shares): Parkway C-2 School District about 78%, Rockwood R-VI School District about 22%; students attend Parkway West High School, Central High School, Parkway South High School, North High School, Lafayette Sr. High School, Marquette Sr. High School, Eureka Sr. High School or Rockwood Summit Sr. High School depending on address. Winchester has no high school inside its boundary; the high schools are in Ballwin, Chesterfield, Eureka, Fenton, Manchester, St Louis, Wildwood. Parkway West High School (#4 in Missouri) enrolls 1,417 students in grades 9-12 with a 98% graduation rate and a 57% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.7 in 2025 (298 of 342 graduates tested; Missouri DESE). Also: Central High School (#20 in Missouri) enrolls 1,281 students in grades 9-12 with a 97% graduation rate and a 47% AP/IB-exam participation rate; its graduates who took the ACT averaged 23.6 in 2025 (284 of 322 graduates tested; Missouri DESE)."
+  },
+  "Winfield (MO)": {
+    hs: "Winfield High School",
+    district: "Winfield R-IV School District",
+    usNewsNational: 15702, usNewsState: 306,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Winfield R-IV School District covers essentially all Winfield's residents (2020 census blocks). Winfield High School (in the unranked-bottom band, 256–356 in Missouri) enrolls 517 students in grades 9-12 with a 91% graduation rate; its graduates who took the ACT averaged 19.3 in 2025 (47 of 119 graduates tested; Missouri DESE)."
+  },
+  "Woodson Terrace (MO)": {
+    hs: "Ritenour Sr. High School",
+    district: "Ritenour School District",
+    feedsTo: "Ritenour Sr. High School",
+    usNewsNational: 12997, usNewsState: 248,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ritenour School District covers essentially all Woodson Terrace's residents (2020 census blocks). Woodson Terrace has no high school inside its boundary; the high school is in St Louis. Ritenour Sr. High School (#248 in Missouri) enrolls 2,041 students in grades 9-12 with a 76% graduation rate and a 21% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.4 in 2025 (102 of 453 graduates tested; Missouri DESE)."
+  },
+  "Wright City (MO)": {
+    hs: "Wright City High School",
+    district: "Wright City R-II of Warren County",
+    usNewsNational: 8620, usNewsState: 134,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Wright City R-II of Warren County covers essentially all Wright City's residents (2020 census blocks). Wright City High School (#134 in Missouri) enrolls 566 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.5 in 2025 (66 of 162 graduates tested; Missouri DESE)."
+  }
+  // === ST. LOUIS METRO SCHOOL_DATA END ===
 };
 
 // Every CPS (Chicago Public Schools, District 299) high school that carries a

@@ -342,6 +342,7 @@
     font-weight: 600;
     border-bottom: 1px solid rgba(42,38,32,0.08);
   }
+  .heatmap-table .heat-total-col { border-right: 2px solid var(--rule); }
   .heatmap-table td.region-name {
     font-family: 'Inter Tight', sans-serif;
     font-weight: 600;
@@ -450,7 +451,8 @@
     <h2 id="heat-h2">Who's Growing, Who's Shrinking</h2>
     <div class="chart-frame" id="heat-frame">The same story as the chart above, but faceted so every region and every group
       can be scanned at once — a green cell is a group gaining population; red is losing it, independent of
-      what its share of the total is doing. Pick a window below. "Other" is shown but left uncolored: it's a
+      what its share of the total is doing. The Total Pop. column is everyone combined, so you can see
+      whether a group's gain is coming from a growing place or a shrinking one. Pick a window below. "Other" is shown but left uncolored: it's a
       small enough base in most regions that % change swings on noise alone, and coloring it the same way as
       the other four groups would overstate how meaningful those swings are.</div>
     <div class="region-tabs" id="heat-period-tabs"></div>
@@ -1541,10 +1543,17 @@
   function renderHeatmap(entities) {
     const heatmapEl = document.getElementById('race-heatmap');
     const nameLabel = document.getElementById('trend-table-name-header').textContent;
-    let heatHTML = `<thead><tr><th>${nameLabel}</th>` +
+    let heatHTML = `<thead><tr><th>${nameLabel}</th><th class="heat-total-col">Total Pop.</th>` +
       RACE_GROUPS_RT.map(g => `<th>${g.label}</th>`).join('') + '</tr></thead><tbody>';
     entities.forEach(e => {
       heatHTML += `<tr><td class="region-name">${e.label}</td>`;
+      // Total population column -- same popGrowthForRecs Chart 2 uses, so the
+      // number here always matches that chart's bar for the same window.
+      // Same color scale as the race cells (it's the same "% change in
+      // headcount" quantity, just for everyone).
+      const totalV = popGrowthForRecs(e.recs, activeHeatWindow.from, activeHeatWindow.to);
+      const totalLabel = totalV == null ? '—' : `${totalV > 0 ? '+' : ''}${totalV.toFixed(1)}%`;
+      heatHTML += `<td class="heat-total-col" style="background:${heatColor(totalV)};color:${heatTextColor(totalV)}">${totalLabel}</td>`;
       RACE_GROUPS_RT.forEach(g => {
         const v = raceChangeForRecs(e.recs, g.key, activeHeatWindow.from, activeHeatWindow.to);
         const label = v == null ? '—' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`;
