@@ -3178,8 +3178,25 @@ const MULTI_SCHOOL_RANKS = {
     "natl": 1108, "state": 54,
     "sat": 1042, "act": null, "satYear": 2024,
     "satSource": "ISBE 2024 Illinois Report Card"
-  }
+  },
   // === BLOOMINGTON METRO MSR END ===
+  // === KANKAKEE METRO MSR START ===
+  "Grant Park High School": {
+    "natl": 8321, "state": 294,
+    "sat": 977, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Herscher High School": {
+    "natl": 5507, "state": 212,
+    "sat": 964, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "St Anne Comm High School": {
+    "natl": 12784, "state": 437,
+    "sat": 829, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  }
+  // === KANKAKEE METRO MSR END ===
 };
 
 const SCHOOL_DATA = {
@@ -11839,8 +11856,64 @@ const SCHOOL_DATA = {
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     splitDistrict: true,
     note: "McLean County Unit School District 5 covers about 72% of Twin Grove's residents (2020 census blocks), and Olympia Community Unit School District 16 (about 28%). Which high school a student attends depends on address (attendance zones not obtained) between McLean County Unit School District 5 and Olympia Community Unit School District 16. Normal Community High School (#95 in Illinois) enrolls 2,079 students in grades 9-12 with a 92% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT). Normal Community West High School (#210 in Illinois) enrolls 1,590 students in grades 9-12 with a 92% graduation rate; its average SAT total was 934 in 2024 (ISBE, Illinois's last state SAT). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address; the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split and Peoria SD 150's 3-way split, not a Bloomington-specific gap. Unit 5 also operates YBMC Charter School, a small (24-student) credit-recovery/workforce-transition charter program -- real, but not a comprehensive attendance-zone high school, so it is excluded here too."
-  }
+  },
   // === BLOOMINGTON METRO SCHOOL_DATA END ===
+
+  // === KANKAKEE METRO SCHOOL_DATA START ===
+  "Aroma Park": {
+    hs: "Kankakee High School",
+    district: "Kankakee School District 111",
+    feedsTo: "Kankakee High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Kankakee School District 111 covers essentially all of Aroma Park's residents (2020 census blocks). Kankakee High School (in the 469-675 band in Illinois) enrolls 1,360 students in grades 9-12; its average SAT total was 780 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Essex": {
+    hs: "Reed-Custer High School",
+    district: "Reed-Custer Community Unit School District 255U",
+    feedsTo: "Reed-Custer High School",
+    usNewsNational: 8816, usNewsState: 305,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Reed-Custer Community Unit School District 255U covers essentially all of Essex's residents (2020 census blocks). Reed-Custer High School (#305 in Illinois) enrolls 397 students in grades 9-12 with a 97% graduation rate; its average SAT total was 924 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Grant Park": {
+    hs: "Grant Park High School",
+    district: "Grant Park Community Unit School District 6",
+    usNewsNational: 8321, usNewsState: 294,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Grant Park Community Unit School District 6 covers essentially all of Grant Park's residents (2020 census blocks). Grant Park High School (#294 in Illinois) enrolls 127 students in grades 9-12 with a 100% graduation rate; its average SAT total was 977 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Herscher": {
+    hs: "Herscher High School",
+    district: "Herscher Community Unit School District 2",
+    usNewsNational: 5507, usNewsState: 212,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Herscher Community Unit School District 2 covers essentially all of Herscher's residents (2020 census blocks). Herscher High School (#212 in Illinois) enrolls 542 students in grades 9-12 with a 97% graduation rate; its average SAT total was 964 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hopkins Park": {
+    hs: "St Anne Comm High School",
+    district: "St. Anne Unit District 24",
+    feedsTo: "St Anne Comm High School",
+    usNewsNational: 12784, usNewsState: 437,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Anne Unit District 24 covers essentially all of Hopkins Park's residents (2020 census blocks). St Anne Comm High School (#437 in Illinois) enrolls 206 students in grades 9-12; its average SAT total was 829 in 2024 (ISBE, Illinois's last state SAT). Hopkins Park is in Pembroke Township, whose own elementary district (Pembroke Consolidated Community School District 259, K-8 only) has no high school of its own; its students are served by St. Anne Unit District 24's own comprehensive high school -- confirmed via Census TIGERweb's school-district polygon layer and independently via i-kan.org's official Kankakee-County district list, not assumed from the polygon alone. See s4_usnews_browser.md."
+  },
+  "Limestone": {
+    hs: "Herscher High School",
+    district: "Herscher Community Unit School District 2",
+    feedsTo: "Herscher High School",
+    usNewsNational: 5507, usNewsState: 212,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Herscher Community Unit School District 2 covers essentially all of Limestone's residents (2020 census blocks). Herscher High School (#212 in Illinois) enrolls 542 students in grades 9-12 with a 97% graduation rate; its average SAT total was 964 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "St. Anne": {
+    hs: "St Anne Comm High School",
+    district: "St. Anne Unit District 24",
+    usNewsNational: 12784, usNewsState: 437,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Anne Unit District 24 covers essentially all of St. Anne's residents (2020 census blocks). St Anne Comm High School (#437 in Illinois) enrolls 206 students in grades 9-12; its average SAT total was 829 in 2024 (ISBE, Illinois's last state SAT). US News's own metro rankings page displays this school's district as 'St Anne Community High School District 302', but Census TIGERweb, the Illinois State Board of Education's Illinois Report Card, and i-kan.org's own official district list all independently agree the real district is St. Anne Unit District 24 -- a US News data-quality quirk, not this project's error. See s4_usnews_browser.md."
+  }
+  // === KANKAKEE METRO SCHOOL_DATA END ===
 };
 
 // Every CPS (Chicago Public Schools, District 299) high school that carries a

@@ -467,6 +467,58 @@
     margin-left: auto;
   }
 
+  /* Region buttons, living right after the PLAY button in the Point-in-Time
+     row (was a <select> in .filter-cluster -- converted to one-click
+     buttons per explicit request, 2026-09-23: clicking a region should both
+     filter AND jump straight to it + its top-pane aggregate, which a
+     dropdown makes a two-step "pick then confirm" gesture). Deliberately
+     NOT .tl-stop's own faded/muted look (2026-09-23 follow-up request:
+     "more prominent... sharper borders and we don't fade them out") --
+     full-strength ink text and a solid, full-opacity border even when
+     inactive, square corners, no dimming anywhere but :disabled (the
+     single-metro "no sub-regions here" case). Placed before #tl-note
+     (which carries margin-left:auto) specifically so the group sits right
+     next to PLAY regardless of viewport width, instead of drifting to the
+     far right edge on a wide screen. The underlying #region-filter <select>
+     still exists (hidden) -- every other piece of code that reads/sets
+     regionFilter via that select (URL state, storyline chapters, the
+     welcome tour, compare-mode restore) keeps working unchanged; see
+     renderRegionButtons/syncRegionButtons. */
+  .region-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .region-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border: 1.5px solid var(--col-high, #4575b4);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 0;
+    padding: 4px 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+  }
+  .region-btn.active {
+    background: var(--col-high, #4575b4);
+    color: var(--paper);
+    border-color: var(--col-high, #4575b4);
+  }
+  .region-btn:not(.active):not(:disabled):hover {
+    background: var(--paper-warm);
+    color: var(--ink);
+    border-color: var(--col-high, #4575b4);
+  }
+  .region-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
   /* Live caption for the currently-selected metric -- what the map colors
      mean right now. UX audit item 2 (2026-09-03): previously its own
      full-width strip (.view-header, ~36-50px of vertical space at every
@@ -2168,7 +2220,14 @@
           <option value="St. Louis">St. Louis</option>
         </select>
       </div>
-      <div class="filter-item">
+      <!-- Region is now the button group at the right of the Point-in-Time
+           row below (#region-btn-group), not a dropdown here -- 2026-09-23.
+           This <select> stays in the DOM, hidden, purely as the existing
+           state-sync point every other feature (URL state, storyline
+           chapters, welcome tour, compare-mode restore) already reads/writes
+           via document.getElementById('region-filter'); see
+           renderRegionButtons/syncRegionButtons near updateRegionFilterOptions. -->
+      <div class="filter-item" style="display:none;">
         <label for="region-filter">region</label>
         <select id="region-filter">
           <option value="all">All</option>
@@ -2217,6 +2276,7 @@
       <button class="tl-stop active" data-year="2024">2024</button>
     </div>
     <button class="tl-play" id="tl-play">▶ PLAY</button>
+    <div class="region-btn-group" id="region-btn-group"></div>
     <span class="tl-note" id="tl-note"></span>
   </div>
   <div class="tl-row tl-inactive" id="tl-row-change">
@@ -3568,6 +3628,28 @@
     };
   }
 
+  // A third, faint line on the permanent in-polygon label -- "pop +52%" --
+  // pairing whatever %-change metric is on screen with the place's OWN
+  // population change over the same baseline, so a fast-growing (or
+  // fast-shrinking) place doesn't read as unremarkable just because its
+  // income/race/other headline number happens to be flat. Explicit request,
+  // 2026-09-23: "the little transparent boxes that show up on the map...
+  // any way to enhance these." Deliberately compact (a single lookup, no
+  // region-aggregate math) -- these labels render for potentially hundreds
+  // of visible polygons at once. An earlier attempt added a fuller "N% of
+  // the region's growth" sentence to the hover card instead; removed same
+  // day as too cluttered/hard to parse at a glance -- this compact tag is
+  // the kept solution. Uses .lbl-tag, the same de-emphasized style already
+  // used for "+N more" schools / "Disp." on this same label.
+  function compactPopChangeTag(rec) {
+    if (timelineMode !== 'change' || metric === 'population' || metric.startsWith('population_change')) return '';
+    const basePop = rec['population_' + selectedYear];
+    if (rec.population == null || basePop == null || basePop === 0) return '';
+    const pct = (rec.population - basePop) / basePop * 100;
+    const text = (pct >= 0 ? '+' : '') + (Math.abs(pct) >= 10 ? Math.round(pct) : pct.toFixed(1)) + '%';
+    return '<br><span class="lbl-tag">pop ' + text + '</span>';
+  }
+
   function buildLabelText(metric, rec) {
     // Top line: town name (bold). Tracts get the shorter "Tract NN.NN" form
     // so the parent CCA name doesn't blow out small polygons.
@@ -3616,9 +3698,9 @@
       const absVal = rec[rf.replace('_chg_', '_chgabs_')];
       const absPart = absVal == null ? null : (absVal >= 0 ? '+' : '-') +
         (Math.abs(absVal) >= 1000 ? Math.round(Math.abs(absVal) / 1000) + 'K' : Math.round(Math.abs(absVal)));
-      return nameLine + '<br>' + pctPart + (absPart ? ' / ' + absPart : '');
+      return nameLine + '<br>' + pctPart + (absPart ? ' / ' + absPart : '') + compactPopChangeTag(rec);
     }
-    return nameLine + '<br>' + fmtLabel(rf, rec[rf]);
+    return nameLine + '<br>' + fmtLabel(rf, rec[rf]) + compactPopChangeTag(rec);
   }
 
   // Raw headcount metrics -- formatted like population (K/M abbreviation in
@@ -5347,6 +5429,17 @@
     '<option value="Southwest">Southwest</option>' +
     '<option value="South">South</option>' +
     '<option value="NWI">NWI (Indiana)</option>';
+
+  // Same 8 region choices as CHICAGOLAND_REGION_OPTIONS above, but as the
+  // ordered list + short button labels #region-btn-group renders from (see
+  // renderRegionButtons near updateRegionFilterOptions). Full names go in
+  // each button's title= tooltip via REGION_LABELS (declared further down,
+  // read at click/render time, well after its own declaration has run).
+  const REGION_BTN_ORDER = ['all', 'Chicago', 'North', 'Northwest', 'West', 'Southwest', 'South', 'NWI'];
+  const REGION_BTN_SHORT = {
+    all: 'All', Chicago: 'Chicago', North: 'North', Northwest: 'NW',
+    West: 'West', Southwest: 'SW', South: 'South', NWI: 'NWI',
+  };
 
   let minPop = 500;
   let tractsView = 'off';  // 'off' (aggregate CCAs/towns) or 'on' (census tracts) — global, covers Chicago + the 11 suburbs
@@ -7124,6 +7217,42 @@
       sel.disabled = true; // no sub-regions to pick within a pilot metro yet
     }
     sel.value = 'all';
+    renderRegionButtons(metroKey);
+  }
+
+  // Rebuilds #region-btn-group's buttons for whichever regions are valid
+  // under the current metro (all 8 for Chicagoland, a single disabled "All"
+  // for every other metro -- mirrors updateRegionFilterOptions's own
+  // Chicagoland/else split above, since a pilot/added metro has no
+  // Chicagoland-style sub-regions yet). Called whenever
+  // updateRegionFilterOptions is (metro switch, URL restore, storyline
+  // chapters); syncRegionButtons alone is enough after that, for any other
+  // spot that only changes WHICH region is active without changing the
+  // valid set.
+  function renderRegionButtons(metroKey) {
+    const wrap = document.getElementById('region-btn-group');
+    if (!wrap) return;
+    if (metroKey === 'Chicagoland') {
+      wrap.innerHTML = REGION_BTN_ORDER.map(key =>
+        `<button type="button" class="region-btn" data-region="${key}" title="${REGION_LABELS[key] || key}">${REGION_BTN_SHORT[key]}</button>`
+      ).join('');
+    } else {
+      wrap.innerHTML = '<button type="button" class="region-btn" data-region="all" disabled title="No sub-regions in this metro yet">All</button>';
+    }
+    syncRegionButtons();
+  }
+
+  // Marks whichever button matches the live regionFilter as .active --
+  // cheap (just a classList toggle per button), so every place that used to
+  // just set the hidden #region-filter select's .value directly (readUrlState,
+  // the welcome tour, storyline chapters, compare-mode restore) calls this
+  // right after, instead of needing its own copy of the highlight logic.
+  function syncRegionButtons() {
+    const wrap = document.getElementById('region-btn-group');
+    if (!wrap) return;
+    wrap.querySelectorAll('.region-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.region === regionFilter);
+    });
   }
 
   document.getElementById('metro-filter').addEventListener('change', e => {
@@ -7145,6 +7274,26 @@
     zoomToRegion(regionFilter);
     refresh();
   });
+  // Region buttons (#region-btn-group) are the actual visible control now
+  // (see the HTML comment on the hidden #region-filter <select> above) --
+  // one click both filters AND jumps to the region + its top-pane aggregate,
+  // same three calls the <select>'s own 'change' listener above makes, so
+  // there's exactly one behavior regardless of which control drove it.
+  // Delegated on the wrapper since renderRegionButtons replaces its children
+  // wholesale on every metro switch/URL restore.
+  document.getElementById('region-btn-group').addEventListener('click', e => {
+    const btn = e.target.closest('.region-btn');
+    if (!btn || btn.disabled) return;
+    const val = btn.dataset.region;
+    if (val === regionFilter) return; // already showing this region
+    regionFilter = val;
+    document.getElementById('region-filter').value = val; // keep the hidden select in sync for every other reader of it
+    syncRegionButtons();
+    if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
+    zoomToRegion(regionFilter);
+    refresh();
+  });
+  renderRegionButtons(metroFilter); // initial paint -- readUrlState only rebuilds this when a URL hash exists
   document.getElementById('min-pop').addEventListener('input', e => {
     const n = parseInt(e.target.value, 10);
     minPop = Number.isFinite(n) && n >= 0 ? n : 0;
@@ -7227,6 +7376,7 @@
     document.getElementById('metro-filter').value = metroFilter;
     updateRegionFilterOptions(metroFilter);
     document.getElementById('region-filter').value = regionFilter;
+    syncRegionButtons();
     document.getElementById('min-pop').value = minPop;
     document.getElementById('tracts-view').value = tractsView;
     syncDropdowns();
@@ -8584,6 +8734,7 @@
       regionFilter = s.regionKey || 'all';
       const regionSelect = document.getElementById('region-filter');
       if (regionSelect) regionSelect.value = regionFilter;
+      syncRegionButtons();
       refresh();
 
       zoomToRegion(s.regionKey);
@@ -8674,6 +8825,7 @@
         regionFilter = savedRegionFilter;
         const regionSelect = document.getElementById('region-filter');
         if (regionSelect) regionSelect.value = regionFilter;
+        syncRegionButtons();
         refresh();
         zoomToRegion(regionFilter === 'all' ? null : regionFilter);
       }
@@ -8880,6 +9032,7 @@
     updateRegionFilterOptions('Chicagoland');
     regionFilter = ch.setRegion;
     document.getElementById('region-filter').value = ch.setRegion;
+    syncRegionButtons();
     metric = ch.metric;
     timelineMode = ch.timelineMode;
     selectedYear = ch.year;
