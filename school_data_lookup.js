@@ -3195,8 +3195,48 @@ const MULTI_SCHOOL_RANKS = {
     "natl": 12784, "state": 437,
     "sat": 829, "act": null, "satYear": 2024,
     "satSource": "ISBE 2024 Illinois Report Card"
-  }
+  },
   // === KANKAKEE METRO MSR END ===
+  // === DECATUR METRO MSR START ===
+  "Argenta-Oreana High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 871, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Eisenhower High School (IL)": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 783, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Macarthur High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 807, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Maroa-Forsyth Senior High School": {
+    "natl": 6704, "state": 251,
+    "sat": 982, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Meridian High School": {
+    "natl": 10771, "state": 374,
+    "sat": 923, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Mt Zion High School": {
+    "natl": 3902, "state": 154,
+    "sat": 985, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Warrensburg-Latham High School": {
+    "natl": 9485, "state": 322,
+    "sat": 935, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  }
+  // === DECATUR METRO MSR END ===
 };
 
 const SCHOOL_DATA = {
@@ -11912,8 +11952,101 @@ const SCHOOL_DATA = {
     usNewsNational: 12784, usNewsState: 437,
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     note: "St. Anne Unit District 24 covers essentially all of St. Anne's residents (2020 census blocks). St Anne Comm High School (#437 in Illinois) enrolls 206 students in grades 9-12; its average SAT total was 829 in 2024 (ISBE, Illinois's last state SAT). US News's own metro rankings page displays this school's district as 'St Anne Community High School District 302', but Census TIGERweb, the Illinois State Board of Education's Illinois Report Card, and i-kan.org's own official district list all independently agree the real district is St. Anne Unit District 24 -- a US News data-quality quirk, not this project's error. See s4_usnews_browser.md."
-  }
+  },
   // === KANKAKEE METRO SCHOOL_DATA END ===
+
+  // === DECATUR METRO SCHOOL_DATA START ===
+  "Argenta": {
+    hs: "Argenta-Oreana High School",
+    district: "Argenta-Oreana Community Unit School District 1",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Argenta-Oreana Community Unit School District 1 covers essentially all of Argenta's residents (2020 census blocks). Argenta-Oreana High School (in the 469-675 band in Illinois) enrolls 268 students in grades 9-12 with a 84% graduation rate; its average SAT total was 871 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Blue Mound": {
+    hs: "Meridian High School",
+    district: "Meridian Community Unit School District 15",
+    feedsTo: "Meridian High School",
+    usNewsNational: 10771, usNewsState: 374,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Meridian Community Unit School District 15 covers essentially all of Blue Mound's residents (2020 census blocks). Meridian High School (#374 in Illinois) enrolls 287 students in grades 9-12 with a 93% graduation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Decatur": {
+    hs: ["Eisenhower High School (IL)", "Macarthur High School"],
+    district: ["Decatur School District 61", "Decatur School District 61"],
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Decatur School District 61 covers about 89% of Decatur's residents (2020 census blocks). The rest are mostly in Warrensburg-Latham Community Unit District 11 (4%), Argenta-Oreana Community Unit School District 1 (3%). Decatur School District 61 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Eisenhower High School (IL) (in the 469-675 band in Illinois) enrolls 909 students in grades 9-12; its average SAT total was 783 in 2024 (ISBE, Illinois's last state SAT). Macarthur High School (in the 469-675 band in Illinois) enrolls 1,059 students in grades 9-12 with a 78% graduation rate; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). St Teresa High School, a private Roman Catholic high school (Diocese of Springfield in Illinois, founded 1866), is also physically located in Decatur (enrollment 237, grades 7-12) -- verified real, but it is not modeled as any place's assigned high school here for two reasons: it is not zoned by residential address (diocese-wide private admissions), and it has no US News academic rank at all (US News's 'Best High Schools' ranking system covers public schools only). See build_decatur_schools.py's own module docstring. Decatur School District 61 splits students across 2 comprehensive high schools by address (Eisenhower High School and MacArthur High School); the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split, Peoria SD 150's 3-way split and Bloomington Unit 5's 2-way split, not a Decatur-specific gap."
+  },
+  "Forsyth": {
+    hs: "Maroa-Forsyth Senior High School",
+    district: "Maroa-Forsyth Community Unit School District 2",
+    feedsTo: "Maroa-Forsyth Senior High School",
+    usNewsNational: 6704, usNewsState: 251,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Maroa-Forsyth Community Unit School District 2 covers about 91% of Forsyth's residents (2020 census blocks). The rest are mostly in Warrensburg-Latham Community Unit District 11 (9%). Maroa-Forsyth Senior High School (#251 in Illinois) enrolls 348 students in grades 9-12 with a 94% graduation rate; its average SAT total was 982 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Harristown": {
+    hs: "Sangamon Valley High School",
+    district: "Sangamon Valley Community Unit School District 9",
+    feedsTo: "Sangamon Valley High School",
+    usNewsNational: 10859, usNewsState: 375,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sangamon Valley Community Unit School District 9 covers essentially all of Harristown's residents (2020 census blocks). Sangamon Valley High School (#375 in Illinois) enrolls 204 students in grades 9-12 with a 88% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Long Creek": {
+    hs: "Mt Zion High School",
+    district: "Mount Zion Community Unit School District 3",
+    feedsTo: "Mt Zion High School",
+    usNewsNational: 3902, usNewsState: 154,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mount Zion Community Unit School District 3 covers essentially all of Long Creek's residents (2020 census blocks). Mt Zion High School (#154 in Illinois) enrolls 762 students in grades 9-12 with a 96% graduation rate; its average SAT total was 985 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Macon": {
+    hs: "Meridian High School",
+    district: "Meridian Community Unit School District 15",
+    usNewsNational: 10771, usNewsState: 374,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Meridian Community Unit School District 15 covers essentially all of Macon's residents (2020 census blocks). Meridian High School (#374 in Illinois) enrolls 287 students in grades 9-12 with a 93% graduation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Maroa": {
+    hs: "Maroa-Forsyth Senior High School",
+    district: "Maroa-Forsyth Community Unit School District 2",
+    usNewsNational: 6704, usNewsState: 251,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Maroa-Forsyth Community Unit School District 2 covers essentially all of Maroa's residents (2020 census blocks). Maroa-Forsyth Senior High School (#251 in Illinois) enrolls 348 students in grades 9-12 with a 94% graduation rate; its average SAT total was 982 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mount Zion": {
+    hs: "Mt Zion High School",
+    district: "Mount Zion Community Unit School District 3",
+    usNewsNational: 3902, usNewsState: 154,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mount Zion Community Unit School District 3 covers essentially all of Mount Zion's residents (2020 census blocks). Mt Zion High School (#154 in Illinois) enrolls 762 students in grades 9-12 with a 96% graduation rate; its average SAT total was 985 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Niantic": {
+    hs: "Sangamon Valley High School",
+    district: "Sangamon Valley Community Unit School District 9",
+    usNewsNational: 10859, usNewsState: 375,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sangamon Valley Community Unit School District 9 covers essentially all of Niantic's residents (2020 census blocks). Sangamon Valley High School (#375 in Illinois) enrolls 204 students in grades 9-12 with a 88% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Oreana": {
+    hs: "Argenta-Oreana High School",
+    district: "Argenta-Oreana Community Unit School District 1",
+    feedsTo: "Argenta-Oreana High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Argenta-Oreana Community Unit School District 1 covers essentially all of Oreana's residents (2020 census blocks). Argenta-Oreana High School (in the 469-675 band in Illinois) enrolls 268 students in grades 9-12 with a 84% graduation rate; its average SAT total was 871 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Warrensburg": {
+    hs: "Warrensburg-Latham High School",
+    district: "Warrensburg-Latham Community Unit District 11",
+    usNewsNational: 9485, usNewsState: 322,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Warrensburg-Latham Community Unit District 11 covers essentially all of Warrensburg's residents (2020 census blocks). Warrensburg-Latham High School (#322 in Illinois) enrolls 336 students in grades 9-12 with a 90% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
+  }
+  // === DECATUR METRO SCHOOL_DATA END ===
 };
 
 // Every CPS (Chicago Public Schools, District 299) high school that carries a

@@ -2212,6 +2212,7 @@
           <option value="Champaign-Urbana">Champaign-Urbana</option>
           <option value="Springfield">Springfield</option>
           <option value="Bloomington">Bloomington</option>
+          <option value="Decatur">Decatur</option>
           <option value="South Bend">South Bend</option>
           <option value="Jamestown">Jamestown</option>
           <option value="Austin">Austin</option>
@@ -7285,11 +7286,21 @@
     const btn = e.target.closest('.region-btn');
     if (!btn || btn.disabled) return;
     const val = btn.dataset.region;
-    if (val === regionFilter) return; // already showing this region
     regionFilter = val;
     document.getElementById('region-filter').value = val; // keep the hidden select in sync for every other reader of it
     syncRegionButtons();
-    if (window._updateRegionBanner) window._updateRegionBanner(regionFilter);
+    // Always reset the top pane to this region's own aggregate, even if a
+    // specific town's side pane is currently open -- explicit request,
+    // 2026-09-23: a region button is a "take me to this region" action, not
+    // just a map filter, so it shouldn't leave an unrelated town's profile
+    // sitting in the top pane. window._updateRegionBanner (used by the
+    // hidden <select>'s own change listener, URL restore, the welcome tour,
+    // etc.) deliberately does NOT do this -- it only refreshes the banner
+    // when nothing is selected, which stays correct for those callers; a
+    // direct click on a region button is the one place that should override
+    // an open side pane, so it calls _showRegionAggregate directly instead.
+    if (_activeSidePaneRec) closeSidePane();
+    if (window._showRegionAggregate) window._showRegionAggregate(regionFilter);
     zoomToRegion(regionFilter);
     refresh();
   });
@@ -8179,7 +8190,7 @@
     const contains   = all.filter(x => !x.rec.name.toLowerCase().startsWith(lower)
                                        && x.rec.name.toLowerCase().includes(lower));
     // Metro names are searchable too: 'Detroit' has no single place record (the city is 201 neighborhoods).
-    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis', 'Champaign-Urbana', 'Springfield', 'Bloomington'];
+    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis', 'Champaign-Urbana', 'Springfield', 'Bloomington', 'Decatur'];
     const metroHits = METRO_NAMES.filter(m => m.toLowerCase().startsWith(lower)).map(m => ({ isMetro: true, metro: m }));
     const hits = [...metroHits, ...startsWith, ...contains].slice(0, 9);
     if (!hits.length) { searchResults.style.display = 'none'; return; }
