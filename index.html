@@ -2213,6 +2213,7 @@
           <option value="Springfield">Springfield</option>
           <option value="Bloomington">Bloomington</option>
           <option value="Decatur">Decatur</option>
+          <option value="Quad Cities">Quad Cities</option>
           <option value="South Bend">South Bend</option>
           <option value="Jamestown">Jamestown</option>
           <option value="Austin">Austin</option>
@@ -6548,7 +6549,7 @@
     // this whole branch only fires for a school with a state rank but no
     // national rank, which is rare (nearly every school in this dataset has
     // both).
-    const STATE_HS_TOTAL = { IL: 675, IN: 404, MI: 678, MO: 356 }; // IN 404 / MI 678: US News 2026-2027 state search JSON, counted 2026-09-21
+    const STATE_HS_TOTAL = { IL: 675, IN: 404, MI: 678, MO: 356, IA: 324 }; // IN 404 / MI 678: US News 2026-2027 state search JSON, counted 2026-09-21; IA 324: same method, counted 2026-09-24 for the Quad Cities build (233 numbered + 91 in the shared bottom band, 30 unranked excluded), independently confirmed by two separate research passes
     const NICHE_SCORE = {'A+':97,'A':92,'A-':87,'B+':82,'B':77,'B-':68,'C+':57,'C':50,'C-':42,'D+':35,'D':25,'D-':18,'F':10};
     const MSR = (typeof MULTI_SCHOOL_RANKS !== 'undefined') ? MULTI_SCHOOL_RANKS : {};
 
@@ -8190,7 +8191,7 @@
     const contains   = all.filter(x => !x.rec.name.toLowerCase().startsWith(lower)
                                        && x.rec.name.toLowerCase().includes(lower));
     // Metro names are searchable too: 'Detroit' has no single place record (the city is 201 neighborhoods).
-    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis', 'Champaign-Urbana', 'Springfield', 'Bloomington', 'Decatur'];
+    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis', 'Champaign-Urbana', 'Springfield', 'Bloomington', 'Decatur', 'Quad Cities'];
     const metroHits = METRO_NAMES.filter(m => m.toLowerCase().startsWith(lower)).map(m => ({ isMetro: true, metro: m }));
     const hits = [...metroHits, ...startsWith, ...contains].slice(0, 9);
     if (!hits.length) { searchResults.style.display = 'none'; return; }

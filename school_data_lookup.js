@@ -3210,7 +3210,7 @@ const MULTI_SCHOOL_RANKS = {
     "sat": 783, "act": null, "satYear": 2024,
     "satSource": "ISBE 2024 Illinois Report Card"
   },
-  "Macarthur High School": {
+  "MacArthur High School": {
     "natl": 15702, "state": 572,
     "natlBand": "13,460-17,945", "stateBand": "469-675",
     "sat": 807, "act": null, "satYear": 2024,
@@ -3235,8 +3235,128 @@ const MULTI_SCHOOL_RANKS = {
     "natl": 9485, "state": 322,
     "sat": 935, "act": null, "satYear": 2024,
     "satSource": "ISBE 2024 Illinois Report Card"
-  }
+  },
   // === DECATUR METRO MSR END ===
+  // === QUAD CITIES METRO MSR START ===
+  "Alwood Middle/High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 922, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Annawan High School": {
+    "natl": 6105, "state": 234,
+    "sat": 1073, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Bettendorf High School": {
+    "natl": 3721, "state": 26,
+    "sat": null, "act": null,
+    "satSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup.",
+    "actSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup."
+  },
+  "Cambridge Jr/Sr High School": {
+    "natl": 13223, "state": 458,
+    "sat": 926, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Central High School (IA)": {
+    "natl": 15702, "state": 279,
+    "natlBand": "13,460-17,945", "stateBand": "234-324",
+    "sat": null, "act": null,
+    "satSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup.",
+    "actSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup."
+  },
+  "Galva Jr-Sr High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 901, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Geneseo High School": {
+    "natl": 2282, "state": 94,
+    "sat": 984, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Kewanee High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 850, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Mercer County High School": {
+    "natl": 9565, "state": 327,
+    "sat": 930, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Moline Senior High School": {
+    "natl": 5831, "state": 228,
+    "sat": 886, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "North High School (IA)": {
+    "natl": 15702, "state": 279,
+    "natlBand": "13,460-17,945", "stateBand": "234-324",
+    "sat": null, "act": null,
+    "satSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup.",
+    "actSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup."
+  },
+  "North Scott Senior High School": {
+    "natl": 6833, "state": 66,
+    "sat": null, "act": null,
+    "satSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup.",
+    "actSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup."
+  },
+  "Orion High School": {
+    "natl": 9195, "state": 315,
+    "sat": 1030, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Pleasant Valley High School": {
+    "natl": 1270, "state": 6,
+    "sat": null, "act": null,
+    "satSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup.",
+    "actSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup."
+  },
+  "Riverdale Senior High School": {
+    "natl": 10150, "state": 351,
+    "sat": 1010, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Rock Island High School": {
+    "natl": 12163, "state": 412,
+    "sat": 824, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Rockridge High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 968, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Sherrard High School": {
+    "natl": 9363, "state": 319,
+    "sat": 943, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "United Twp High School": {
+    "natl": 7706, "state": 279,
+    "sat": 880, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "West High School": {
+    "natl": 15702, "state": 279,
+    "natlBand": "13,460-17,945", "stateBand": "234-324",
+    "sat": null, "act": null,
+    "satSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup.",
+    "actSource": "Iowa's own statewide summative assessment (ISASP) reports proficiency rates and average scale scores on Iowa's own vertical scale, not a nationally interpretable single number the way an SAT total or ACT composite is, so it is not spliced into this field. Iowa's ACT is voluntary/self-selected (48% statewide participation, average composite 20.8, 2023) with no centralized state-published building-level composite the way Missouri's DESE MCDS publishes one for nearly every Missouri school -- left null rather than fabricated or force-fit from a self-selected, non-comparable subgroup."
+  },
+  "Wethersfield Jr/Sr High School": {
+    "natl": 5868, "state": 231,
+    "sat": 1045, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  }
+  // === QUAD CITIES METRO MSR END ===
 };
 
 const SCHOOL_DATA = {
@@ -11972,12 +12092,12 @@ const SCHOOL_DATA = {
     note: "Meridian Community Unit School District 15 covers essentially all of Blue Mound's residents (2020 census blocks). Meridian High School (#374 in Illinois) enrolls 287 students in grades 9-12 with a 93% graduation rate; its average SAT total was 923 in 2024 (ISBE, Illinois's last state SAT)."
   },
   "Decatur": {
-    hs: ["Eisenhower High School (IL)", "Macarthur High School"],
+    hs: ["Eisenhower High School (IL)", "MacArthur High School"],
     district: ["Decatur School District 61", "Decatur School District 61"],
     usNewsNational: 15702, usNewsState: 572,
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     splitDistrict: true,
-    note: "Decatur School District 61 covers about 89% of Decatur's residents (2020 census blocks). The rest are mostly in Warrensburg-Latham Community Unit District 11 (4%), Argenta-Oreana Community Unit School District 1 (3%). Decatur School District 61 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Eisenhower High School (IL) (in the 469-675 band in Illinois) enrolls 909 students in grades 9-12; its average SAT total was 783 in 2024 (ISBE, Illinois's last state SAT). Macarthur High School (in the 469-675 band in Illinois) enrolls 1,059 students in grades 9-12 with a 78% graduation rate; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). St Teresa High School, a private Roman Catholic high school (Diocese of Springfield in Illinois, founded 1866), is also physically located in Decatur (enrollment 237, grades 7-12) -- verified real, but it is not modeled as any place's assigned high school here for two reasons: it is not zoned by residential address (diocese-wide private admissions), and it has no US News academic rank at all (US News's 'Best High Schools' ranking system covers public schools only). See build_decatur_schools.py's own module docstring. Decatur School District 61 splits students across 2 comprehensive high schools by address (Eisenhower High School and MacArthur High School); the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split, Peoria SD 150's 3-way split and Bloomington Unit 5's 2-way split, not a Decatur-specific gap."
+    note: "Decatur School District 61 covers about 89% of Decatur's residents (2020 census blocks). The rest are mostly in Warrensburg-Latham Community Unit District 11 (4%), Argenta-Oreana Community Unit School District 1 (3%). Decatur School District 61 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Eisenhower High School (IL) (in the 469-675 band in Illinois) enrolls 909 students in grades 9-12; its average SAT total was 783 in 2024 (ISBE, Illinois's last state SAT). MacArthur High School (in the 469-675 band in Illinois) enrolls 1,059 students in grades 9-12 with a 78% graduation rate; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). St Teresa High School, a private Roman Catholic high school (Diocese of Springfield in Illinois, founded 1866), is also physically located in Decatur (enrollment 237, grades 7-12) -- verified real, but it is not modeled as any place's assigned high school here for two reasons: it is not zoned by residential address (diocese-wide private admissions), and it has no US News academic rank at all (US News's 'Best High Schools' ranking system covers public schools only). See build_decatur_schools.py's own module docstring. Decatur School District 61 splits students across 2 comprehensive high schools by address (Eisenhower High School and MacArthur High School); the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split, Peoria SD 150's 3-way split and Bloomington Unit 5's 2-way split, not a Decatur-specific gap."
   },
   "Forsyth": {
     hs: "Maroa-Forsyth Senior High School",
@@ -12045,8 +12165,330 @@ const SCHOOL_DATA = {
     usNewsNational: 9485, usNewsState: 322,
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     note: "Warrensburg-Latham Community Unit District 11 covers essentially all of Warrensburg's residents (2020 census blocks). Warrensburg-Latham High School (#322 in Illinois) enrolls 336 students in grades 9-12 with a 90% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
-  }
+  },
   // === DECATUR METRO SCHOOL_DATA END ===
+
+  // === QUAD CITIES METRO SCHOOL_DATA START ===
+  "Aledo": {
+    hs: "Mercer County High School",
+    district: "Mercer County School District 404",
+    usNewsNational: 9565, usNewsState: 327,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mercer County School District 404 covers essentially all of Aledo's residents (2020 census blocks). Mercer County High School (#327 in IL) enrolls 411 students in grades 9-12 with a 80% graduation rate; its average SAT total was 930 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Alpha": {
+    hs: "Alwood Middle/High School",
+    district: "Alwood Community Unit School District 225",
+    feedsTo: "Alwood Middle/High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Alwood Community Unit School District 225 covers essentially all of Alpha's residents (2020 census blocks). Alwood Middle/High School (in the 469-675 band in IL) enrolls 98 students in grades 9-12 with a 94% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Andalusia": {
+    hs: "Rockridge High School",
+    district: "Rockridge Community Unit School District 300",
+    feedsTo: "Rockridge High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rockridge Community Unit School District 300 covers essentially all of Andalusia's residents (2020 census blocks). Rockridge High School (in the 469-675 band in IL) enrolls 330 students in grades 9-12 with a 93% graduation rate; its average SAT total was 968 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Andover": {
+    hs: "Orion High School",
+    district: "Orion Community Unit School District 223",
+    feedsTo: "Orion High School",
+    usNewsNational: 9195, usNewsState: 315,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Orion Community Unit School District 223 covers about 92% of Andover's residents (2020 census blocks). The rest are mostly in Cambridge Community Unit School District 227 (8%). Orion High School (#315 in IL) enrolls 285 students in grades 9-12 with a 99% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Annawan": {
+    hs: "Annawan High School",
+    district: "Annawan Community Unit School District 226",
+    usNewsNational: 6105, usNewsState: 234,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Annawan Community Unit School District 226 covers essentially all of Annawan's residents (2020 census blocks). Annawan High School (#234 in IL) enrolls 99 students in grades 9-12 with a 94% graduation rate; its average SAT total was 1073 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Atkinson": {
+    hs: "Geneseo High School",
+    district: "Geneseo Community Unit School District 228",
+    feedsTo: "Geneseo High School",
+    usNewsNational: 2282, usNewsState: 94,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Geneseo Community Unit School District 228 covers essentially all of Atkinson's residents (2020 census blocks). Geneseo High School (#94 in IL) enrolls 794 students in grades 9-12 with a 98% graduation rate; its average SAT total was 984 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Bettendorf": {
+    hs: ["Bettendorf High School", "Pleasant Valley High School"],
+    district: [null, null],
+    usNewsNational: 3721, usNewsState: 26,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Bettendorf Community School District covers about 54% of Bettendorf's residents (2020 census blocks), and Pleasant Valley Community School District (about 46%). Which high school a student attends depends on address (attendance zones not obtained) between Bettendorf Community School District and Pleasant Valley Community School District. Bettendorf High School (#26 in IA) enrolls 1,433 students in grades 9-12 with a 90% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). Pleasant Valley High School (#6 in IA) enrolls 1,731 students in grades 9-12 with a 94% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Blue Grass": {
+    hs: ["Central High School (IA)", "North High School (IA)", "West High School"],
+    district: [null, null, null],
+    feedsTo: "Central High School (IA) / North High School (IA) / West High School",
+    usNewsNational: 15702, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Davenport Community School District covers essentially all of Blue Grass's residents (2020 census blocks). Davenport Community School District splits students across 3 comprehensive high schools by address (attendance zones not obtained). Central High School (IA) (in the 234-324 band in IA) enrolls 1,288 students in grades 9-12 with a 82% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). North High School (IA) (in the 234-324 band in IA) enrolls 1,190 students in grades 9-12 with a 76% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). West High School (in the 234-324 band in IA) enrolls 1,304 students in grades 9-12 with a 80% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Buffalo": {
+    hs: ["Central High School (IA)", "North High School (IA)", "West High School"],
+    district: [null, null, null],
+    feedsTo: "Central High School (IA) / North High School (IA) / West High School",
+    usNewsNational: 15702, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Davenport Community School District covers essentially all of Buffalo's residents (2020 census blocks). Davenport Community School District splits students across 3 comprehensive high schools by address (attendance zones not obtained). Central High School (IA) (in the 234-324 band in IA) enrolls 1,288 students in grades 9-12 with a 82% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). North High School (IA) (in the 234-324 band in IA) enrolls 1,190 students in grades 9-12 with a 76% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). West High School (in the 234-324 band in IA) enrolls 1,304 students in grades 9-12 with a 80% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Cambridge": {
+    hs: "Cambridge Jr/Sr High School",
+    district: "Cambridge Community Unit School District 227",
+    usNewsNational: 13223, usNewsState: 458,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Cambridge Community Unit School District 227 covers essentially all of Cambridge's residents (2020 census blocks). Cambridge Jr/Sr High School (#458 in IL) enrolls 123 students in grades 9-12 with a 90% graduation rate; its average SAT total was 926 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Carbon Cliff": {
+    hs: "United Twp High School",
+    district: "United Township High School District 30",
+    feedsTo: "United Twp High School",
+    usNewsNational: 7706, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "United Township High School District 30 covers essentially all of Carbon Cliff's residents (2020 census blocks). United Twp High School (#279 in IL) enrolls 1,862 students in grades 9-12 with a 90% graduation rate; its average SAT total was 880 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Coal Valley": {
+    hs: "Moline Senior High School",
+    district: "Moline-Coal Valley School District 40",
+    feedsTo: "Moline Senior High School",
+    usNewsNational: 5831, usNewsState: 228,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Moline-Coal Valley School District 40 covers about 96% of Coal Valley's residents (2020 census blocks). The rest are mostly in Orion Community Unit School District 223 (4%). Moline Senior High School (#228 in IL) enrolls 2,195 students in grades 9-12 with a 88% graduation rate; its average SAT total was 886 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Colona": {
+    hs: ["United Twp High School", "Geneseo High School"],
+    district: [null, null],
+    feedsTo: "United Twp High School / Geneseo High School",
+    usNewsNational: 7706, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "United Township High School District 30 covers about 70% of Colona's residents (2020 census blocks), and Geneseo Community Unit School District 228 (about 30%). Which high school a student attends depends on address (attendance zones not obtained) between United Township High School District 30 and Geneseo Community Unit School District 228. United Twp High School (#279 in IL) enrolls 1,862 students in grades 9-12 with a 90% graduation rate; its average SAT total was 880 in 2024 (ISBE, Illinois's last state SAT). Geneseo High School (#94 in IL) enrolls 794 students in grades 9-12 with a 98% graduation rate; its average SAT total was 984 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Cordova": {
+    hs: "Riverdale Senior High School",
+    district: "Riverdale Community Unit School District 100",
+    feedsTo: "Riverdale Senior High School",
+    usNewsNational: 10150, usNewsState: 351,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverdale Community Unit School District 100 covers essentially all of Cordova's residents (2020 census blocks). Riverdale Senior High School (#351 in IL) enrolls 324 students in grades 9-12 with a 94% graduation rate; its average SAT total was 1010 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Coyne Center": {
+    hs: "Sherrard High School",
+    district: "Sherrard Community Unit School District 200",
+    feedsTo: "Sherrard High School",
+    usNewsNational: 9363, usNewsState: 319,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sherrard Community Unit School District 200 covers essentially all of Coyne Center's residents (2020 census blocks). Sherrard High School (#319 in IL) enrolls 449 students in grades 9-12 with a 94% graduation rate; its average SAT total was 943 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Davenport": {
+    hs: ["Central High School (IA)", "North High School (IA)", "West High School"],
+    district: [null, null, null],
+    usNewsNational: 15702, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Davenport Community School District covers about 97% of Davenport's residents (2020 census blocks). Davenport Community School District splits students across 3 comprehensive high schools by address (attendance zones not obtained). Central High School (IA) (in the 234-324 band in IA) enrolls 1,288 students in grades 9-12 with a 82% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). North High School (IA) (in the 234-324 band in IA) enrolls 1,190 students in grades 9-12 with a 76% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). West High School (in the 234-324 band in IA) enrolls 1,304 students in grades 9-12 with a 80% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "East Moline": {
+    hs: "United Twp High School",
+    district: "United Township High School District 30",
+    usNewsNational: 7706, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "United Township High School District 30 covers essentially all of East Moline's residents (2020 census blocks). United Twp High School (#279 in IL) enrolls 1,862 students in grades 9-12 with a 90% graduation rate; its average SAT total was 880 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Eldridge": {
+    hs: "North Scott Senior High School",
+    district: "North Scott Community School District",
+    usNewsNational: 6833, usNewsState: 66,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Scott Community School District covers essentially all of Eldridge's residents (2020 census blocks). North Scott Senior High School (#66 in IA) enrolls 1,081 students in grades 9-12 with a 95% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Galva": {
+    hs: "Galva Jr-Sr High School",
+    district: "Galva Community Unit School District 224",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Galva Community Unit School District 224 covers essentially all of Galva's residents (2020 census blocks). Galva Jr-Sr High School (in the 469-675 band in IL) enrolls 140 students in grades 9-12 with a 91% graduation rate; its average SAT total was 901 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Geneseo": {
+    hs: "Geneseo High School",
+    district: "Geneseo Community Unit School District 228",
+    usNewsNational: 2282, usNewsState: 94,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Geneseo Community Unit School District 228 covers essentially all of Geneseo's residents (2020 census blocks). Geneseo High School (#94 in IL) enrolls 794 students in grades 9-12 with a 98% graduation rate; its average SAT total was 984 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hampton": {
+    hs: "United Twp High School",
+    district: "United Township High School District 30",
+    feedsTo: "United Twp High School",
+    usNewsNational: 7706, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "United Township High School District 30 covers essentially all of Hampton's residents (2020 census blocks). United Twp High School (#279 in IL) enrolls 1,862 students in grades 9-12 with a 90% graduation rate; its average SAT total was 880 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Keithsburg": {
+    hs: "Mercer County High School",
+    district: "Mercer County School District 404",
+    feedsTo: "Mercer County High School",
+    usNewsNational: 9565, usNewsState: 327,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mercer County School District 404 covers essentially all of Keithsburg's residents (2020 census blocks). Mercer County High School (#327 in IL) enrolls 411 students in grades 9-12 with a 80% graduation rate; its average SAT total was 930 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Kewanee": {
+    hs: ["Kewanee High School", "Wethersfield Jr/Sr High School"],
+    district: [null, null],
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Kewanee Community Unit School District 229 covers about 72% of Kewanee's residents (2020 census blocks), and Wethersfield Community Unit School District 230 (about 28%). Which high school a student attends depends on address (attendance zones not obtained) between Kewanee Community Unit School District 229 and Wethersfield Community Unit School District 230. Kewanee High School (in the 469-675 band in IL) enrolls 582 students in grades 9-12 with a 83% graduation rate; its average SAT total was 850 in 2024 (ISBE, Illinois's last state SAT). Wethersfield Jr/Sr High School (#231 in IL) enrolls 141 students in grades 9-12 with a 95% graduation rate; its average SAT total was 1045 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Le Claire": {
+    hs: "Pleasant Valley High School",
+    district: "Pleasant Valley Community School District",
+    feedsTo: "Pleasant Valley High School",
+    usNewsNational: 1270, usNewsState: 6,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pleasant Valley Community School District covers essentially all of Le Claire's residents (2020 census blocks). Pleasant Valley High School (#6 in IA) enrolls 1,731 students in grades 9-12 with a 94% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Long Grove (IA)": {
+    hs: "North Scott Senior High School",
+    district: "North Scott Community School District",
+    feedsTo: "North Scott Senior High School",
+    usNewsNational: 6833, usNewsState: 66,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Scott Community School District covers essentially all of Long Grove's residents (2020 census blocks). North Scott Senior High School (#66 in IA) enrolls 1,081 students in grades 9-12 with a 95% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Matherville": {
+    hs: "Sherrard High School",
+    district: "Sherrard Community Unit School District 200",
+    feedsTo: "Sherrard High School",
+    usNewsNational: 9363, usNewsState: 319,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sherrard Community Unit School District 200 covers essentially all of Matherville's residents (2020 census blocks). Sherrard High School (#319 in IL) enrolls 449 students in grades 9-12 with a 94% graduation rate; its average SAT total was 943 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Milan": {
+    hs: "Rock Island High School",
+    district: "Rock Island-Milan School District 41",
+    feedsTo: "Rock Island High School",
+    usNewsNational: 12163, usNewsState: 412,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rock Island-Milan School District 41 covers essentially all of Milan's residents (2020 census blocks). Rock Island High School (#412 in IL) enrolls 1,812 students in grades 9-12 with a 82% graduation rate; its average SAT total was 824 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Moline": {
+    hs: "Moline Senior High School",
+    district: "Moline-Coal Valley School District 40",
+    usNewsNational: 5831, usNewsState: 228,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Moline-Coal Valley School District 40 covers about 98% of Moline's residents (2020 census blocks). Moline Senior High School (#228 in IL) enrolls 2,195 students in grades 9-12 with a 88% graduation rate; its average SAT total was 886 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "New Boston": {
+    hs: "Mercer County High School",
+    district: "Mercer County School District 404",
+    feedsTo: "Mercer County High School",
+    usNewsNational: 9565, usNewsState: 327,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mercer County School District 404 covers essentially all of New Boston's residents (2020 census blocks). Mercer County High School (#327 in IL) enrolls 411 students in grades 9-12 with a 80% graduation rate; its average SAT total was 930 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Orion": {
+    hs: "Orion High School",
+    district: "Orion Community Unit School District 223",
+    usNewsNational: 9195, usNewsState: 315,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Orion Community Unit School District 223 covers essentially all of Orion's residents (2020 census blocks). Orion High School (#315 in IL) enrolls 285 students in grades 9-12 with a 99% graduation rate; its average SAT total was 1030 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Park View": {
+    hs: "North Scott Senior High School",
+    district: "North Scott Community School District",
+    feedsTo: "North Scott Senior High School",
+    usNewsNational: 6833, usNewsState: 66,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Scott Community School District covers essentially all of Park View's residents (2020 census blocks). North Scott Senior High School (#66 in IA) enrolls 1,081 students in grades 9-12 with a 95% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Port Byron": {
+    hs: "Riverdale Senior High School",
+    district: "Riverdale Community Unit School District 100",
+    usNewsNational: 10150, usNewsState: 351,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverdale Community Unit School District 100 covers essentially all of Port Byron's residents (2020 census blocks). Riverdale Senior High School (#351 in IL) enrolls 324 students in grades 9-12 with a 94% graduation rate; its average SAT total was 1010 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Princeton": {
+    hs: "North Scott Senior High School",
+    district: "North Scott Community School District",
+    feedsTo: "North Scott Senior High School",
+    usNewsNational: 6833, usNewsState: 66,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Scott Community School District covers essentially all of Princeton's residents (2020 census blocks). North Scott Senior High School (#66 in IA) enrolls 1,081 students in grades 9-12 with a 95% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Rapids City": {
+    hs: "Riverdale Senior High School",
+    district: "Riverdale Community Unit School District 100",
+    feedsTo: "Riverdale Senior High School",
+    usNewsNational: 10150, usNewsState: 351,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverdale Community Unit School District 100 covers essentially all of Rapids City's residents (2020 census blocks). Riverdale Senior High School (#351 in IL) enrolls 324 students in grades 9-12 with a 94% graduation rate; its average SAT total was 1010 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rock Island": {
+    hs: "Rock Island High School",
+    district: "Rock Island-Milan School District 41",
+    usNewsNational: 12163, usNewsState: 412,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rock Island-Milan School District 41 covers essentially all of Rock Island's residents (2020 census blocks). Rock Island High School (#412 in IL) enrolls 1,812 students in grades 9-12 with a 82% graduation rate; its average SAT total was 824 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Sherrard": {
+    hs: "Sherrard High School",
+    district: "Sherrard Community Unit School District 200",
+    usNewsNational: 9363, usNewsState: 319,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sherrard Community Unit School District 200 covers essentially all of Sherrard's residents (2020 census blocks). Sherrard High School (#319 in IL) enrolls 449 students in grades 9-12 with a 94% graduation rate; its average SAT total was 943 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Silvis": {
+    hs: "United Twp High School",
+    district: "United Township High School District 30",
+    feedsTo: "United Twp High School",
+    usNewsNational: 7706, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "United Township High School District 30 covers essentially all of Silvis's residents (2020 census blocks). United Twp High School (#279 in IL) enrolls 1,862 students in grades 9-12 with a 90% graduation rate; its average SAT total was 880 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Viola": {
+    hs: "Sherrard High School",
+    district: "Sherrard Community Unit School District 200",
+    feedsTo: "Sherrard High School",
+    usNewsNational: 9363, usNewsState: 319,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sherrard Community Unit School District 200 covers essentially all of Viola's residents (2020 census blocks). Sherrard High School (#319 in IL) enrolls 449 students in grades 9-12 with a 94% graduation rate; its average SAT total was 943 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Walcott": {
+    hs: ["Central High School (IA)", "North High School (IA)", "West High School"],
+    district: [null, null, null],
+    feedsTo: "Central High School (IA) / North High School (IA) / West High School",
+    usNewsNational: 15702, usNewsState: 279,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Davenport Community School District covers essentially all of Walcott's residents (2020 census blocks). Davenport Community School District splits students across 3 comprehensive high schools by address (attendance zones not obtained). Central High School (IA) (in the 234-324 band in IA) enrolls 1,288 students in grades 9-12 with a 82% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). North High School (IA) (in the 234-324 band in IA) enrolls 1,190 students in grades 9-12 with a 76% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes). West High School (in the 234-324 band in IA) enrolls 1,304 students in grades 9-12 with a 80% graduation rate; Iowa publishes no comparable single SAT/ACT figure for this school (see notes)."
+  },
+  "Windsor": {
+    hs: "Sherrard High School",
+    district: "Sherrard Community Unit School District 200",
+    feedsTo: "Sherrard High School",
+    usNewsNational: 9363, usNewsState: 319,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sherrard Community Unit School District 200 covers essentially all of Windsor's residents (2020 census blocks). Sherrard High School (#319 in IL) enrolls 449 students in grades 9-12 with a 94% graduation rate; its average SAT total was 943 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Woodhull": {
+    hs: "Alwood Middle/High School",
+    district: "Alwood Community Unit School District 225",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Alwood Community Unit School District 225 covers essentially all of Woodhull's residents (2020 census blocks). Alwood Middle/High School (in the 469-675 band in IL) enrolls 98 students in grades 9-12 with a 94% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  }
+  // === QUAD CITIES METRO SCHOOL_DATA END ===
 };
 
 // Every CPS (Chicago Public Schools, District 299) high school that carries a
