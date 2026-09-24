@@ -2157,6 +2157,9 @@
           <option value="Chicagoland" selected>Chicagoland</option>
           <option value="Rockford">Rockford</option>
           <option value="Peoria">Peoria</option>
+          <option value="Champaign-Urbana">Champaign-Urbana</option>
+          <option value="Springfield">Springfield</option>
+          <option value="Bloomington">Bloomington</option>
           <option value="South Bend">South Bend</option>
           <option value="Jamestown">Jamestown</option>
           <option value="Austin">Austin</option>
@@ -3892,7 +3895,7 @@
     community_health_score:      'Community Health Score (0–100)',
     violent_crime_rate_per_1k:   'Violent Crime Rate (per 1,000 — Chicago 2021–23, suburbs 2018–19)',
     property_crime_rate_per_1k:  'Property Crime Rate (per 1,000 — Chicago 2021–23, suburbs 2018–19)',
-    crime_index_per_1k:          'Crime Index (per 1,000 — violent×70% + property×30%)',
+    crime_index_per_1k:          'Crime Index (per 1,000, violent×70% + property×30% — Chicago 2021–23, suburbs 2018–19)',
     demographic_churn_10_24:     'Population Mix Change — Total 2010→2024 (pp)',
     demographic_churn_00_24:  'Population Mix Change — Total 2000→2024 (pp)',
     demographic_churn:           'Population Mix Stability',
@@ -5618,6 +5621,12 @@
     if (metroFilter === 'Detroit' && typeof s === 'string') {
       return s.replace('Chicago 2021–23, suburbs 2018–19', 'Detroit Police 2022–24 for neighborhoods, FBI 2024 for suburbs');
     }
+    // Every other non-Chicagoland metro (Rockford, Peoria, South Bend, Jamestown, Austin) uses the same FBI NIBRS
+    // 2024 source as its places, with no separate city-vs-suburb split (no city-neighborhood crime layer built
+    // for any of them) -- the Chicago-vintage wording is simply wrong for these, not just imprecise.
+    if (metroFilter !== 'all' && metroFilter !== 'Chicagoland' && typeof s === 'string') {
+      return s.replace('Chicago 2021–23, suburbs 2018–19', 'FBI NIBRS 2024');
+    }
     return s;
   }
 
@@ -6158,7 +6167,10 @@
       const suffix = metricTimeSuffix(metric); // "" or " — <wording>"
       displayHTML = base + (suffix ? ' — <em>' + suffix.replace(/^ — /, '') + '</em>' : '');
     } else {
-      displayHTML = METRIC_LABELS[rf] || METRIC_LABELS[metric] || metric;
+      // Crime metrics (2024-only, no history) land here rather than the branch above -- still needs the
+      // metro-aware source-vintage swap (Chicagoland's "Chicago 2021-23, suburbs 2018-19" wording is wrong for
+      // every other metro), found live in the Champaign-Urbana UI test (2026-09-22): this branch skipped it.
+      displayHTML = metroAwareLabel(METRIC_LABELS[rf] || METRIC_LABELS[metric] || metric);
     }
     titleEl.innerHTML = displayHTML;
     const raceNoteEl = document.getElementById('vh-race-note');
@@ -8017,7 +8029,7 @@
     const contains   = all.filter(x => !x.rec.name.toLowerCase().startsWith(lower)
                                        && x.rec.name.toLowerCase().includes(lower));
     // Metro names are searchable too: 'Detroit' has no single place record (the city is 201 neighborhoods).
-    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis'];
+    const METRO_NAMES = ['Chicagoland', 'Rockford', 'Peoria', 'South Bend', 'Jamestown', 'Austin', 'Indianapolis', 'Detroit', 'St. Louis', 'Champaign-Urbana', 'Springfield', 'Bloomington'];
     const metroHits = METRO_NAMES.filter(m => m.toLowerCase().startsWith(lower)).map(m => ({ isMetro: true, metro: m }));
     const hits = [...metroHits, ...startsWith, ...contains].slice(0, 9);
     if (!hits.length) { searchResults.style.display = 'none'; return; }
@@ -8692,7 +8704,24 @@
     // the banner only for that later line to re-show it milliseconds after.
     // setTimeout(0) runs after all remaining synchronous top-level script
     // (including that bootstrap line) has finished, so open()'s hide wins.
-    if (!alreadySeen) setTimeout(open, 0);
+    //
+    // Also gated on !_pendingUrlPlace -- a `pl=` shared-link restoration
+    // (see _pendingUrlPlace's own declaration and the file's final bootstrap
+    // line, which opens that place's side pane synchronously, BEFORE this
+    // setTimeout(0) callback ever runs). render()'s own step-1 logic just a
+    // few lines below unconditionally does `if (_activeSidePaneRec)
+    // closeSidePane()` to reset the map for the tour -- with no exception
+    // for a place that was restored from the URL but never actually shown
+    // to the user yet, that silently closed the just-opened pane (and, via
+    // closeSidePane's own writeUrlState(true) call, silently dropped `pl`
+    // from the address bar too) a few milliseconds after it opened, on every
+    // first-time visit. A `pl` link is exactly the case where the user
+    // wants that specific place, not the generic tour, so skip the
+    // auto-open entirely rather than teach render() a special case for a
+    // pane it doesn't know is only pending display. First-time visitors who
+    // land on a plain `#mt=`/no-hash URL are unaffected; the tour is still
+    // reachable via the "Tutorial" nav button either way.
+    if (!alreadySeen && !_pendingUrlPlace) setTimeout(open, 0);
   })();
 
   // Default the top pane to a Chicagoland (or restored-region) aggregate

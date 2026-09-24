@@ -891,98 +891,6 @@ const MULTI_SCHOOL_RANKS = {
   // NWI Indiana schools. Michigan (Niles) DOES publish a genuine points-based
   // average via the state's own mischooldata.org "College Readiness"
   // report -- a new source, not previously used in this dataset.
-  "Auburn High School": {
-    "natl": 4485, "state": 176,
-    "sat": 890, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Rockford East High School": {
-    "natl": 15702, "state": 572,
-    "natlBand": "13,460–17,945", "stateBand": "469–675",
-    "sat": 812, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Guilford High School": {
-    "natl": 6253, "state": 237,
-    "sat": 864, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Jefferson High School": {
-    "natl": 12492, "state": 427,
-    "sat": 776, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Belvidere High School": {
-    "natl": 9765, "state": 334,
-    "sat": 852, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Belvidere North High School": {
-    "natl": 6427, "state": 243,
-    "sat": 894, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Harlem High School": {
-    "natl": 4245, "state": 166,
-    "sat": 898, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Hononegah High School": {
-    "natl": 1185, "state": 56,
-    "sat": 1063, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "South Beloit Senior High School": {
-    "natl": 6243, "state": 236,
-    "sat": 946, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "North Boone High School": {
-    "natl": 11863, "state": 402,
-    "sat": 916, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Peoria High School": {
-    "natl": 15702, "state": 572,
-    "natlBand": "13,460–17,945", "stateBand": "469–675",
-    "sat": 752, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Manual High School": {
-    "natl": 15702, "state": 572,
-    "natlBand": "13,460–17,945", "stateBand": "469–675",
-    "sat": 727, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Richwoods High School": {
-    "natl": 4382, "state": 173,
-    "sat": 914, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Pekin Community High School": {
-    "natl": 5604, "state": 220,
-    "sat": 903, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "East Peoria Community High School": {
-    "natl": 9571, "state": 328,
-    "sat": 882, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Morton High School": {
-    "natl": 1743, "state": 76,
-    "sat": 1055, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Washington Community High School": {
-    "natl": 1838, "state": 80,
-    "sat": 1046, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Illinois Valley Central High School": {
-    "natl": 5120, "state": 200,
-    "sat": 945, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Limestone Community High School": {
-    "natl": 9274, "state": 317,
-    "sat": 902, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Peoria Heights High School": {
-    "natl": 15702, "state": 572,
-    "natlBand": "13,460–17,945", "stateBand": "469–675",
-    "sat": 859, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Eureka High School": {
-    "natl": 6724, "state": 252,
-    "sat": 1067, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
-  "Metamora Township High School": {
-    "natl": 2432, "state": 99,
-    "sat": 1018, "act": null, "satYear": 2024, "satSource": "ISBE 2024 Illinois Report Card"
-  },
   "Adams High School": {
     "natl": 6194, "state": 165
   },
@@ -2815,8 +2723,463 @@ const MULTI_SCHOOL_RANKS = {
     "natl": 8620, "state": 134,
     "act": 18.5, "actYear": 2025, "actN": 66, "actGrads": 162,
     "actSource": "Missouri DESE, MCDS 'Building ACT Results' (apps.dese.mo.gov/MCDS), graduating class of 2025: ACT composite of the graduates who took the ACT (actN = ACT tests administered, actGrads = graduates; the ACT is not a universal test in Missouri)"
-  }
+  },
   // === ST. LOUIS METRO MSR END ===
+  // === ROCKFORD METRO MSR START ===
+  "Auburn High School": {
+    "natl": 4485, "state": 176,
+    "sat": 890, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Belvidere High School": {
+    "natl": 9765, "state": 334,
+    "sat": 852, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Belvidere North High School": {
+    "natl": 6427, "state": 243,
+    "sat": 894, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Durand High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 858, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Guilford High School": {
+    "natl": 6253, "state": 237,
+    "sat": 864, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Harlem High School": {
+    "natl": 4245, "state": 166,
+    "sat": 898, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Hononegah High School": {
+    "natl": 1185, "state": 56,
+    "sat": 1063, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Jefferson High School": {
+    "natl": 12492, "state": 427,
+    "sat": 776, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "North Boone High School": {
+    "natl": 11863, "state": 402,
+    "sat": 916, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Pecatonica High School": {
+    "natl": 4509, "state": 178,
+    "sat": 998, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Rockford East High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 812, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "South Beloit Senior High School": {
+    "natl": 6243, "state": 236,
+    "sat": 946, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Winnebago High School": {
+    "natl": 10234, "state": 358,
+    "sat": 971, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  // === ROCKFORD METRO MSR END ===
+  // === PEORIA METRO MSR START ===
+  "Brimfield High School": {
+    "natl": 9769, "state": 336,
+    "sat": 1029, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Dee-Mack High School": {
+    "natl": 4988, "state": 195,
+    "sat": 973, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Delavan High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 916, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Dunlap High School": {
+    "natl": 985, "state": 48,
+    "sat": 1096, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "East Peoria High School": {
+    "natl": 9571, "state": 328,
+    "sat": 882, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "El Paso-Gridley High School": {
+    "natl": 2726, "state": 111,
+    "sat": 1015, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Elmwood High School": {
+    "natl": 13111, "state": 450,
+    "sat": 954, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Eureka High School": {
+    "natl": 6724, "state": 252,
+    "sat": 1067, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Farmington Central High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 893, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Fieldcrest High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 881, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Henry-Senachwine High School": {
+    "natl": 12816, "state": 439,
+    "sat": 860, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Il Valley Central High School": {
+    "natl": 5120, "state": 200,
+    "sat": 945, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Illini Bluffs High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 970, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Limestone Community High School": {
+    "natl": 9274, "state": 317,
+    "sat": 902, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Lowpoint-Washburn Junior Senior High School": {
+    "natl": 11526, "state": 393,
+    "sat": 942, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Manual High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 727, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Metamora High School": {
+    "natl": 2432, "state": 99,
+    "sat": 1018, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Midland High School": {
+    "natl": 11486, "state": 390,
+    "sat": 903, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Midwest Central High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 892, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Morton High School": {
+    "natl": 1743, "state": 76,
+    "sat": 1054, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Olympia High School": {
+    "natl": 8184, "state": 291,
+    "sat": 935, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Pekin Community High School": {
+    "natl": 5604, "state": 220,
+    "sat": 903, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Peoria Heights High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 859, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Peoria High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 752, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Princeville High School": {
+    "natl": 8632, "state": 302,
+    "sat": 1009, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Richwoods High School": {
+    "natl": 4382, "state": 173,
+    "sat": 914, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Roanoke-Benson High School": {
+    "natl": 12765, "state": 434,
+    "sat": 978, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Stark County High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 932, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Tremont High School": {
+    "natl": 5287, "state": 208,
+    "sat": 1023, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Washington Comm High School": {
+    "natl": 1838, "state": 80,
+    "sat": 1046, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  // === PEORIA METRO MSR END ===
+  // === CHAMPAIGN METRO MSR START ===
+  "Arthur-Lovington High School": {
+    "natl": 12070, "state": 409,
+    "sat": 938, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Bement High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 910, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Blue Ridge High School": {
+    "natl": 12051, "state": 407,
+    "sat": 901, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Centennial High School": {
+    "natl": 3857, "state": 149,
+    "sat": 915, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Central High School (Champaign)": {
+    "natl": 2861, "state": 118,
+    "sat": 962, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Cerro Gordo High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 898, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Fisher Jr/Sr High School": {
+    "natl": 7402, "state": 269,
+    "sat": 988, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "GCMS High School": {
+    "natl": 3143, "state": 126,
+    "sat": 1007, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Heritage High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 869, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Mahomet-Seymour High School": {
+    "natl": 1343, "state": 63,
+    "sat": 1079, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Monticello High School": {
+    "natl": 3440, "state": 139,
+    "sat": 970, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Paxton-Buckley-Loda High School": {
+    "natl": 4131, "state": 161,
+    "sat": 992, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Rantoul Twp High School": {
+    "natl": 8682, "state": 303,
+    "sat": 796, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "St Joseph-Ogden High School": {
+    "natl": 4937, "state": 194,
+    "sat": 1011, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Tri-Point High School": {
+    "natl": 2831, "state": 116,
+    "sat": 926, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Unity High School": {
+    "natl": 4074, "state": 159,
+    "sat": 980, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Urbana High School": {
+    "natl": 4682, "state": 184,
+    "sat": 877, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  // === CHAMPAIGN METRO MSR END ===
+  // === SPRINGFIELD METRO MSR START ===
+  "Athens Senior High School": {
+    "natl": 7814, "state": 280,
+    "sat": 947, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Auburn High School (Auburn)": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 876, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Glenwood High School": {
+    "natl": 2122, "state": 89,
+    "sat": 1016, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Greenview Jr/Sr High School": {
+    "natl": null, "state": null,
+    "sat": 869, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Lanphier High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 807, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "New Berlin High School": {
+    "natl": 12158, "state": 411,
+    "sat": 966, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Pawnee Jr/Sr High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 956, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Pleasant Plains High School": {
+    "natl": 4149, "state": 162,
+    "sat": 993, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Porta High School": {
+    "natl": 5516, "state": 214,
+    "sat": 920, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Riverton High School": {
+    "natl": 10093, "state": 346,
+    "sat": 886, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Rochester High School (IL)": {
+    "natl": 3670, "state": 143,
+    "sat": 971, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Sangamon Valley High School": {
+    "natl": 10859, "state": 375,
+    "sat": 922, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Springfield High School": {
+    "natl": 3867, "state": 150,
+    "sat": 960, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Springfield Southeast High School": {
+    "natl": 10894, "state": 377,
+    "sat": 841, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Tri-City High School": {
+    "natl": 11628, "state": 396,
+    "sat": 930, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Williamsville High School": {
+    "natl": 3826, "state": 148,
+    "sat": 995, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  // === SPRINGFIELD METRO MSR END ===
+  // === BLOOMINGTON METRO MSR START ===
+  "Bloomington High School": {
+    "natl": 5622, "state": 221,
+    "sat": 887, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Heyworth Jr-Sr High School": {
+    "natl": 8007, "state": 287,
+    "sat": 955, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Leroy High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 944, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Lexington High School": {
+    "natl": 4395, "state": 174,
+    "sat": 950, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Normal Community High School": {
+    "natl": 2312, "state": 95,
+    "sat": 994, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Normal Community West High School": {
+    "natl": 5438, "state": 210,
+    "sat": 934, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Prairie Central High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 937, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Ridgeview High School": {
+    "natl": 15702, "state": 572,
+    "natlBand": "13,460-17,945", "stateBand": "469-675",
+    "sat": 945, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  },
+  "Tri-Valley High School": {
+    "natl": 1108, "state": 54,
+    "sat": 1042, "act": null, "satYear": 2024,
+    "satSource": "ISBE 2024 Illinois Report Card"
+  }
+  // === BLOOMINGTON METRO MSR END ===
 };
 
 const SCHOOL_DATA = {
@@ -5833,154 +6196,7 @@ const SCHOOL_DATA = {
   // sync rather than introducing new staleness (see school_quality_data
   // memory re: the index.html:5287 staleness bug this avoids repeating).
 
-  // ── ROCKFORD METRO (IL) ──────────────────────────────────────────────────
-  'Rockford': {
-    hs: ['Auburn High School', 'Rockford East High School', 'Guilford High School', 'Jefferson High School'],
-    district: 'Rockford Public Schools 205',
-    usNewsNational: 4485, usNewsState: 176,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    splitDistrict: true,
-    note: 'Rockford Public Schools 205 splits students across 4 comprehensive high schools by address (Auburn, East, Guilford, Jefferson); Auburn ranks highest in the district at 176th in Illinois.'
-  },
-  'Belvidere': {
-    hs: ['Belvidere High School', 'Belvidere North High School'],
-    district: 'Belvidere CUSD 100',
-    usNewsNational: 9765, usNewsState: 334,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    splitDistrict: true,
-    note: 'Belvidere CUSD 100 splits by address between Belvidere High (334th in IL) and the newer Belvidere North High (243rd in IL).'
-  },
-  'Loves Park': {
-    hs: 'Harlem High School',
-    district: 'Harlem UD 122',
-    usNewsNational: 4245, usNewsState: 166,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Most of Loves Park feeds Harlem High School (166th in Illinois); a portion of the town falls in neighboring Belvidere CUSD 100 instead.'
-  },
-  'Machesney Park': {
-    hs: 'Harlem High School',
-    district: 'Harlem UD 122',
-    usNewsNational: 4245, usNewsState: 166,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Harlem High School (Harlem UD 122) serves most of Machesney Park, ranked 166th in Illinois.'
-  },
-  'Roscoe': {
-    hs: 'Hononegah High School',
-    district: 'Hononegah CHD 207',
-    usNewsNational: 1185, usNewsState: 56,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Hononegah High School (in neighboring Rockton) is the shared high school for both Roscoe and Rockton, ranked 56th in Illinois -- the strongest school in the Rockford metro.'
-  },
-  'Rockton': {
-    hs: 'Hononegah High School',
-    district: 'Hononegah CHD 207',
-    usNewsNational: 1185, usNewsState: 56,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Hononegah High School, ranked 56th in Illinois, serves both Rockton and Roscoe -- the strongest school in the Rockford metro.'
-  },
-  'South Beloit': {
-    hs: 'South Beloit Senior High School',
-    district: 'County of Winnebago SD 320',
-    usNewsNational: 6243, usNewsState: 236,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'South Beloit Senior High School, ranked 236th in Illinois, sits on the Wisconsin state line.'
-  },
-  'Candlewick Lake': {
-    hs: ['Belvidere North High School', 'North Boone High School'],
-    district: ['Belvidere CUSD 100', 'North Boone CUSD 200'],
-    usNewsNational: 6427, usNewsState: 243,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    splitDistrict: true,
-    note: 'Candlewick Lake (unincorporated) splits by address between Belvidere North High (243rd in IL) and North Boone High in Poplar Grove (402nd in IL).'
-  },
-
   // ── PEORIA METRO (IL) ────────────────────────────────────────────────────
-  'Peoria': {
-    hs: ['Peoria High School', 'Manual High School', 'Richwoods High School'],
-    district: 'Peoria Public Schools 150',
-    usNewsNational: 4382, usNewsState: 173,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    splitDistrict: true,
-    note: 'Peoria Public Schools 150 splits by address across 3 comprehensive high schools; Richwoods (173rd in IL) is the strongest, while Peoria High and Manual both fall in U.S. News’ unranked bottom band.'
-  },
-  'Pekin': {
-    hs: 'Pekin Community High School',
-    district: 'Pekin CHSD 303',
-    usNewsNational: 5604, usNewsState: 220,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Pekin Community High School ranks 220th in Illinois.'
-  },
-  'East Peoria': {
-    hs: 'East Peoria Community High School',
-    district: 'East Peoria CHSD 309',
-    usNewsNational: 9571, usNewsState: 328,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'East Peoria Community High School (328th in IL) also serves neighboring Creve Coeur.'
-  },
-  'Morton': {
-    hs: 'Morton High School',
-    district: 'Morton CUSD 709',
-    usNewsNational: 1743, usNewsState: 76,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Morton High School ranks 76th in Illinois, the strongest school in the Peoria metro; a small section of Morton falls in East Peoria CHSD 309 instead.'
-  },
-  'Washington': {
-    hs: 'Washington Community High School',
-    district: 'Washington CHSD 308',
-    usNewsNational: 1838, usNewsState: 80,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Washington Community High School ranks 80th in Illinois.'
-  },
-  'Chillicothe': {
-    hs: 'Illinois Valley Central High School',
-    district: 'IVC USD 321',
-    usNewsNational: 5120, usNewsState: 200,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Illinois Valley Central High School ranks 200th in Illinois.'
-  },
-  'Bartonville': {
-    hs: 'Limestone Community High School',
-    district: 'Limestone CHSD 310',
-    usNewsNational: 9274, usNewsState: 317,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Limestone Community High School (317th in IL) serves most of Bartonville; a small eastern edge falls in Peoria Public Schools 150 instead.'
-  },
-  'Peoria Heights': {
-    hs: 'Peoria Heights High School',
-    district: 'Peoria Heights CUSD 325',
-    usNewsNational: 15702, usNewsState: 572,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Peoria Heights High School falls in U.S. News’ unranked bottom band (state 469–675th) for the 2026-27 edition.'
-  },
-  'Eureka': {
-    hs: 'Eureka High School',
-    district: 'Eureka CUD 140',
-    usNewsNational: 6724, usNewsState: 252,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Eureka High School ranks 252nd in Illinois.'
-  },
-  'Creve Coeur': {
-    hs: 'East Peoria Community High School',
-    district: 'East Peoria CHSD 309',
-    usNewsNational: 9571, usNewsState: 328,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Creve Coeur shares East Peoria Community High School (328th in IL) with neighboring East Peoria.'
-  },
-  'West Peoria': {
-    hs: ['Limestone Community High School', 'Peoria High School'],
-    district: ['Limestone CHSD 310', 'Peoria Public Schools 150'],
-    usNewsNational: 9274, usNewsState: 317,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    splitDistrict: true,
-    note: 'West Peoria splits by address between Limestone Community High (317th in IL) and Peoria High (unranked bottom band).'
-  },
-  'Metamora': {
-    hs: 'Metamora Township High School',
-    district: 'Woodford County THSD 21',
-    usNewsNational: 2432, usNewsState: 99,
-    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
-    note: 'Metamora Township High School ranks 99th in Illinois.'
-  },
 
   // ── SOUTH BEND METRO (IN + 1 MI town) ────────────────────────────────────
   'South Bend': {
@@ -10613,8 +10829,1018 @@ const SCHOOL_DATA = {
     usNewsNational: 8620, usNewsState: 134,
     stateGrade: null, niche: null, avgACT: null, avgSAT: null,
     note: "Wright City R-II of Warren County covers essentially all Wright City's residents (2020 census blocks). Wright City High School (#134 in Missouri) enrolls 566 students in grades 9-12 with a 98% graduation rate and a 27% AP/IB-exam participation rate; its graduates who took the ACT averaged 18.5 in 2025 (66 of 162 graduates tested; Missouri DESE)."
-  }
+  },
   // === ST. LOUIS METRO SCHOOL_DATA END ===
+
+  // === ROCKFORD METRO SCHOOL_DATA START ===
+  "Belvidere": {
+    hs: ["Belvidere High School", "Belvidere North High School"],
+    district: ["Belvidere Community Unit School District 100", "Belvidere Community Unit School District 100"],
+    usNewsNational: 9765, usNewsState: 334,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belvidere Community Unit School District 100 covers essentially all of Belvidere's residents (2020 census blocks). Belvidere Community Unit School District 100 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Belvidere High School (#334 in Illinois) enrolls 1,167 students in grades 9-12 with a 80% graduation rate; its average SAT total was 852 in 2024 (ISBE, Illinois's last state SAT). Belvidere North High School (#243 in Illinois) enrolls 1,354 students in grades 9-12 with a 88% graduation rate; its average SAT total was 894 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Candlewick Lake": {
+    hs: ["Belvidere High School", "Belvidere North High School", "North Boone High School"],
+    district: ["Belvidere Community Unit School District 100", "Belvidere Community Unit School District 100", "North Boone Community Unit School District 200"],
+    feedsTo: "Belvidere High School / Belvidere North High School / North Boone High School",
+    usNewsNational: 9765, usNewsState: 334,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belvidere Community Unit School District 100 covers about 70% of Candlewick Lake's residents (2020 census blocks), and North Boone Community Unit School District 200 (about 30%). Which high school a student attends depends on address (attendance zones not obtained) between Belvidere Community Unit School District 100 and North Boone Community Unit School District 200. Belvidere High School (#334 in Illinois) enrolls 1,167 students in grades 9-12 with a 80% graduation rate; its average SAT total was 852 in 2024 (ISBE, Illinois's last state SAT). Belvidere North High School (#243 in Illinois) enrolls 1,354 students in grades 9-12 with a 88% graduation rate; its average SAT total was 894 in 2024 (ISBE, Illinois's last state SAT). North Boone High School (#402 in Illinois) enrolls 496 students in grades 9-12 with a 83% graduation rate; its average SAT total was 916 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Capron": {
+    hs: "North Boone High School",
+    district: "North Boone Community Unit School District 200",
+    feedsTo: "North Boone High School",
+    usNewsNational: 11863, usNewsState: 402,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Boone Community Unit School District 200 covers essentially all of Capron's residents (2020 census blocks). North Boone High School (#402 in Illinois) enrolls 496 students in grades 9-12 with a 83% graduation rate; its average SAT total was 916 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Cherry Valley": {
+    hs: ["Auburn High School", "Rockford East High School", "Guilford High School", "Jefferson High School"],
+    district: ["Rockford School District 205", "Rockford School District 205", "Rockford School District 205", "Rockford School District 205"],
+    feedsTo: "Auburn High School / Rockford East High School / Guilford High School / Jefferson High School",
+    usNewsNational: 4485, usNewsState: 176,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockford School District 205 covers about 88% of Cherry Valley's residents (2020 census blocks). The rest are mostly in Belvidere Community Unit School District 100 (12%). Rockford School District 205 splits students across 4 comprehensive high schools by address (attendance zones not obtained). Auburn High School (#176 in Illinois) enrolls 1,957 students in grades 9-12 with a 69% graduation rate; its average SAT total was 890 in 2024 (ISBE, Illinois's last state SAT). Rockford East High School (in the 469-675 band in Illinois) enrolls 1,719 students in grades 9-12; its average SAT total was 812 in 2024 (ISBE, Illinois's last state SAT). Guilford High School (#237 in Illinois) enrolls 2,216 students in grades 9-12 with a 76% graduation rate; its average SAT total was 864 in 2024 (ISBE, Illinois's last state SAT). Jefferson High School (#427 in Illinois) enrolls 2,173 students in grades 9-12; its average SAT total was 776 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Durand": {
+    hs: "Durand High School",
+    district: "Durand Community Unit School District 322",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Durand Community Unit School District 322 covers essentially all of Durand's residents (2020 census blocks). Durand High School (in the 469-675 band in Illinois) enrolls 170 students in grades 9-12 with a 86% graduation rate; its average SAT total was 858 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lake Summerset": {
+    hs: "Durand High School",
+    district: "Durand Community Unit School District 322",
+    feedsTo: "Durand High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Durand Community Unit School District 322 covers essentially all of Lake Summerset's residents (2020 census blocks). Durand High School (in the 469-675 band in Illinois) enrolls 170 students in grades 9-12 with a 86% graduation rate; its average SAT total was 858 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Loves Park": {
+    hs: ["Harlem High School", "Auburn High School", "Rockford East High School", "Guilford High School", "Jefferson High School"],
+    district: ["Harlem Unit School District 122", "Rockford School District 205", "Rockford School District 205", "Rockford School District 205", "Rockford School District 205"],
+    feedsTo: "Harlem High School / Auburn High School / Rockford East High School / Guilford High School / Jefferson High School",
+    usNewsNational: 4245, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Harlem Unit School District 122 covers about 75% of Loves Park's residents (2020 census blocks), and Rockford School District 205 (about 18%). The rest are mostly in Belvidere Community Unit School District 100 (7%). Which high school a student attends depends on address (attendance zones not obtained) between Harlem Unit School District 122 and Rockford School District 205. Harlem High School (#166 in Illinois) enrolls 1,884 students in grades 9-12 with a 85% graduation rate; its average SAT total was 898 in 2024 (ISBE, Illinois's last state SAT). Auburn High School (#176 in Illinois) enrolls 1,957 students in grades 9-12 with a 69% graduation rate; its average SAT total was 890 in 2024 (ISBE, Illinois's last state SAT). Rockford East High School (in the 469-675 band in Illinois) enrolls 1,719 students in grades 9-12; its average SAT total was 812 in 2024 (ISBE, Illinois's last state SAT). Guilford High School (#237 in Illinois) enrolls 2,216 students in grades 9-12 with a 76% graduation rate; its average SAT total was 864 in 2024 (ISBE, Illinois's last state SAT). Jefferson High School (#427 in Illinois) enrolls 2,173 students in grades 9-12; its average SAT total was 776 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Machesney Park": {
+    hs: "Harlem High School",
+    district: "Harlem Unit School District 122",
+    usNewsNational: 4245, usNewsState: 166,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Harlem Unit School District 122 covers about 88% of Machesney Park's residents (2020 census blocks). The rest are mostly in Rockford School District 205 (12%). Harlem High School (#166 in Illinois) enrolls 1,884 students in grades 9-12 with a 85% graduation rate; its average SAT total was 898 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "New Milford": {
+    hs: ["Auburn High School", "Rockford East High School", "Guilford High School", "Jefferson High School"],
+    district: ["Rockford School District 205", "Rockford School District 205", "Rockford School District 205", "Rockford School District 205"],
+    feedsTo: "Auburn High School / Rockford East High School / Guilford High School / Jefferson High School",
+    usNewsNational: 4485, usNewsState: 176,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockford School District 205 covers essentially all of New Milford's residents (2020 census blocks). Rockford School District 205 splits students across 4 comprehensive high schools by address (attendance zones not obtained). Auburn High School (#176 in Illinois) enrolls 1,957 students in grades 9-12 with a 69% graduation rate; its average SAT total was 890 in 2024 (ISBE, Illinois's last state SAT). Rockford East High School (in the 469-675 band in Illinois) enrolls 1,719 students in grades 9-12; its average SAT total was 812 in 2024 (ISBE, Illinois's last state SAT). Guilford High School (#237 in Illinois) enrolls 2,216 students in grades 9-12 with a 76% graduation rate; its average SAT total was 864 in 2024 (ISBE, Illinois's last state SAT). Jefferson High School (#427 in Illinois) enrolls 2,173 students in grades 9-12; its average SAT total was 776 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pecatonica": {
+    hs: "Pecatonica High School",
+    district: "Pecatonica Community Unit School District 321",
+    usNewsNational: 4509, usNewsState: 178,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pecatonica Community Unit School District 321 covers essentially all of Pecatonica's residents (2020 census blocks). Pecatonica High School (#178 in Illinois) enrolls 313 students in grades 9-12 with a 85% graduation rate; its average SAT total was 998 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Poplar Grove": {
+    hs: ["North Boone High School", "Belvidere High School", "Belvidere North High School"],
+    district: ["North Boone Community Unit School District 200", "Belvidere Community Unit School District 100", "Belvidere Community Unit School District 100"],
+    usNewsNational: 11863, usNewsState: 402,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "North Boone Community Unit School District 200 covers about 65% of Poplar Grove's residents (2020 census blocks), and Belvidere Community Unit School District 100 (about 35%). Which high school a student attends depends on address (attendance zones not obtained) between North Boone Community Unit School District 200 and Belvidere Community Unit School District 100. North Boone High School (#402 in Illinois) enrolls 496 students in grades 9-12 with a 83% graduation rate; its average SAT total was 916 in 2024 (ISBE, Illinois's last state SAT). Belvidere High School (#334 in Illinois) enrolls 1,167 students in grades 9-12 with a 80% graduation rate; its average SAT total was 852 in 2024 (ISBE, Illinois's last state SAT). Belvidere North High School (#243 in Illinois) enrolls 1,354 students in grades 9-12 with a 88% graduation rate; its average SAT total was 894 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rockford": {
+    hs: ["Auburn High School", "Rockford East High School", "Guilford High School", "Jefferson High School"],
+    district: ["Rockford School District 205", "Rockford School District 205", "Rockford School District 205", "Rockford School District 205"],
+    usNewsNational: 4485, usNewsState: 176,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Rockford School District 205 covers essentially all of Rockford's residents (2020 census blocks). Rockford School District 205 splits students across 4 comprehensive high schools by address (attendance zones not obtained). Auburn High School (#176 in Illinois) enrolls 1,957 students in grades 9-12 with a 69% graduation rate; its average SAT total was 890 in 2024 (ISBE, Illinois's last state SAT). Rockford East High School (in the 469-675 band in Illinois) enrolls 1,719 students in grades 9-12; its average SAT total was 812 in 2024 (ISBE, Illinois's last state SAT). Guilford High School (#237 in Illinois) enrolls 2,216 students in grades 9-12 with a 76% graduation rate; its average SAT total was 864 in 2024 (ISBE, Illinois's last state SAT). Jefferson High School (#427 in Illinois) enrolls 2,173 students in grades 9-12; its average SAT total was 776 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rockton": {
+    hs: "Hononegah High School",
+    district: "Hononegah Community High School District 207",
+    usNewsNational: 1185, usNewsState: 56,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Hononegah Community High School District 207 covers essentially all of Rockton's residents (2020 census blocks). Hononegah High School (#56 in Illinois) enrolls 1,814 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1063 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Roscoe": {
+    hs: ["Hononegah High School", "Harlem High School"],
+    district: ["Hononegah Community High School District 207", "Harlem Unit School District 122"],
+    feedsTo: "Hononegah High School / Harlem High School",
+    usNewsNational: 1185, usNewsState: 56,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Hononegah Community High School District 207 covers about 71% of Roscoe's residents (2020 census blocks), and Harlem Unit School District 122 (about 27%). Which high school a student attends depends on address (attendance zones not obtained) between Hononegah Community High School District 207 and Harlem Unit School District 122. Hononegah High School (#56 in Illinois) enrolls 1,814 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1063 in 2024 (ISBE, Illinois's last state SAT). Harlem High School (#166 in Illinois) enrolls 1,884 students in grades 9-12 with a 85% graduation rate; its average SAT total was 898 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "South Beloit": {
+    hs: ["South Beloit Senior High School", "Hononegah High School"],
+    district: ["County of Winnebago School District 320", "Hononegah Community High School District 207"],
+    usNewsNational: 6243, usNewsState: 236,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "County of Winnebago School District 320 covers about 63% of South Beloit's residents (2020 census blocks), and Hononegah Community High School District 207 (about 37%). Which high school a student attends depends on address (attendance zones not obtained) between County of Winnebago School District 320 and Hononegah Community High School District 207. South Beloit Senior High School (#236 in Illinois) enrolls 254 students in grades 9-12 with a 94% graduation rate; its average SAT total was 946 in 2024 (ISBE, Illinois's last state SAT). Hononegah High School (#56 in Illinois) enrolls 1,814 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1063 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Timberlane": {
+    hs: ["Belvidere High School", "Belvidere North High School"],
+    district: ["Belvidere Community Unit School District 100", "Belvidere Community Unit School District 100"],
+    feedsTo: "Belvidere High School / Belvidere North High School",
+    usNewsNational: 9765, usNewsState: 334,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Belvidere Community Unit School District 100 covers about 98% of Timberlane's residents (2020 census blocks). Belvidere Community Unit School District 100 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Belvidere High School (#334 in Illinois) enrolls 1,167 students in grades 9-12 with a 80% graduation rate; its average SAT total was 852 in 2024 (ISBE, Illinois's last state SAT). Belvidere North High School (#243 in Illinois) enrolls 1,354 students in grades 9-12 with a 88% graduation rate; its average SAT total was 894 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Westlake Village": {
+    hs: "Pecatonica High School",
+    district: "Pecatonica Community Unit School District 321",
+    feedsTo: "Pecatonica High School",
+    usNewsNational: 4509, usNewsState: 178,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pecatonica Community Unit School District 321 covers essentially all of Westlake Village's residents (2020 census blocks). Pecatonica High School (#178 in Illinois) enrolls 313 students in grades 9-12 with a 85% graduation rate; its average SAT total was 998 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Winnebago": {
+    hs: "Winnebago High School",
+    district: "Winnebago Community Unit School District 323",
+    usNewsNational: 10234, usNewsState: 358,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Winnebago Community Unit School District 323 covers essentially all of Winnebago's residents (2020 census blocks). Winnebago High School (#358 in Illinois) enrolls 422 students in grades 9-12 with a 85% graduation rate; its average SAT total was 971 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  // === ROCKFORD METRO SCHOOL_DATA END ===
+
+  // === PEORIA METRO SCHOOL_DATA START ===
+  "Bartonville": {
+    hs: "Limestone Community High School",
+    district: "Limestone Community High School District 310",
+    feedsTo: "Limestone Community High School",
+    usNewsNational: 9274, usNewsState: 317,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Limestone Community High School District 310 covers essentially all of Bartonville's residents (2020 census blocks). Limestone Community High School (#317 in Illinois) enrolls 898 students in grades 9-12; its average SAT total was 902 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Bellevue": {
+    hs: "Limestone Community High School",
+    district: "Limestone Community High School District 310",
+    feedsTo: "Limestone Community High School",
+    usNewsNational: 9274, usNewsState: 317,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Limestone Community High School District 310 covers essentially all of Bellevue's residents (2020 census blocks). Limestone Community High School (#317 in Illinois) enrolls 898 students in grades 9-12; its average SAT total was 902 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Bradford": {
+    hs: "Stark County High School",
+    district: "Stark County Community Unit School District 100 (by tuition choice; see note)",
+    feedsTo: "Stark County High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    noSingleSchool: true,
+    note: "Bradford Community Unit School District 1 deactivated its own high school (Bradford High School) on July 1, 2001, and has operated no high school since; families choose where to tuition their students, most commonly Stark County High School in Toulon (#469-675 in Illinois; this build's in-metro choice, used as this record's `hs`) or Bureau Valley High School in Manlius (Bureau County, outside the Peoria MSA -- not tracked in this build's school data). No TIGERweb attendance-zone layer exists to assign Bradford's population between the two by address, so this is disclosed as an open choice, not modeled as a percentage split. Stark County High School (#469-675 in Illinois) enrolls 230 students in grades 9-12 with a 94% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Brimfield": {
+    hs: "Brimfield High School",
+    district: "Brimfield Community Unit School District 309",
+    usNewsNational: 9769, usNewsState: 336,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Brimfield Community Unit School District 309 covers essentially all of Brimfield's residents (2020 census blocks). Brimfield High School (#336 in Illinois) enrolls 189 students in grades 9-12 with a 97% graduation rate; its average SAT total was 1029 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Chillicothe": {
+    hs: "Il Valley Central High School",
+    district: "Illinois Valley Central Unit School District 321",
+    usNewsNational: 5120, usNewsState: 200,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Illinois Valley Central Unit School District 321 covers essentially all of Chillicothe's residents (2020 census blocks). Il Valley Central High School (#200 in Illinois) enrolls 650 students in grades 9-12 with a 88% graduation rate; its average SAT total was 945 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Creve Coeur": {
+    hs: "East Peoria High School",
+    district: "East Peoria Community High School District 309",
+    feedsTo: "East Peoria High School",
+    usNewsNational: 9571, usNewsState: 328,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "East Peoria Community High School District 309 covers about 90% of Creve Coeur's residents (2020 census blocks). The rest are mostly in Pekin Community High School District 303 (10%). East Peoria High School (#328 in Illinois) enrolls 823 students in grades 9-12 with a 78% graduation rate; its average SAT total was 882 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Deer Creek": {
+    hs: "Dee-Mack High School",
+    district: "Deer Creek-Mackinaw Community Unit School District 701",
+    feedsTo: "Dee-Mack High School",
+    usNewsNational: 4988, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Deer Creek-Mackinaw Community Unit School District 701 covers essentially all of Deer Creek's residents (2020 census blocks). Dee-Mack High School (#195 in Illinois) enrolls 293 students in grades 9-12 with a 94% graduation rate; its average SAT total was 973 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Delavan": {
+    hs: "Delavan High School",
+    district: "Delavan Community Unit School District 703",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Delavan Community Unit School District 703 covers essentially all of Delavan's residents (2020 census blocks). Delavan High School (in the 469-675 band in Illinois) enrolls 129 students in grades 9-12 with a 82% graduation rate; its average SAT total was 916 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Dunlap (IL)": {
+    hs: "Dunlap High School",
+    district: "Dunlap Community Unit School District 323",
+    usNewsNational: 985, usNewsState: 48,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Dunlap Community Unit School District 323 covers essentially all of Dunlap's residents (2020 census blocks). Dunlap High School (#48 in Illinois) enrolls 1,420 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1096 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "East Peoria": {
+    hs: ["East Peoria High School", "Washington Comm High School"],
+    district: ["East Peoria Community High School District 309", "Washington Community High School District 308"],
+    usNewsNational: 9571, usNewsState: 328,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "East Peoria Community High School District 309 covers about 82% of East Peoria's residents (2020 census blocks), and Washington Community High School District 308 (about 17%). Which high school a student attends depends on address (attendance zones not obtained) between East Peoria Community High School District 309 and Washington Community High School District 308. East Peoria High School (#328 in Illinois) enrolls 823 students in grades 9-12 with a 78% graduation rate; its average SAT total was 882 in 2024 (ISBE, Illinois's last state SAT). Washington Comm High School (#80 in Illinois) enrolls 1,399 students in grades 9-12 with a 90% graduation rate; its average SAT total was 1046 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "El Paso": {
+    hs: "El Paso-Gridley High School",
+    district: "El Paso-Gridley Community Unit School District 11",
+    usNewsNational: 2726, usNewsState: 111,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "El Paso-Gridley Community Unit School District 11 covers essentially all of El Paso's residents (2020 census blocks). El Paso-Gridley High School (#111 in Illinois) enrolls 364 students in grades 9-12 with a 88% graduation rate; its average SAT total was 1015 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Elmwood": {
+    hs: "Elmwood High School",
+    district: "Elmwood Community Unit School District 322",
+    usNewsNational: 13111, usNewsState: 450,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Elmwood Community Unit School District 322 covers essentially all of Elmwood's residents (2020 census blocks). Elmwood High School (#450 in Illinois) enrolls 208 students in grades 9-12 with a 98% graduation rate; its average SAT total was 954 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Eureka": {
+    hs: "Eureka High School",
+    district: "Eureka Community Unit School District 140",
+    usNewsNational: 6724, usNewsState: 252,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Eureka Community Unit School District 140 covers essentially all of Eureka's residents (2020 census blocks). Eureka High School (#252 in Illinois) enrolls 513 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1067 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Germantown Hills": {
+    hs: "Metamora High School",
+    district: "Metamora Township High School District 122",
+    feedsTo: "Metamora High School",
+    usNewsNational: 2432, usNewsState: 99,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Metamora Township High School District 122 covers essentially all of Germantown Hills's residents (2020 census blocks). Metamora High School (#99 in Illinois) enrolls 896 students in grades 9-12 with a 95% graduation rate; its average SAT total was 1018 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Glasford": {
+    hs: "Illini Bluffs High School",
+    district: "Illini Bluffs Community Unit School District 327",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Illini Bluffs Community Unit School District 327 covers essentially all of Glasford's residents (2020 census blocks). Illini Bluffs High School (in the 469-675 band in Illinois) enrolls 249 students in grades 9-12 with a 84% graduation rate; its average SAT total was 970 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Goodfield": {
+    hs: "Eureka High School",
+    district: "Eureka Community Unit School District 140",
+    feedsTo: "Eureka High School",
+    usNewsNational: 6724, usNewsState: 252,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Eureka Community Unit School District 140 covers essentially all of Goodfield's residents (2020 census blocks). Eureka High School (#252 in Illinois) enrolls 513 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1067 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Green Valley": {
+    hs: "Midwest Central High School",
+    district: "Midwest Central Community Unit School District 191",
+    feedsTo: "Midwest Central High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Midwest Central Community Unit School District 191 covers essentially all of Green Valley's residents (2020 census blocks). Midwest Central High School (in the 469-675 band in Illinois) enrolls 235 students in grades 9-12 with a 79% graduation rate; its average SAT total was 892 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hanna City": {
+    hs: "Farmington Central High School",
+    district: "Farmington Central Community Unit School District 265",
+    feedsTo: "Farmington Central High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Farmington Central Community Unit School District 265 covers essentially all of Hanna City's residents (2020 census blocks). Farmington Central High School (in the 469-675 band in Illinois) enrolls 383 students in grades 9-12 with a 72% graduation rate; its average SAT total was 893 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Henry": {
+    hs: "Henry-Senachwine High School",
+    district: "Henry-Senachwine Community Unit School District 5",
+    usNewsNational: 12816, usNewsState: 439,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Henry-Senachwine Community Unit School District 5 covers essentially all of Henry's residents (2020 census blocks). Henry-Senachwine High School (#439 in Illinois) enrolls 147 students in grades 9-12 with a 80% graduation rate; its average SAT total was 860 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Heritage Lake": {
+    hs: "Dee-Mack High School",
+    district: "Deer Creek-Mackinaw Community Unit School District 701",
+    feedsTo: "Dee-Mack High School",
+    usNewsNational: 4988, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Deer Creek-Mackinaw Community Unit School District 701 covers essentially all of Heritage Lake's residents (2020 census blocks). Dee-Mack High School (#195 in Illinois) enrolls 293 students in grades 9-12 with a 94% graduation rate; its average SAT total was 973 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hopedale": {
+    hs: "Olympia High School",
+    district: "Olympia Community Unit School District 16",
+    feedsTo: "Olympia High School",
+    usNewsNational: 8184, usNewsState: 291,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Olympia Community Unit School District 16 covers essentially all of Hopedale's residents (2020 census blocks). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lacon": {
+    hs: "Midland High School",
+    district: "Midland Community Unit School District 7",
+    feedsTo: "Midland High School",
+    usNewsNational: 11486, usNewsState: 390,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Midland Community Unit School District 7 covers essentially all of Lacon's residents (2020 census blocks). Midland High School (#390 in Illinois) enrolls 194 students in grades 9-12 with a 82% graduation rate; its average SAT total was 903 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lake Camelot": {
+    hs: "Illini Bluffs High School",
+    district: "Illini Bluffs Community Unit School District 327",
+    feedsTo: "Illini Bluffs High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Illini Bluffs Community Unit School District 327 covers essentially all of Lake Camelot's residents (2020 census blocks). Illini Bluffs High School (in the 469-675 band in Illinois) enrolls 249 students in grades 9-12 with a 84% graduation rate; its average SAT total was 970 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mackinaw": {
+    hs: "Dee-Mack High School",
+    district: "Deer Creek-Mackinaw Community Unit School District 701",
+    usNewsNational: 4988, usNewsState: 195,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Deer Creek-Mackinaw Community Unit School District 701 covers essentially all of Mackinaw's residents (2020 census blocks). Dee-Mack High School (#195 in Illinois) enrolls 293 students in grades 9-12 with a 94% graduation rate; its average SAT total was 973 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Marquette Heights": {
+    hs: "Pekin Community High School",
+    district: "Pekin Community High School District 303",
+    feedsTo: "Pekin Community High School",
+    usNewsNational: 5604, usNewsState: 220,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pekin Community High School District 303 covers essentially all of Marquette Heights's residents (2020 census blocks). Pekin Community High School (#220 in Illinois) enrolls 1,712 students in grades 9-12 with a 95% graduation rate; its average SAT total was 903 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Metamora": {
+    hs: "Metamora High School",
+    district: "Metamora Township High School District 122",
+    usNewsNational: 2432, usNewsState: 99,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Metamora Township High School District 122 covers essentially all of Metamora's residents (2020 census blocks). Metamora High School (#99 in Illinois) enrolls 896 students in grades 9-12 with a 95% graduation rate; its average SAT total was 1018 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Minier": {
+    hs: "Olympia High School",
+    district: "Olympia Community Unit School District 16",
+    feedsTo: "Olympia High School",
+    usNewsNational: 8184, usNewsState: 291,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Olympia Community Unit School District 16 covers essentially all of Minier's residents (2020 census blocks). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Minonk": {
+    hs: "Fieldcrest High School",
+    district: "Fieldcrest Community Unit School District 6",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fieldcrest Community Unit School District 6 covers essentially all of Minonk's residents (2020 census blocks). Fieldcrest High School (in the 469-675 band in Illinois) enrolls 254 students in grades 9-12 with a 89% graduation rate; its average SAT total was 881 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Morton": {
+    hs: "Morton High School",
+    district: "Morton Community Unit School District 709",
+    usNewsNational: 1743, usNewsState: 76,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Morton Community Unit School District 709 covers about 98% of Morton's residents (2020 census blocks). Morton High School (#76 in Illinois) enrolls 1,061 students in grades 9-12 with a 94% graduation rate; its average SAT total was 1054 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "North Pekin": {
+    hs: "Pekin Community High School",
+    district: "Pekin Community High School District 303",
+    feedsTo: "Pekin Community High School",
+    usNewsNational: 5604, usNewsState: 220,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pekin Community High School District 303 covers essentially all of North Pekin's residents (2020 census blocks). Pekin Community High School (#220 in Illinois) enrolls 1,712 students in grades 9-12 with a 95% graduation rate; its average SAT total was 903 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pekin": {
+    hs: "Pekin Community High School",
+    district: "Pekin Community High School District 303",
+    usNewsNational: 5604, usNewsState: 220,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pekin Community High School District 303 covers essentially all of Pekin's residents (2020 census blocks). Pekin Community High School (#220 in Illinois) enrolls 1,712 students in grades 9-12 with a 95% graduation rate; its average SAT total was 903 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Peoria": {
+    hs: ["Peoria High School", "Manual High School", "Richwoods High School", "Dunlap High School"],
+    district: ["Peoria Public School District 150", "Peoria Public School District 150", "Peoria Public School District 150", "Dunlap Community Unit School District 323"],
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Peoria Public School District 150 covers about 79% of Peoria's residents (2020 census blocks), and Dunlap Community Unit School District 323 (about 19%). Which high school a student attends depends on address (attendance zones not obtained) between Peoria Public School District 150 and Dunlap Community Unit School District 323. Peoria High School (in the 469-675 band in Illinois) enrolls 1,541 students in grades 9-12 with a 76% graduation rate; its average SAT total was 752 in 2024 (ISBE, Illinois's last state SAT). Manual High School (in the 469-675 band in Illinois) enrolls 731 students in grades 9-12 with a 72% graduation rate; its average SAT total was 727 in 2024 (ISBE, Illinois's last state SAT). Richwoods High School (#173 in Illinois) enrolls 1,685 students in grades 9-12 with a 88% graduation rate; its average SAT total was 914 in 2024 (ISBE, Illinois's last state SAT). Dunlap High School (#48 in Illinois) enrolls 1,420 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1096 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Peoria Heights": {
+    hs: "Peoria Heights High School",
+    district: "Peoria Heights Community Unit School District 325",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Peoria Heights Community Unit School District 325 covers essentially all of Peoria Heights's residents (2020 census blocks). Peoria Heights High School (in the 469-675 band in Illinois) enrolls 215 students in grades 9-12 with a 82% graduation rate; its average SAT total was 859 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Princeville": {
+    hs: "Princeville High School",
+    district: "Princeville Community Unit School District 326",
+    usNewsNational: 8632, usNewsState: 302,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Princeville Community Unit School District 326 covers essentially all of Princeville's residents (2020 census blocks). Princeville High School (#302 in Illinois) enrolls 192 students in grades 9-12 with a 98% graduation rate; its average SAT total was 1009 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Roanoke": {
+    hs: "Roanoke-Benson High School",
+    district: "Roanoke-Benson Community Unit School District 60",
+    usNewsNational: 12765, usNewsState: 434,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Roanoke-Benson Community Unit School District 60 covers essentially all of Roanoke's residents (2020 census blocks). Roanoke-Benson High School (#434 in Illinois) enrolls 146 students in grades 9-12 with a 92% graduation rate; its average SAT total was 978 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rome": {
+    hs: "Il Valley Central High School",
+    district: "Illinois Valley Central Unit School District 321",
+    feedsTo: "Il Valley Central High School",
+    usNewsNational: 5120, usNewsState: 200,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Illinois Valley Central Unit School District 321 covers essentially all of Rome's residents (2020 census blocks). Il Valley Central High School (#200 in Illinois) enrolls 650 students in grades 9-12 with a 88% graduation rate; its average SAT total was 945 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "South Pekin": {
+    hs: "Pekin Community High School",
+    district: "Pekin Community High School District 303",
+    feedsTo: "Pekin Community High School",
+    usNewsNational: 5604, usNewsState: 220,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pekin Community High School District 303 covers essentially all of South Pekin's residents (2020 census blocks). Pekin Community High School (#220 in Illinois) enrolls 1,712 students in grades 9-12 with a 95% graduation rate; its average SAT total was 903 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Toluca": {
+    hs: "Fieldcrest High School",
+    district: "Fieldcrest Community Unit School District 6",
+    feedsTo: "Fieldcrest High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fieldcrest Community Unit School District 6 covers essentially all of Toluca's residents (2020 census blocks). Fieldcrest High School (in the 469-675 band in Illinois) enrolls 254 students in grades 9-12 with a 89% graduation rate; its average SAT total was 881 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Toulon": {
+    hs: "Stark County High School",
+    district: "Stark County Community Unit School District 100",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Stark County Community Unit School District 100 covers essentially all of Toulon's residents (2020 census blocks). Stark County High School (in the 469-675 band in Illinois) enrolls 230 students in grades 9-12 with a 94% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Tremont": {
+    hs: "Tremont High School",
+    district: "Tremont Community Unit School District 702",
+    usNewsNational: 5287, usNewsState: 208,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tremont Community Unit School District 702 covers essentially all of Tremont's residents (2020 census blocks). Tremont High School (#208 in Illinois) enrolls 288 students in grades 9-12 with a 93% graduation rate; its average SAT total was 1023 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Washburn": {
+    hs: "Lowpoint-Washburn Junior Senior High School",
+    district: "Lowpoint-Washburn Community Unit School District 21",
+    usNewsNational: 11526, usNewsState: 393,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lowpoint-Washburn Community Unit School District 21 covers essentially all of Washburn's residents (2020 census blocks). Lowpoint-Washburn Junior Senior High School (#393 in Illinois) enrolls 73 students in grades 9-12 with a 83% graduation rate; its average SAT total was 942 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Washington": {
+    hs: "Washington Comm High School",
+    district: "Washington Community High School District 308",
+    usNewsNational: 1838, usNewsState: 80,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Washington Community High School District 308 covers essentially all of Washington's residents (2020 census blocks). Washington Comm High School (#80 in Illinois) enrolls 1,399 students in grades 9-12 with a 90% graduation rate; its average SAT total was 1046 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Wenona": {
+    hs: "Fieldcrest High School",
+    district: "Fieldcrest Community Unit School District 6",
+    feedsTo: "Fieldcrest High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fieldcrest Community Unit School District 6 covers essentially all of Wenona's residents (2020 census blocks). Fieldcrest High School (in the 469-675 band in Illinois) enrolls 254 students in grades 9-12 with a 89% graduation rate; its average SAT total was 881 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "West Peoria": {
+    hs: ["Peoria High School", "Manual High School", "Richwoods High School"],
+    district: ["Peoria Public School District 150", "Peoria Public School District 150", "Peoria Public School District 150"],
+    feedsTo: "Peoria High School / Manual High School / Richwoods High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Peoria Public School District 150 covers essentially all of West Peoria's residents (2020 census blocks). Peoria Public School District 150 splits students across 3 comprehensive high schools by address (attendance zones not obtained). Peoria High School (in the 469-675 band in Illinois) enrolls 1,541 students in grades 9-12 with a 76% graduation rate; its average SAT total was 752 in 2024 (ISBE, Illinois's last state SAT). Manual High School (in the 469-675 band in Illinois) enrolls 731 students in grades 9-12 with a 72% graduation rate; its average SAT total was 727 in 2024 (ISBE, Illinois's last state SAT). Richwoods High School (#173 in Illinois) enrolls 1,685 students in grades 9-12 with a 88% graduation rate; its average SAT total was 914 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Wyoming": {
+    hs: "Stark County High School",
+    district: "Stark County Community Unit School District 100",
+    feedsTo: "Stark County High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Stark County Community Unit School District 100 covers essentially all of Wyoming's residents (2020 census blocks). Stark County High School (in the 469-675 band in Illinois) enrolls 230 students in grades 9-12 with a 94% graduation rate; its average SAT total was 932 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  // === PEORIA METRO SCHOOL_DATA END ===
+
+  // === CHAMPAIGN METRO SCHOOL_DATA START ===
+  "Atwood": {
+    hs: "Arthur-Lovington High School",
+    district: "Arthur Community Unit School District 305",
+    feedsTo: "Arthur-Lovington High School",
+    usNewsNational: 12070, usNewsState: 409,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Arthur Community Unit School District 305 covers essentially all of Atwood's residents (2020 census blocks). Arthur-Lovington High School (#409 in Illinois) enrolls 310 students in grades 9-12 with a 88% graduation rate; its average SAT total was 938 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Bement": {
+    hs: "Bement High School",
+    district: "Bement Community Unit School District 5",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Bement Community Unit School District 5 covers essentially all of Bement's residents (2020 census blocks). Bement High School (in the 469-675 band in Illinois) enrolls 85 students in grades 9-12 with a 92% graduation rate; its average SAT total was 910 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Cerro Gordo": {
+    hs: "Cerro Gordo High School",
+    district: "Cerro Gordo Community Unit School District 100",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Cerro Gordo Community Unit School District 100 covers essentially all of Cerro Gordo's residents (2020 census blocks). Cerro Gordo High School (in the 469-675 band in Illinois) enrolls 131 students in grades 9-12 with a 92% graduation rate; its average SAT total was 898 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Champaign": {
+    hs: ["Central High School (Champaign)", "Centennial High School"],
+    district: ["Champaign Community Unified School District 4", "Champaign Community Unified School District 4"],
+    usNewsNational: 2861, usNewsState: 118,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Champaign Community Unit School District 4 covers about 97% of Champaign's residents (2020 census blocks). Champaign Community Unit School District 4 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Central High School (Champaign) (#118 in Illinois) enrolls 1,666 students in grades 9-12; its average SAT total was 962 in 2024 (ISBE, Illinois's last state SAT). Centennial High School (#149 in Illinois) enrolls 1,476 students in grades 9-12 with a 85% graduation rate; its average SAT total was 915 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Fisher": {
+    hs: "Fisher Jr/Sr High School",
+    district: "Fisher Community Unit School District 1",
+    usNewsNational: 7402, usNewsState: 269,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Fisher Community Unit School District 1 covers essentially all of Fisher's residents (2020 census blocks). Fisher Jr/Sr High School (#269 in Illinois) enrolls 197 students in grades 9-12 with a 98% graduation rate; its average SAT total was 988 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Gibson City": {
+    hs: "GCMS High School",
+    district: "Gibson City-Melvin-Sibley Community Unit School District 5",
+    usNewsNational: 3143, usNewsState: 126,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Gibson City-Melvin-Sibley Community Unit School District 5 covers essentially all of Gibson City's residents (2020 census blocks). GCMS High School (#126 in Illinois) enrolls 275 students in grades 9-12 with a 94% graduation rate; its average SAT total was 1007 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Gifford": {
+    hs: "Rantoul Twp High School",
+    district: "Rantoul Township High School District 193",
+    feedsTo: "Rantoul Twp High School",
+    usNewsNational: 8682, usNewsState: 303,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rantoul Township High School District 193 covers essentially all of Gifford's residents (2020 census blocks). Rantoul Twp High School (#303 in Illinois) enrolls 901 students in grades 9-12 with a 88% graduation rate; its average SAT total was 796 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hammond (IL)": {
+    hs: "Arthur-Lovington High School",
+    district: "Arthur Community Unit School District 305",
+    feedsTo: "Arthur-Lovington High School",
+    usNewsNational: 12070, usNewsState: 409,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Arthur Community Unit School District 305 covers essentially all of Hammond's residents (2020 census blocks). Arthur-Lovington High School (#409 in Illinois) enrolls 310 students in grades 9-12 with a 88% graduation rate; its average SAT total was 938 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Homer": {
+    hs: "Heritage High School",
+    district: "Heritage Community Unit School District 8",
+    feedsTo: "Heritage High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Heritage Community Unit School District 8 covers essentially all of Homer's residents (2020 census blocks). Heritage High School (in the 469-675 band in Illinois) enrolls 121 students in grades 9-12 with a 79% graduation rate; its average SAT total was 869 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lake of the Woods": {
+    hs: "Mahomet-Seymour High School",
+    district: "Mahomet-Seymour Community Unit School District 3",
+    feedsTo: "Mahomet-Seymour High School",
+    usNewsNational: 1343, usNewsState: 63,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mahomet-Seymour Community Unit School District 3 covers essentially all of Lake of the Woods's residents (2020 census blocks). Mahomet-Seymour High School (#63 in Illinois) enrolls 1,050 students in grades 9-12 with a 92% graduation rate; its average SAT total was 1079 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mahomet": {
+    hs: "Mahomet-Seymour High School",
+    district: "Mahomet-Seymour Community Unit School District 3",
+    usNewsNational: 1343, usNewsState: 63,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Mahomet-Seymour Community Unit School District 3 covers essentially all of Mahomet's residents (2020 census blocks). Mahomet-Seymour High School (#63 in Illinois) enrolls 1,050 students in grades 9-12 with a 92% graduation rate; its average SAT total was 1079 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mansfield": {
+    hs: "Blue Ridge High School",
+    district: "Blue Ridge Community Unit School District 18",
+    feedsTo: "Blue Ridge High School",
+    usNewsNational: 12051, usNewsState: 407,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Blue Ridge Community Unit School District 18 covers essentially all of Mansfield's residents (2020 census blocks). Blue Ridge High School (#407 in Illinois) enrolls 155 students in grades 9-12 with a 88% graduation rate; its average SAT total was 901 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Monticello": {
+    hs: "Monticello High School",
+    district: "Monticello Community Unit School District 25",
+    usNewsNational: 3440, usNewsState: 139,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Monticello Community Unit School District 25 covers essentially all of Monticello's residents (2020 census blocks). Monticello High School (#139 in Illinois) enrolls 489 students in grades 9-12 with a 98% graduation rate; its average SAT total was 970 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Ogden": {
+    hs: "St Joseph-Ogden High School",
+    district: "St. Joseph-Ogden Community High School District 305",
+    feedsTo: "St Joseph-Ogden High School",
+    usNewsNational: 4937, usNewsState: 194,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Joseph-Ogden Community High School District 305 covers essentially all of Ogden's residents (2020 census blocks). St Joseph-Ogden High School (#194 in Illinois) enrolls 457 students in grades 9-12 with a 95% graduation rate; its average SAT total was 1011 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Paxton": {
+    hs: "Paxton-Buckley-Loda High School",
+    district: "Paxton-Buckley-Loda Community Unit School District 10",
+    usNewsNational: 4131, usNewsState: 161,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Paxton-Buckley-Loda Community Unit School District 10 covers essentially all of Paxton's residents (2020 census blocks). Paxton-Buckley-Loda High School (#161 in Illinois) enrolls 378 students in grades 9-12 with a 85% graduation rate; its average SAT total was 992 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pesotum": {
+    hs: "Unity High School",
+    district: "Tolono Community Unit School District 7",
+    feedsTo: "Unity High School",
+    usNewsNational: 4074, usNewsState: 159,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tolono Community Unit School District 7 covers essentially all of Pesotum's residents (2020 census blocks). Unity High School (#159 in Illinois) enrolls 480 students in grades 9-12 with a 86% graduation rate; its average SAT total was 980 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Philo": {
+    hs: "Unity High School",
+    district: "Tolono Community Unit School District 7",
+    feedsTo: "Unity High School",
+    usNewsNational: 4074, usNewsState: 159,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tolono Community Unit School District 7 covers essentially all of Philo's residents (2020 census blocks). Unity High School (#159 in Illinois) enrolls 480 students in grades 9-12 with a 86% graduation rate; its average SAT total was 980 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Piper City": {
+    hs: "Tri-Point High School",
+    district: "Tri-Point Community Unit School District 6-J",
+    feedsTo: "Tri-Point High School",
+    usNewsNational: 2831, usNewsState: 116,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tri-Point Community Unit School District 6-J covers essentially all of Piper City's residents (2020 census blocks). Tri-Point High School (#116 in Illinois) enrolls 98 students in grades 9-12 with a 89% graduation rate; its average SAT total was 926 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rantoul": {
+    hs: "Rantoul Twp High School",
+    district: "Rantoul Township High School District 193",
+    usNewsNational: 8682, usNewsState: 303,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rantoul Township High School District 193 covers essentially all of Rantoul's residents (2020 census blocks). Rantoul Twp High School (#303 in Illinois) enrolls 901 students in grades 9-12 with a 88% graduation rate; its average SAT total was 796 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Savoy": {
+    hs: ["Central High School (Champaign)", "Centennial High School"],
+    district: ["Champaign Community Unified School District 4", "Champaign Community Unified School District 4"],
+    feedsTo: "Central High School (Champaign) / Centennial High School",
+    usNewsNational: 2861, usNewsState: 118,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Champaign Community Unit School District 4 covers essentially all of Savoy's residents (2020 census blocks). Champaign Community Unit School District 4 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Central High School (Champaign) (#118 in Illinois) enrolls 1,666 students in grades 9-12; its average SAT total was 962 in 2024 (ISBE, Illinois's last state SAT). Centennial High School (#149 in Illinois) enrolls 1,476 students in grades 9-12 with a 85% graduation rate; its average SAT total was 915 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Sidney": {
+    hs: "Unity High School",
+    district: "Tolono Community Unit School District 7",
+    feedsTo: "Unity High School",
+    usNewsNational: 4074, usNewsState: 159,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tolono Community Unit School District 7 covers essentially all of Sidney's residents (2020 census blocks). Unity High School (#159 in Illinois) enrolls 480 students in grades 9-12 with a 86% graduation rate; its average SAT total was 980 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "St. Joseph": {
+    hs: "St Joseph-Ogden High School",
+    district: "St. Joseph-Ogden Community High School District 305",
+    feedsTo: "St Joseph-Ogden High School",
+    usNewsNational: 4937, usNewsState: 194,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "St. Joseph-Ogden Community High School District 305 covers essentially all of St. Joseph's residents (2020 census blocks). St Joseph-Ogden High School (#194 in Illinois) enrolls 457 students in grades 9-12 with a 95% graduation rate; its average SAT total was 1011 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Thomasboro": {
+    hs: "Rantoul Twp High School",
+    district: "Rantoul Township High School District 193",
+    feedsTo: "Rantoul Twp High School",
+    usNewsNational: 8682, usNewsState: 303,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rantoul Township High School District 193 covers essentially all of Thomasboro's residents (2020 census blocks). Rantoul Twp High School (#303 in Illinois) enrolls 901 students in grades 9-12 with a 88% graduation rate; its average SAT total was 796 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Tolono": {
+    hs: "Unity High School",
+    district: "Tolono Community Unit School District 7",
+    usNewsNational: 4074, usNewsState: 159,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tolono Community Unit School District 7 covers essentially all of Tolono's residents (2020 census blocks). Unity High School (#159 in Illinois) enrolls 480 students in grades 9-12 with a 86% graduation rate; its average SAT total was 980 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Urbana": {
+    hs: "Urbana High School",
+    district: "Urbana School District 116",
+    usNewsNational: 4682, usNewsState: 184,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Urbana School District 116 covers essentially all of Urbana's residents (2020 census blocks). Urbana High School (#184 in Illinois) enrolls 1,176 students in grades 9-12 with a 83% graduation rate; its average SAT total was 877 in 2024 (ISBE, Illinois's last state SAT). The University of Illinois Laboratory High School (\"Uni High\") is also physically located in Urbana and is real and US News-ranked (#7 in Illinois, #162 nationally, 2026-27 edition) -- but it is a selective-admission public school that draws students from across Illinois by test, not by home address, so it is not modeled as Urbana's (or Champaign's) assigned high school here; no census block's population is attributed to it. See build_champaign_schools.py's own module docstring."
+  },
+  // === CHAMPAIGN METRO SCHOOL_DATA END ===
+
+  // === SPRINGFIELD METRO SCHOOL_DATA START ===
+  "Athens": {
+    hs: "Athens Senior High School",
+    district: "Athens Community Unit School District 213",
+    usNewsNational: 7814, usNewsState: 280,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Athens Community Unit School District 213 covers essentially all of Athens's residents (2020 census blocks). Athens Senior High School (#280 in Illinois) enrolls 299 students in grades 9-12 with a 90% graduation rate; its average SAT total was 947 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Auburn": {
+    hs: "Auburn High School (Auburn)",
+    district: "Auburn Community Unit School District 10",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Auburn Community Unit School District 10 covers essentially all of Auburn's residents (2020 census blocks). Auburn High School (Auburn) (in the 469-675 band in Illinois) enrolls 327 students in grades 9-12 with a 87% graduation rate; its average SAT total was 876 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Chatham": {
+    hs: "Glenwood High School",
+    district: "Ball-Chatham Community Unit School District 5",
+    usNewsNational: 2122, usNewsState: 89,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ball-Chatham Community Unit School District 5 covers essentially all of Chatham's residents (2020 census blocks). Glenwood High School (#89 in Illinois) enrolls 1,484 students in grades 9-12 with a 90% graduation rate; its average SAT total was 1016 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Dawson": {
+    hs: "Tri-City High School",
+    district: "Tri-City Community Unit School District 1",
+    feedsTo: "Tri-City High School",
+    usNewsNational: 11628, usNewsState: 396,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tri-City Community Unit School District 1 covers essentially all of Dawson's residents (2020 census blocks). Tri-City High School (#396 in Illinois) enrolls 154 students in grades 9-12 with a 81% graduation rate; its average SAT total was 930 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Divernon": {
+    hs: "Auburn High School (Auburn)",
+    district: "Auburn Community Unit School District 10",
+    feedsTo: "Auburn High School (Auburn)",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Auburn Community Unit School District 10 covers essentially all of Divernon's residents (2020 census blocks). Auburn High School (Auburn) (in the 469-675 band in Illinois) enrolls 327 students in grades 9-12 with a 87% graduation rate; its average SAT total was 876 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Grandview": {
+    hs: ["Springfield High School", "Lanphier High School", "Springfield Southeast High School"],
+    district: ["Springfield School District 186", "Springfield School District 186", "Springfield School District 186"],
+    feedsTo: "Springfield High School / Lanphier High School / Springfield Southeast High School",
+    usNewsNational: 3867, usNewsState: 150,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Springfield School District 186 covers essentially all of Grandview's residents (2020 census blocks). Springfield School District 186 splits students across 3 comprehensive high schools by address (attendance zones not obtained). Springfield High School (#150 in Illinois) enrolls 1,308 students in grades 9-12 with a 83% graduation rate; its average SAT total was 960 in 2024 (ISBE, Illinois's last state SAT). Lanphier High School (in the 469-675 band in Illinois) enrolls 1,117 students in grades 9-12; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). Springfield Southeast High School (#377 in Illinois) enrolls 1,229 students in grades 9-12 with a 70% graduation rate; its average SAT total was 841 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Greenview": {
+    hs: "Greenview Jr/Sr High School",
+    district: "Greenview Community Unit School District 200",
+    usNewsNational: null, usNewsState: null,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Greenview Community Unit School District 200 covers essentially all of Greenview's residents (2020 census blocks). Greenview Jr/Sr High School (not ranked by US News) enrolls 70 students in grades 9-12 with a 93% graduation rate; its average SAT total was 869 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Illiopolis": {
+    hs: "Sangamon Valley High School",
+    district: "Sangamon Valley Community Unit School District 9",
+    feedsTo: "Sangamon Valley High School",
+    usNewsNational: 10859, usNewsState: 375,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Sangamon Valley Community Unit School District 9 covers essentially all of Illiopolis's residents (2020 census blocks). Sangamon Valley High School (#375 in Illinois) enrolls 204 students in grades 9-12 with a 88% graduation rate; its average SAT total was 922 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Jerome": {
+    hs: ["Springfield High School", "Lanphier High School", "Springfield Southeast High School"],
+    district: ["Springfield School District 186", "Springfield School District 186", "Springfield School District 186"],
+    feedsTo: "Springfield High School / Lanphier High School / Springfield Southeast High School",
+    usNewsNational: 3867, usNewsState: 150,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Springfield School District 186 covers essentially all of Jerome's residents (2020 census blocks). Springfield School District 186 splits students across 3 comprehensive high schools by address (attendance zones not obtained). Springfield High School (#150 in Illinois) enrolls 1,308 students in grades 9-12 with a 83% graduation rate; its average SAT total was 960 in 2024 (ISBE, Illinois's last state SAT). Lanphier High School (in the 469-675 band in Illinois) enrolls 1,117 students in grades 9-12; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). Springfield Southeast High School (#377 in Illinois) enrolls 1,229 students in grades 9-12 with a 70% graduation rate; its average SAT total was 841 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lake Petersburg": {
+    hs: "Porta High School",
+    district: "Porta Community Unit School District 202",
+    feedsTo: "Porta High School",
+    usNewsNational: 5516, usNewsState: 214,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Porta Community Unit School District 202 covers essentially all of Lake Petersburg's residents (2020 census blocks). Porta High School (#214 in Illinois) enrolls 279 students in grades 9-12 with a 92% graduation rate; its average SAT total was 920 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Leland Grove": {
+    hs: ["Springfield High School", "Lanphier High School", "Springfield Southeast High School"],
+    district: ["Springfield School District 186", "Springfield School District 186", "Springfield School District 186"],
+    feedsTo: "Springfield High School / Lanphier High School / Springfield Southeast High School",
+    usNewsNational: 3867, usNewsState: 150,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Springfield School District 186 covers essentially all of Leland Grove's residents (2020 census blocks). Springfield School District 186 splits students across 3 comprehensive high schools by address (attendance zones not obtained). Springfield High School (#150 in Illinois) enrolls 1,308 students in grades 9-12 with a 83% graduation rate; its average SAT total was 960 in 2024 (ISBE, Illinois's last state SAT). Lanphier High School (in the 469-675 band in Illinois) enrolls 1,117 students in grades 9-12; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). Springfield Southeast High School (#377 in Illinois) enrolls 1,229 students in grades 9-12 with a 70% graduation rate; its average SAT total was 841 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Loami": {
+    hs: "New Berlin High School",
+    district: "New Berlin CUSD 16",
+    feedsTo: "New Berlin High School",
+    usNewsNational: 12158, usNewsState: 411,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "New Berlin CUSD 16 covers essentially all of Loami's residents (2020 census blocks). New Berlin High School (#411 in Illinois) enrolls 256 students in grades 9-12 with a 98% graduation rate; its average SAT total was 966 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Mechanicsburg": {
+    hs: "Tri-City High School",
+    district: "Tri-City Community Unit School District 1",
+    feedsTo: "Tri-City High School",
+    usNewsNational: 11628, usNewsState: 396,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tri-City Community Unit School District 1 covers essentially all of Mechanicsburg's residents (2020 census blocks). Tri-City High School (#396 in Illinois) enrolls 154 students in grades 9-12 with a 81% graduation rate; its average SAT total was 930 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "New Berlin": {
+    hs: "New Berlin High School",
+    district: "New Berlin CUSD 16",
+    usNewsNational: 12158, usNewsState: 411,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "New Berlin CUSD 16 covers essentially all of New Berlin's residents (2020 census blocks). New Berlin High School (#411 in Illinois) enrolls 256 students in grades 9-12 with a 98% graduation rate; its average SAT total was 966 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pawnee": {
+    hs: "Pawnee Jr/Sr High School",
+    district: "Pawnee Community Unit School District 11",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pawnee Community Unit School District 11 covers essentially all of Pawnee's residents (2020 census blocks). Pawnee Jr/Sr High School (in the 469-675 band in Illinois) enrolls 167 students in grades 9-12 with a 88% graduation rate; its average SAT total was 956 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Petersburg": {
+    hs: "Porta High School",
+    district: "Porta Community Unit School District 202",
+    usNewsNational: 5516, usNewsState: 214,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Porta Community Unit School District 202 covers essentially all of Petersburg's residents (2020 census blocks). Porta High School (#214 in Illinois) enrolls 279 students in grades 9-12 with a 92% graduation rate; its average SAT total was 920 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Pleasant Plains": {
+    hs: "Pleasant Plains High School",
+    district: "Pleasant Plains Community Unit School District 8",
+    usNewsNational: 4149, usNewsState: 162,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Pleasant Plains Community Unit School District 8 covers essentially all of Pleasant Plains's residents (2020 census blocks). Pleasant Plains High School (#162 in Illinois) enrolls 416 students in grades 9-12 with a 92% graduation rate; its average SAT total was 993 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Riverton": {
+    hs: "Riverton High School",
+    district: "Riverton Community Unit School District 14",
+    usNewsNational: 10093, usNewsState: 346,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverton Community Unit School District 14 covers essentially all of Riverton's residents (2020 census blocks). Riverton High School (#346 in Illinois) enrolls 356 students in grades 9-12 with a 85% graduation rate; its average SAT total was 886 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Rochester": {
+    hs: "Rochester High School (IL)",
+    district: "Rochester Community Unit School District 3A",
+    usNewsNational: 3670, usNewsState: 143,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Rochester Community Unit School District 3A covers essentially all of Rochester's residents (2020 census blocks). Rochester High School (IL) (#143 in Illinois) enrolls 692 students in grades 9-12 with a 92% graduation rate; its average SAT total was 971 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Sherman (IL)": {
+    hs: "Williamsville High School",
+    district: "Williamsville Community Unit School District 15",
+    feedsTo: "Williamsville High School",
+    usNewsNational: 3826, usNewsState: 148,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Williamsville Community Unit School District 15 covers essentially all of Sherman's residents (2020 census blocks). Williamsville High School (#148 in Illinois) enrolls 462 students in grades 9-12 with a 96% graduation rate; its average SAT total was 995 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Southern View": {
+    hs: ["Springfield High School", "Lanphier High School", "Springfield Southeast High School"],
+    district: ["Springfield School District 186", "Springfield School District 186", "Springfield School District 186"],
+    feedsTo: "Springfield High School / Lanphier High School / Springfield Southeast High School",
+    usNewsNational: 3867, usNewsState: 150,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Springfield School District 186 covers essentially all of Southern View's residents (2020 census blocks). Springfield School District 186 splits students across 3 comprehensive high schools by address (attendance zones not obtained). Springfield High School (#150 in Illinois) enrolls 1,308 students in grades 9-12 with a 83% graduation rate; its average SAT total was 960 in 2024 (ISBE, Illinois's last state SAT). Lanphier High School (in the 469-675 band in Illinois) enrolls 1,117 students in grades 9-12; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). Springfield Southeast High School (#377 in Illinois) enrolls 1,229 students in grades 9-12 with a 70% graduation rate; its average SAT total was 841 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Spaulding": {
+    hs: "Riverton High School",
+    district: "Riverton Community Unit School District 14",
+    feedsTo: "Riverton High School",
+    usNewsNational: 10093, usNewsState: 346,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Riverton Community Unit School District 14 covers about 92% of Spaulding's residents (2020 census blocks). The rest are mostly in Tri-City Community Unit School District 1 (8%). Riverton High School (#346 in Illinois) enrolls 356 students in grades 9-12 with a 85% graduation rate; its average SAT total was 886 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Springfield": {
+    hs: ["Springfield High School", "Lanphier High School", "Springfield Southeast High School"],
+    district: ["Springfield School District 186", "Springfield School District 186", "Springfield School District 186"],
+    usNewsNational: 3867, usNewsState: 150,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Springfield School District 186 covers about 82% of Springfield's residents (2020 census blocks). The rest are mostly in Ball-Chatham Community Unit School District 5 (10%). Springfield School District 186 splits students across 3 comprehensive high schools by address (attendance zones not obtained). Springfield High School (#150 in Illinois) enrolls 1,308 students in grades 9-12 with a 83% graduation rate; its average SAT total was 960 in 2024 (ISBE, Illinois's last state SAT). Lanphier High School (in the 469-675 band in Illinois) enrolls 1,117 students in grades 9-12; its average SAT total was 807 in 2024 (ISBE, Illinois's last state SAT). Springfield Southeast High School (#377 in Illinois) enrolls 1,229 students in grades 9-12 with a 70% graduation rate; its average SAT total was 841 in 2024 (ISBE, Illinois's last state SAT). Sacred Heart-Griffin High School, a private Roman Catholic high school, is also physically located in Springfield (enrollment 526) -- verified real, but it is not modeled as any place's assigned high school here for two reasons: it is not zoned by residential address (diocese-wide private admissions, not a home-address attendance zone), and unlike a public magnet school it has no US News academic rank at all (US News's 'Best High Schools' ranking system covers public schools only). See build_springfield_schools.py's own module docstring."
+  },
+  "Thayer": {
+    hs: "North Mac High School",
+    district: "North Mac Community Unit School District 34",
+    feedsTo: "North Mac High School",
+    usNewsNational: 9851, usNewsState: 340,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "North Mac Community Unit School District 34 covers essentially all of Thayer's residents (2020 census blocks). North Mac High School (#340 in Illinois) enrolls 361 students in grades 9-12 with a 87% graduation rate; its average SAT total was 929 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Williamsville": {
+    hs: "Williamsville High School",
+    district: "Williamsville Community Unit School District 15",
+    usNewsNational: 3826, usNewsState: 148,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Williamsville Community Unit School District 15 covers essentially all of Williamsville's residents (2020 census blocks). Williamsville High School (#148 in Illinois) enrolls 462 students in grades 9-12 with a 96% graduation rate; its average SAT total was 995 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  // === SPRINGFIELD METRO SCHOOL_DATA END ===
+
+  // === BLOOMINGTON METRO SCHOOL_DATA START ===
+  "Bloomington": {
+    hs: ["Bloomington High School", "Normal Community High School", "Normal Community West High School"],
+    district: ["Bloomington School District 87", "Mclean County Unified School District 5", "Mclean County Unified School District 5"],
+    usNewsNational: 5622, usNewsState: 221,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "Bloomington School District 87 covers about 54% of Bloomington's residents (2020 census blocks), and McLean County Unit School District 5 (about 46%). Which high school a student attends depends on address (attendance zones not obtained) between Bloomington School District 87 and McLean County Unit School District 5. Bloomington High School (#221 in Illinois) enrolls 1,369 students in grades 9-12 with a 77% graduation rate; its average SAT total was 887 in 2024 (ISBE, Illinois's last state SAT). Normal Community High School (#95 in Illinois) enrolls 2,079 students in grades 9-12 with a 92% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT). Normal Community West High School (#210 in Illinois) enrolls 1,590 students in grades 9-12 with a 92% graduation rate; its average SAT total was 934 in 2024 (ISBE, Illinois's last state SAT). Central Catholic High School, a private Roman Catholic high school (Diocese of Peoria), is also physically located in Bloomington (enrollment 300) -- verified real, but it is not modeled as any place's assigned high school here for two reasons: it is not zoned by residential address (diocese-wide private admissions, rolling deadlines, not a home-address attendance zone), and it has no US News academic rank at all (US News's 'Best High Schools' ranking system covers public schools only). See build_bloomington_schools.py's own module docstring. McLean County Unit School District 5 splits students across 2 comprehensive high schools by address; the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split and Peoria SD 150's 3-way split, not a Bloomington-specific gap. Unit 5 also operates YBMC Charter School, a small (24-student) credit-recovery/workforce-transition charter program -- real, but not a comprehensive attendance-zone high school, so it is excluded here too."
+  },
+  "Carlock": {
+    hs: ["Normal Community High School", "Normal Community West High School"],
+    district: ["Mclean County Unified School District 5", "Mclean County Unified School District 5"],
+    feedsTo: "Normal Community High School / Normal Community West High School",
+    usNewsNational: 2312, usNewsState: 95,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "McLean County Unit School District 5 covers essentially all of Carlock's residents (2020 census blocks). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Normal Community High School (#95 in Illinois) enrolls 2,079 students in grades 9-12 with a 92% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT). Normal Community West High School (#210 in Illinois) enrolls 1,590 students in grades 9-12 with a 92% graduation rate; its average SAT total was 934 in 2024 (ISBE, Illinois's last state SAT). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address; the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split and Peoria SD 150's 3-way split, not a Bloomington-specific gap. Unit 5 also operates YBMC Charter School, a small (24-student) credit-recovery/workforce-transition charter program -- real, but not a comprehensive attendance-zone high school, so it is excluded here too."
+  },
+  "Chenoa": {
+    hs: "Prairie Central High School",
+    district: "Prairie Central Community Unit School District 8",
+    feedsTo: "Prairie Central High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Prairie Central Community Unit School District 8 covers essentially all of Chenoa's residents (2020 census blocks). Prairie Central High School (in the 469-675 band in Illinois) enrolls 487 students in grades 9-12 with a 90% graduation rate; its average SAT total was 937 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Colfax": {
+    hs: "Ridgeview High School",
+    district: "Ridgeview Community Unit School District 19",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ridgeview Community Unit School District 19 covers essentially all of Colfax's residents (2020 census blocks). Ridgeview High School (in the 469-675 band in Illinois) enrolls 166 students in grades 9-12 with a 90% graduation rate; its average SAT total was 945 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Danvers": {
+    hs: "Olympia High School",
+    district: "Olympia Community Unit School District 16",
+    feedsTo: "Olympia High School",
+    usNewsNational: 8184, usNewsState: 291,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Olympia Community Unit School District 16 covers essentially all of Danvers's residents (2020 census blocks). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Downs": {
+    hs: "Tri-Valley High School",
+    district: "Tri-Valley Community Unit School District 3",
+    usNewsNational: 1108, usNewsState: 54,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Tri-Valley Community Unit School District 3 covers essentially all of Downs's residents (2020 census blocks). Tri-Valley High School (#54 in Illinois) enrolls 329 students in grades 9-12 with a 98% graduation rate; its average SAT total was 1042 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Gridley": {
+    hs: "El Paso-Gridley High School",
+    district: "El Paso-Gridley Community Unit School District 11",
+    feedsTo: "El Paso-Gridley High School",
+    usNewsNational: 2726, usNewsState: 111,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "El Paso-Gridley Community Unit School District 11 covers essentially all of Gridley's residents (2020 census blocks). El Paso-Gridley High School (#111 in Illinois) enrolls 364 students in grades 9-12 with a 88% graduation rate; its average SAT total was 1015 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Heyworth": {
+    hs: "Heyworth Jr-Sr High School",
+    district: "Heyworth Community Unit School District 4",
+    usNewsNational: 8007, usNewsState: 287,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Heyworth Community Unit School District 4 covers essentially all of Heyworth's residents (2020 census blocks). Heyworth Jr-Sr High School (#287 in Illinois) enrolls 272 students in grades 9-12 with a 100% graduation rate; its average SAT total was 955 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Hudson": {
+    hs: ["Normal Community High School", "Normal Community West High School"],
+    district: ["Mclean County Unified School District 5", "Mclean County Unified School District 5"],
+    feedsTo: "Normal Community High School / Normal Community West High School",
+    usNewsNational: 2312, usNewsState: 95,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "McLean County Unit School District 5 covers essentially all of Hudson's residents (2020 census blocks). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Normal Community High School (#95 in Illinois) enrolls 2,079 students in grades 9-12 with a 92% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT). Normal Community West High School (#210 in Illinois) enrolls 1,590 students in grades 9-12 with a 92% graduation rate; its average SAT total was 934 in 2024 (ISBE, Illinois's last state SAT). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address; the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split and Peoria SD 150's 3-way split, not a Bloomington-specific gap. Unit 5 also operates YBMC Charter School, a small (24-student) credit-recovery/workforce-transition charter program -- real, but not a comprehensive attendance-zone high school, so it is excluded here too."
+  },
+  "Le Roy": {
+    hs: "Leroy High School",
+    district: "Le Roy Community Unit School District 2",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Le Roy Community Unit School District 2 covers essentially all of Le Roy's residents (2020 census blocks). Leroy High School (in the 469-675 band in Illinois) enrolls 232 students in grades 9-12 with a 96% graduation rate; its average SAT total was 944 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Lexington": {
+    hs: "Lexington High School",
+    district: "Lexington Community Unit School District 7",
+    usNewsNational: 4395, usNewsState: 174,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Lexington Community Unit School District 7 covers essentially all of Lexington's residents (2020 census blocks). Lexington High School (#174 in Illinois) enrolls 163 students in grades 9-12 with a 97% graduation rate; its average SAT total was 950 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "McLean": {
+    hs: "Olympia High School",
+    district: "Olympia Community Unit School District 16",
+    feedsTo: "Olympia High School",
+    usNewsNational: 8184, usNewsState: 291,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Olympia Community Unit School District 16 covers essentially all of McLean's residents (2020 census blocks). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Normal": {
+    hs: ["Normal Community High School", "Normal Community West High School"],
+    district: ["Mclean County Unified School District 5", "Mclean County Unified School District 5"],
+    usNewsNational: 2312, usNewsState: 95,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "McLean County Unit School District 5 covers essentially all of Normal's residents (2020 census blocks). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address (attendance zones not obtained). Normal Community High School (#95 in Illinois) enrolls 2,079 students in grades 9-12 with a 92% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT). Normal Community West High School (#210 in Illinois) enrolls 1,590 students in grades 9-12 with a 92% graduation rate; its average SAT total was 934 in 2024 (ISBE, Illinois's last state SAT). University High School, a public Illinois State University Laboratory School (#21 in Illinois / #485 nationally, US News 2026-27), is also physically located in Normal -- verified real, but it is not modeled as any place's assigned high school here: unlike a residential-zone public school, it uses application-based admission with a state-mandated enrollment cap and is classified 'unboundaried' by the IHSA (no fixed attendance zone). See build_bloomington_schools.py's own module docstring. McLean County Unit School District 5 splits students across 2 comprehensive high schools by address; the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split and Peoria SD 150's 3-way split, not a Bloomington-specific gap. Unit 5 also operates YBMC Charter School, a small (24-student) credit-recovery/workforce-transition charter program -- real, but not a comprehensive attendance-zone high school, so it is excluded here too."
+  },
+  "Saybrook": {
+    hs: "Ridgeview High School",
+    district: "Ridgeview Community Unit School District 19",
+    feedsTo: "Ridgeview High School",
+    usNewsNational: 15702, usNewsState: 572,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Ridgeview Community Unit School District 19 covers essentially all of Saybrook's residents (2020 census blocks). Ridgeview High School (in the 469-675 band in Illinois) enrolls 166 students in grades 9-12 with a 90% graduation rate; its average SAT total was 945 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Stanford": {
+    hs: "Olympia High School",
+    district: "Olympia Community Unit School District 16",
+    usNewsNational: 8184, usNewsState: 291,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    note: "Olympia Community Unit School District 16 covers essentially all of Stanford's residents (2020 census blocks). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT)."
+  },
+  "Twin Grove": {
+    hs: ["Normal Community High School", "Normal Community West High School", "Olympia High School"],
+    district: ["Mclean County Unified School District 5", "Mclean County Unified School District 5", "Olympia Community Unified School District 16"],
+    feedsTo: "Normal Community High School / Normal Community West High School / Olympia High School",
+    usNewsNational: 2312, usNewsState: 95,
+    stateGrade: null, niche: null, avgACT: null, avgSAT: null,
+    splitDistrict: true,
+    note: "McLean County Unit School District 5 covers about 72% of Twin Grove's residents (2020 census blocks), and Olympia Community Unit School District 16 (about 28%). Which high school a student attends depends on address (attendance zones not obtained) between McLean County Unit School District 5 and Olympia Community Unit School District 16. Normal Community High School (#95 in Illinois) enrolls 2,079 students in grades 9-12 with a 92% graduation rate; its average SAT total was 994 in 2024 (ISBE, Illinois's last state SAT). Normal Community West High School (#210 in Illinois) enrolls 1,590 students in grades 9-12 with a 92% graduation rate; its average SAT total was 934 in 2024 (ISBE, Illinois's last state SAT). Olympia High School (#291 in Illinois) enrolls 495 students in grades 9-12 with a 92% graduation rate; its average SAT total was 935 in 2024 (ISBE, Illinois's last state SAT). McLean County Unit School District 5 splits students across 2 comprehensive high schools by address; the district does publish real attendance-zone boundaries, but this build's school-district-polygon model (the same one every metro in this project uses) does not ingest sub-district attendance zones, so which of the 2 a given address feeds is not modeled here -- the same modeling limit already applied to Springfield SD 186's 3-way split and Peoria SD 150's 3-way split, not a Bloomington-specific gap. Unit 5 also operates YBMC Charter School, a small (24-student) credit-recovery/workforce-transition charter program -- real, but not a comprehensive attendance-zone high school, so it is excluded here too."
+  }
+  // === BLOOMINGTON METRO SCHOOL_DATA END ===
 };
 
 // Every CPS (Chicago Public Schools, District 299) high school that carries a
